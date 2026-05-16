@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#08090c">
+    <meta
+      name="description"
+      content="Omega Gradient helps AI teams source, compare, and access GPU compute across data centers, neoclouds, colocation facilities, and on-demand GPU providers."
+    >
+    <title>Omega Gradient | Global Compute Access</title>
+
+    <!-- Social / Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Omega Gradient | Global Compute Access">
+    <meta property="og:description" content="Find the right GPU capacity before the market does. Omega Gradient sources, compares, and secures GPU compute for AI teams worldwide.">
+    <meta property="og:site_name" content="Omega Gradient">
+    <meta property="og:image" content="./og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Omega Gradient | Global Compute Access">
+    <meta name="twitter:description" content="Find the right GPU capacity before the market does.">
+    <meta name="twitter:image" content="./og-image.png">
+
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="./styles.css" as="style">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <!-- ambient aurora background -->
+    <div class="aurora" aria-hidden="true">
+      <span class="aurora-blob a1"></span>
+      <span class="aurora-blob a2"></span>
+      <span class="aurora-blob a3"></span>
+    </div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <a class="skip-link" href="#top">Skip to content</a>
+
+    <header class="site-header" id="siteHeader">
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="Omega Gradient home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Omega Gradient</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
+          <a href="#market">Market</a>
+          <a href="#access">Access</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#network">Network</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a class="nav-cta" href="#contact">Request capacity</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-content" data-reveal>
+          <p class="eyebrow">AI infrastructure · GPU sourcing · Deployment</p>
+          <h1>Find the right GPU capacity <span class="grad-text">before the market does.</span></h1>
+          <p class="hero-copy">
+            Omega Gradient helps AI teams secure high-performance GPU capacity across bare metal,
+            private cloud, colocation, and on-demand providers — translating technical requirements
+            into credible options with the right economics, geography, and power.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#contact">Source compute</a>
+            <a class="button glass" href="#network">View the network</a>
+          </div>
+
+          <dl class="signal-strip" aria-label="Omega Gradient market supply sources">
+            <div class="signal-card" data-reveal>
+              <dt data-count="224" data-count-suffix="+">224+</dt>
+              <dd>suppliers monitored</dd>
+            </div>
+            <div class="signal-card" data-reveal>
+              <dt data-count="24" data-count-suffix="h">24h</dt>
+              <dd>target quote turnaround</dd>
+            </div>
+            <div class="signal-card" data-reveal>
+              <dt>Global</dt>
+              <dd>capacity discovery surface</dd>
+            </div>
+          </dl>
+        </div>
+
+        <aside class="hero-feed" data-reveal aria-label="Live GPU market preview">
+          <div class="hero-feed-grid" aria-hidden="true"></div>
+          <div class="hero-feed-head">
+            <span class="hero-feed-label">Live market feed</span>
+            <span class="live-pill" id="heroFeedFreshness"><i></i>Loading</span>
+          </div>
+          <div class="hero-feed-rows" id="heroFeedRows" aria-live="polite">
+            <div class="hero-feed-row skeleton"><span></span><span></span><span></span></div>
+            <div class="hero-feed-row skeleton"><span></span><span></span><span></span></div>
+            <div class="hero-feed-row skeleton"><span></span><span></span><span></span></div>
+            <div class="hero-feed-row skeleton"><span></span><span></span><span></span></div>
+          </div>
+          <a class="hero-feed-cta" href="#pricing">See the full pricing feed →</a>
+        </aside>
+      </section>
+
+      <section class="section intro" id="market">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">For buyers of compute</p>
+          <h2>Global AI infrastructure access without the vendor maze.</h2>
+        </div>
+        <div class="intro-copy" data-reveal>
+          <p>
+            GPU supply is scattered across clouds, reservation desks, regional data centers, brokers,
+            marketplaces, private clusters, and idle enterprise capacity. Omega Gradient gives buyers
+            a single trusted lane to compare pricing, availability, vendor quality, geography,
+            networking, energy profile, and deployment fit.
+          </p>
+        </div>
+      </section>
+
+      <section class="market-grid" aria-label="Compute sourcing capabilities">
+        <article class="glass-card" data-reveal>
+          <span class="card-index">01</span>
+          <h3>AI infrastructure</h3>
+          <p>Connect with bare-metal, private-cloud, and high-density GPU providers matched to workload, price, latency, and operating requirements.</p>
+        </article>
+        <article class="glass-card" data-reveal>
+          <span class="card-index">02</span>
+          <h3>On-demand GPU access</h3>
+          <p>Source short-term or flexible GPU capacity through bare-metal servers, virtual machines, and provider networks built for AI workloads.</p>
+        </article>
+        <article class="glass-card" data-reveal>
+          <span class="card-index">03</span>
+          <h3>Market pricing analysis</h3>
+          <p>Benchmark global GPU pricing, availability, term structures, provider risk, and deployment tradeoffs before you commit capital.</p>
+        </article>
+      </section>
+
+      <section class="section access" id="access">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">Services offered today</p>
+          <h2>From market scan to live GPU environment.</h2>
+        </div>
+        <div class="access-steps">
+          <article class="glass-card" data-reveal>
+            <span class="step-number">1</span>
+            <h3>GPU capacity sourcing</h3>
+            <p>Find H100s, H200s, B200s, B300s, GB300s, A100s, and L40S supply across negotiated sources, public marketplaces, and private providers.</p>
+          </article>
+          <article class="glass-card" data-reveal>
+            <span class="step-number">2</span>
+            <h3>Custom cluster design</h3>
+            <p>Shape cluster plans around GPU count, interconnect, storage, networking, region, security posture, support model, and deployment timeline.</p>
+          </article>
+          <article class="glass-card" data-reveal>
+            <span class="step-number">3</span>
+            <h3>Idle resource access</h3>
+            <p>Locate underutilized AI infrastructure from data centers and enterprises that can be activated for short-term or flexible commitments.</p>
+          </article>
+          <article class="glass-card" data-reveal>
+            <span class="step-number">4</span>
+            <h3>Hardware procurement</h3>
+            <p>Source new or used GPUs, servers, and supporting infrastructure for teams building or expanding cost-effective AI clusters.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section market-snapshot" id="pricing" aria-labelledby="marketSnapshotTitle">
+        <div class="snapshot-heading">
+          <div class="section-heading" data-reveal>
+            <p class="eyebrow">Live market feed</p>
+            <h2 id="marketSnapshotTitle">Current GPU pricing and availability.</h2>
+          </div>
+          <div class="feed-status glass-panel" data-reveal aria-live="polite">
+            <span class="live-pill" id="feedFreshness"><i></i>Loading latest refresh</span>
+            <strong id="feedSignalCount">Public market summary</strong>
+          </div>
+        </div>
+
+        <div class="snapshot-grid" id="gpuMarketCards" aria-live="polite">
+          <article class="gpu-card skeleton">
+            <span>Loading</span>
+            <h3>GPU market feed</h3>
+            <p>Refreshing pricing, availability, and regional supply sources.</p>
+          </article>
+        </div>
+
+        <div class="methodology-panel glass-panel" data-reveal>
+          <h3>How Omega Gradient reads the market</h3>
+          <p>
+            We monitor public APIs, pricing pages, private pricing, marketplace listings,
+            reserved clusters, and reserved-capacity supply sources across global compute markets.
+            Provider identities are normalized and withheld until qualification to protect channel
+            quality and keep sourcing conversations focused on fit, economics, and availability.
+          </p>
+        </div>
+      </section>
+
+      <section class="network-section" id="network" data-reveal>
+        <div class="network-copy">
+          <p class="eyebrow">Global coverage</p>
+          <h2>Explore our compute supply network.</h2>
+          <p class="network-sub">Nineteen regions tracked for GPU availability, deployment models, and supply depth. Hover any node to read its current market signal.</p>
+        </div>
+
+        <div class="world-map" aria-label="Interactive world GPU availability map">
+          <div class="map-stage">
+            <img class="world-map-base" src="world-map.svg" alt="Regional GPU availability map">
+            <svg class="map-routes" id="mapRoutes" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true"></svg>
+            <button class="map-pin active" type="button" aria-label="US East GPU availability" style="--x: 28.6%; --y: 28.3%;" data-region-id="us-east" data-region="US East" data-gpus="H100s, H200s, A100s" data-model="Bare metal, private cloud, reserved blocks"><span></span></button>
+            <button class="map-pin" type="button" aria-label="US Central GPU availability" style="--x: 23.1%; --y: 28.3%;" data-region-id="us-central" data-region="US Central" data-gpus="H100s, B200s, L40S" data-model="Reserved clusters, private cloud, bare metal"><span></span></button>
+            <button class="map-pin" type="button" aria-label="US West GPU availability" style="--x: 16.1%; --y: 29.4%;" data-region-id="us-west" data-region="US West" data-gpus="H100s, H200s, L40S" data-model="On-demand VMs, inference capacity, spot inventory"><span></span></button>
+            <button class="map-pin" type="button" aria-label="Canada GPU availability" style="--x: 20.6%; --y: 18.9%;" data-region-id="canada" data-region="Canada" data-gpus="H100s, H200s, A100s" data-model="High-density deployments, private cloud, reserved capacity"><span></span></button>
+            <button class="map-pin" type="button" aria-label="Brazil GPU availability" style="--x: 36.9%; --y: 58.3%;" data-region-id="brazil" data-region="Brazil" data-gpus="H100s, A100s, L40S" data-model="Regional deployment, private cloud, data center capacity"><span></span></button>
+            <button class="map-pin" type="button" aria-label="UK GPU availability" style="--x: 49.6%; --y: 21.1%;" data-region-id="uk" data-region="UK" data-gpus="H100s, H200s, L40S" data-model="Bare metal, managed clusters, enterprise reservations"><span></span></button>
+            <button class="map-pin" type="button" aria-label="Germany GPU availability" style="--x: 52.8%; --y: 21.7%;" data-region-id="germany" data-region="Germany" data-gpus="H100s, H200s, B200s" data-model="Colocation, managed clusters, bare metal"><span></span></button>
+            <button class="map-pin" type="button" aria-label="France GPU availability" style="--x: 50.6%; --y: 23.9%;" data-region-id="france" data-region="France" data-gpus="H100s, A100s, L40S" data-model="Private cloud, reserved blocks, inference capacity"><span></span></button>
+            <button class="map-pin" type="button" aria-label="Nordics GPU availability" style="--x: 54.2%; --y: 16.1%;" data-region-id="nordics" data-region="Nordics" data-gpus="H100s, H200s, B200s" data-model="Power-rich data centers, high-density deployments"><span></span></button>
+            <button class="map-pin" type="button" aria-label="Spain GPU availability" style="--x: 49%; --y: 27.8%;" data-region-id="spain" data-region="Spain" data-gpus="H100s, A100s, L40S" data-model="Regional inference, colocation, bare metal"><span></span></button>
+            <button class="map-pin" type="button" aria-label="Hong Kong GPU availability" style="--x: 81.7%; --y: 37.6%;" data-region-id="hong-kong" data-region="Hong Kong" data-gpus="H100s, H200s, A100s" data-model="Low-latency regional access, private cloud"><span></span></button>
+            <button class="map-pin" type="button" aria-label="Singapore GPU availability" style="--x: 78.8%; --y: 49.3%;" data-region-id="singapore" data-region="Singapore" data-gpus="H100s, H200s, B200s" data-model="Managed clusters, enterprise reservations, bare metal"><span></span></button>
+            <button class="map-pin" type="button" aria-label="India GPU availability" style="--x: 71.9%; --y: 37.8%;" data-region-id="india" data-region="India" data-gpus="H100s, A100s, L40S" data-model="Regional inference, private cloud, data center capacity"><span></span></button>
+            <button class="map-pin" type="button" aria-label="Malaysia GPU availability" style="--x: 78.3%; --y: 47.8%;" data-region-id="malaysia" data-region="Malaysia" data-gpus="H100s, H200s, L40S" data-model="Private cloud, inference capacity, managed deployments"><span></span></button>
+            <button class="map-pin" type="button" aria-label="Indonesia GPU availability" style="--x: 82.5%; --y: 51.1%;" data-region-id="indonesia" data-region="Indonesia" data-gpus="H100s, A100s, L40S" data-model="Regional deployment, data center capacity"><span></span></button>
+            <button class="map-pin" type="button" aria-label="Japan GPU availability" style="--x: 88.8%; --y: 30%;" data-region-id="japan" data-region="Japan" data-gpus="H200s, B300s, GB300s" data-model="Enterprise reservations, AI infrastructure partners"><span></span></button>
+            <button class="map-pin" type="button" aria-label="Philippines GPU availability" style="--x: 83.9%; --y: 42.8%;" data-region-id="philippines" data-region="Philippines" data-gpus="H100s, A100s, L40S" data-model="Regional inference, on-demand capacity"><span></span></button>
+            <button class="map-pin" type="button" aria-label="Taiwan GPU availability" style="--x: 83.6%; --y: 36.7%;" data-region-id="taiwan" data-region="Taiwan" data-gpus="H100s, H200s, B200s" data-model="Private cloud, reserved blocks, low-latency access"><span></span></button>
+            <button class="map-pin" type="button" aria-label="Australia GPU availability" style="--x: 87.2%; --y: 63.9%;" data-region-id="australia" data-region="Australia" data-gpus="H100s, A100s, L40S" data-model="Regional deployment, latency-sensitive inference"><span></span></button>
+          </div>
+
+          <div class="map-card glass-panel" aria-live="polite">
+            <span id="mapRegion">US East</span>
+            <strong id="mapGpus">H100s, H200s, A100s</strong>
+            <p id="mapModel">Bare metal, private cloud, reserved blocks</p>
+            <dl class="map-market">
+              <div>
+                <dt>Sources</dt>
+                <dd id="mapSignal">Loading</dd>
+              </div>
+              <div>
+                <dt>Confidence</dt>
+                <dd id="mapConfidence">Pending</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="section support-section">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">Areas supported</p>
+          <h2>Infrastructure coverage across the AI stack.</h2>
+        </div>
+        <div class="support-grid">
+          <article class="glass-card" data-reveal>
+            <div class="support-icon" aria-hidden="true">◆</div>
+            <h3>Cloud and private deployments</h3>
+            <p>Bare metal, private cloud, managed cloud services, public cloud optimization, and hybrid environments.</p>
+          </article>
+          <article class="glass-card" data-reveal>
+            <div class="support-icon" aria-hidden="true">⏻</div>
+            <h3>Colocation and power</h3>
+            <p>Data center facilities, high-density power, cooling, connectivity, global footprint, and local compute resources.</p>
+          </article>
+          <article class="glass-card" data-reveal>
+            <div class="support-icon" aria-hidden="true">⇄</div>
+            <h3>Migration and contracts</h3>
+            <p>AI infrastructure migration, hyperscaler contract analysis, market availability reviews, and deployment planning.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div class="contact-copy" data-reveal>
+          <p class="eyebrow">Request capacity</p>
+          <h2>Leave your details. We'll respond with options.</h2>
+          <p>
+            Share what you need, where you can deploy, and when capacity has to be live.
+            Omega Gradient will evaluate provider fit, market pricing, availability, and the
+            practical path to high-performance compute.
+          </p>
+          <ul class="contact-points">
+            <li>Provider-neutral sourcing across 224+ monitored suppliers</li>
+            <li>24-hour target turnaround on qualified quotes</li>
+            <li>Identities withheld until qualification — no channel noise</li>
+          </ul>
+        </div>
+        <form class="contact-form glass-panel" data-reveal action="mailto:hello@omegagradient.com" method="post" enctype="text/plain">
+          <label>
+            Full name
+            <input name="full-name" type="text" placeholder="Jane Doe" autocomplete="name" required>
+          </label>
+          <label>
+            Company name
+            <input name="company" type="text" placeholder="Company Inc." autocomplete="organization" required>
+          </label>
+          <label>
+            Business email
+            <input name="email" type="email" placeholder="you@company.com" autocomplete="email" required>
+          </label>
+          <label>
+            Phone number
+            <input name="phone" type="tel" placeholder="+1 555 010 0110" autocomplete="tel">
+          </label>
+          <label>
+            Compute need
+            <select name="need" required>
+              <option value="">Select a workload</option>
+              <option>Training cluster</option>
+              <option>Inference capacity</option>
+              <option>Reserved GPU block</option>
+              <option>On-demand deployment</option>
+              <option>Market scan</option>
+            </select>
+          </label>
+          <label>
+            Requirements
+            <textarea name="requirements" rows="5" placeholder="GPU type, count, region, term, timeline, networking, compliance..."></textarea>
+          </label>
+          <button class="button primary" type="submit">Start sourcing</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a class="brand" href="#top" aria-label="Omega Gradient home">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span>Omega Gradient</span>
+          </a>
+          <p>Global compute access for AI teams. We source, compare, and secure GPU capacity so you can build without the vendor maze.</p>
+          <a class="footer-mail" href="mailto:hello@omegagradient.com">hello@omegagradient.com</a>
+        </div>
+        <nav class="footer-col" aria-label="Services">
+          <h4>Services</h4>
+          <a href="#access">GPU capacity sourcing</a>
+          <a href="#access">Custom cluster design</a>
+          <a href="#access">Idle resource access</a>
+          <a href="#access">Hardware procurement</a>
+        </nav>
+        <nav class="footer-col" aria-label="Explore">
+          <h4>Explore</h4>
+          <a href="#market">Market</a>
+          <a href="#pricing">Live pricing feed</a>
+          <a href="#network">Network map</a>
+          <a href="#contact">Request capacity</a>
+        </nav>
+      </div>
+      <div class="footer-base">
+        <span>© <span id="footerYear">2026</span> Omega Gradient. All rights reserved.</span>
+        <span>Provider identities withheld until qualification.</span>
+      </div>
+    </footer>
+
+    <dialog class="gpu-drawer" id="gpuDrawer" aria-labelledby="drawerTitle">
+      <button class="drawer-close" id="drawerClose" type="button" aria-label="Close GPU details">×</button>
+      <p class="eyebrow">Market detail</p>
+      <h2 id="drawerTitle">GPU market source</h2>
+      <div class="drawer-metrics" id="drawerMetrics"></div>
+      <div class="drawer-section">
+        <h3>Availability mix</h3>
+        <div class="badge-row" id="drawerAvailability"></div>
+      </div>
+      <div class="drawer-section">
+        <h3>Deployment fit</h3>
+        <ul id="drawerModels"></ul>
+      </div>
+      <a class="button primary drawer-cta" id="drawerCta" href="#contact">Request options</a>
+    </dialog>
+
+    <script src="./data/public_gpu_market.js" defer></script>
+    <script src="./app.js" defer></script>
+  </body>
+</html>
