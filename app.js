@@ -406,6 +406,30 @@ function initHeader() {
   window.addEventListener("scroll", onScroll, { passive: true });
 }
 
+/* ---- capacity request ----------------------------------------------- */
+function initCapacityForm() {
+  const form = document.querySelector("#capacityForm");
+  if (!form) return;
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const lines = [
+      `Full name: ${data.get("full-name") || ""}`,
+      `Company: ${data.get("company") || ""}`,
+      `Business email: ${data.get("email") || ""}`,
+      `Phone: ${data.get("phone") || ""}`,
+      `Compute need: ${data.get("need") || ""}`,
+      "",
+      "Requirements:",
+      data.get("requirements") || ""
+    ];
+    const subject = encodeURIComponent("Omega Gradient capacity request");
+    const body = encodeURIComponent(lines.join("\n"));
+    window.location.href = `mailto:hello@omegagradient.com?subject=${subject}&body=${body}`;
+  });
+}
+
 /* ---- init ----------------------------------------------------------- */
 const yearEl = document.querySelector("#footerYear");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -415,3 +439,4 @@ initReveal();
 runCountUps();
 buildRoutes();
 loadMarketFeed();
+initCapacityForm();
