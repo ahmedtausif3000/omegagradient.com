@@ -290,7 +290,11 @@
             <li>Identities withheld until qualification — no channel noise</li>
           </ul>
         </div>
-        <form class="contact-form glass-panel" data-reveal id="capacityForm">
+        <form class="contact-form glass-panel" data-reveal id="capacityForm" data-endpoint="/api/capacity-request">
+          <label class="form-trap" aria-hidden="true" tabindex="-1">
+            Website
+            <input name="website" type="text" autocomplete="off" tabindex="-1">
+          </label>
           <label>
             Full name
             <input name="full-name" type="text" placeholder="Jane Doe" autocomplete="name" required>
@@ -322,6 +326,7 @@
             Requirements
             <textarea name="requirements" rows="5" placeholder="GPU type, count, region, term, timeline, networking, compliance..."></textarea>
           </label>
+          <p class="form-status" id="capacityFormStatus" role="status" aria-live="polite" tabindex="-1"></p>
           <button class="button primary" type="submit">Start sourcing</button>
         </form>
       </section>

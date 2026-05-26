@@ -407,26 +407,70 @@ function initHeader() {
 }
 
 /* ---- capacity request ----------------------------------------------- */
+const THANK_YOU_MESSAGE = "Thanks for your submission. We will get back to you shortly.";
+
+function setFormStatus(statusEl, message, tone = "neutral") {
+  if (!statusEl) return;
+  statusEl.textContent = message;
+  statusEl.dataset.tone = tone;
+}
+
 function initCapacityForm() {
   const form = document.querySelector("#capacityForm");
   if (!form) return;
+  const statusEl = document.querySelector("#capacityFormStatus");
+  const submitButton = form.querySelector('button[type="submit"]');
+  const defaultButtonText = submitButton?.textContent || "Start sourcing";
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const data = new FormData(form);
-    const lines = [
-      `Full name: ${data.get("full-name") || ""}`,
-      `Company: ${data.get("company") || ""}`,
-      `Business email: ${data.get("email") || ""}`,
-      `Phone: ${data.get("phone") || ""}`,
-      `Compute need: ${data.get("need") || ""}`,
-      "",
-      "Requirements:",
-      data.get("requirements") || ""
-    ];
-    const subject = encodeURIComponent("Omega Gradient capacity request");
-    const body = encodeURIComponent(lines.join("\n"));
-    window.location.href = `mailto:hello@omegagradient.com?subject=${subject}&body=${body}`;
+    const endpoint = form.dataset.endpoint || "/api/capacity-request";
+    const payload = {
+      full_name: data.get("full-name") || "",
+      company: data.get("company") || "",
+      email: data.get("email") || "",
+      phone: data.get("phone") || "",
+      need: data.get("need") || "",
+      requirements: data.get("requirements") || "",
+      website: data.get("website") || "",
+      page_url: window.location.href
+    };
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "Submitting...";
+    }
+    setFormStatus(statusEl, "Submitting your request...", "neutral");
+
+    try {
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || "Submission failed");
+      }
+
+      form.reset();
+      setFormStatus(statusEl, result.message || THANK_YOU_MESSAGE, "success");
+      statusEl?.focus?.();
+    } catch (error) {
+      setFormStatus(
+        statusEl,
+        "Something went wrong. Please try again in a moment.",
+        "error"
+      );
+      console.error("capacity request failed", error);
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = defaultButtonText;
+      }
+    }
   });
 }
 
