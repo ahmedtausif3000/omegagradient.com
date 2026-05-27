@@ -1,0 +1,41 @@
+# Omega Gradient GPU Compute Sourcing
+
+Omega Gradient helps AI infrastructure teams source GPU compute capacity across accelerator type, region, term, support model, and commercial fit.
+
+## Buyer Intent
+
+- Primary audience: AI platform, infrastructure, MLOps, research, procurement, and founder teams seeking H100, H200, B200, or similar GPU capacity.
+- Conversion action: submit a GPU demand brief with workload, GPU type, count, region, timeline, and budget.
+- Demand endpoint: https://track.omegagradient.com/g/demand
+- Sitemap: https://omegagradient.com/g/sitemap.xml
+
+## High-Intent Pages
+
+- [QA H200 GPU capacity sourcing page](https://omegagradient.com/g/pages/gpage_b11d215dbd70405687/qa-h200-gpu-capacity-sourcing-page): Get GPU options quickly
+- [B200 GPU capacity for fine-tuning runs in Middle East](https://omegagradient.com/g/pages/gpage_b200_fine_tuning_runs_middle_east/b200-gpu-capacity-for-fine-tuning-runs-in-middle-east): Source vetted B200 GPU capacity for fine-tuning runs in Middle East with credible options in 24-48 hours.
+- [B200 GPU capacity for fine-tuning runs in Europe](https://omegagradient.com/g/pages/gpage_b200_fine_tuning_runs_europe/b200-gpu-capacity-for-fine-tuning-runs-in-europe): Source vetted B200 GPU capacity for fine-tuning runs in Europe with credible options in 24-48 hours.
+- [B200 GPU capacity for fine-tuning runs in US](https://omegagradient.com/g/pages/gpage_b200_fine_tuning_runs_us/b200-gpu-capacity-for-fine-tuning-runs-in-us): Source vetted B200 GPU capacity for fine-tuning runs in US with credible options in 24-48 hours.
+- [B200 GPU capacity for inference capacity in Middle East](https://omegagradient.com/g/pages/gpage_b200_inference_capacity_middle_east/b200-gpu-capacity-for-inference-capacity-in-middle-east): Source vetted B200 GPU capacity for inference capacity in Middle East with credible options in 24-48 hours.
+- [B200 GPU capacity for inference capacity in Europe](https://omegagradient.com/g/pages/gpage_b200_inference_capacity_europe/b200-gpu-capacity-for-inference-capacity-in-europe): Source vetted B200 GPU capacity for inference capacity in Europe with credible options in 24-48 hours.
+- [B200 GPU capacity for inference capacity in US](https://omegagradient.com/g/pages/gpage_b200_inference_capacity_us/b200-gpu-capacity-for-inference-capacity-in-us): Source vetted B200 GPU capacity for inference capacity in US with credible options in 24-48 hours.
+- [B200 GPU capacity for training clusters in Middle East](https://omegagradient.com/g/pages/gpage_b200_training_clusters_middle_east/b200-gpu-capacity-for-training-clusters-in-middle-east): Source vetted B200 GPU capacity for training clusters in Middle East with credible options in 24-48 hours.
+- [B200 GPU capacity for training clusters in Europe](https://omegagradient.com/g/pages/gpage_b200_training_clusters_europe/b200-gpu-capacity-for-training-clusters-in-europe): Source vetted B200 GPU capacity for training clusters in Europe with credible options in 24-48 hours.
+- [B200 GPU capacity for training clusters in US](https://omegagradient.com/g/pages/gpage_b200_training_clusters_us/b200-gpu-capacity-for-training-clusters-in-us): Source vetted B200 GPU capacity for training clusters in US with credible options in 24-48 hours.
+- [H200 GPU capacity for fine-tuning runs in Middle East](https://omegagradient.com/g/pages/gpage_h200_fine_tuning_runs_middle_east/h200-gpu-capacity-for-fine-tuning-runs-in-middle-east): Source vetted H200 GPU capacity for fine-tuning runs in Middle East with credible options in 24-48 hours.
+- [H200 GPU capacity for fine-tuning runs in Europe](https://omegagradient.com/g/pages/gpage_h200_fine_tuning_runs_europe/h200-gpu-capacity-for-fine-tuning-runs-in-europe): Source vetted H200 GPU capacity for fine-tuning runs in Europe with credible options in 24-48 hours.
+- [H200 GPU capacity for fine-tuning runs in US](https://omegagradient.com/g/pages/gpage_h200_fine_tuning_runs_us/h200-gpu-capacity-for-fine-tuning-runs-in-us): Source vetted H200 GPU capacity for fine-tuning runs in US with credible options in 24-48 hours.
+- [H200 GPU capacity for inference capacity in Middle East](https://omegagradient.com/g/pages/gpage_h200_inference_capacity_middle_east/h200-gpu-capacity-for-inference-capacity-in-middle-east): Source vetted H200 GPU capacity for inference capacity in Middle East with credible options in 24-48 hours.
+- [H200 GPU capacity for inference capacity in Europe](https://omegagradient.com/g/pages/gpage_h200_inference_capacity_europe/h200-gpu-capacity-for-inference-capacity-in-europe): Source vetted H200 GPU capacity for inference capacity in Europe with credible options in 24-48 hours.
+- [H200 GPU capacity for inference capacity in US](https://omegagradient.com/g/pages/gpage_h200_inference_capacity_us/h200-gpu-capacity-for-inference-capacity-in-us): Source vetted H200 GPU capacity for inference capacity in US with credible options in 24-48 hours.
+- [H200 GPU capacity for training clusters in Middle East](https://omegagradient.com/g/pages/gpage_h200_training_clusters_middle_east/h200-gpu-capacity-for-training-clusters-in-middle-east): Source vetted H200 GPU capacity for training clusters in Middle East with credible options in 24-48 hours.
+- [H200 GPU capacity for training clusters in Europe](https://omegagradient.com/g/pages/gpage_h200_training_clusters_europe/h200-gpu-capacity-for-training-clusters-in-europe): Source vetted H200 GPU capacity for training clusters in Europe with credible options in 24-48 hours.
+- [H200 GPU capacity for training clusters in US](https://omegagradient.com/g/pages/gpage_h200_training_clusters_us/h200-gpu-capacity-for-training-clusters-in-us): Source vetted H200 GPU capacity for training clusters in US with credible options in 24-48 hours.
+- [H100 GPU capacity for fine-tuning runs in Middle East](https://omegagradient.com/g/pages/gpage_h100_fine_tuning_runs_middle_east/h100-gpu-capacity-for-fine-tuning-runs-in-middle-east): Source vetted H100 GPU capacity for fine-tuning runs in Middle East with credible options in 24-48 hours.
+
+## Measurement
+
+Visits are logged through /g/events with UTM and campaign attribution. Demand briefs are routed through /g/demand and synced back to the private Omega Gradient CRM before source-quality optimization.
+
+## Boundary
+
+This public content describes Omega Gradient demand capture only. It does not expose the private CRM dashboard, supplier commitments, pricing approvals, or live-spend controls.
