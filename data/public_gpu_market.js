@@ -1,8 +1,8 @@
 window.OMEGA_GPU_MARKET = {
   "schema_version": "1.0.0",
-  "generated_at": "2026-05-26T18:03:32.241Z",
+  "generated_at": "2026-06-16T14:34:25.431Z",
   "inventory_generated_at": "2026-05-16T18:14:24.713Z",
-  "pricing_generated_at": "2026-05-26T18:03:32.120Z",
+  "pricing_generated_at": "2026-06-16T14:34:25.307Z",
   "freshness_label": "Refresh scheduled daily",
   "disclosure": "Public market summary only. Provider identities, source URLs, evidence excerpts, and source-level rows are intentionally withheld.",
   "source_count_summary": {
