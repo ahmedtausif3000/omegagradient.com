@@ -131,7 +131,32 @@
   }
   @keyframes shimmer{ 0%{ left:-80%; } 18%{ left:160%; } 100%{ left:160%; } }
   .header-cta{ padding:10px 22px; }
-  @media (max-width:860px){ nav .nav-link{ display:none; } .header-inner{ height:60px; } }
+  .header-actions{ display:flex; align-items:center; gap:14px; }
+  .cta-short{ display:none; }
+  .nav-toggle{ display:none; flex-direction:column; justify-content:center; gap:4px; width:40px; height:40px; padding:0 9px; background:transparent; border:1px solid var(--line); cursor:pointer; flex:none; }
+  .nav-toggle span{ display:block; height:1.5px; width:100%; background:var(--gold); transition:transform .25s ease, opacity .2s ease; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(5.5px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-5.5px) rotate(-45deg); }
+  @media (max-width:860px){
+    .header-inner{ height:60px; }
+    .brand{ font-size:15px; gap:9px; }
+    .brand-mark{ width:11px; height:11px; }
+    .header-cta{ padding:9px 15px; font-size:10px; letter-spacing:0.1em; }
+    .cta-full{ display:none; }
+    .cta-short{ display:inline; }
+    .nav-toggle{ display:flex; }
+    nav#primaryNav{
+      position:absolute; top:100%; left:0; right:0;
+      flex-direction:column; align-items:stretch; gap:0;
+      background:rgba(0,0,0,0.98); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+      padding:4px 24px 14px; display:none;
+    }
+    nav#primaryNav.open{ display:flex; }
+    nav#primaryNav .nav-link{ display:block; width:100%; padding:15px 2px; font-size:12px; border-bottom:1px solid var(--line); }
+    nav#primaryNav .nav-link:last-child{ border-bottom:none; }
+  }
 
   /* ---------- shared type ---------- */
   .eyebrow{ font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-bottom:28px; display:block; }
@@ -228,9 +253,15 @@
   .map-card dl{ display:grid; grid-template-columns:1fr 1fr; gap:16px; border-top:1px solid var(--line); padding-top:20px; margin-top:24px; }
   .map-card dt{ font-family:var(--mono); font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); margin-bottom:7px; }
   .map-card dd{ font-family:var(--mono); font-size:14px; color:var(--gold); font-variant-numeric:tabular-nums; }
+  .netv-m{ display:none; }
   @media (max-width:860px){
-    .network-section{ padding:96px 0; }
+    .network-section{ padding:72px 0; }
     .netmap{ grid-template-columns:1fr; gap:20px; }
+    .map-stage{ aspect-ratio:auto; height:62vw; min-height:230px; }
+    .map-pin{ width:38px; height:38px; }
+    .map-pin span{ width:9px; height:9px; }
+    .netv-d{ display:none; }
+    .netv-m{ display:inline; }
   }
 
   /* ============ CTA (concept 9) ============ */
@@ -278,12 +309,20 @@
   .foot-legal{ border-top:1px solid var(--line); padding:18px 0; text-align:center; font-family:var(--mono); font-size:9px; letter-spacing:0.2em; color:var(--muted); text-transform:uppercase; }
   @media (max-width:768px){ .foot-cols{ grid-template-columns:1fr; gap:36px; padding:56px 0 48px; } .wm-fill{ top:24px; } }
 
-  /* ---------- responsive: hero ---------- */
+  /* ---------- footer wordmark line break (base = desktop, hidden) ---------- */
+  .wm-br{ display:none; }
+
+  /* ---------- responsive: mobile fixes (≤860px) ---------- */
   @media (max-width:860px){
-    .hero{ grid-template-columns:1fr; min-height:0; padding-top:48px; }
+    .hero{ grid-template-columns:1fr; min-height:0; padding-top:40px; }
     .hero-left{ padding:24px 24px 0; }
-    .hero-right{ height:420px; margin-top:8px; }
+    .hero-right{ height:320px; margin-top:0; }
     h1{ font-size:clamp(38px, 9vw, 56px); }
+    .caps-section{ padding:72px 0 56px; }
+    .cta{ padding:80px 0; }
+    .market-stage{ min-height:0; padding:72px 0; }
+    .wm-br{ display:inline; }
+    .wm{ font-size:clamp(46px, 17vw, 92px); }
   }
 
   /* ---------- reduced motion ---------- */
@@ -329,14 +368,17 @@
 <header>
   <div class="wrap header-inner">
     <a href="#top" class="brand"><span class="brand-mark"></span><span class="b-o">Omega</span>&nbsp;<span class="b-g">Gradient</span></a>
-    <nav>
+    <nav id="primaryNav">
       <a class="nav-link" href="#market">MARKET</a>
       <a class="nav-link" href="#access">ACCESS</a>
       <a class="nav-link" href="#market">PRICING</a>
       <a class="nav-link" href="#network">NETWORK</a>
       <a class="nav-link" href="#contact">CONTACT</a>
     </nav>
-    <a href="#contact" class="btn btn-gold header-cta" data-open-form>REQUEST CAPACITY</a>
+    <div class="header-actions">
+      <a href="#contact" class="btn btn-gold header-cta" data-open-form><span class="cta-full">REQUEST CAPACITY</span><span class="cta-short">REQUEST</span></a>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </header>
 
@@ -470,7 +512,7 @@
     <div class="section-head" data-fade>
       <span class="eyebrow">GLOBAL COVERAGE</span>
       <h2>Explore our compute supply network.</h2>
-      <p class="network-sub">Nineteen regions tracked for GPU availability, deployment models, and supply depth. Hover any node to read its current market signal.</p>
+      <p class="network-sub">Nineteen regions tracked for GPU availability, deployment models, and supply depth. <span class="netv-d">Hover</span><span class="netv-m">Tap</span> any node to read its current market signal.</p>
     </div>
     <div class="netmap">
       <div class="map-stage" data-netmap>
@@ -586,8 +628,8 @@
     </div>
   </div>
   <div class="wordmark" id="wordmark">
-    <span class="wm wm-outline" aria-hidden="true">OMEGA GRADIENT</span>
-    <span class="wm wm-fill" id="wm-fill"><span class="o">OMEGA</span> <span class="g">GRADIENT</span></span>
+    <span class="wm wm-outline" aria-hidden="true">OMEGA<br class="wm-br"> GRADIENT</span>
+    <span class="wm wm-fill" id="wm-fill"><span class="o">OMEGA</span><br class="wm-br"> <span class="g">GRADIENT</span></span>
   </div>
   <div class="foot-legal">© 2026 OMEGA GRADIENT. PROVIDER IDENTITIES WITHHELD UNTIL QUALIFICATION.</div>
 </footer>
@@ -600,6 +642,7 @@
 (function(){
   "use strict";
   var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var MOBILE = window.matchMedia("(max-width: 860px)").matches;
   var HAS_GSAP = typeof window.gsap !== "undefined";
   var HAS_ST = HAS_GSAP && typeof window.ScrollTrigger !== "undefined";
   var HAS_LENIS = typeof window.Lenis !== "undefined";
@@ -618,6 +661,23 @@
     } catch (e) { lenis = null; }
   }
 
+  /* ============ MOBILE NAV (hamburger) ============ */
+  (function(){
+    var toggle = document.getElementById("navToggle");
+    var nav = document.getElementById("primaryNav");
+    if (!toggle || !nav) return;
+    function setOpen(open){
+      nav.classList.toggle("open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    }
+    toggle.addEventListener("click", function(){ setOpen(!nav.classList.contains("open")); });
+    nav.querySelectorAll("a").forEach(function(link){
+      link.addEventListener("click", function(){ setOpen(false); });
+    });
+    window.__closeNav = function(){ setOpen(false); };
+  })();
+
   /* smooth anchor links */
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener("click", function(e){
@@ -626,6 +686,7 @@
       var target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
+      if (window.__closeNav) window.__closeNav();
       if (lenis) { lenis.scrollTo(target, { offset: -70 }); }
       else { target.scrollIntoView(REDUCED ? {} : { behavior: "smooth" }); }
     });
@@ -982,6 +1043,14 @@
       if (document.hidden) { paused = true; cancelAnimationFrame(rafId); }
       else { paused = false; rafId = requestAnimationFrame(frame); }
     });
+    /* mobile only: pause the globe when scrolled off-screen (battery/perf) */
+    if (MOBILE && "IntersectionObserver" in window) {
+      new IntersectionObserver(function(entries){
+        var visible = entries[0] && entries[0].isIntersecting;
+        if (!visible) { paused = true; cancelAnimationFrame(rafId); }
+        else if (!document.hidden) { paused = false; rafId = requestAnimationFrame(frame); }
+      }, { threshold: 0 }).observe(canvas);
+    }
   })();
 
   /* =================================================================
@@ -1061,6 +1130,23 @@
     var rows = document.querySelectorAll(".mrow");
     var paths = document.querySelectorAll(".spark path");
     if (!rows.length) return;
+
+    if (MOBILE) {
+      /* mobile: no pin/scrub — simple staggered reveal on scroll (smooth on touch) */
+      gsap.set(rows, { opacity: 0, x: -20 });
+      gsap.set(paths, { strokeDasharray: 100, strokeDashoffset: 100 });
+      gsap.set([".market .eyebrow", ".market h2", ".market-note"], { opacity: 0, y: 16 });
+      gsap.to([".market .eyebrow", ".market h2"], { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", stagger: 0.1,
+        scrollTrigger: { trigger: ".market", start: "top 82%", once: true } });
+      gsap.to(rows, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out", stagger: 0.08,
+        scrollTrigger: { trigger: ".market-table", start: "top 88%", once: true } });
+      gsap.to(paths, { strokeDashoffset: 0, duration: 0.7, ease: "none", stagger: 0.08,
+        scrollTrigger: { trigger: ".market-table", start: "top 88%", once: true } });
+      gsap.to(".market-note", { opacity: 1, y: 0, duration: 0.4,
+        scrollTrigger: { trigger: ".market-note", start: "top 92%", once: true } });
+      return;
+    }
+
     gsap.set(rows, { opacity: 0, x: -44 });
     gsap.set(paths, { strokeDasharray: 100, strokeDashoffset: 100 });
     gsap.set([".market .eyebrow", ".market h2", ".market-note"], { opacity: 0, y: 16 });
