@@ -902,8 +902,12 @@
     }
 
     var NODE_LL = [
-      [39, -77],[37, -122],[45, -75],[-23, -46],[51, 0],[50, 8],
-      [60, 18],[19, 72],[1, 103],[35, 139],[25, 121],[-33, 151]
+      /* Americas */
+      [39, -77],[37, -122],[45, -122],[30, -97],[41, -88],[45, -75],[19, -99],[-23, -46],[-33, -71],
+      /* Europe / MEA */
+      [51, 0],[53, -6],[48, 2],[50, 8],[52, 5],[60, 18],[40, -3],[25, 55],[24, 46],[32, 35],[-26, 28],
+      /* Asia / Pacific */
+      [19, 72],[1, 103],[3, 101],[-6, 107],[14, 121],[22, 114],[25, 121],[37, 127],[35, 139],[-33, 151]
     ];
     function llToVec(la, lo){ var c = Math.cos(la * RAD); return [c * Math.cos(lo * RAD), Math.sin(la * RAD), c * Math.sin(lo * RAD)]; }
     var nodes = NODE_LL.map(function(n){ return llToVec(n[0], n[1]); });
@@ -938,10 +942,22 @@
       var s2 = Math.sin(t * omega) / sinO;
       return [a[0]*s1 + b[0]*s2, a[1]*s1 + b[1]*s2, a[2]*s1 + b[2]*s2];
     }
-    function spawnArc(now){
-      var ia = (Math.random() * nodes.length) | 0;
-      var ib = (Math.random() * nodes.length) | 0;
-      if (ia === ib) ib = (ib + 1) % nodes.length;
+    function nodeDepth(p, ca, sa){
+      var z = -p[0]*sa + p[2]*ca;
+      return p[1]*sinT + z*cosT; /* >0 = front hemisphere (toward viewer) */
+    }
+    function spawnArc(now, angle){
+      var ca = Math.cos(angle), sa = Math.sin(angle);
+      /* only connect nodes currently visible on the front of the globe */
+      var front = [];
+      for (var n = 0; n < nodes.length; n++) {
+        if (nodeDepth(nodes[n], ca, sa) > 0.15) front.push(n);
+      }
+      if (front.length < 2) return;
+      var ia = front[(Math.random() * front.length) | 0];
+      var ib = ia, tries = 0;
+      while (ib === ia && tries < 8) { ib = front[(Math.random() * front.length) | 0]; tries++; }
+      if (ib === ia) return;
       var a = nodes[ia], b = nodes[ib];
       var dot = a[0]*b[0] + a[1]*b[1] + a[2]*b[2];
       dot = Math.max(-0.999, Math.min(0.999, dot));
@@ -1030,7 +1046,7 @@
         ctx.clearRect(0, 0, W, H);
         strokeCircles(staticAngle, 1);
         drawNodes(staticAngle);
-        arcs.length = 0; spawnArc(0); spawnArc(0);
+        arcs.length = 0; spawnArc(0, staticAngle); spawnArc(0, staticAngle);
         for (var a = 0; a < arcs.length; a++) drawArc(arcs[a], 0, staticAngle, true);
       }
       staticFrame();
@@ -1048,7 +1064,7 @@
       var progress = easeInOut(Math.min(1, elapsed / 1500));
       var angle = 0.55 + elapsed * SPIN;
       if (progress >= 1 && elapsed > 1600) {
-        if (arcs.length < 3 && now >= nextSpawn) { spawnArc(now); nextSpawn = now + 600 + Math.random() * 900; }
+        if (arcs.length < 4 && now >= nextSpawn) { spawnArc(now, angle); nextSpawn = now + 500 + Math.random() * 800; }
       }
       render(now, angle, progress, true);
       rafId = requestAnimationFrame(frame);
