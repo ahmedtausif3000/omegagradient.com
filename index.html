@@ -121,7 +121,7 @@
     22%{ background-position:0% 0; }
     100%{ background-position:0% 0; }
   }
-  .brand-mark{ width:13px; height:13px; background:var(--gold); flex:none; }
+  .brand-mark{ width:28px; height:28px; flex:none; object-fit:cover; display:block; }
   nav{ display:flex; align-items:center; gap:32px; }
   nav a.nav-link{ font-family:var(--mono); font-size:11px; font-weight:500; letter-spacing:0.16em; color:var(--muted); transition:color .25s ease; }
   nav a.nav-link:hover{ color:var(--gold-bright); }
@@ -156,7 +156,7 @@
   @media (max-width:860px){
     .header-inner{ height:60px; }
     .brand{ font-size:15px; gap:9px; }
-    .brand-mark{ width:11px; height:11px; }
+    .brand-mark{ width:24px; height:24px; }
     .header-cta{ padding:9px 15px; font-size:10px; letter-spacing:0.1em; }
     .cta-full{ display:none; }
     .cta-short{ display:inline; }
@@ -309,7 +309,7 @@
 
   /* ============ FOOTER (concept 9 links + concept 10 fill wordmark) ============ */
   footer{ border-top:1px solid var(--line); }
-  .foot-cols{ display:grid; grid-template-columns:repeat(3, 1fr); gap:40px; padding:72px 0 64px; }
+  .foot-cols{ display:grid; grid-template-columns:repeat(2, 1fr); gap:40px; padding:72px 0 64px; }
   .foot-col h4{ font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-bottom:22px; }
   .foot-col a, .foot-col span{ display:block; font-family:var(--mono); font-size:12px; letter-spacing:0.08em; color:var(--muted); margin-bottom:12px; transition:color .2s ease; }
   .foot-col a:hover{ color:var(--gold-bright); }
@@ -383,7 +383,7 @@
 <!-- ============ HEADER ============ -->
 <header>
   <div class="wrap header-inner">
-    <a href="#top" class="brand"><span class="brand-mark"></span><span class="brand-text" data-text="Omega Gradient"><span class="b-o">Omega</span> <span class="b-g">Gradient</span></span></a>
+    <a href="#top" class="brand"><img class="brand-mark" src="omega-gradient-logo.png" alt="" width="28" height="28"><span class="brand-text" data-text="Omega Gradient"><span class="b-o">Omega</span> <span class="b-g">Gradient</span></span></a>
     <nav id="primaryNav">
       <a class="nav-link" href="#market">MARKET</a>
       <a class="nav-link" href="#access">ACCESS</a>
@@ -625,12 +625,6 @@
   <div class="wrap">
     <div class="foot-cols">
       <div class="foot-col">
-        <h4>Services</h4>
-        <a href="#access">AI INFRASTRUCTURE</a>
-        <a href="#access">ON-DEMAND GPU ACCESS</a>
-        <a href="#access">MARKET PRICING ANALYSIS</a>
-      </div>
-      <div class="foot-col">
         <h4>Explore</h4>
         <a href="#market">LIVE MARKET FEED</a>
         <a href="#market">PRICING SIGNALS</a>
@@ -639,7 +633,6 @@
       <div class="foot-col">
         <h4>Contact</h4>
         <a href="mailto:hello@omegagradient.com">HELLO@OMEGAGRADIENT.COM</a>
-        <span>GLOBAL · 19 REGIONS</span>
       </div>
     </div>
   </div>
