@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000000">
+<meta name="description" content="Deploy on-demand GPUs in seconds. One console, one bill, global capacity — H100, H200, B200 and more, priced transparently.">
+<title>On-Demand GPUs | Omega Gradient Compute</title>
+<link rel="canonical" href="https://omegagradient.com/compute.html">
+<link rel="icon" href="./omega-gradient-logo.png" type="image/png" sizes="400x400">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./market.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="./index.html">
+      <img src="./omega-gradient-logo.png" alt="Omega Gradient">
+      <span class="brand-name">Omega Gradient</span>
+      <span class="brand-sub">Compute</span>
+    </a>
+    <nav class="topnav">
+      <a href="./compute.html" class="active">Marketplace</a>
+      <a href="./console.html">Console</a>
+      <a href="./supply.html">Supply</a>
+    </nav>
+    <div class="topbar-right" id="acct-area">
+      <button class="btn sm" id="signin-btn">Sign in</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <div>
+      <div class="eyebrow">On-Demand Marketplace</div>
+      <h1>Deploy GPUs in <span class="grad-text">seconds</span></h1>
+      <p class="sub">Live capacity across Omega Gradient’s global supply network. One console, one bill, one SSH key — we handle the rest.</p>
+    </div>
+    <div class="refresh-note" id="refresh-note"><span class="dot">●</span> loading inventory…</div>
+  </div>
+
+  <div class="market-grid">
+    <aside class="filters panel">
+      <div class="filter-group">
+        <div class="label">GPU Model</div>
+        <div id="gpu-filters"></div>
+      </div>
+      <div class="filter-group">
+        <div class="label">GPUs per node</div>
+        <div class="gpu-count-row" id="count-filters">
+          <button data-n="1">1×</button><button data-n="2">2×</button><button data-n="4">4×</button><button data-n="8">8×</button>
+        </div>
+      </div>
+      <div class="filter-group">
+        <div class="label">Region</div>
+        <select id="region-filter"><option value="">All regions</option></select>
+      </div>
+      <div class="filter-group">
+        <div class="label">Max price / hr</div>
+        <select id="price-filter">
+          <option value="">Any</option>
+          <option value="100">Under $1</option>
+          <option value="300">Under $3</option>
+          <option value="1000">Under $10</option>
+          <option value="3000">Under $30</option>
+        </select>
+      </div>
+      <button class="reset" id="reset-filters">Reset filters</button>
+    </aside>
+
+    <section class="listings panel">
+      <div class="listings-head">
+        <div>Configuration</div><div>Specs</div><div>Fabric</div><div>Type</div><div>Region</div><div>Price</div>
+      </div>
+      <div id="listing-rows"><div class="skeleton">Loading live inventory…</div></div>
+    </section>
+  </div>
+</main>
+
+<!-- deploy modal -->
+<div class="overlay" id="deploy-overlay">
+  <div class="modal panel">
+    <h2>Launch instance</h2>
+    <p class="modal-sub">Provisioned on Omega Gradient’s network. Billed per hour to your card, only while it exists.</p>
+    <div class="summary-box" id="deploy-summary"></div>
+    <div class="row">
+      <div class="field">
+        <label>Instance name</label>
+        <input type="text" id="dep-name" placeholder="training-run-1" maxlength="40">
+      </div>
+      <div class="field">
+        <label>Template</label>
+        <select id="dep-template">
+          <option value="ubuntu-cuda">Ubuntu 22.04 + CUDA</option>
+          <option value="pytorch">PyTorch (latest)</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>SSH public key</label>
+      <textarea id="dep-ssh" placeholder="ssh-ed25519 AAAA… you@machine" spellcheck="false"></textarea>
+    </div>
+    <div class="form-error" id="dep-error"></div>
+    <div class="actions">
+      <button class="btn" id="dep-cancel">Cancel</button>
+      <button class="btn primary" id="dep-launch">Deploy</button>
+    </div>
+  </div>
+</div>
+
+<script src="./market.js"></script>
+<script>
+(function () {
+  const { api, money, toast, requireSignIn, me, signOut, openCredits } = window.OG;
+
+  let all = [];
+  const state = { gpus: new Set(), counts: new Set(), region: "", maxPrice: "" };
+
+  const rowsEl = document.getElementById("listing-rows");
+  const gpuFiltersEl = document.getElementById("gpu-filters");
+  const regionEl = document.getElementById("region-filter");
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  }
+
+  function applyFilters() {
+    return all.filter((l) =>
+      (!state.gpus.size || state.gpus.has(l.gpu)) &&
+      (!state.counts.size || state.counts.has(l.gpuCount >= 8 ? 8 : l.gpuCount)) &&
+      (!state.region || l.region === state.region) &&
+      (!state.maxPrice || l.priceCentsHr <= Number(state.maxPrice))
+    );
+  }
+
+  function render() {
+    const list = applyFilters();
+    if (!list.length) {
+      rowsEl.innerHTML = '<div class="empty-state">No configurations match these filters right now.<br>Inventory refreshes every few minutes — try widening the search.</div>';
+      return;
+    }
+    rowsEl.innerHTML = list
+      .map((l) => {
+        const specs =
+          "<b>" + (l.vcpus || "—") + "</b> vCPU · <b>" + (l.memoryGb || "—") + "</b> GB RAM<br><b>" + (l.storageGb || "—") + "</b> GB storage";
+        return (
+          '<div class="listing-row">' +
+          '<div class="gpu-cell"><span class="gpu-badge">' + l.gpuCount + "×</span><div><div class=\"gpu-name\">" + esc(l.gpu) + "</div>" +
+          (l.vramGb ? '<div class="gpu-vram">' + l.vramGb + " GB VRAM / GPU</div>" : "") + "</div></div>" +
+          '<div class="spec-cell">' + specs + "</div>" +
+          "<div>" + (l.interconnect ? '<span class="chip teal">' + esc(l.interconnect) + "</span>" : "") + "</div>" +
+          '<div><span class="chip ' + (l.kind === "vm" ? "green" : "") + '">' + (l.kind === "vm" ? "VM" : "Container") + "</span></div>" +
+          '<div class="region-cell">' + esc(l.regionLabel) + "</div>" +
+          '<div style="display:flex;align-items:center;gap:12px;justify-content:space-between">' +
+          '<span class="price-cell">' + money(l.priceCentsHr) + '<span class="per">/hr</span></span>' +
+          '<button class="btn sm primary" data-deploy="' + esc(l.id) + '">Deploy</button></div>' +
+          "</div>"
+        );
+      })
+      .join("");
+  }
+
+  function buildFilters() {
+    const gpuCounts = {};
+    const regions = new Map();
+    for (const l of all) {
+      gpuCounts[l.gpu] = (gpuCounts[l.gpu] || 0) + 1;
+      regions.set(l.region, l.regionLabel);
+    }
+    gpuFiltersEl.innerHTML = Object.entries(gpuCounts)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 14)
+      .map(
+        ([gpu, n]) =>
+          '<label class="check-row"><input type="checkbox" value="' + esc(gpu) + '"> ' + esc(gpu) + ' <span class="count">' + n + "</span></label>"
+      )
+      .join("");
+    gpuFiltersEl.querySelectorAll("input").forEach((cb) =>
+      cb.addEventListener("change", () => {
+        cb.checked ? state.gpus.add(cb.value) : state.gpus.delete(cb.value);
+        render();
+      })
+    );
+    regionEl.innerHTML =
+      '<option value="">All regions</option>' +
+      [...regions.entries()].sort((a, b) => a[1].localeCompare(b[1])).map(([code, label]) => '<option value="' + esc(code) + '">' + esc(label) + "</option>").join("");
+  }
+
+  document.getElementById("count-filters").addEventListener("click", (e) => {
+    const btn = e.target.closest("button");
+    if (!btn) return;
+    const n = Number(btn.dataset.n);
+    btn.classList.toggle("on");
+    btn.classList.contains("on") ? state.counts.add(n) : state.counts.delete(n);
+    render();
+  });
+  regionEl.addEventListener("change", () => { state.region = regionEl.value; render(); });
+  document.getElementById("price-filter").addEventListener("change", (e) => { state.maxPrice = e.target.value; render(); });
+  document.getElementById("reset-filters").addEventListener("click", () => location.reload());
+
+  /* ---- deploy flow ---- */
+  const overlay = document.getElementById("deploy-overlay");
+  let selected = null;
+
+  rowsEl.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-deploy]");
+    if (!btn) return;
+    selected = all.find((l) => l.id === btn.dataset.deploy);
+    if (!selected) return;
+    requireSignIn(() => openDeploy());
+  });
+
+  function openDeploy() {
+    const l = selected;
+    document.getElementById("deploy-summary").innerHTML =
+      '<div class="srow"><span class="k">Configuration</span><span class="v">' + l.gpuCount + "× " + esc(l.gpu) + "</span></div>" +
+      '<div class="srow"><span class="k">Region</span><span class="v">' + esc(l.regionLabel) + "</span></div>" +
+      '<div class="srow"><span class="k">Specs</span><span class="v">' + (l.vcpus || "—") + " vCPU / " + (l.memoryGb || "—") + " GB / " + (l.storageGb || "—") + " GB</span></div>" +
+      '<div class="srow total"><span class="k">Price</span><span class="v">' + money(l.priceCentsHr) + "/hr · ~" + money(l.priceCentsHr * 24) + "/day</span></div>";
+    document.getElementById("dep-ssh").value = localStorage.getItem("og_ssh_key") || "";
+    document.getElementById("dep-error").textContent = "";
+    overlay.classList.add("open");
+  }
+
+  document.getElementById("dep-cancel").addEventListener("click", () => overlay.classList.remove("open"));
+
+  document.getElementById("dep-launch").addEventListener("click", async () => {
+    const btn = document.getElementById("dep-launch");
+    const errEl = document.getElementById("dep-error");
+    errEl.textContent = "";
+    btn.disabled = true;
+    btn.textContent = "Deploying…";
+    try {
+      const sshKey = document.getElementById("dep-ssh").value.trim();
+      localStorage.setItem("og_ssh_key", sshKey);
+      const payload = {
+        listingId: selected.id,
+        name: document.getElementById("dep-name").value.trim().toLowerCase(),
+        template: document.getElementById("dep-template").value,
+        sshPublicKey: sshKey,
+      };
+      try {
+        await api("/deploy", { method: "POST", body: JSON.stringify(payload) });
+      } catch (e) {
+        if (e.status === 402) {
+          // Prepaid: needs credits first. Buy, then retry this exact deploy.
+          overlay.classList.remove("open");
+          openCredits(async () => {
+            try {
+              await api("/deploy", { method: "POST", body: JSON.stringify(payload) });
+              toast("Instance deploying — opening console…");
+              setTimeout(() => (location.href = "./console.html"), 900);
+            } catch (err) {
+              toast(err.message, true);
+            }
+          });
+          return;
+        }
+        throw e;
+      }
+      overlay.classList.remove("open");
+      toast("Instance deploying — opening console…");
+      setTimeout(() => (location.href = "./console.html"), 900);
+    } catch (e) {
+      errEl.textContent = e.message;
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Deploy";
+    }
+  });
+
+  /* ---- account chip ---- */
+  async function paintAccount() {
+    const area = document.getElementById("acct-area");
+    const profile = await me();
+    if (profile.signedIn) {
+      area.innerHTML = '<span class="acct-chip">' + esc(profile.email) + '</span><button class="btn sm" id="signout-btn">Sign out</button>';
+      document.getElementById("signout-btn").addEventListener("click", signOut);
+    } else {
+      area.innerHTML = '<button class="btn sm" id="signin-btn">Sign in</button>';
+      document.getElementById("signin-btn").addEventListener("click", () => requireSignIn(paintAccount));
+    }
+  }
+  document.addEventListener("og:signed-in", paintAccount);
+
+  /* ---- load ---- */
+  (async function load() {
+    paintAccount();
+    try {
+      const data = await api("/catalog");
+      all = data.listings || [];
+      buildFilters();
+      render();
+      const note = document.getElementById("refresh-note");
+      note.innerHTML = '<span class="dot">●</span> ' + all.length + " live configurations";
+    } catch (e) {
+      rowsEl.innerHTML = '<div class="empty-state">Could not load inventory — please retry in a moment.</div>';
+    }
+  })();
+})();
+</script>
+</body>
+</html>

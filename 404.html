@@ -392,6 +392,7 @@
       <a class="nav-link" href="#access">ACCESS</a>
       <a class="nav-link" href="#market">PRICING</a>
       <a class="nav-link" href="#network">NETWORK</a>
+      <a class="nav-link" href="./compute.html" style="color:var(--gold-bright)">ON-DEMAND</a>
       <a class="nav-link" href="#contact">CONTACT</a>
     </nav>
     <div class="header-actions">
@@ -578,7 +579,7 @@
     <h2>From market scan to live GPU environment.</h2>
     <button type="button" id="startSourcingBtn" class="btn btn-gold">START SOURCING</button>
 
-    <form class="cta-form" id="ctaForm" novalidate>
+    <form class="cta-form" id="ctaForm" data-endpoint="/api/capacity-request" novalidate>
       <label class="form-trap" aria-hidden="true" tabindex="-1">Website
         <input name="website" type="text" autocomplete="off" tabindex="-1">
       </label>
@@ -783,7 +784,8 @@
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "SUBMITTING…"; }
       if (status) status.textContent = "Submitting your request…";
       try {
-        var res = await fetch("/api/capacity-request", {
+        var endpoint = form.dataset.endpoint || "/api/capacity-request";
+        var res = await fetch(endpoint, {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(payload)

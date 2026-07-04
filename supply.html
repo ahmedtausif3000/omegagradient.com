@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000000">
+<meta name="description" content="List your GPUs on Omega Gradient. Individuals, prosumers, and datacenters — set your price, install one agent, get paid per rented hour.">
+<title>List Your GPUs | Omega Gradient Compute</title>
+<link rel="canonical" href="https://omegagradient.com/supply.html">
+<link rel="icon" href="./omega-gradient-logo.png" type="image/png" sizes="400x400">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./market.css">
+<style>
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 26px 0 34px; }
+  @media (max-width: 768px) { .steps { grid-template-columns: 1fr; } }
+  .step { padding: 18px 20px; }
+  .step .n { font-family: var(--mono); color: var(--gold); font-size: 11px; letter-spacing: 0.2em; }
+  .step h3 { font-family: var(--display); font-size: 15px; margin: 8px 0 6px; }
+  .step p { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0; }
+  .supply-grid { display: grid; grid-template-columns: 380px 1fr; gap: 22px; padding-bottom: 80px; align-items: start; }
+  @media (max-width: 960px) { .supply-grid { grid-template-columns: 1fr; } }
+  .form-panel { padding: 22px; }
+  .form-panel h3 { font-family: var(--display); font-size: 16px; margin-bottom: 14px; }
+  .form-panel .field { margin-bottom: 14px; }
+  .form-panel label { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+  .form-panel input, .form-panel select { width: 100%; background: var(--bg); border: 1px solid var(--line); color: var(--text); padding: 10px 11px; font-size: 13px; }
+  .form-panel input:focus, .form-panel select:focus { outline: none; border-color: var(--line-strong); }
+  .form-panel .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .earn-hint { font-family: var(--mono); font-size: 11px; color: var(--green); min-height: 16px; }
+  .machine-card { padding: 16px 20px; display: flex; flex-direction: column; gap: 8px; }
+  .machine-list { display: flex; flex-direction: column; gap: 12px; }
+  .install-box { background: var(--bg); border: 1px solid var(--line-strong); padding: 12px 14px; font-family: var(--mono); font-size: 11px; color: var(--teal); overflow-x: auto; white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="./index.html">
+      <img src="./omega-gradient-logo.png" alt="Omega Gradient">
+      <span class="brand-name">Omega Gradient</span>
+      <span class="brand-sub">Compute</span>
+    </a>
+    <nav class="topnav">
+      <a href="./compute.html">Marketplace</a>
+      <a href="./console.html">Console</a>
+      <a href="./supply.html" class="active">Supply</a>
+    </nav>
+    <div class="topbar-right" id="acct-area"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <div>
+      <div class="eyebrow">Supply</div>
+      <h1>List your GPUs. <span class="grad-text">Get paid hourly.</span></h1>
+      <p class="sub">One idle workstation or a whole datacenter — set your price, run one command, and your hardware joins the Omega Gradient marketplace. You earn your full ask for every rented hour.</p>
+    </div>
+  </div>
+
+  <div class="steps">
+    <div class="step panel"><div class="n">01</div><h3>Describe your machine</h3><p>GPU model, count, specs, region, and your hourly ask. Buyers see specs and region — never your identity.</p></div>
+    <div class="step panel"><div class="n">02</div><h3>Run the agent</h3><p>One command installs a lightweight agent. It verifies your hardware with nvidia-smi and works behind NAT — no ports to open, no inbound firewall rules.</p></div>
+    <div class="step panel"><div class="n">03</div><h3>Earn per rented hour</h3><p>When someone rents your machine, the agent grants them SSH access automatically and revokes it when they're done. Your earnings accrue per hour.</p></div>
+  </div>
+
+  <div class="supply-grid" id="portal" style="display:none">
+    <aside class="form-panel panel" id="form-area"></aside>
+    <section>
+      <div class="side-row" style="margin-bottom:14px"><span class="k eyebrow">Your machines</span><span class="v" id="total-earned"></span></div>
+      <div class="machine-list" id="machine-list"></div>
+    </section>
+  </div>
+  <div id="signin-prompt" style="padding: 30px 0 90px">
+    <button class="btn primary" id="start-btn">Sign in to start listing</button>
+  </div>
+</main>
+
+<script src="./market.js"></script>
+<script>
+(function () {
+  const { api, money, toast, requireSignIn, me, signOut } = window.OG;
+  const REGIONS = { "us-east": "US · East", "us-central": "US · Central", "us-west": "US · West", "canada": "Canada", "europe-west": "Europe · West", "europe-north": "Europe · North", "europe-south": "Europe · South", "europe-east": "Europe · East", "middle-east": "Middle East", "india": "India", "asia-ne": "Asia · Northeast", "asia-se": "Asia · Southeast", "oceania": "Oceania", "latam": "Latin America", "africa": "Africa" };
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  }
+
+  const formArea = document.getElementById("form-area");
+  const listEl = document.getElementById("machine-list");
+
+  function renderRegister() {
+    formArea.innerHTML =
+      "<h3>Become a supplier</h3>" +
+      '<div class="field"><label>Display name</label><input id="s-name" placeholder="Your name or company"></div>' +
+      '<div class="field"><label>You are a…</label><select id="s-type"><option value="individual">Individual</option><option value="prosumer">Prosumer / homelab</option><option value="datacenter">Datacenter / cloud</option></select></div>' +
+      '<div class="form-error" id="s-err"></div>' +
+      '<button class="btn primary" id="s-register">Register</button>';
+    document.getElementById("s-register").onclick = async () => {
+      try {
+        const r = await api("/supply/register", { method: "POST", body: JSON.stringify({ displayName: document.getElementById("s-name").value, supplierType: document.getElementById("s-type").value }) });
+        if (r.error) throw new Error(r.error);
+        toast("Supplier account created");
+        load();
+      } catch (e) { document.getElementById("s-err").textContent = e.message; }
+    };
+  }
+
+  function renderAddMachine() {
+    formArea.innerHTML =
+      "<h3>Add a machine</h3>" +
+      '<div class="field"><label>Machine name (private)</label><input id="m-name" placeholder="rack-3-node-1"></div>' +
+      '<div class="row2"><div class="field"><label>GPU model</label><input id="m-gpu" placeholder="RTX 4090"></div>' +
+      '<div class="field"><label>GPU count</label><input id="m-count" type="number" value="1" min="1" max="16"></div></div>' +
+      '<div class="row2"><div class="field"><label>VRAM / GPU (GB)</label><input id="m-vram" type="number" placeholder="24"></div>' +
+      '<div class="field"><label>vCPUs</label><input id="m-vcpus" type="number" placeholder="16"></div></div>' +
+      '<div class="row2"><div class="field"><label>RAM (GB)</label><input id="m-ram" type="number" placeholder="64"></div>' +
+      '<div class="field"><label>Storage (GB)</label><input id="m-disk" type="number" placeholder="500"></div></div>' +
+      '<div class="field"><label>Region</label><select id="m-region">' + Object.entries(REGIONS).map(([c, l]) => '<option value="' + c + '">' + l + "</option>").join("") + "</select></div>" +
+      '<div class="field"><label>Your ask ($/hr for the whole machine)</label><input id="m-ask" type="number" step="0.01" placeholder="0.40"><div class="earn-hint" id="m-hint"></div></div>' +
+      '<div class="form-error" id="m-err"></div>' +
+      '<button class="btn primary" id="m-add">Add machine</button>';
+    document.getElementById("m-ask").addEventListener("input", (e) => {
+      const v = Number(e.target.value);
+      document.getElementById("m-hint").textContent = v > 0 ? "You earn $" + v.toFixed(2) + "/hr · listed at $" + (Math.ceil(v * 105) / 100).toFixed(2) + "/hr" : "";
+    });
+    document.getElementById("m-add").onclick = async () => {
+      const err = document.getElementById("m-err");
+      err.textContent = "";
+      try {
+        const r = await api("/supply/machines", { method: "POST", body: JSON.stringify({
+          name: document.getElementById("m-name").value,
+          gpuModel: document.getElementById("m-gpu").value,
+          gpuCount: Number(document.getElementById("m-count").value),
+          vramGb: Number(document.getElementById("m-vram").value),
+          vcpus: Number(document.getElementById("m-vcpus").value),
+          memoryGb: Number(document.getElementById("m-ram").value),
+          storageGb: Number(document.getElementById("m-disk").value),
+          regionCode: document.getElementById("m-region").value,
+          askCentsHr: Math.round(Number(document.getElementById("m-ask").value) * 100),
+        })});
+        if (r.error) throw new Error(r.error);
+        showInstall(r);
+        load();
+      } catch (e) { err.textContent = e.message; }
+    };
+  }
+
+  function showInstall(r) {
+    const overlay = document.createElement("div");
+    overlay.className = "overlay open";
+    overlay.innerHTML =
+      '<div class="modal panel"><h2>Install the agent</h2>' +
+      '<p class="modal-sub">Run this on the machine as root. <b>This command is shown only once</b> — it contains the machine\'s secret token. The machine appears online within a minute of the agent starting.</p>' +
+      '<div class="install-box" id="inst-cmd">' + esc(r.installCommand) + "</div>" +
+      '<div class="actions"><button class="btn" id="inst-copy">Copy command</button><button class="btn primary" id="inst-done">Done</button></div></div>';
+    document.body.appendChild(overlay);
+    overlay.querySelector("#inst-copy").onclick = () => navigator.clipboard.writeText(r.installCommand).then(() => toast("Copied"));
+    overlay.querySelector("#inst-done").onclick = () => overlay.remove();
+  }
+
+  function heartbeatAge(ts) {
+    if (!ts) return "never";
+    const s = Math.floor((Date.now() - new Date(ts)) / 1000);
+    return s < 90 ? s + "s ago" : Math.floor(s / 60) + "m ago";
+  }
+
+  function renderMachines(d) {
+    document.getElementById("total-earned").textContent = "earned " + money(d.totalEarnedCents || 0);
+    if (!d.machines.length) {
+      listEl.innerHTML = '<div class="empty-state panel">No machines yet — add your first on the left.</div>';
+      return;
+    }
+    listEl.innerHTML = d.machines.map((m) => {
+      const verify = m.hardwareVerified
+        ? '<span class="chip green">verified ' + esc(m.verifiedGpu || "") + "</span>"
+        : m.verifiedGpu ? '<span class="chip" style="color:var(--red)">mismatch: saw ' + esc(m.verifiedGpu) + "</span>" : '<span class="chip">awaiting agent</span>';
+      const toggle = m.status === "disabled"
+        ? '<button class="btn sm" data-en="' + m.id + '">Enable</button>'
+        : m.status !== "rented" ? '<button class="btn sm danger" data-dis="' + m.id + '">Disable</button>' : "";
+      return '<div class="machine-card panel">' +
+        '<div class="inst-title"><span class="inst-name">' + esc(m.name) + '</span><span class="status-pill ' + esc(m.status === "online" ? "running" : m.status === "rented" ? "provisioning" : "terminated") + '">' + esc(m.status) + "</span>" + verify + "</div>" +
+        '<div class="inst-meta"><span><b>' + m.gpuCount + "× " + esc(m.gpu) + "</b></span><span>" + esc(m.regionLabel) + "</span><span>ask " + money(m.askCentsHr) + "/hr</span><span>heartbeat " + heartbeatAge(m.lastHeartbeat) + "</span><span>earned <b>" + money(m.earnedCents) + "</b></span>" + toggle + "</div></div>";
+    }).join("");
+  }
+
+  listEl.addEventListener("click", async (e) => {
+    const en = e.target.closest("[data-en]"); const dis = e.target.closest("[data-dis]");
+    if (!en && !dis) return;
+    try {
+      await api("/supply/machines/" + (en ? en.dataset.en : dis.dataset.dis) + "/" + (en ? "enable" : "disable"), { method: "POST" });
+      load();
+    } catch (err) { toast(err.message, true); }
+  });
+
+  async function paintAccount() {
+    const area = document.getElementById("acct-area");
+    const profile = await me();
+    if (profile.signedIn) {
+      area.innerHTML = '<span class="acct-chip">' + esc(profile.email) + '</span><button class="btn sm" id="so">Sign out</button>';
+      document.getElementById("so").addEventListener("click", signOut);
+    } else {
+      area.innerHTML = '<button class="btn sm" id="si">Sign in</button>';
+      document.getElementById("si").addEventListener("click", () => requireSignIn(load));
+    }
+  }
+
+  async function load() {
+    paintAccount();
+    const profile = await me();
+    if (!profile.signedIn) return;
+    document.getElementById("signin-prompt").style.display = "none";
+    document.getElementById("portal").style.display = "";
+    const d = await api("/supply/me");
+    if (!d.registered) { renderRegister(); listEl.innerHTML = ""; document.getElementById("total-earned").textContent = ""; return; }
+    renderAddMachine();
+    renderMachines(d);
+  }
+
+  document.getElementById("start-btn").addEventListener("click", () => requireSignIn(load));
+  document.addEventListener("og:signed-in", load);
+  load();
+  setInterval(() => { me().then((p) => { if (p.signedIn) api("/supply/me").then((d) => { if (d.registered) renderMachines(d); }).catch(() => {}); }); }, 15000);
+})();
+</script>
+</body>
+</html>

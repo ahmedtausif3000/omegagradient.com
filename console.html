@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000000">
+<meta name="robots" content="noindex">
+<title>Console | Omega Gradient Compute</title>
+<link rel="icon" href="./omega-gradient-logo.png" type="image/png" sizes="400x400">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./market.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="./index.html">
+      <img src="./omega-gradient-logo.png" alt="Omega Gradient">
+      <span class="brand-name">Omega Gradient</span>
+      <span class="brand-sub">Compute</span>
+    </a>
+    <nav class="topnav">
+      <a href="./compute.html">Marketplace</a>
+      <a href="./console.html" class="active">Console</a>
+      <a href="./supply.html">Supply</a>
+    </nav>
+    <div class="topbar-right" id="acct-area"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="page-head">
+    <div>
+      <div class="eyebrow">Console</div>
+      <h1>Your instances</h1>
+      <p class="sub">Live status, SSH access, and usage for everything you’re running on Omega Gradient.</p>
+    </div>
+    <a class="btn" href="./compute.html">+ New instance</a>
+  </div>
+
+  <div class="console-grid">
+    <section class="inst-list" id="inst-list">
+      <div class="skeleton panel">Loading…</div>
+    </section>
+
+    <aside class="side-panel panel">
+      <h3>Billing</h3>
+      <div class="side-row"><span class="k">Account</span><span class="v" id="b-email">—</span></div>
+      <div class="side-row"><span class="k">Credit balance</span><span class="v" id="b-balance">—</span></div>
+      <div class="side-row"><span class="k">Auto top-up card</span><span class="v" id="b-card">—</span></div>
+      <button class="btn primary" id="b-add-credits">Add credits</button>
+      <p style="font-size:12px;color:var(--muted);line-height:1.6">Compute is prepaid: hourly usage draws down your balance, and we auto-top-up from your saved card when it runs low. Instances stop if your balance is exhausted.</p>
+    </aside>
+  </div>
+</main>
+
+<script src="./market.js"></script>
+<script>
+(function () {
+  const { api, money, toast, requireSignIn, me, signOut, openCredits } = window.OG;
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  }
+
+  const listEl = document.getElementById("inst-list");
+
+  function renderInstances(instances) {
+    if (!instances.length) {
+      listEl.innerHTML =
+        '<div class="empty-state panel">No instances yet.<br><br><a class="btn primary" href="./compute.html">Browse the marketplace</a></div>';
+      return;
+    }
+    listEl.innerHTML = instances
+      .map((i) => {
+        const started = new Date(i.createdAt);
+        const meta =
+          '<div class="inst-meta">' +
+          "<span><b>" + i.gpuCount + "× " + esc(i.gpu) + "</b></span>" +
+          "<span>" + esc(i.regionLabel) + "</span>" +
+          "<span>" + esc(i.template || "") + "</span>" +
+          "<span>since " + started.toLocaleString() + "</span>" +
+          "</div>";
+        const ssh = i.sshCommand
+          ? '<div class="ssh-line"><span>' + esc(i.sshCommand) + '</span><button data-copy="' + esc(i.sshCommand) + '">Copy</button></div>'
+          : i.status === "provisioning"
+            ? '<div class="ssh-line"><span style="color:var(--amber)">Provisioning — SSH details will appear here…</span></div>'
+            : "";
+        const terminate =
+          i.status === "running" || i.status === "provisioning"
+            ? '<button class="btn sm danger" data-terminate="' + esc(i.id) + '">Terminate</button>'
+            : "";
+        return (
+          '<div class="inst-card panel">' +
+          '<div class="inst-main">' +
+          '<div class="inst-title"><span class="inst-name">' + esc(i.name) + '</span><span class="status-pill ' + esc(i.status) + '">' + esc(i.status) + "</span></div>" +
+          meta + ssh +
+          (i.error ? '<div style="color:var(--red);font-size:12px">' + esc(i.error) + "</div>" : "") +
+          "</div>" +
+          '<div class="inst-side">' +
+          '<span class="inst-price">' + money(i.priceCentsHr) + "/hr</span>" +
+          '<span class="inst-accrued">accrued ' + money(i.accruedCents || 0) + "</span>" +
+          terminate +
+          "</div></div>"
+        );
+      })
+      .join("");
+  }
+
+  listEl.addEventListener("click", async (e) => {
+    const copy = e.target.closest("[data-copy]");
+    if (copy) {
+      navigator.clipboard.writeText(copy.dataset.copy).then(() => toast("SSH command copied"));
+      return;
+    }
+    const term = e.target.closest("[data-terminate]");
+    if (term) {
+      if (!confirm("Terminate this instance? This cannot be undone and final usage will be billed.")) return;
+      term.disabled = true;
+      try {
+        await api("/instances/" + term.dataset.terminate + "/terminate", { method: "POST" });
+        toast("Instance terminated");
+        refresh();
+      } catch (err) {
+        toast(err.message, true);
+        term.disabled = false;
+      }
+    }
+  });
+
+  async function paintBilling() {
+    const profile = await me();
+    if (!profile.signedIn) return;
+    document.getElementById("b-email").textContent = profile.email;
+    const balanceEl = document.getElementById("b-balance");
+    const balance = profile.creditBalanceCents || 0;
+    balanceEl.textContent = money(balance);
+    balanceEl.className = balance > 0 ? "v ok" : "v warn";
+    const cardEl = document.getElementById("b-card");
+    if (profile.hasPaymentMethod) {
+      cardEl.textContent = "on file";
+      cardEl.className = "v ok";
+    } else {
+      cardEl.textContent = "none yet";
+      cardEl.className = "v warn";
+    }
+    document.getElementById("b-add-credits").onclick = () => openCredits(paintBilling);
+  }
+  document.addEventListener("og:credits-changed", paintBilling);
+
+  async function refresh() {
+    try {
+      const data = await api("/instances");
+      renderInstances(data.instances || []);
+    } catch (e) {
+      if (e.status === 401) return; // not signed in yet
+      toast(e.message, true);
+    }
+  }
+
+  async function paintAccount() {
+    const area = document.getElementById("acct-area");
+    const profile = await me();
+    if (profile.signedIn) {
+      area.innerHTML = '<span class="acct-chip">' + esc(profile.email) + '</span><button class="btn sm" id="signout-btn">Sign out</button>';
+      document.getElementById("signout-btn").addEventListener("click", signOut);
+    } else {
+      area.innerHTML = '<button class="btn sm" id="signin-btn">Sign in</button>';
+      document.getElementById("signin-btn").addEventListener("click", () => requireSignIn(boot));
+    }
+  }
+
+  function boot() {
+    paintAccount();
+    paintBilling();
+    refresh();
+  }
+
+  // Returning from Stripe Checkout — verify the session and credit the balance.
+  const qs = new URLSearchParams(location.search);
+  if (qs.get("credits") === "success" && qs.get("session_id")) {
+    api("/billing/confirm", { method: "POST", body: JSON.stringify({ sessionId: qs.get("session_id") }) })
+      .then((r) => {
+        toast(r.creditedCents ? "Credits added — " + money(r.creditedCents) : "Credits confirmed");
+        history.replaceState({}, "", "./console.html");
+        paintBilling();
+      })
+      .catch((e) => toast(e.message, true));
+  } else if (qs.get("credits") === "cancelled") {
+    toast("Credit purchase cancelled", true);
+    history.replaceState({}, "", "./console.html");
+  }
+
+  requireSignIn(boot);
+  setInterval(refresh, 10000);
+})();
+</script>
+</body>
+</html>
