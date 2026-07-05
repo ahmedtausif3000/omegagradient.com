@@ -20,7 +20,9 @@
   .step h3 { font-family: var(--display); font-size: 15px; margin: 8px 0 6px; }
   .step p { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0; }
   .supply-grid { display: grid; grid-template-columns: 380px 1fr; gap: 22px; padding-bottom: 80px; align-items: start; }
+  .supply-grid.solo { grid-template-columns: minmax(0, 460px); justify-content: center; }
   @media (max-width: 960px) { .supply-grid { grid-template-columns: 1fr; } }
+  .machines-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 4px 2px 14px; }
   .form-panel { padding: 22px; }
   .form-panel h3 { font-family: var(--display); font-size: 16px; margin-bottom: 14px; }
   .form-panel .field { margin-bottom: 14px; }
@@ -69,8 +71,8 @@
 
   <div class="supply-grid" id="portal" style="display:none">
     <aside class="form-panel panel" id="form-area"></aside>
-    <section>
-      <div class="side-row" style="margin-bottom:14px"><span class="k eyebrow">Your machines</span><span class="v" id="total-earned"></span></div>
+    <section id="machines-col">
+      <div class="machines-head"><span class="k eyebrow">Your machines</span><span class="v" id="total-earned"></span></div>
       <div class="machine-list" id="machine-list"></div>
     </section>
   </div>
@@ -213,9 +215,18 @@
     const profile = await me();
     if (!profile.signedIn) return;
     document.getElementById("signin-prompt").style.display = "none";
-    document.getElementById("portal").style.display = "";
+    const portal = document.getElementById("portal");
+    portal.style.display = "";
     const d = await api("/supply/me");
-    if (!d.registered) { renderRegister(); listEl.innerHTML = ""; document.getElementById("total-earned").textContent = ""; return; }
+    if (!d.registered) {
+      // No machines column yet — center the register form.
+      portal.classList.add("solo");
+      document.getElementById("machines-col").style.display = "none";
+      renderRegister();
+      return;
+    }
+    portal.classList.remove("solo");
+    document.getElementById("machines-col").style.display = "";
     renderAddMachine();
     renderMachines(d);
   }

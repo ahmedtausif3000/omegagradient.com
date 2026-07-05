@@ -74,7 +74,7 @@
 
     <section class="listings panel">
       <div class="listings-head">
-        <div>Configuration</div><div>Specs</div><div>Fabric</div><div>Type</div><div>Region</div><div>Price</div>
+        <div>Configuration</div><div>Specs</div><div>Fabric</div><div>Type</div><div>Region</div><div class="col-price">Price</div><div class="col-action"></div>
       </div>
       <div id="listing-rows"><div class="skeleton">Loading live inventory…</div></div>
     </section>
@@ -85,7 +85,7 @@
 <div class="overlay" id="deploy-overlay">
   <div class="modal panel">
     <h2>Launch instance</h2>
-    <p class="modal-sub">Provisioned on Omega Gradient’s network. Billed per hour to your card, only while it exists.</p>
+    <p class="modal-sub">Provisioned on Omega Gradient’s network. Billed per hour from your prepaid credits — only while it exists.</p>
     <div class="summary-box" id="deploy-summary"></div>
     <div class="row">
       <div class="field">
@@ -155,9 +155,8 @@
           "<div>" + (l.interconnect ? '<span class="chip teal">' + esc(l.interconnect) + "</span>" : "") + "</div>" +
           '<div><span class="chip ' + (l.kind === "vm" ? "green" : "") + '">' + (l.kind === "vm" ? "VM" : "Container") + "</span></div>" +
           '<div class="region-cell">' + esc(l.regionLabel) + "</div>" +
-          '<div style="display:flex;align-items:center;gap:12px;justify-content:space-between">' +
-          '<span class="price-cell">' + money(l.priceCentsHr) + '<span class="per">/hr</span></span>' +
-          '<button class="btn sm primary" data-deploy="' + esc(l.id) + '">Deploy</button></div>' +
+          '<div class="price-cell">' + money(l.priceCentsHr) + '<span class="per">/hr</span></div>' +
+          '<div class="action-cell"><button class="btn sm primary" data-deploy="' + esc(l.id) + '">Deploy</button></div>' +
           "</div>"
         );
       })
