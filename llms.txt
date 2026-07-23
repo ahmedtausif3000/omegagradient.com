@@ -8,7 +8,7 @@ Two things distinguish the data on this site: (1) marketplace listings are aggre
 
 - [Home](https://omegagradient.com/): brokerage overview and live GPU market feed.
 - [Cloud GPU Price Index](https://omegagradient.com/gpus/): min/median/max $/GPU-hr for 14 GPU families, updated daily (last: 2026-07-23).
-- [GPUs available right now](https://omegagradient.com/gpus/availability.html): 124 live deployable listings from $0.06/GPU-hr.
+- [GPUs available right now](https://omegagradient.com/gpus/availability.html): 116 live deployable listings from $0.06/GPU-hr.
 - [On-demand marketplace](https://omegagradient.com/compute.html): deploy GPU instances in seconds; one console, one bill.
 - [Provider pricing report](https://omegagradient.com/gpu-supplier-pricing.html): named-provider public list prices with evidence links.
 - [Sell capacity](https://omegagradient.com/supply.html): onboard data-center / neocloud GPU supply.
