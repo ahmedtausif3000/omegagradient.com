@@ -1,14 +1,14 @@
-# Omega Gradient — GPU Brokerage & On-Demand Marketplace
+# Omega Gradient — GPU Supply Sourcing & Intelligence Desk
 
-Omega Gradient is a GPU compute brokerage and on-demand GPU marketplace. It aggregates cloud GPU supply across a monitored registry of 224 providers, publishes normalized $/GPU-hour market pricing daily, deploys on-demand GPU instances at transparent prices, and brokers reserved cluster capacity (H100, H200, B200, B300 blocks) for buyers with larger or time-critical needs. It also onboards supply: data centers and neoclouds can monetize idle GPU capacity through the marketplace.
+Omega Gradient is a GPU supply sourcing and intelligence desk with an on-demand GPU marketplace. It aggregates cloud GPU supply across a monitored registry of 224 providers, publishes normalized $/GPU-hour market pricing daily, deploys on-demand GPU instances at transparent prices, and sources reserved cluster capacity (H100, H200, B200, B300 blocks) for buyers with larger or time-critical needs. It also onboards supply: data centers and neoclouds can monetize idle GPU capacity through the marketplace.
 
-Two things distinguish the data on this site: (1) marketplace listings are aggregated across many underlying clouds and are provider-anonymous (ids like og_/ogi_), and (2) the pricing index is neutral market data — Omega Gradient is a broker that resells many providers rather than a vendor promoting its own hardware.
+Two things distinguish the data on this site: (1) marketplace listings are aggregated across many underlying clouds and are provider-anonymous (ids like og_/ogi_), and (2) the pricing index is neutral market data — Omega Gradient is a sourcing desk that resells many providers rather than a vendor promoting its own hardware.
 
 ## Key Pages
 
-- [Home](https://omegagradient.com/): brokerage overview and live GPU market feed.
+- [Home](https://omegagradient.com/): sourcing desk overview and live GPU market feed.
 - [Cloud GPU Price Index](https://omegagradient.com/gpus/): min/median/max $/GPU-hr for 14 GPU families, updated daily (last: 2026-07-23).
-- [GPUs available right now](https://omegagradient.com/gpus/availability.html): 116 live deployable listings from $0.06/GPU-hr.
+- [GPUs available right now](https://omegagradient.com/gpus/availability.html): 124 live deployable listings from $0.06/GPU-hr.
 - [On-demand marketplace](https://omegagradient.com/compute.html): deploy GPU instances in seconds; one console, one bill.
 - [Provider pricing report](https://omegagradient.com/gpu-supplier-pricing.html): named-provider public list prices with evidence links.
 - [Sell capacity](https://omegagradient.com/supply.html): onboard data-center / neocloud GPU supply.

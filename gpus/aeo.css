@@ -104,8 +104,19 @@ table.data-table tr:hover td { background: var(--panel-2); }
 .method-quote .src { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 6px; }
 
 .faq-section { margin-top: 44px; }
-.faq-item { padding: 16px 18px; margin-bottom: 10px; }
-.faq-item p { color: var(--muted); margin-top: 6px; font-size: 14px; }
+.faq-item { padding: 0; margin-bottom: 10px; }
+.faq-item summary { display: block; list-style: none; cursor: pointer; position: relative; padding: 16px 48px 16px 18px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+"; position: absolute; top: 15px; right: 16px;
+  font-family: var(--mono); font-size: 15px; line-height: 1; color: var(--gold);
+  transition: color 0.15s ease;
+}
+.faq-item[open] summary::after { content: "–"; color: var(--gold-bright); }
+.faq-item summary:hover::after, .faq-item summary:hover h3 { color: var(--gold-bright); }
+.faq-item summary h3 { margin: 0; transition: color 0.15s ease; }
+.faq-answer { margin: 0 18px; padding: 12px 0 16px; border-top: 1px solid var(--line); }
+.faq-item p { color: var(--muted); margin: 0; font-size: 14px; }
 
 .site-foot { border-top: 1px solid var(--line); margin-top: 40px; padding: 40px 0 30px; }
 .foot-cols { display: flex; gap: 60px; flex-wrap: wrap; }

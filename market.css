@@ -405,10 +405,20 @@ input, select, textarea { font: inherit; }
 /* ---------- FAQ blocks (compute / supply) ---------- */
 .faq-section { padding: 56px 0 72px; border-top: 1px solid var(--line); margin-top: 48px; }
 .faq-section h2 { font-family: var(--display); font-size: 24px; letter-spacing: -0.02em; margin: 6px 0 22px; }
-.faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; align-items: start; }
 @media (max-width: 860px) { .faq-grid { grid-template-columns: 1fr; } }
-.faq-item { padding: 22px 24px 24px; }
-.faq-item h3 { font-family: var(--display); font-size: 16px; letter-spacing: -0.01em; margin: 0 0 10px; }
+.faq-item { padding: 0; }
+.faq-item summary { display: block; list-style: none; cursor: pointer; padding: 20px 56px 20px 24px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+"; position: absolute; top: 18px; right: 22px;
+  font-family: var(--mono); font-size: 16px; line-height: 1; color: var(--gold);
+  transition: color 0.15s ease;
+}
+.faq-item[open] summary::after { content: "–"; color: var(--gold-bright); }
+.faq-item summary:hover::after, .faq-item summary:hover h3 { color: var(--gold-bright); }
+.faq-item h3 { font-family: var(--display); font-size: 16px; letter-spacing: -0.01em; margin: 0; transition: color 0.15s ease; }
+.faq-answer { margin: 0 24px; padding: 14px 0 22px; border-top: 1px solid var(--line); }
 .faq-item p { color: var(--muted); font-size: 13.5px; line-height: 1.7; margin: 0; }
 .faq-item p b { color: var(--gold); font-weight: 500; }
 .faq-item a { color: var(--gold); }

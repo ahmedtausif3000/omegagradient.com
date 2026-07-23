@@ -54,31 +54,31 @@
       "name": "How fast can I deploy a GPU instance?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Instances deploy in minutes: pick a configuration from the live catalog, choose a template such as Ubuntu plus CUDA, PyTorch, or JupyterLab, add an SSH public key, and launch. The listing shows a typical boot time for each configuration before you deploy."
+        "text": "Instances deploy in minutes. Pick a configuration from the live catalog above, choose a template — Ubuntu 22.04 + CUDA, PyTorch, or JupyterLab — add an SSH public key (or generate one in the browser), and launch. Each listing shows its typical boot time before you deploy."
       }
     },
     {
       "@type": "Question",
-      "name": "How does marketplace pricing and billing work?",
+      "name": "How does pricing and billing work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Every listing shows one all-in hourly price, with a per-GPU breakdown for multi-GPU nodes. Billing is prepaid from credits and accrues per hour only while the instance exists — terminate it and charges stop. There are no long-term commitments on on-demand listings."
+        "text": "Every listing shows one all-in hourly price, with a per-GPU breakdown on multi-GPU nodes. Billing is prepaid from credits and accrues per hour only while the instance exists — terminate it and charges stop. No long-term commitment on on-demand listings."
       }
     },
     {
       "@type": "Question",
-      "name": "Which GPUs are available on the marketplace?",
+      "name": "Which GPUs are available right now?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Inventory spans consumer and datacenter GPUs — from budget cards through RTX-class workstations up to H100-class datacenter accelerators — across container, VM, and bare-metal configurations in regions worldwide. The catalog refreshes every few minutes, so the live list on this page is the source of truth."
+        "text": "Inventory spans consumer and datacenter silicon — budget cards, RTX-class workstations, and H100-class accelerators — as containers, VMs, and bare metal across regions worldwide. The catalog refreshes every few minutes; the live list above is the source of truth. For market-rate context, see the GPU supplier pricing report."
       }
     },
     {
       "@type": "Question",
-      "name": "Who supplies the GPUs behind Omega Gradient listings?",
+      "name": "Who supplies the GPUs behind these listings?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Capacity comes from Omega Gradient's vetted global supply network of datacenters, neoclouds, and independent operators. Listings are provider-anonymous: buyers see verified specs, region, and price, and Omega Gradient handles provisioning, access, and billing through one console."
+        "text": "Capacity comes from Omega Gradient's vetted global supply network of datacenters, neoclouds, and independent operators. Listings are provider-anonymous: you see verified specs, region, and price, and we handle provisioning, SSH access, and billing in one console. Have hardware of your own? List your GPUs."
       }
     }
   ]
@@ -180,12 +180,21 @@
     <h2>Live GPU inventory snapshot</h2>
     <!-- generated compute snapshot fragment: inject into compute.html #live-snapshot -->
 <section class="aeo-snapshot" id="live-snapshot-content">
-  <p class="snapshot-meta mono">116 listings · from $0.06/GPU/hr · snapshot 2026-07-23</p>
-  <p>Top 40 of 116 live listings (flagship GPUs first). Full sortable board above requires JavaScript; this table is the static daily snapshot. Complete list: <a href="/gpus/availability.html">GPUs available right now</a>.</p>
+  <p class="snapshot-meta mono">124 listings · from $0.06/GPU/hr · snapshot 2026-07-23</p>
+  <p>Top 40 of 124 live listings (flagship GPUs first). Full sortable board above requires JavaScript; this table is the static daily snapshot. Complete list: <a href="/gpus/availability.html">GPUs available right now</a>.</p>
   <div class="snapshot-table-scroll panel">
   <table>
     <thead><tr><th>GPU</th><th>Count</th><th>vRAM</th><th>Region</th><th>Fabric</th><th>$/GPU/hr</th><th>Instance $/hr</th></tr></thead>
     <tbody>
+<tr>
+  <td>B300</td>
+  <td>1×</td>
+  <td>288 GB</td>
+  <td>Global</td>
+  <td>SXM</td>
+  <td>$8.31/GPU/hr</td>
+  <td>$8.31/hr</td>
+</tr>
 <tr>
   <td>H200</td>
   <td>1×</td>
@@ -326,9 +335,9 @@
   <td>1×</td>
   <td>80 GB</td>
   <td>US · Central</td>
-  <td>SXM</td>
-  <td>$1.45/GPU/hr</td>
-  <td>$1.45/hr</td>
+  <td>PCIe</td>
+  <td>$1.42/GPU/hr</td>
+  <td>$1.42/hr</td>
 </tr>
 <tr>
   <td>A100-80G</td>
@@ -377,6 +386,15 @@
 </tr>
 <tr>
   <td>A100-80G</td>
+  <td>8×</td>
+  <td>80 GB</td>
+  <td>US · East</td>
+  <td>SXM</td>
+  <td>$2.93/GPU/hr</td>
+  <td>$23.44/hr</td>
+</tr>
+<tr>
+  <td>A100-80G</td>
   <td>1×</td>
   <td>80 GB</td>
   <td>US · East</td>
@@ -390,8 +408,8 @@
   <td>40 GB</td>
   <td>Global</td>
   <td>SXM</td>
-  <td>$1.43/GPU/hr</td>
-  <td>$1.43/hr</td>
+  <td>$1.47/GPU/hr</td>
+  <td>$1.47/hr</td>
 </tr>
 <tr>
   <td>A100</td>
@@ -439,13 +457,13 @@
   <td>$16.72/hr</td>
 </tr>
 <tr>
-  <td>RTX PRO 6000</td>
-  <td>2×</td>
-  <td>96 GB</td>
-  <td>Global</td>
+  <td>A100</td>
+  <td>8×</td>
+  <td>40 GB</td>
+  <td>US · West</td>
   <td>PCIe</td>
-  <td>$2.06/GPU/hr</td>
-  <td>$4.11/hr</td>
+  <td>$2.09/GPU/hr</td>
+  <td>$16.72/hr</td>
 </tr>
 <tr>
   <td>RTX PRO 6000</td>
@@ -464,6 +482,15 @@
   <td>PCIe</td>
   <td>$2.30/GPU/hr</td>
   <td>$4.60/hr</td>
+</tr>
+<tr>
+  <td>RTX PRO 6000</td>
+  <td>4×</td>
+  <td>96 GB</td>
+  <td>US · Central</td>
+  <td>PCIe</td>
+  <td>$2.30/GPU/hr</td>
+  <td>$9.20/hr</td>
 </tr>
 <tr>
   <td>RTX PRO 6000</td>
@@ -519,33 +546,6 @@
   <td>$1.02/GPU/hr</td>
   <td>$4.08/hr</td>
 </tr>
-<tr>
-  <td>L40S</td>
-  <td>2×</td>
-  <td>48 GB</td>
-  <td>US · Central</td>
-  <td>PCIe</td>
-  <td>$0.93/GPU/hr</td>
-  <td>$1.85/hr</td>
-</tr>
-<tr>
-  <td>L40S</td>
-  <td>4×</td>
-  <td>48 GB</td>
-  <td>US · Central</td>
-  <td>PCIe</td>
-  <td>$0.93/GPU/hr</td>
-  <td>$3.70/hr</td>
-</tr>
-<tr>
-  <td>L40S</td>
-  <td>8×</td>
-  <td>48 GB</td>
-  <td>US · Central</td>
-  <td>PCIe</td>
-  <td>$0.93/GPU/hr</td>
-  <td>$7.40/hr</td>
-</tr>
     </tbody>
   </table>
   </div>
@@ -556,22 +556,30 @@
     <div class="eyebrow">Frequently Asked</div>
     <h2>Renting GPUs on Omega Gradient</h2>
     <div class="faq-grid">
-      <div class="faq-item panel">
-        <h3>How fast can I deploy a GPU instance?</h3>
-        <p>Instances deploy in minutes. Pick a configuration from the live catalog above, choose a template — Ubuntu&nbsp;22.04 + CUDA, PyTorch, or JupyterLab — add an SSH public key (or generate one in the browser), and launch. Each listing shows its typical boot time before you deploy.</p>
-      </div>
-      <div class="faq-item panel">
-        <h3>How does pricing and billing work?</h3>
-        <p>Every listing shows <b>one all-in hourly price</b>, with a per-GPU breakdown on multi-GPU nodes. Billing is prepaid from credits and accrues per hour only while the instance exists — terminate it and charges stop. No long-term commitment on on-demand listings.</p>
-      </div>
-      <div class="faq-item panel">
-        <h3>Which GPUs are available right now?</h3>
-        <p>Inventory spans consumer and datacenter silicon — budget cards, RTX-class workstations, and H100-class accelerators — as containers, VMs, and bare metal across regions worldwide. The catalog refreshes every few minutes; the live list above is the source of truth. For market-rate context, see the <a href="./gpu-supplier-pricing.html">GPU supplier pricing report</a>.</p>
-      </div>
-      <div class="faq-item panel">
-        <h3>Who supplies the GPUs behind these listings?</h3>
-        <p>Capacity comes from Omega Gradient's vetted global supply network of datacenters, neoclouds, and independent operators. Listings are provider-anonymous: you see verified specs, region, and price, and we handle provisioning, SSH access, and billing in one console. Have hardware of your own? <a href="./supply.html">List your GPUs</a>.</p>
-      </div>
+      <details class="faq-item panel">
+        <summary><h3>How fast can I deploy a GPU instance?</h3></summary>
+        <div class="faq-answer">
+          <p>Instances deploy in minutes. Pick a configuration from the live catalog above, choose a template — Ubuntu&nbsp;22.04 + CUDA, PyTorch, or JupyterLab — add an SSH public key (or generate one in the browser), and launch. Each listing shows its typical boot time before you deploy.</p>
+        </div>
+      </details>
+      <details class="faq-item panel">
+        <summary><h3>How does pricing and billing work?</h3></summary>
+        <div class="faq-answer">
+          <p>Every listing shows <b>one all-in hourly price</b>, with a per-GPU breakdown on multi-GPU nodes. Billing is prepaid from credits and accrues per hour only while the instance exists — terminate it and charges stop. No long-term commitment on on-demand listings.</p>
+        </div>
+      </details>
+      <details class="faq-item panel">
+        <summary><h3>Which GPUs are available right now?</h3></summary>
+        <div class="faq-answer">
+          <p>Inventory spans consumer and datacenter silicon — budget cards, RTX-class workstations, and H100-class accelerators — as containers, VMs, and bare metal across regions worldwide. The catalog refreshes every few minutes; the live list above is the source of truth. For market-rate context, see the <a href="./gpu-supplier-pricing.html">GPU supplier pricing report</a>.</p>
+        </div>
+      </details>
+      <details class="faq-item panel">
+        <summary><h3>Who supplies the GPUs behind these listings?</h3></summary>
+        <div class="faq-answer">
+          <p>Capacity comes from Omega Gradient's vetted global supply network of datacenters, neoclouds, and independent operators. Listings are provider-anonymous: you see verified specs, region, and price, and we handle provisioning, SSH access, and billing in one console. Have hardware of your own? <a href="./supply.html">List your GPUs</a>.</p>
+        </div>
+      </details>
     </div>
   </section>
 </main>

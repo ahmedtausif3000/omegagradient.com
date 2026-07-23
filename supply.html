@@ -161,22 +161,30 @@
     <div class="eyebrow">Frequently Asked</div>
     <h2>Selling GPU capacity on Omega Gradient</h2>
     <div class="faq-grid">
-      <div class="faq-item panel">
-        <h3>How do I start selling GPU capacity?</h3>
-        <p>Three steps: <b>describe your machine</b> (GPU model, count, specs, region, and your hourly ask), <b>run one command</b> to install the lightweight agent, and <b>earn per rented hour</b>. The agent verifies your hardware with nvidia-smi and works behind NAT — no ports to open, no inbound firewall rules.</p>
-      </div>
-      <div class="faq-item panel">
-        <h3>How much do I earn when my GPU is rented?</h3>
-        <p>You earn <b>your full hourly ask</b> for every rented hour — you set the price when you list the machine. Omega Gradient adds a small marketplace margin on top of your ask to form the buyer's listed price, so your payout is never reduced. The listing form shows both numbers before you publish.</p>
-      </div>
-      <div class="faq-item panel">
-        <h3>Do buyers see who I am?</h3>
-        <p>No. Listings are <b>provider-anonymous</b>: buyers see verified specs, region, and price — never your identity. When someone rents your machine, the agent grants them SSH access automatically and revokes it when they're done.</p>
-      </div>
-      <div class="faq-item panel">
-        <h3>What hardware can I list?</h3>
-        <p>Anything from a single idle workstation GPU to full datacenter racks. Individuals, prosumers, and datacenters register through the same flow; each machine's GPU model and count are verified by the agent before it goes live. Curious what rates the market bears? Check the <a href="./gpu-supplier-pricing.html">GPU supplier pricing report</a> or browse the <a href="./compute.html">live marketplace</a>.</p>
-      </div>
+      <details class="faq-item panel">
+        <summary><h3>How do I start selling GPU capacity?</h3></summary>
+        <div class="faq-answer">
+          <p>Three steps: <b>describe your machine</b> (GPU model, count, specs, region, and your hourly ask), <b>run one command</b> to install the lightweight agent, and <b>earn per rented hour</b>. The agent verifies your hardware with nvidia-smi and works behind NAT — no ports to open, no inbound firewall rules.</p>
+        </div>
+      </details>
+      <details class="faq-item panel">
+        <summary><h3>How much do I earn when my GPU is rented?</h3></summary>
+        <div class="faq-answer">
+          <p>You earn <b>your full hourly ask</b> for every rented hour — you set the price when you list the machine. Omega Gradient adds a small marketplace margin on top of your ask to form the buyer's listed price, so your payout is never reduced. The listing form shows both numbers before you publish.</p>
+        </div>
+      </details>
+      <details class="faq-item panel">
+        <summary><h3>Do buyers see who I am?</h3></summary>
+        <div class="faq-answer">
+          <p>No. Listings are <b>provider-anonymous</b>: buyers see verified specs, region, and price — never your identity. When someone rents your machine, the agent grants them SSH access automatically and revokes it when they're done.</p>
+        </div>
+      </details>
+      <details class="faq-item panel">
+        <summary><h3>What hardware can I list?</h3></summary>
+        <div class="faq-answer">
+          <p>Anything from a single idle workstation GPU to full datacenter racks. Individuals, prosumers, and datacenters register through the same flow; each machine's GPU model and count are verified by the agent before it goes live. Curious what rates the market bears? Check the <a href="./gpu-supplier-pricing.html">GPU supplier pricing report</a> or browse the <a href="./compute.html">live marketplace</a>.</p>
+        </div>
+      </details>
     </div>
   </section>
 </main>

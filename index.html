@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#000000">
-<meta name="description" content="Omega Gradient is a neutral GPU brokerage and marketplace: AI teams source, compare, and access GPU compute in 2026 across data centers, neoclouds, colocation facilities, and on-demand providers.">
+<meta name="description" content="Omega Gradient is a GPU supply sourcing and intelligence desk with a live marketplace: AI teams source, compare, and access GPU compute in 2026 across data centers, neoclouds, colocation facilities, and on-demand providers.">
 <title>Omega Gradient | Global Compute Access</title>
 <link rel="canonical" href="https://omegagradient.com/">
 
@@ -41,7 +41,7 @@
         "width": 400,
         "height": 400
       },
-      "description": "Omega Gradient is a GPU brokerage and compute marketplace. It sources, benchmarks, and secures GPU capacity for AI teams across bare metal, private cloud, colocation, and on-demand providers worldwide.",
+      "description": "Omega Gradient is a GPU supply sourcing and intelligence desk and compute marketplace. It sources, benchmarks, and secures GPU capacity for AI teams across bare metal, private cloud, colocation, and on-demand providers worldwide.",
       "email": "hello@omegagradient.com",
       "sameAs": []
     },
@@ -355,9 +355,25 @@
   /* ============ FAQ (blueprint panels) ============ */
   .faq-section{ padding:130px 0; border-top:1px solid var(--line); }
   .faq-section .section-head{ margin-bottom:48px; }
-  .faq-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:24px; }
-  .faq-item{ padding:32px 30px 34px; }
-  .faq-item h3{ font-size:19px; font-weight:600; letter-spacing:-0.015em; margin-bottom:14px; }
+  .faq-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:24px; align-items:start; }
+  .faq-item{ padding:0; }
+  .faq-item summary{ display:block; list-style:none; cursor:pointer; padding:28px 70px 28px 30px; }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary .tk{ position:absolute; inset:0; display:block; pointer-events:none; }
+  .faq-item summary .tk::before, .faq-item summary .tk::after{
+    content:""; position:absolute; width:8px; height:8px; border:1px solid var(--tick);
+  }
+  .faq-item summary .tk::before{ top:-1px; right:-1px; border-left:none; border-bottom:none; }
+  .faq-item summary .tk::after{ bottom:-1px; left:-1px; border-right:none; border-top:none; }
+  .faq-item summary::after{
+    content:"+"; position:absolute; top:26px; right:28px;
+    font-family:var(--mono); font-size:18px; line-height:1; color:var(--gold);
+    transition:color 0.15s ease;
+  }
+  .faq-item[open] summary::after{ content:"–"; color:var(--gold-bright); }
+  .faq-item summary:hover::after, .faq-item summary:hover h3{ color:var(--gold-bright); }
+  .faq-item h3{ font-size:19px; font-weight:600; letter-spacing:-0.015em; margin:0; transition:color 0.15s ease; }
+  .faq-answer{ margin:0 30px; padding:20px 0 30px; border-top:1px solid var(--line); }
   .faq-item p{ color:var(--muted); font-size:14.5px; line-height:1.7; }
   .faq-item p b{ color:var(--gold); font-weight:500; }
   .faq-item .num{ font-family:var(--mono); font-size:11px; letter-spacing:0.16em; color:var(--gold); display:block; margin-bottom:14px; }
@@ -633,26 +649,42 @@
       <h2>GPU sourcing, answered.</h2>
     </div>
     <div class="faq-grid">
-      <div class="panel faq-item"><i class="tk" aria-hidden="true"></i>
-        <span class="num">Q.01</span>
-        <h3>What is Omega Gradient?</h3>
-        <p>Omega Gradient is a <b>GPU brokerage and compute marketplace</b>. We source, benchmark, and secure GPU capacity for AI teams across bare metal, private cloud, colocation, and on-demand providers — monitoring 224 GPU suppliers and 69 public price sources worldwide as of July 2026. Because we resell capacity from many providers rather than owning inventory, our comparisons are vendor-neutral.</p>
-      </div>
-      <div class="panel faq-item"><i class="tk" aria-hidden="true"></i>
-        <span class="num">Q.02</span>
-        <h3>How fast can I get GPUs?</h3>
+      <details class="panel faq-item">
+        <summary><i class="tk" aria-hidden="true"></i>
+          <span class="num">Q.01</span>
+          <h3>What is Omega Gradient?</h3>
+        </summary>
+        <div class="faq-answer">
+        <p>Omega Gradient is a <b>GPU supply sourcing and intelligence desk with a live compute marketplace</b>. We source, benchmark, and secure GPU capacity for AI teams across bare metal, private cloud, colocation, and on-demand providers — monitoring 224 GPU suppliers and 69 public price sources worldwide as of July 2026. Because we resell capacity from many providers rather than owning inventory, our comparisons are vendor-neutral.</p>
+        </div>
+      </details>
+      <details class="panel faq-item">
+        <summary><i class="tk" aria-hidden="true"></i>
+          <span class="num">Q.02</span>
+          <h3>How fast can I get GPUs?</h3>
+        </summary>
+        <div class="faq-answer">
         <p>On-demand instances deploy from the <a href="./compute.html" style="color:var(--gold)">live marketplace</a> in minutes — pick a configuration, add an SSH key, and launch. For reserved blocks and larger clusters, capacity requests receive sourced options within 24 hours, with delivery timelines set by the provider and cluster size.</p>
-      </div>
-      <div class="panel faq-item"><i class="tk" aria-hidden="true"></i>
-        <span class="num">Q.03</span>
-        <h3>How does GPU broker pricing work?</h3>
-        <p>A GPU broker resells capacity from many suppliers instead of promoting its own datacenters. Marketplace listings show one all-in hourly price up front — no egress surprises, billed only while the instance exists. Brokered cluster quotes are benchmarked against our continuously refreshed market index covering 8 GPU families, so you can see how any quote compares to the market before committing.</p>
-      </div>
-      <div class="panel faq-item"><i class="tk" aria-hidden="true"></i>
-        <span class="num">Q.04</span>
-        <h3>Which GPUs can Omega Gradient source?</h3>
+        </div>
+      </details>
+      <details class="panel faq-item">
+        <summary><i class="tk" aria-hidden="true"></i>
+          <span class="num">Q.03</span>
+          <h3>How does Omega Gradient pricing work?</h3>
+        </summary>
+        <div class="faq-answer">
+        <p>The sourcing desk resells capacity from many suppliers instead of promoting its own datacenters. Marketplace listings show one all-in hourly price up front — no egress surprises, billed only while the instance exists. Reserved cluster quotes are benchmarked against our continuously refreshed market index covering 8 GPU families, so you can see how any quote compares to the market before committing.</p>
+        </div>
+      </details>
+      <details class="panel faq-item">
+        <summary><i class="tk" aria-hidden="true"></i>
+          <span class="num">Q.04</span>
+          <h3>Which GPUs can Omega Gradient source?</h3>
+        </summary>
+        <div class="faq-answer">
         <p>Our public price index tracks H100, H200, B200, B300, GB300, A100, L40S, and RTX 5090, and the on-demand marketplace lists dozens more models. As of July 2026, market-median rates include <b>H100 at ~$2.50/GPU-hr</b> and <b>H200 at ~$3.07/GPU-hr</b> — see the <a href="./gpu-supplier-pricing.html" style="color:var(--gold)">full supplier pricing report</a> for provider-level rates.</p>
-      </div>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -667,7 +699,7 @@
       "name": "What is Omega Gradient?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Omega Gradient is a GPU brokerage and compute marketplace. It sources, benchmarks, and secures GPU capacity for AI teams across bare metal, private cloud, colocation, and on-demand providers — monitoring 224 GPU suppliers and 69 public price sources worldwide as of July 2026. Because it resells capacity from many providers rather than owning inventory, its comparisons are vendor-neutral."
+        "text": "Omega Gradient is a GPU supply sourcing and intelligence desk with a live compute marketplace. It sources, benchmarks, and secures GPU capacity for AI teams across bare metal, private cloud, colocation, and on-demand providers — monitoring 224 GPU suppliers and 69 public price sources worldwide as of July 2026. Because it resells capacity from many providers rather than owning inventory, its comparisons are vendor-neutral."
       }
     },
     {
@@ -680,10 +712,10 @@
     },
     {
       "@type": "Question",
-      "name": "How does GPU broker pricing work?",
+      "name": "How does Omega Gradient pricing work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A GPU broker resells capacity from many suppliers instead of promoting its own datacenters. Marketplace listings show one all-in hourly price up front, billed only while the instance exists. Brokered cluster quotes are benchmarked against a continuously refreshed market index covering 8 GPU families, so buyers can see how any quote compares to the market before committing."
+        "text": "The sourcing desk resells capacity from many suppliers instead of promoting its own datacenters. Marketplace listings show one all-in hourly price up front, billed only while the instance exists. Reserved cluster quotes are benchmarked against a continuously refreshed market index covering 8 GPU families, so buyers can see how any quote compares to the market before committing."
       }
     },
     {

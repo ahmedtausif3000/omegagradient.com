@@ -1,4 +1,4 @@
-# omegagradient.com — GPU brokerage & on-demand GPU marketplace.
+# omegagradient.com — GPU supply sourcing & intelligence desk with an on-demand GPU marketplace.
 # Live pricing data: https://omegagradient.com/gpus/ and https://omegagradient.com/data/public_gpu_market.json
 # Machine-readable overview: https://omegagradient.com/llms.txt
 
