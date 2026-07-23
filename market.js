@@ -51,7 +51,7 @@
     overlay.innerHTML =
       '<div class="modal panel">' +
       "<h2>Sign in to Omega Gradient</h2>" +
-      '<p class="modal-sub">Enter your email and we’ll send a one-time code. No password needed.</p>' +
+      '<p class="modal-sub" id="si-sub">Enter your email and we’ll send a one-time code. No password needed.</p>' +
       '<div class="field" id="si-email-field"><label>Email</label><input type="email" id="si-email" placeholder="you@company.com" autocomplete="email"></div>' +
       '<div class="field" id="si-code-field" style="display:none"><label>6-digit code</label><div class="code-inputs"><input type="text" id="si-code" inputmode="numeric" maxlength="6" placeholder="••••••"></div></div>' +
       '<div class="form-error" id="si-error"></div>' +
@@ -66,11 +66,15 @@
     const err = overlay.querySelector("#si-error");
     const submit = overlay.querySelector("#si-submit");
 
+    const sub = overlay.querySelector("#si-sub");
+    const EMAIL_SUB = "Enter your email and we’ll send a one-time code. No password needed.";
+
     function reset() {
       stage = "email";
       overlay.querySelector("#si-email-field").style.display = "";
       overlay.querySelector("#si-code-field").style.display = "none";
       submit.textContent = "Send code";
+      sub.textContent = EMAIL_SUB;
       err.textContent = "";
     }
 
@@ -91,6 +95,7 @@
           overlay.querySelector("#si-email-field").style.display = "none";
           overlay.querySelector("#si-code-field").style.display = "";
           submit.textContent = "Verify";
+          sub.textContent = "We sent a 6-digit code to " + email + ". It expires in 15 minutes.";
           if (result.mockCode) {
             overlay.querySelector("#si-code").value = result.mockCode;
             toast("Dev mode: code auto-filled");
@@ -206,5 +211,102 @@
     creditsModal.open(callback);
   }
 
-  window.OG = { api, money, toast, requireSignIn, me, signOut, openCredits, hasToken: () => Boolean(token()) };
+  /* ---- time formatting ---- */
+  function timeAgo(iso) {
+    const s = Math.max(0, (Date.now() - new Date(iso)) / 1000);
+    if (s < 60) return "just now";
+    if (s < 3600) return Math.floor(s / 60) + "m ago";
+    if (s < 86400) return Math.floor(s / 3600) + "h ago";
+    return Math.floor(s / 86400) + "d ago";
+  }
+
+  function fmtDuration(seconds) {
+    if (seconds == null) return "";
+    const s = Math.max(0, Math.floor(seconds));
+    if (s < 90) return s + "s";
+    if (s < 5400) return Math.round(s / 60) + " min";
+    const h = Math.floor(s / 3600);
+    const m = Math.round((s % 3600) / 60);
+    return h + "h" + (m ? " " + m + "m" : "");
+  }
+
+  /* ---- in-browser SSH keypair (Ed25519 via WebCrypto, OpenSSH formats) ---- */
+  function sshStr(bytes) {
+    const len = new Uint8Array(4);
+    new DataView(len.buffer).setUint32(0, bytes.length);
+    const out = new Uint8Array(4 + bytes.length);
+    out.set(len, 0);
+    out.set(bytes, 4);
+    return out;
+  }
+  const ascii = (s) => new TextEncoder().encode(s);
+  function concatBytes(parts) {
+    const total = parts.reduce((n, p) => n + p.length, 0);
+    const out = new Uint8Array(total);
+    let o = 0;
+    for (const p of parts) { out.set(p, o); o += p.length; }
+    return out;
+  }
+  function b64(bytes) {
+    let bin = "";
+    for (const b of bytes) bin += String.fromCharCode(b);
+    return btoa(bin);
+  }
+
+  function sshKeygenSupported() {
+    return Boolean(window.crypto && crypto.subtle && crypto.subtle.generateKey);
+  }
+
+  // Returns { publicKey: "ssh-ed25519 AAAA... comment", privateKeyPem: "-----BEGIN OPENSSH..." }.
+  // Throws if the browser can't do Ed25519 (caller should hide the feature).
+  async function generateSshKey(comment) {
+    const pair = await crypto.subtle.generateKey("Ed25519", true, ["sign", "verify"]);
+    const pub = new Uint8Array(await crypto.subtle.exportKey("raw", pair.publicKey));
+    // Ed25519 PKCS8 wraps the 32-byte seed as its trailing OCTET STRING.
+    const pkcs8 = new Uint8Array(await crypto.subtle.exportKey("pkcs8", pair.privateKey));
+    const seed = pkcs8.slice(-32);
+
+    const keyType = ascii("ssh-ed25519");
+    const publicBlob = concatBytes([sshStr(keyType), sshStr(pub)]);
+    const publicLine = "ssh-ed25519 " + b64(publicBlob) + " " + (comment || "omega-gradient");
+
+    // openssh-key-v1, cipher/kdf "none", one key. Private section is padded to the
+    // 8-byte block size with 1,2,3... per the spec.
+    const check = new Uint8Array(4);
+    crypto.getRandomValues(check);
+    let priv = concatBytes([
+      check, check,
+      sshStr(keyType), sshStr(pub),
+      sshStr(concatBytes([seed, pub])),
+      sshStr(ascii(comment || "omega-gradient")),
+    ]);
+    const pad = [];
+    for (let i = 1; priv.length % 8 !== 0; i++) { pad.push(i); priv = concatBytes([priv, new Uint8Array([i])]); }
+    const blob = concatBytes([
+      ascii("openssh-key-v1\0"),
+      sshStr(ascii("none")), sshStr(ascii("none")), sshStr(new Uint8Array(0)),
+      new Uint8Array([0, 0, 0, 1]),
+      sshStr(publicBlob),
+      sshStr(priv),
+    ]);
+    const body = b64(blob).replace(/(.{70})/g, "$1\n");
+    const privateKeyPem =
+      "-----BEGIN OPENSSH PRIVATE KEY-----\n" + body + (body.endsWith("\n") ? "" : "\n") + "-----END OPENSSH PRIVATE KEY-----\n";
+    return { publicKey: publicLine, privateKeyPem };
+  }
+
+  function downloadText(filename, text) {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([text], { type: "application/octet-stream" }));
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+  }
+
+  window.OG = {
+    api, money, toast, requireSignIn, me, signOut, openCredits,
+    timeAgo, fmtDuration, sshKeygenSupported, generateSshKey, downloadText,
+    hasToken: () => Boolean(token()),
+  };
 })();

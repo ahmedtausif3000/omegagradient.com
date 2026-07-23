@@ -1,3 +1,40 @@
+# omegagradient.com — GPU brokerage & on-demand GPU marketplace.
+# Live pricing data: https://omegagradient.com/gpus/ and https://omegagradient.com/data/public_gpu_market.json
+# Machine-readable overview: https://omegagradient.com/llms.txt
+
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+Sitemap: https://omegagradient.com/sitemap.xml
 Sitemap: https://omegagradient.com/g/sitemap.xml

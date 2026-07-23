@@ -4,9 +4,86 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#000000">
-<meta name="description" content="List your GPUs on Omega Gradient. Individuals, prosumers, and datacenters — set your price, install one agent, get paid per rented hour.">
-<title>List Your GPUs | Omega Gradient Compute</title>
+<meta name="description" content="Sell GPU capacity in 2026: list your GPUs on Omega Gradient. Individuals, prosumers, and datacenters — set your price, install one agent, get paid per rented hour.">
+<title>List Your GPUs — Sell GPU Capacity 2026 | Omega Gradient</title>
 <link rel="canonical" href="https://omegagradient.com/supply.html">
+
+<!-- Social / Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://omegagradient.com/supply.html">
+<meta property="og:title" content="List Your GPUs — Sell GPU Capacity 2026 | Omega Gradient">
+<meta property="og:description" content="One idle workstation or a whole datacenter — set your price, run one command, and earn per rented hour on the Omega Gradient marketplace.">
+<meta property="og:site_name" content="Omega Gradient">
+<meta property="og:image" content="https://omegagradient.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="List your GPUs on the Omega Gradient marketplace">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="List Your GPUs — Sell GPU Capacity 2026 | Omega Gradient">
+<meta name="twitter:description" content="Set your price, run one command, and earn per rented hour on the Omega Gradient marketplace.">
+<meta name="twitter:image" content="https://omegagradient.com/og-image.png">
+<meta name="twitter:image:alt" content="List your GPUs on the Omega Gradient marketplace">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://omegagradient.com/supply.html#service",
+  "name": "Omega Gradient GPU Supply Program",
+  "serviceType": "GPU capacity monetization",
+  "url": "https://omegagradient.com/supply.html",
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://omegagradient.com/#organization",
+    "name": "Omega Gradient",
+    "url": "https://omegagradient.com/"
+  },
+  "areaServed": "Worldwide",
+  "description": "Hardware owners — individuals, prosumers, and datacenters — list GPU machines on the Omega Gradient marketplace, set their own hourly ask, install a lightweight verification agent, and earn for every rented hour while staying anonymous to buyers.",
+  "audience": { "@type": "Audience", "audienceType": "GPU owners, homelabs, neoclouds, and datacenters" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I start selling GPU capacity on Omega Gradient?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three steps: describe your machine (GPU model, count, specs, region, and your hourly ask), run a one-command agent install on the machine, and start earning for every rented hour. The agent verifies your hardware with nvidia-smi and works behind NAT — no ports to open and no inbound firewall rules."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much do I earn when my GPU is rented?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You earn your full hourly ask for every rented hour — you set the price when you list the machine. Omega Gradient adds a small marketplace margin on top of your ask to form the buyer's listed price, so your payout is never reduced."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do buyers see who I am?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Listings are provider-anonymous: buyers see verified specs, region, and price — never your identity. When someone rents your machine, the agent grants them SSH access automatically and revokes it when they are done."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What hardware can I list?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Anything from a single idle workstation GPU to full datacenter racks. Individuals, prosumers and homelabs, and datacenters or clouds all register through the same flow; each machine's GPU model and count are verified by the agent before it goes live."
+      }
+    }
+  ]
+}
+</script>
+
 <link rel="icon" href="./omega-gradient-logo.png" type="image/png" sizes="400x400">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -76,10 +153,57 @@
       <div class="machine-list" id="machine-list"></div>
     </section>
   </div>
-  <div id="signin-prompt" style="padding: 30px 0 90px">
+  <div id="signin-prompt" style="padding: 30px 0 40px">
     <button class="btn primary" id="start-btn">Sign in to start listing</button>
   </div>
+
+  <section class="faq-section" id="faq">
+    <div class="eyebrow">Frequently Asked</div>
+    <h2>Selling GPU capacity on Omega Gradient</h2>
+    <div class="faq-grid">
+      <div class="faq-item panel">
+        <h3>How do I start selling GPU capacity?</h3>
+        <p>Three steps: <b>describe your machine</b> (GPU model, count, specs, region, and your hourly ask), <b>run one command</b> to install the lightweight agent, and <b>earn per rented hour</b>. The agent verifies your hardware with nvidia-smi and works behind NAT — no ports to open, no inbound firewall rules.</p>
+      </div>
+      <div class="faq-item panel">
+        <h3>How much do I earn when my GPU is rented?</h3>
+        <p>You earn <b>your full hourly ask</b> for every rented hour — you set the price when you list the machine. Omega Gradient adds a small marketplace margin on top of your ask to form the buyer's listed price, so your payout is never reduced. The listing form shows both numbers before you publish.</p>
+      </div>
+      <div class="faq-item panel">
+        <h3>Do buyers see who I am?</h3>
+        <p>No. Listings are <b>provider-anonymous</b>: buyers see verified specs, region, and price — never your identity. When someone rents your machine, the agent grants them SSH access automatically and revokes it when they're done.</p>
+      </div>
+      <div class="faq-item panel">
+        <h3>What hardware can I list?</h3>
+        <p>Anything from a single idle workstation GPU to full datacenter racks. Individuals, prosumers, and datacenters register through the same flow; each machine's GPU model and count are verified by the agent before it goes live. Curious what rates the market bears? Check the <a href="./gpu-supplier-pricing.html">GPU supplier pricing report</a> or browse the <a href="./compute.html">live marketplace</a>.</p>
+      </div>
+    </div>
+  </section>
 </main>
+
+<footer class="site-footer">
+  <div class="wrap foot-inner">
+    <div>
+      <h4>Platform</h4>
+      <a href="./index.html">HOME</a>
+      <a href="./compute.html">ON-DEMAND GPU MARKETPLACE</a>
+      <a href="./console.html">CONSOLE</a>
+      <a href="./supply.html">LIST YOUR GPUS</a>
+    </div>
+    <div>
+      <h4>Market Data</h4>
+      <a href="./gpu-supplier-pricing.html">GPU SUPPLIER PRICING REPORT</a>
+      <a href="./gpus/">CLOUD GPU PRICE INDEX</a>
+      <a href="./g/">GPU SOURCING GUIDES</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:hello@omegagradient.com">HELLO@OMEGAGRADIENT.COM</a>
+      <a href="./index.html#contact">REQUEST CLUSTER CAPACITY</a>
+    </div>
+  </div>
+  <div class="foot-legal">© 2026 OMEGA GRADIENT. PROVIDER IDENTITIES WITHHELD UNTIL QUALIFICATION.</div>
+</footer>
 
 <script src="./market.js"></script>
 <script>

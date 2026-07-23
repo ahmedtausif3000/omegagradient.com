@@ -40,18 +40,37 @@
     <a class="btn" href="./compute.html">+ New instance</a>
   </div>
 
+  <div class="balance-banner" id="balance-banner" hidden></div>
+
   <div class="console-grid">
     <section class="inst-list" id="inst-list">
       <div class="skeleton panel">Loading…</div>
     </section>
 
-    <aside class="side-panel panel">
-      <h3>Billing</h3>
-      <div class="side-row"><span class="k">Account</span><span class="v" id="b-email">—</span></div>
-      <div class="side-row"><span class="k">Credit balance</span><span class="v" id="b-balance">—</span></div>
-      <div class="side-row"><span class="k">Auto top-up card</span><span class="v" id="b-card">—</span></div>
-      <button class="btn primary" id="b-add-credits">Add credits</button>
-      <p style="font-size:12px;color:var(--muted);line-height:1.6">Compute is prepaid: hourly usage draws down your balance, and we auto-top-up from your saved card when it runs low. Instances stop if your balance is exhausted.</p>
+    <aside class="side-col">
+      <div class="side-panel panel">
+        <h3>Billing</h3>
+        <div class="side-row"><span class="k">Account</span><span class="v" id="b-email">—</span></div>
+        <div class="side-row"><span class="k">Credit balance</span><span class="v" id="b-balance">—</span></div>
+        <div class="side-row"><span class="k">Current burn</span><span class="v" id="b-burn">—</span></div>
+        <div class="side-row" id="b-runway-row" hidden><span class="k">Runway</span><span class="v" id="b-runway">—</span></div>
+        <div class="side-row"><span class="k">Auto top-up card</span><span class="v" id="b-card">—</span></div>
+        <button class="btn primary" id="b-add-credits">Add credits</button>
+        <div class="side-settings">
+          <label class="check-row"><input type="checkbox" id="b-autotopup"> Auto top-up when low</label>
+          <label class="threshold-row" id="b-threshold-row">
+            <span>Top up when balance falls below</span>
+            <span class="threshold-input">$<input type="number" id="b-threshold" min="5" step="5" placeholder="auto"></span>
+          </label>
+          <button class="btn sm" id="b-save-settings">Save billing settings</button>
+        </div>
+        <p style="font-size:12px;color:var(--muted);line-height:1.6">Compute is prepaid: hourly usage draws down your balance. If it runs low we email you and auto-top-up from your saved card; instances are only stopped after a warning and a grace period.</p>
+      </div>
+
+      <div class="side-panel panel">
+        <h3>Billing history</h3>
+        <div id="b-history" class="history-list"><span class="history-empty">—</span></div>
+      </div>
     </aside>
   </div>
 </main>
@@ -59,13 +78,24 @@
 <script src="./market.js"></script>
 <script>
 (function () {
-  const { api, money, toast, requireSignIn, me, signOut, openCredits } = window.OG;
+  const { api, money, toast, requireSignIn, me, signOut, openCredits, fmtDuration } = window.OG;
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   }
 
   const listEl = document.getElementById("inst-list");
+
+  function provisioningLine(i) {
+    const elapsed = Math.floor((Date.now() - new Date(i.createdAt)) / 1000);
+    let copy = "Provisioning — SSH details will appear here…";
+    if (i.etaSeconds) {
+      copy = elapsed < i.etaSeconds * 1.6
+        ? "Provisioning — usually ready in ~" + fmtDuration(i.etaSeconds) + " (" + fmtDuration(elapsed) + " elapsed)"
+        : "Provisioning is taking longer than usual (" + fmtDuration(elapsed) + " elapsed) — hang tight.";
+    }
+    return '<div class="ssh-line"><span style="color:var(--amber)">' + esc(copy) + "</span></div>";
+  }
 
   function renderInstances(instances) {
     if (!instances.length) {
@@ -76,33 +106,42 @@
     listEl.innerHTML = instances
       .map((i) => {
         const started = new Date(i.createdAt);
+        const uptime = i.uptimeSeconds != null ? "<span>up <b>" + fmtDuration(i.uptimeSeconds) + "</b></span>" : "<span>since " + started.toLocaleString() + "</span>";
         const meta =
           '<div class="inst-meta">' +
           "<span><b>" + i.gpuCount + "× " + esc(i.gpu) + "</b></span>" +
           "<span>" + esc(i.regionLabel) + "</span>" +
           "<span>" + esc(i.template || "") + "</span>" +
-          "<span>since " + started.toLocaleString() + "</span>" +
+          uptime +
           "</div>";
+        const ipRow = i.publicIp && i.status === "running"
+          ? '<div class="inst-meta"><span>IP <b class="mono">' + esc(i.publicIp) + '</b> <button class="mini-copy" data-copy="' + esc(i.publicIp) + '">copy</button></span></div>'
+          : "";
         const ssh = i.sshCommand
           ? '<div class="ssh-line"><span>' + esc(i.sshCommand) + '</span><button data-copy="' + esc(i.sshCommand) + '">Copy</button></div>'
           : i.status === "provisioning"
-            ? '<div class="ssh-line"><span style="color:var(--amber)">Provisioning — SSH details will appear here…</span></div>'
+            ? provisioningLine(i)
             : "";
-        const terminate =
-          i.status === "running" || i.status === "provisioning"
+        const jupyter = i.jupyterUrl
+          ? '<div class="ssh-line jupyter"><span>JupyterLab ready</span><a class="jupyter-link" href="' + esc(i.jupyterUrl) + '" target="_blank" rel="noopener">Open notebook ↗</a><button data-copy="' + esc(i.jupyterUrl) + '">Copy URL</button></div>'
+          : "";
+        const actions =
+          (i.canReboot ? '<button class="btn sm" data-reboot="' + esc(i.id) + '">Reboot</button>' : "") +
+          (i.status === "running" || i.status === "provisioning"
             ? '<button class="btn sm danger" data-terminate="' + esc(i.id) + '">Terminate</button>'
-            : "";
+            : "");
         return (
           '<div class="inst-card panel">' +
           '<div class="inst-main">' +
           '<div class="inst-title"><span class="inst-name">' + esc(i.name) + '</span><span class="status-pill ' + esc(i.status) + '">' + esc(i.status) + "</span></div>" +
-          meta + ssh +
+          meta + ipRow + ssh + jupyter +
           (i.error ? '<div style="color:var(--red);font-size:12px">' + esc(i.error) + "</div>" : "") +
           "</div>" +
           '<div class="inst-side">' +
-          '<span class="inst-price">' + money(i.priceCentsHr) + "/hr</span>" +
-          '<span class="inst-accrued">accrued ' + money(i.accruedCents || 0) + "</span>" +
-          terminate +
+          (i.status === "terminated"
+            ? '<span class="inst-price muted">' + money(i.priceCentsHr) + "/hr</span><span class=\"inst-accrued\">total " + money(i.accruedCents || 0) + "</span>"
+            : '<span class="inst-price">' + money(i.priceCentsHr) + "/hr</span><span class=\"inst-accrued\">accrued " + money(i.accruedCents || 0) + "</span>") +
+          '<div class="inst-actions">' + actions + "</div>" +
           "</div></div>"
         );
       })
@@ -112,7 +151,20 @@
   listEl.addEventListener("click", async (e) => {
     const copy = e.target.closest("[data-copy]");
     if (copy) {
-      navigator.clipboard.writeText(copy.dataset.copy).then(() => toast("SSH command copied"));
+      navigator.clipboard.writeText(copy.dataset.copy).then(() => toast("Copied"));
+      return;
+    }
+    const reboot = e.target.closest("[data-reboot]");
+    if (reboot) {
+      reboot.disabled = true;
+      try {
+        await api("/instances/" + reboot.dataset.reboot + "/reboot", { method: "POST" });
+        toast("Reboot requested");
+      } catch (err) {
+        toast(err.message, true);
+      } finally {
+        reboot.disabled = false;
+      }
       return;
     }
     const term = e.target.closest("[data-terminate]");
@@ -123,12 +175,36 @@
         await api("/instances/" + term.dataset.terminate + "/terminate", { method: "POST" });
         toast("Instance terminated");
         refresh();
+        paintBilling(); // burn/runway drop immediately, not on the next 60s tick
+        paintHistory();
       } catch (err) {
         toast(err.message, true);
         term.disabled = false;
       }
     }
   });
+
+  /* ---- billing panel ---- */
+  function paintBanner(profile) {
+    const banner = document.getElementById("balance-banner");
+    const burn = profile.burnCentsHr || 0;
+    const balance = profile.creditBalanceCents || 0;
+    if (burn > 0 && balance <= burn * 3) {
+      const hours = Math.max(0, balance) / burn;
+      banner.hidden = false;
+      banner.innerHTML =
+        balance <= 0
+          ? "<b>Credits exhausted.</b> Running instances will be stopped soon — add credits now to keep them alive. "
+          : "<b>Low credits:</b> about " + hours.toFixed(1) + "h of runtime left at your current burn. ";
+      const btn = document.createElement("button");
+      btn.className = "btn sm primary";
+      btn.textContent = "Add credits";
+      btn.onclick = () => openCredits(paintBilling);
+      banner.appendChild(btn);
+    } else {
+      banner.hidden = true;
+    }
+  }
 
   async function paintBilling() {
     const profile = await me();
@@ -138,6 +214,18 @@
     const balance = profile.creditBalanceCents || 0;
     balanceEl.textContent = money(balance);
     balanceEl.className = balance > 0 ? "v ok" : "v warn";
+    const burn = profile.burnCentsHr || 0;
+    document.getElementById("b-burn").textContent = burn ? money(burn) + "/hr" : "idle";
+    const runwayRow = document.getElementById("b-runway-row");
+    if (burn > 0) {
+      runwayRow.hidden = false;
+      const hours = Math.max(0, balance) / burn;
+      const runwayEl = document.getElementById("b-runway");
+      runwayEl.textContent = hours >= 48 ? "~" + (hours / 24).toFixed(1) + " days" : "~" + hours.toFixed(1) + " hours";
+      runwayEl.className = hours < 3 ? "v warn" : "v";
+    } else {
+      runwayRow.hidden = true;
+    }
     const cardEl = document.getElementById("b-card");
     if (profile.hasPaymentMethod) {
       cardEl.textContent = "on file";
@@ -146,9 +234,53 @@
       cardEl.textContent = "none yet";
       cardEl.className = "v warn";
     }
+    document.getElementById("b-autotopup").checked = Boolean(profile.autoTopup);
+    document.getElementById("b-threshold").value =
+      profile.topupThresholdCents != null ? String(profile.topupThresholdCents / 100) : "";
     document.getElementById("b-add-credits").onclick = () => openCredits(paintBilling);
+    paintBanner(profile);
   }
-  document.addEventListener("og:credits-changed", paintBilling);
+  document.addEventListener("og:credits-changed", () => { paintBilling(); paintHistory(); });
+
+  document.getElementById("b-save-settings").addEventListener("click", async (e) => {
+    const btn = e.target;
+    btn.disabled = true;
+    try {
+      const raw = document.getElementById("b-threshold").value.trim();
+      await api("/billing/settings", {
+        method: "POST",
+        body: JSON.stringify({
+          autoTopup: document.getElementById("b-autotopup").checked,
+          topupThresholdCents: raw === "" ? null : Math.round(Number(raw) * 100),
+        }),
+      });
+      toast("Billing settings saved");
+      paintBilling();
+    } catch (err) {
+      toast(err.message, true);
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  async function paintHistory() {
+    try {
+      const h = await api("/billing/history");
+      const el = document.getElementById("b-history");
+      const rows = [];
+      for (const p of (h.purchases || []).slice(0, 6)) {
+        rows.push(
+          '<div class="history-row"><span class="k">' + new Date(p.createdAt).toLocaleDateString() +
+          (p.status === "failed" ? ' <span class="warn-text">failed</span>' : "") +
+          '</span><span class="v">+' + money(p.amountCents) + "</span></div>"
+        );
+      }
+      for (const d of (h.dailyUsage || []).slice(0, 6)) {
+        rows.push('<div class="history-row"><span class="k">' + esc(d.day) + " usage</span><span class=\"v\">−" + money(d.cents) + "</span></div>");
+      }
+      el.innerHTML = rows.length ? rows.join("") : '<span class="history-empty">No activity yet.</span>';
+    } catch (_) {}
+  }
 
   async function refresh() {
     try {
@@ -175,6 +307,7 @@
   function boot() {
     paintAccount();
     paintBilling();
+    paintHistory();
     refresh();
   }
 
@@ -186,6 +319,7 @@
         toast(r.creditedCents ? "Credits added — " + money(r.creditedCents) : "Credits confirmed");
         history.replaceState({}, "", "./console.html");
         paintBilling();
+        paintHistory();
       })
       .catch((e) => toast(e.message, true));
   } else if (qs.get("credits") === "cancelled") {
@@ -195,6 +329,7 @@
 
   requireSignIn(boot);
   setInterval(refresh, 10000);
+  setInterval(paintBilling, 60000);
 })();
 </script>
 </body>

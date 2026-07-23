@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#000000">
-<meta name="description" content="Omega Gradient helps AI teams source, compare, and access GPU compute across data centers, neoclouds, colocation facilities, and on-demand GPU providers.">
+<meta name="description" content="Omega Gradient is a neutral GPU brokerage and marketplace: AI teams source, compare, and access GPU compute in 2026 across data centers, neoclouds, colocation facilities, and on-demand providers.">
 <title>Omega Gradient | Global Compute Access</title>
 <link rel="canonical" href="https://omegagradient.com/">
 
@@ -24,6 +24,45 @@
 <meta name="twitter:description" content="Find the right GPU capacity before the market does.">
 <meta name="twitter:image" content="https://omegagradient.com/og-image-omega-logo-globe-centered-20260628.png">
 <meta name="twitter:image:alt" content="Omega Gradient GPU capacity sourcing preview">
+
+<!-- Structured data: Organization + WebSite. TODO: populate sameAs with real LinkedIn / X / Crunchbase profile URLs once live. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://omegagradient.com/#organization",
+      "name": "Omega Gradient",
+      "url": "https://omegagradient.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://omegagradient.com/omega-gradient-logo.png",
+        "width": 400,
+        "height": 400
+      },
+      "description": "Omega Gradient is a GPU brokerage and compute marketplace. It sources, benchmarks, and secures GPU capacity for AI teams across bare metal, private cloud, colocation, and on-demand providers worldwide.",
+      "email": "hello@omegagradient.com",
+      "sameAs": []
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://omegagradient.com/#website",
+      "url": "https://omegagradient.com/",
+      "name": "Omega Gradient",
+      "publisher": { "@id": "https://omegagradient.com/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://omegagradient.com/compute.html?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+}
+</script>
 
 <link rel="icon" href="./omega-gradient-logo.png" type="image/png" sizes="400x400">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,7 +86,10 @@
     --body: 'Inter', sans-serif;
   }
   *{ margin:0; padding:0; box-sizing:border-box; }
-  html{ scroll-behavior:auto; }
+  /* overflow-x on html as well as body: body-only overflow-x:hidden still lets
+     the viewport pan horizontally when wide children (ticker track, globe halo)
+     overflow the root element. `clip` avoids creating a scroll container. */
+  html{ scroll-behavior:auto; overflow-x:hidden; overflow-x:clip; }
   html.lenis, html.lenis body{ height:auto; }
   .lenis.lenis-smooth{ scroll-behavior:auto !important; }
   body{
@@ -310,9 +352,20 @@
   .form-status{ font-family:var(--mono); font-size:11px; letter-spacing:0.1em; color:var(--gold); text-align:center; margin-top:16px; min-height:16px; }
   @media (max-width:560px){ .cta-form .row2{ grid-template-columns:1fr; } }
 
+  /* ============ FAQ (blueprint panels) ============ */
+  .faq-section{ padding:130px 0; border-top:1px solid var(--line); }
+  .faq-section .section-head{ margin-bottom:48px; }
+  .faq-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:24px; }
+  .faq-item{ padding:32px 30px 34px; }
+  .faq-item h3{ font-size:19px; font-weight:600; letter-spacing:-0.015em; margin-bottom:14px; }
+  .faq-item p{ color:var(--muted); font-size:14.5px; line-height:1.7; }
+  .faq-item p b{ color:var(--gold); font-weight:500; }
+  .faq-item .num{ font-family:var(--mono); font-size:11px; letter-spacing:0.16em; color:var(--gold); display:block; margin-bottom:14px; }
+  @media (max-width:900px){ .faq-section{ padding:80px 0; } .faq-grid{ grid-template-columns:1fr; } }
+
   /* ============ FOOTER (concept 9 links + concept 10 fill wordmark) ============ */
   footer{ border-top:1px solid var(--line); }
-  .foot-cols{ display:grid; grid-template-columns:repeat(2, 1fr); gap:40px; padding:72px 0 64px; }
+  .foot-cols{ display:grid; grid-template-columns:repeat(3, 1fr); gap:40px; padding:72px 0 64px; }
   .foot-col h4{ font-family:var(--mono); font-size:10px; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-bottom:22px; }
   .foot-col a, .foot-col span{ display:block; font-family:var(--mono); font-size:12px; letter-spacing:0.08em; color:var(--muted); margin-bottom:12px; transition:color .2s ease; }
   .foot-col a:hover{ color:var(--gold-bright); }
@@ -572,6 +625,79 @@
   </div>
 </section>
 
+<!-- ============ FAQ ============ -->
+<section class="faq-section" id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">FREQUENTLY ASKED</span>
+      <h2>GPU sourcing, answered.</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="panel faq-item"><i class="tk" aria-hidden="true"></i>
+        <span class="num">Q.01</span>
+        <h3>What is Omega Gradient?</h3>
+        <p>Omega Gradient is a <b>GPU brokerage and compute marketplace</b>. We source, benchmark, and secure GPU capacity for AI teams across bare metal, private cloud, colocation, and on-demand providers — monitoring 224 GPU suppliers and 69 public price sources worldwide as of July 2026. Because we resell capacity from many providers rather than owning inventory, our comparisons are vendor-neutral.</p>
+      </div>
+      <div class="panel faq-item"><i class="tk" aria-hidden="true"></i>
+        <span class="num">Q.02</span>
+        <h3>How fast can I get GPUs?</h3>
+        <p>On-demand instances deploy from the <a href="./compute.html" style="color:var(--gold)">live marketplace</a> in minutes — pick a configuration, add an SSH key, and launch. For reserved blocks and larger clusters, capacity requests receive sourced options within 24 hours, with delivery timelines set by the provider and cluster size.</p>
+      </div>
+      <div class="panel faq-item"><i class="tk" aria-hidden="true"></i>
+        <span class="num">Q.03</span>
+        <h3>How does GPU broker pricing work?</h3>
+        <p>A GPU broker resells capacity from many suppliers instead of promoting its own datacenters. Marketplace listings show one all-in hourly price up front — no egress surprises, billed only while the instance exists. Brokered cluster quotes are benchmarked against our continuously refreshed market index covering 8 GPU families, so you can see how any quote compares to the market before committing.</p>
+      </div>
+      <div class="panel faq-item"><i class="tk" aria-hidden="true"></i>
+        <span class="num">Q.04</span>
+        <h3>Which GPUs can Omega Gradient source?</h3>
+        <p>Our public price index tracks H100, H200, B200, B300, GB300, A100, L40S, and RTX 5090, and the on-demand marketplace lists dozens more models. As of July 2026, market-median rates include <b>H100 at ~$2.50/GPU-hr</b> and <b>H200 at ~$3.07/GPU-hr</b> — see the <a href="./gpu-supplier-pricing.html" style="color:var(--gold)">full supplier pricing report</a> for provider-level rates.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Omega Gradient?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Omega Gradient is a GPU brokerage and compute marketplace. It sources, benchmarks, and secures GPU capacity for AI teams across bare metal, private cloud, colocation, and on-demand providers — monitoring 224 GPU suppliers and 69 public price sources worldwide as of July 2026. Because it resells capacity from many providers rather than owning inventory, its comparisons are vendor-neutral."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How fast can I get GPUs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On-demand instances deploy from the live marketplace at omegagradient.com/compute.html in minutes — pick a configuration, add an SSH key, and launch. For reserved blocks and larger clusters, capacity requests receive sourced options within 24 hours, with delivery timelines set by the provider and cluster size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does GPU broker pricing work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A GPU broker resells capacity from many suppliers instead of promoting its own datacenters. Marketplace listings show one all-in hourly price up front, billed only while the instance exists. Brokered cluster quotes are benchmarked against a continuously refreshed market index covering 8 GPU families, so buyers can see how any quote compares to the market before committing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which GPUs can Omega Gradient source?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Omega Gradient's public price index tracks H100, H200, B200, B300, GB300, A100, L40S, and RTX 5090, and the on-demand marketplace lists dozens more models. As of July 2026, market-median rates include H100 at about $2.50 per GPU-hour and H200 at about $3.07 per GPU-hour."
+      }
+    }
+  ]
+}
+</script>
+
 <!-- ============ CTA (concept 9) ============ -->
 <section class="cta" id="contact">
   <div class="wrap">
@@ -631,8 +757,17 @@
       <div class="foot-col">
         <h4>Explore</h4>
         <a href="#market">LIVE MARKET FEED</a>
-        <a href="#market">PRICING SIGNALS</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">REQUEST CAPACITY</a>
+      </div>
+      <div class="foot-col">
+        <h4>Platform</h4>
+        <a href="./index.html">HOME</a>
+        <a href="./compute.html">ON-DEMAND GPU MARKETPLACE</a>
+        <a href="./supply.html">LIST YOUR GPUS</a>
+        <a href="./gpu-supplier-pricing.html">GPU SUPPLIER PRICING REPORT</a>
+        <a href="./gpus/">CLOUD GPU PRICE INDEX</a>
+        <a href="./g/">GPU SOURCING GUIDES</a>
       </div>
       <div class="foot-col">
         <h4>Contact</h4>

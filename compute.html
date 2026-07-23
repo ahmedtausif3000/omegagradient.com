@@ -4,9 +4,87 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#000000">
-<meta name="description" content="Deploy on-demand GPUs in seconds. One console, one bill, global capacity — H100, H200, B200 and more, priced transparently.">
-<title>On-Demand GPUs | Omega Gradient Compute</title>
+<meta name="description" content="Rent on-demand GPUs in 2026 — live marketplace with transparent hourly pricing across H100, H200, B200 and more. One console, one bill, deploy in minutes.">
+<title>On-Demand GPU Rental 2026 — Live Marketplace | Omega Gradient</title>
 <link rel="canonical" href="https://omegagradient.com/compute.html">
+
+<!-- Social / Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://omegagradient.com/compute.html">
+<meta property="og:title" content="On-Demand GPU Rental 2026 — Live Marketplace | Omega Gradient">
+<meta property="og:description" content="Live GPU marketplace with transparent hourly pricing across H100, H200, B200 and more. One console, one bill, deploy in minutes.">
+<meta property="og:site_name" content="Omega Gradient">
+<meta property="og:image" content="https://omegagradient.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Omega Gradient on-demand GPU marketplace preview">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="On-Demand GPU Rental 2026 — Live Marketplace | Omega Gradient">
+<meta name="twitter:description" content="Live GPU marketplace with transparent hourly pricing. Deploy H100, H200, B200 and more in minutes.">
+<meta name="twitter:image" content="https://omegagradient.com/og-image.png">
+<meta name="twitter:image:alt" content="Omega Gradient on-demand GPU marketplace preview">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://omegagradient.com/compute.html#service",
+  "name": "Omega Gradient On-Demand GPU Marketplace",
+  "serviceType": "On-demand GPU cloud rental",
+  "url": "https://omegagradient.com/compute.html",
+  "provider": {
+    "@type": "Organization",
+    "@id": "https://omegagradient.com/#organization",
+    "name": "Omega Gradient",
+    "url": "https://omegagradient.com/"
+  },
+  "areaServed": "Worldwide",
+  "description": "Self-serve marketplace for renting GPU instances by the hour — containers, VMs, and bare metal across a provider-anonymous global supply network, with one all-in hourly price and prepaid billing only while the instance exists.",
+  "termsOfService": "https://omegagradient.com/",
+  "audience": { "@type": "Audience", "audienceType": "AI and machine learning teams" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How fast can I deploy a GPU instance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Instances deploy in minutes: pick a configuration from the live catalog, choose a template such as Ubuntu plus CUDA, PyTorch, or JupyterLab, add an SSH public key, and launch. The listing shows a typical boot time for each configuration before you deploy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does marketplace pricing and billing work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every listing shows one all-in hourly price, with a per-GPU breakdown for multi-GPU nodes. Billing is prepaid from credits and accrues per hour only while the instance exists — terminate it and charges stop. There are no long-term commitments on on-demand listings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which GPUs are available on the marketplace?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Inventory spans consumer and datacenter GPUs — from budget cards through RTX-class workstations up to H100-class datacenter accelerators — across container, VM, and bare-metal configurations in regions worldwide. The catalog refreshes every few minutes, so the live list on this page is the source of truth."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who supplies the GPUs behind Omega Gradient listings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Capacity comes from Omega Gradient's vetted global supply network of datacenters, neoclouds, and independent operators. Listings are provider-anonymous: buyers see verified specs, region, and price, and Omega Gradient handles provisioning, access, and billing through one console."
+      }
+    }
+  ]
+}
+</script>
+
 <link rel="icon" href="./omega-gradient-logo.png" type="image/png" sizes="400x400">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,7 +122,12 @@
   </div>
 
   <div class="market-grid">
-    <aside class="filters panel">
+    <aside class="filters panel" id="filters">
+      <button class="filter-toggle" id="filter-toggle" type="button">Filters</button>
+      <div class="filter-group">
+        <div class="label">Search</div>
+        <input type="text" id="search-filter" placeholder="Search GPU or region…" autocomplete="off">
+      </div>
       <div class="filter-group">
         <div class="label">GPU Model</div>
         <div id="gpu-filters"></div>
@@ -73,13 +156,449 @@
     </aside>
 
     <section class="listings panel">
+      <div class="listings-toolbar">
+        <span class="result-count" id="result-count"></span>
+        <label class="sort-label">Sort
+          <select id="sort-select">
+            <option value="featured">Featured</option>
+            <option value="pergpu-asc">$/GPU: low → high</option>
+            <option value="price-asc">Price: low → high</option>
+            <option value="price-desc">Price: high → low</option>
+            <option value="vram-desc">VRAM: high → low</option>
+          </select>
+        </label>
+      </div>
       <div class="listings-head">
         <div>Configuration</div><div>Specs</div><div>Fabric</div><div>Type</div><div>Region</div><div class="col-price">Price</div><div class="col-action"></div>
       </div>
-      <div id="listing-rows"><div class="skeleton">Loading live inventory…</div></div>
+      <div id="listing-rows"></div>
     </section>
   </div>
+
+  <section class="snapshot-section" id="live-snapshot">
+    <div class="eyebrow">Indexed Snapshot</div>
+    <h2>Live GPU inventory snapshot</h2>
+    <!-- generated compute snapshot fragment: inject into compute.html #live-snapshot -->
+<section class="aeo-snapshot" id="live-snapshot-content">
+  <p class="snapshot-meta mono">124 listings · from $0.06/GPU/hr · snapshot 2026-07-23</p>
+  <p>Top 40 of 124 live listings (flagship GPUs first). Full sortable board above requires JavaScript; this table is the static daily snapshot. Complete list: <a href="/gpus/availability.html">GPUs available right now</a>.</p>
+  <div class="snapshot-table-scroll panel">
+  <table>
+    <thead><tr><th>GPU</th><th>Count</th><th>vRAM</th><th>Region</th><th>Fabric</th><th>$/GPU/hr</th><th>Instance $/hr</th></tr></thead>
+    <tbody>
+<tr>
+  <td>B300</td>
+  <td>1×</td>
+  <td>288 GB</td>
+  <td>Global</td>
+  <td>SXM</td>
+  <td>$8.31/GPU/hr</td>
+  <td>$8.31/hr</td>
+</tr>
+<tr>
+  <td>H200</td>
+  <td>1×</td>
+  <td>141 GB</td>
+  <td>US · East</td>
+  <td>SXM</td>
+  <td>$3.62/GPU/hr</td>
+  <td>$3.62/hr</td>
+</tr>
+<tr>
+  <td>H200</td>
+  <td>4×</td>
+  <td>141 GB</td>
+  <td>Global</td>
+  <td>SXM</td>
+  <td>$4.42/GPU/hr</td>
+  <td>$17.67/hr</td>
+</tr>
+<tr>
+  <td>H200</td>
+  <td>1×</td>
+  <td>141 GB</td>
+  <td>Global</td>
+  <td>SXM</td>
+  <td>$4.64/GPU/hr</td>
+  <td>$4.64/hr</td>
+</tr>
+<tr>
+  <td>H100</td>
+  <td>2×</td>
+  <td>80 GB</td>
+  <td>Canada</td>
+  <td>PCIe</td>
+  <td>$2.63/GPU/hr</td>
+  <td>$5.25/hr</td>
+</tr>
+<tr>
+  <td>H100</td>
+  <td>4×</td>
+  <td>80 GB</td>
+  <td>Canada</td>
+  <td>PCIe</td>
+  <td>$2.63/GPU/hr</td>
+  <td>$10.50/hr</td>
+</tr>
+<tr>
+  <td>H100</td>
+  <td>1×</td>
+  <td>80 GB</td>
+  <td>Canada</td>
+  <td>PCIe</td>
+  <td>$2.63/GPU/hr</td>
+  <td>$2.63/hr</td>
+</tr>
+<tr>
+  <td>H100</td>
+  <td>8×</td>
+  <td>80 GB</td>
+  <td>Canada</td>
+  <td>NVLink</td>
+  <td>$2.73/GPU/hr</td>
+  <td>$21.84/hr</td>
+</tr>
+<tr>
+  <td>H100</td>
+  <td>1×</td>
+  <td>80 GB</td>
+  <td>US · Central</td>
+  <td>PCIe</td>
+  <td>$2.87/GPU/hr</td>
+  <td>$2.87/hr</td>
+</tr>
+<tr>
+  <td>H100</td>
+  <td>2×</td>
+  <td>80 GB</td>
+  <td>US · Central</td>
+  <td>PCIe</td>
+  <td>$2.87/GPU/hr</td>
+  <td>$5.74/hr</td>
+</tr>
+<tr>
+  <td>H100</td>
+  <td>2×</td>
+  <td>80 GB</td>
+  <td>Europe · West</td>
+  <td>PCIe</td>
+  <td>$3.46/GPU/hr</td>
+  <td>$6.93/hr</td>
+</tr>
+<tr>
+  <td>H100</td>
+  <td>2×</td>
+  <td>80 GB</td>
+  <td>Europe · East</td>
+  <td>PCIe</td>
+  <td>$3.46/GPU/hr</td>
+  <td>$6.93/hr</td>
+</tr>
+<tr>
+  <td>H100</td>
+  <td>1×</td>
+  <td>80 GB</td>
+  <td>Europe · West</td>
+  <td>PCIe</td>
+  <td>$3.47/GPU/hr</td>
+  <td>$3.47/hr</td>
+</tr>
+<tr>
+  <td>H100</td>
+  <td>1×</td>
+  <td>80 GB</td>
+  <td>Europe · East</td>
+  <td>PCIe</td>
+  <td>$3.47/GPU/hr</td>
+  <td>$3.47/hr</td>
+</tr>
+<tr>
+  <td>H100</td>
+  <td>1×</td>
+  <td>80 GB</td>
+  <td>Global</td>
+  <td>SXM</td>
+  <td>$3.48/GPU/hr</td>
+  <td>$3.48/hr</td>
+</tr>
+<tr>
+  <td>A100-80G</td>
+  <td>1×</td>
+  <td>80 GB</td>
+  <td>US · Central</td>
+  <td>PCIe</td>
+  <td>$1.42/GPU/hr</td>
+  <td>$1.42/hr</td>
+</tr>
+<tr>
+  <td>A100-80G</td>
+  <td>2×</td>
+  <td>80 GB</td>
+  <td>US · Central</td>
+  <td>PCIe</td>
+  <td>$1.42/GPU/hr</td>
+  <td>$2.84/hr</td>
+</tr>
+<tr>
+  <td>A100-80G</td>
+  <td>4×</td>
+  <td>80 GB</td>
+  <td>US · Central</td>
+  <td>PCIe</td>
+  <td>$1.73/GPU/hr</td>
+  <td>$6.93/hr</td>
+</tr>
+<tr>
+  <td>A100-80G</td>
+  <td>8×</td>
+  <td>80 GB</td>
+  <td>US · Central</td>
+  <td>PCIe</td>
+  <td>$1.73/GPU/hr</td>
+  <td>$13.86/hr</td>
+</tr>
+<tr>
+  <td>A100-80G</td>
+  <td>1×</td>
+  <td>80 GB</td>
+  <td>Global</td>
+  <td>SXM</td>
+  <td>$1.95/GPU/hr</td>
+  <td>$1.95/hr</td>
+</tr>
+<tr>
+  <td>A100-80G</td>
+  <td>2×</td>
+  <td>80 GB</td>
+  <td>Global</td>
+  <td>SXM</td>
+  <td>$1.95/GPU/hr</td>
+  <td>$3.90/hr</td>
+</tr>
+<tr>
+  <td>A100-80G</td>
+  <td>8×</td>
+  <td>80 GB</td>
+  <td>US · East</td>
+  <td>SXM</td>
+  <td>$2.93/GPU/hr</td>
+  <td>$23.44/hr</td>
+</tr>
+<tr>
+  <td>A100-80G</td>
+  <td>1×</td>
+  <td>80 GB</td>
+  <td>US · East</td>
+  <td>SXM</td>
+  <td>$3.45/GPU/hr</td>
+  <td>$3.45/hr</td>
+</tr>
+<tr>
+  <td>A100</td>
+  <td>1×</td>
+  <td>40 GB</td>
+  <td>Global</td>
+  <td>SXM</td>
+  <td>$1.47/GPU/hr</td>
+  <td>$1.47/hr</td>
+</tr>
+<tr>
+  <td>A100</td>
+  <td>8×</td>
+  <td>40 GB</td>
+  <td>Global</td>
+  <td>SXM</td>
+  <td>$1.47/GPU/hr</td>
+  <td>$11.76/hr</td>
+</tr>
+<tr>
+  <td>A100</td>
+  <td>1×</td>
+  <td>40 GB</td>
+  <td>India</td>
+  <td>SXM</td>
+  <td>$2.09/GPU/hr</td>
+  <td>$2.09/hr</td>
+</tr>
+<tr>
+  <td>A100</td>
+  <td>1×</td>
+  <td>40 GB</td>
+  <td>US · West</td>
+  <td>SXM</td>
+  <td>$2.09/GPU/hr</td>
+  <td>$2.09/hr</td>
+</tr>
+<tr>
+  <td>A100</td>
+  <td>1×</td>
+  <td>40 GB</td>
+  <td>US · East</td>
+  <td>SXM</td>
+  <td>$2.09/GPU/hr</td>
+  <td>$2.09/hr</td>
+</tr>
+<tr>
+  <td>A100</td>
+  <td>8×</td>
+  <td>40 GB</td>
+  <td>Asia · Northeast</td>
+  <td>PCIe</td>
+  <td>$2.09/GPU/hr</td>
+  <td>$16.72/hr</td>
+</tr>
+<tr>
+  <td>A100</td>
+  <td>8×</td>
+  <td>40 GB</td>
+  <td>US · East</td>
+  <td>PCIe</td>
+  <td>$2.09/GPU/hr</td>
+  <td>$16.72/hr</td>
+</tr>
+<tr>
+  <td>A100</td>
+  <td>8×</td>
+  <td>40 GB</td>
+  <td>US · West</td>
+  <td>PCIe</td>
+  <td>$2.09/GPU/hr</td>
+  <td>$16.72/hr</td>
+</tr>
+<tr>
+  <td>RTX PRO 6000</td>
+  <td>2×</td>
+  <td>96 GB</td>
+  <td>Global</td>
+  <td>PCIe</td>
+  <td>$2.06/GPU/hr</td>
+  <td>$4.11/hr</td>
+</tr>
+<tr>
+  <td>RTX PRO 6000</td>
+  <td>1×</td>
+  <td>96 GB</td>
+  <td>US · Central</td>
+  <td>PCIe</td>
+  <td>$2.30/GPU/hr</td>
+  <td>$2.30/hr</td>
+</tr>
+<tr>
+  <td>RTX PRO 6000</td>
+  <td>2×</td>
+  <td>96 GB</td>
+  <td>US · Central</td>
+  <td>PCIe</td>
+  <td>$2.30/GPU/hr</td>
+  <td>$4.60/hr</td>
+</tr>
+<tr>
+  <td>RTX PRO 6000</td>
+  <td>4×</td>
+  <td>96 GB</td>
+  <td>US · Central</td>
+  <td>PCIe</td>
+  <td>$2.30/GPU/hr</td>
+  <td>$9.20/hr</td>
+</tr>
+<tr>
+  <td>RTX PRO 6000</td>
+  <td>8×</td>
+  <td>96 GB</td>
+  <td>Global</td>
+  <td>PCIe</td>
+  <td>$3.58/GPU/hr</td>
+  <td>$28.65/hr</td>
+</tr>
+<tr>
+  <td>RTX PRO 6000</td>
+  <td>8×</td>
+  <td>96 GB</td>
+  <td>US · Central</td>
+  <td>PCIe</td>
+  <td>$3.58/GPU/hr</td>
+  <td>$28.65/hr</td>
+</tr>
+<tr>
+  <td>RTX PRO 6000</td>
+  <td>8×</td>
+  <td>96 GB</td>
+  <td>US · East</td>
+  <td>PCIe</td>
+  <td>$3.58/GPU/hr</td>
+  <td>$28.65/hr</td>
+</tr>
+<tr>
+  <td>RTX 6000 Ada</td>
+  <td>1×</td>
+  <td>48 GB</td>
+  <td>US · Central</td>
+  <td>PCIe</td>
+  <td>$1.02/GPU/hr</td>
+  <td>$1.02/hr</td>
+</tr>
+<tr>
+  <td>RTX 6000 Ada</td>
+  <td>2×</td>
+  <td>48 GB</td>
+  <td>US · Central</td>
+  <td>PCIe</td>
+  <td>$1.02/GPU/hr</td>
+  <td>$2.04/hr</td>
+</tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <div class="eyebrow">Frequently Asked</div>
+    <h2>Renting GPUs on Omega Gradient</h2>
+    <div class="faq-grid">
+      <div class="faq-item panel">
+        <h3>How fast can I deploy a GPU instance?</h3>
+        <p>Instances deploy in minutes. Pick a configuration from the live catalog above, choose a template — Ubuntu&nbsp;22.04 + CUDA, PyTorch, or JupyterLab — add an SSH public key (or generate one in the browser), and launch. Each listing shows its typical boot time before you deploy.</p>
+      </div>
+      <div class="faq-item panel">
+        <h3>How does pricing and billing work?</h3>
+        <p>Every listing shows <b>one all-in hourly price</b>, with a per-GPU breakdown on multi-GPU nodes. Billing is prepaid from credits and accrues per hour only while the instance exists — terminate it and charges stop. No long-term commitment on on-demand listings.</p>
+      </div>
+      <div class="faq-item panel">
+        <h3>Which GPUs are available right now?</h3>
+        <p>Inventory spans consumer and datacenter silicon — budget cards, RTX-class workstations, and H100-class accelerators — as containers, VMs, and bare metal across regions worldwide. The catalog refreshes every few minutes; the live list above is the source of truth. For market-rate context, see the <a href="./gpu-supplier-pricing.html">GPU supplier pricing report</a>.</p>
+      </div>
+      <div class="faq-item panel">
+        <h3>Who supplies the GPUs behind these listings?</h3>
+        <p>Capacity comes from Omega Gradient's vetted global supply network of datacenters, neoclouds, and independent operators. Listings are provider-anonymous: you see verified specs, region, and price, and we handle provisioning, SSH access, and billing in one console. Have hardware of your own? <a href="./supply.html">List your GPUs</a>.</p>
+      </div>
+    </div>
+  </section>
 </main>
+
+<footer class="site-footer">
+  <div class="wrap foot-inner">
+    <div>
+      <h4>Platform</h4>
+      <a href="./index.html">HOME</a>
+      <a href="./compute.html">ON-DEMAND GPU MARKETPLACE</a>
+      <a href="./console.html">CONSOLE</a>
+      <a href="./supply.html">LIST YOUR GPUS</a>
+    </div>
+    <div>
+      <h4>Market Data</h4>
+      <a href="./gpu-supplier-pricing.html">GPU SUPPLIER PRICING REPORT</a>
+      <a href="./gpus/">CLOUD GPU PRICE INDEX</a>
+      <a href="./g/">GPU SOURCING GUIDES</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:hello@omegagradient.com">HELLO@OMEGAGRADIENT.COM</a>
+      <a href="./index.html#contact">REQUEST CLUSTER CAPACITY</a>
+    </div>
+  </div>
+  <div class="foot-legal">© 2026 OMEGA GRADIENT. PROVIDER IDENTITIES WITHHELD UNTIL QUALIFICATION.</div>
+</footer>
 
 <!-- deploy modal -->
 <div class="overlay" id="deploy-overlay">
@@ -94,17 +613,16 @@
       </div>
       <div class="field">
         <label>Template</label>
-        <select id="dep-template">
-          <option value="ubuntu-cuda">Ubuntu 22.04 + CUDA</option>
-          <option value="pytorch">PyTorch (latest)</option>
-        </select>
+        <select id="dep-template"></select>
       </div>
     </div>
     <div class="field">
-      <label>SSH public key</label>
+      <label>SSH public key <button type="button" class="inline-link" id="dep-genkey" hidden>generate new key</button></label>
       <textarea id="dep-ssh" placeholder="ssh-ed25519 AAAA… you@machine" spellcheck="false"></textarea>
+      <div class="field-hint" id="dep-keyhint"></div>
     </div>
     <div class="form-error" id="dep-error"></div>
+    <div id="dep-alternatives"></div>
     <div class="actions">
       <button class="btn" id="dep-cancel">Cancel</button>
       <button class="btn primary" id="dep-launch">Deploy</button>
@@ -115,21 +633,40 @@
 <script src="./market.js"></script>
 <script>
 (function () {
-  const { api, money, toast, requireSignIn, me, signOut, openCredits } = window.OG;
+  const { api, money, toast, requireSignIn, me, signOut, openCredits, timeAgo, fmtDuration, sshKeygenSupported, generateSshKey, downloadText } = window.OG;
+
+  const TEMPLATE_LABELS = {
+    "ubuntu-cuda": "Ubuntu 22.04 + CUDA",
+    pytorch: "PyTorch (latest)",
+    jupyter: "JupyterLab (browser notebook)",
+  };
 
   let all = [];
-  const state = { gpus: new Set(), counts: new Set(), region: "", maxPrice: "" };
+  let refreshedAt = null;
+  const state = { q: "", gpus: new Set(), counts: new Set(), region: "", maxPrice: "", sort: "featured" };
+
+  // Support /compute.html?q=… deep links (also the WebSite SearchAction target).
+  const initialQuery = new URLSearchParams(location.search).get("q");
+  if (initialQuery) {
+    state.q = initialQuery;
+    document.getElementById("search-filter").value = initialQuery;
+  }
 
   const rowsEl = document.getElementById("listing-rows");
   const gpuFiltersEl = document.getElementById("gpu-filters");
   const regionEl = document.getElementById("region-filter");
+  const countEl = document.getElementById("result-count");
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   }
 
+  const perGpu = (l) => l.priceCentsHr / (l.gpuCount || 1);
+
   function applyFilters() {
+    const q = state.q.trim().toLowerCase().replace(/[\s_-]+/g, "");
     return all.filter((l) =>
+      (!q || (l.gpu + " " + l.regionLabel).toLowerCase().replace(/[\s_-]+/g, "").includes(q)) &&
       (!state.gpus.size || state.gpus.has(l.gpu)) &&
       (!state.counts.size || state.counts.has(l.gpuCount >= 8 ? 8 : l.gpuCount)) &&
       (!state.region || l.region === state.region) &&
@@ -137,8 +674,20 @@
     );
   }
 
+  function sortListings(list) {
+    const bySort = {
+      featured: (a, b) => a.tier - b.tier || perGpu(a) - perGpu(b),
+      "pergpu-asc": (a, b) => perGpu(a) - perGpu(b),
+      "price-asc": (a, b) => a.priceCentsHr - b.priceCentsHr,
+      "price-desc": (a, b) => b.priceCentsHr - a.priceCentsHr,
+      "vram-desc": (a, b) => (b.vramGb || 0) - (a.vramGb || 0) || perGpu(a) - perGpu(b),
+    };
+    return [...list].sort(bySort[state.sort] || bySort.featured);
+  }
+
   function render() {
-    const list = applyFilters();
+    const list = sortListings(applyFilters());
+    countEl.textContent = list.length === all.length ? all.length + " configurations" : list.length + " of " + all.length;
     if (!list.length) {
       rowsEl.innerHTML = '<div class="empty-state">No configurations match these filters right now.<br>Inventory refreshes every few minutes — try widening the search.</div>';
       return;
@@ -147,20 +696,27 @@
       .map((l) => {
         const specs =
           "<b>" + (l.vcpus || "—") + "</b> vCPU · <b>" + (l.memoryGb || "—") + "</b> GB RAM<br><b>" + (l.storageGb || "—") + "</b> GB storage";
+        const perGpuNote = l.gpuCount > 1 ? '<div class="per-gpu">' + money(Math.round(perGpu(l))) + "/GPU</div>" : "";
         return (
           '<div class="listing-row">' +
           '<div class="gpu-cell"><span class="gpu-badge">' + l.gpuCount + "×</span><div><div class=\"gpu-name\">" + esc(l.gpu) + "</div>" +
           (l.vramGb ? '<div class="gpu-vram">' + l.vramGb + " GB VRAM / GPU</div>" : "") + "</div></div>" +
           '<div class="spec-cell">' + specs + "</div>" +
-          "<div>" + (l.interconnect ? '<span class="chip teal">' + esc(l.interconnect) + "</span>" : "") + "</div>" +
-          '<div><span class="chip ' + (l.kind === "vm" ? "green" : "") + '">' + (l.kind === "vm" ? "VM" : "Container") + "</span></div>" +
+          '<div class="fabric-cell">' + (l.interconnect ? '<span class="chip teal">' + esc(l.interconnect) + "</span>" : "") + "</div>" +
+          '<div class="type-cell"><span class="chip ' + (l.kind === "vm" ? "green" : "") + '">' + (l.kind === "vm" ? "VM" : l.kind === "metal" ? "Metal" : "Container") + "</span></div>" +
           '<div class="region-cell">' + esc(l.regionLabel) + "</div>" +
-          '<div class="price-cell">' + money(l.priceCentsHr) + '<span class="per">/hr</span></div>' +
+          '<div class="price-cell">' + money(l.priceCentsHr) + '<span class="per">/hr</span>' + perGpuNote + "</div>" +
           '<div class="action-cell"><button class="btn sm primary" data-deploy="' + esc(l.id) + '">Deploy</button></div>' +
           "</div>"
         );
       })
       .join("");
+  }
+
+  function paintRefreshNote() {
+    const note = document.getElementById("refresh-note");
+    const ago = refreshedAt ? " · updated " + timeAgo(refreshedAt) : "";
+    note.innerHTML = '<span class="dot">●</span> ' + all.length + " live configurations" + ago;
   }
 
   function buildFilters() {
@@ -175,7 +731,7 @@
       .slice(0, 14)
       .map(
         ([gpu, n]) =>
-          '<label class="check-row"><input type="checkbox" value="' + esc(gpu) + '"> ' + esc(gpu) + ' <span class="count">' + n + "</span></label>"
+          '<label class="check-row"><input type="checkbox" value="' + esc(gpu) + '"' + (state.gpus.has(gpu) ? " checked" : "") + "> " + esc(gpu) + ' <span class="count">' + n + "</span></label>"
       )
       .join("");
     gpuFiltersEl.querySelectorAll("input").forEach((cb) =>
@@ -184,9 +740,10 @@
         render();
       })
     );
+    const selected = state.region;
     regionEl.innerHTML =
       '<option value="">All regions</option>' +
-      [...regions.entries()].sort((a, b) => a[1].localeCompare(b[1])).map(([code, label]) => '<option value="' + esc(code) + '">' + esc(label) + "</option>").join("");
+      [...regions.entries()].sort((a, b) => a[1].localeCompare(b[1])).map(([code, label]) => '<option value="' + esc(code) + '"' + (code === selected ? " selected" : "") + ">" + esc(label) + "</option>").join("");
   }
 
   document.getElementById("count-filters").addEventListener("click", (e) => {
@@ -197,12 +754,32 @@
     btn.classList.contains("on") ? state.counts.add(n) : state.counts.delete(n);
     render();
   });
+  // Mobile: filters start collapsed and open on tap. Desktop CSS ignores the class.
+  const filtersEl = document.getElementById("filters");
+  if (window.matchMedia("(max-width: 720px)").matches) filtersEl.classList.add("collapsed");
+  document.getElementById("filter-toggle").addEventListener("click", () => filtersEl.classList.toggle("collapsed"));
+
   regionEl.addEventListener("change", () => { state.region = regionEl.value; render(); });
   document.getElementById("price-filter").addEventListener("change", (e) => { state.maxPrice = e.target.value; render(); });
-  document.getElementById("reset-filters").addEventListener("click", () => location.reload());
+  document.getElementById("search-filter").addEventListener("input", (e) => { state.q = e.target.value; render(); });
+  document.getElementById("sort-select").addEventListener("change", (e) => { state.sort = e.target.value; render(); });
+  document.getElementById("reset-filters").addEventListener("click", () => {
+    state.q = "";
+    state.gpus.clear();
+    state.counts.clear();
+    state.region = "";
+    state.maxPrice = "";
+    document.getElementById("search-filter").value = "";
+    document.getElementById("price-filter").value = "";
+    regionEl.value = "";
+    document.querySelectorAll("#count-filters button").forEach((b) => b.classList.remove("on"));
+    gpuFiltersEl.querySelectorAll("input").forEach((cb) => (cb.checked = false));
+    render();
+  });
 
   /* ---- deploy flow ---- */
   const overlay = document.getElementById("deploy-overlay");
+  const altsEl = document.getElementById("dep-alternatives");
   let selected = null;
 
   rowsEl.addEventListener("click", (e) => {
@@ -215,22 +792,74 @@
 
   function openDeploy() {
     const l = selected;
+    const eta = l.etaSeconds ? '<div class="srow"><span class="k">Typical boot</span><span class="v">~' + fmtDuration(l.etaSeconds) + "</span></div>" : "";
     document.getElementById("deploy-summary").innerHTML =
       '<div class="srow"><span class="k">Configuration</span><span class="v">' + l.gpuCount + "× " + esc(l.gpu) + "</span></div>" +
       '<div class="srow"><span class="k">Region</span><span class="v">' + esc(l.regionLabel) + "</span></div>" +
       '<div class="srow"><span class="k">Specs</span><span class="v">' + (l.vcpus || "—") + " vCPU / " + (l.memoryGb || "—") + " GB / " + (l.storageGb || "—") + " GB</span></div>" +
+      eta +
       '<div class="srow total"><span class="k">Price</span><span class="v">' + money(l.priceCentsHr) + "/hr · ~" + money(l.priceCentsHr * 24) + "/day</span></div>";
+    const templates = (l.templates && l.templates.length ? l.templates : ["ubuntu-cuda"]);
+    document.getElementById("dep-template").innerHTML = templates
+      .map((t) => '<option value="' + esc(t) + '">' + esc(TEMPLATE_LABELS[t] || t) + "</option>")
+      .join("");
     document.getElementById("dep-ssh").value = localStorage.getItem("og_ssh_key") || "";
     document.getElementById("dep-error").textContent = "";
+    document.getElementById("dep-keyhint").textContent = "";
+    altsEl.innerHTML = "";
     overlay.classList.add("open");
   }
 
   document.getElementById("dep-cancel").addEventListener("click", () => overlay.classList.remove("open"));
 
+  // In-browser keypair for people who don't have one: private key downloads once,
+  // public key drops into the field. Nothing secret ever leaves the browser.
+  const genBtn = document.getElementById("dep-genkey");
+  if (sshKeygenSupported()) genBtn.hidden = false;
+  genBtn.addEventListener("click", async () => {
+    try {
+      const { publicKey, privateKeyPem } = await generateSshKey("omega-gradient");
+      document.getElementById("dep-ssh").value = publicKey;
+      localStorage.setItem("og_ssh_key", publicKey);
+      downloadText("omega-gradient-key", privateKeyPem);
+      document.getElementById("dep-keyhint").textContent =
+        "Private key downloaded (omega-gradient-key). Move it to ~/.ssh/, run: chmod 600 ~/.ssh/omega-gradient-key — then connect with ssh -i.";
+    } catch (e) {
+      document.getElementById("dep-keyhint").textContent = "Your browser can't generate Ed25519 keys — paste a key from ssh-keygen instead.";
+    }
+  });
+
+  function renderAlternatives(alternatives) {
+    if (!alternatives || !alternatives.length) return;
+    altsEl.innerHTML =
+      '<div class="alt-list">' +
+      alternatives
+        .map(
+          (a) =>
+            '<button type="button" class="alt-row" data-alt="' + esc(a.id) + '">' +
+            "<span>" + a.gpuCount + "× " + esc(a.gpu) + " · " + esc(a.regionLabel) + "</span>" +
+            "<span class=\"alt-price\">" + money(a.priceCentsHr) + "/hr</span>" +
+            "</button>"
+        )
+        .join("") +
+      "</div>";
+    altsEl.querySelectorAll("[data-alt]").forEach((btn) =>
+      btn.addEventListener("click", () => {
+        const alt = altsEl._alts.find((x) => x.id === btn.dataset.alt);
+        if (!alt) return;
+        selected = alt;
+        if (!all.some((l) => l.id === alt.id)) all.push(alt);
+        openDeploy();
+      })
+    );
+    altsEl._alts = alternatives;
+  }
+
   document.getElementById("dep-launch").addEventListener("click", async () => {
     const btn = document.getElementById("dep-launch");
     const errEl = document.getElementById("dep-error");
     errEl.textContent = "";
+    altsEl.innerHTML = "";
     btn.disabled = true;
     btn.textContent = "Deploying…";
     try {
@@ -257,6 +886,12 @@
               toast(err.message, true);
             }
           });
+          return;
+        }
+        if (e.status === 409 && e.data && e.data.soldOut) {
+          errEl.textContent = e.data.error;
+          renderAlternatives(e.data.alternatives);
+          load(); // pull the fresh catalog so the sold-out row disappears
           return;
         }
         throw e;
@@ -286,20 +921,34 @@
   }
   document.addEventListener("og:signed-in", paintAccount);
 
-  /* ---- load ---- */
-  (async function load() {
-    paintAccount();
+  /* ---- load + background refresh ---- */
+  function showSkeleton() {
+    rowsEl.innerHTML = Array.from({ length: 6 })
+      .map(() => '<div class="sk-row"><span class="sk sk-badge"></span><span class="sk sk-w40"></span><span class="sk sk-w25"></span><span class="sk sk-w15"></span></div>')
+      .join("");
+  }
+
+  let loadedOnce = false;
+  async function load() {
+    if (!loadedOnce) showSkeleton();
     try {
       const data = await api("/catalog");
       all = data.listings || [];
-      buildFilters();
+      refreshedAt = data.refreshedAt;
+      if (!loadedOnce) buildFilters();
+      loadedOnce = true;
       render();
-      const note = document.getElementById("refresh-note");
-      note.innerHTML = '<span class="dot">●</span> ' + all.length + " live configurations";
+      paintRefreshNote();
     } catch (e) {
-      rowsEl.innerHTML = '<div class="empty-state">Could not load inventory — please retry in a moment.</div>';
+      if (!loadedOnce) rowsEl.innerHTML = '<div class="empty-state">Could not load inventory — please retry in a moment.</div>';
     }
-  })();
+  }
+
+  paintAccount();
+  load();
+  // Keep inventory + "updated Xm ago" honest without a manual reload.
+  setInterval(() => { if (!document.hidden) load(); }, 60000);
+  setInterval(paintRefreshNote, 30000);
 })();
 </script>
 </body>
