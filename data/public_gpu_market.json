@@ -1,51 +1,58 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-07-30T16:04:01.541Z",
-  "inventory_generated_at": "2026-07-30T16:03:18.136Z",
-  "pricing_generated_at": "2026-07-30T16:04:01.426Z",
+  "generated_at": "2026-07-31T16:09:21.647Z",
+  "inventory_generated_at": "2026-07-31T16:08:48.222Z",
+  "pricing_generated_at": "2026-07-31T16:09:21.520Z",
   "freshness_label": "Refreshed recently",
   "disclosure": "Public market summary only. Provider identities, source URLs, evidence excerpts, and source-level rows are intentionally withheld.",
   "source_count_summary": {
     "registry_supplier_count": 224,
-    "public_price_sources": 70,
-    "supply_source_gpu_pairs": 46,
-    "quarantined_price_sources": 8,
+    "public_price_sources": 66,
+    "supply_source_gpu_pairs": 47,
+    "quarantined_price_sources": 5,
     "tracked_gpu_families": 8
   },
-  "price_sanity_status": "8 candidate price row(s) quarantined before public display",
+  "price_sanity_status": "5 candidate price row(s) quarantined before public display",
   "gpu_market": [
     {
       "gpu_family": "H100",
-      "average_price_per_gpu_hour": 3.1395,
-      "median_price_per_gpu_hour": 2.65,
+      "average_price_per_gpu_hour": 3.0573,
+      "median_price_per_gpu_hour": 2.56,
       "min_price_per_gpu_hour": 1.68,
       "max_price_per_gpu_hour": 6.155,
-      "supply_source_count": 10,
-      "price_source_count": 10,
+      "supply_source_count": 11,
+      "price_source_count": 13,
       "availability_mix": [
+        {
+          "key": "on_demand_live",
+          "label": "Live",
+          "count": 3
+        },
         {
           "key": "on_demand_listed",
           "label": "Listed",
-          "count": 12
+          "count": 11
         },
         {
           "key": "reserved_capacity",
           "label": "Reserved",
-          "count": 8
+          "count": 9
         },
         {
           "key": "mentioned_only",
           "label": "Mentioned",
-          "count": 45
+          "count": 43
         }
       ],
       "regions": [
         "US",
         "Europe",
         "Spain",
-        "India"
+        "India",
+        "Czechia, CZ",
+        "Texas, US"
       ],
-      "confidence": "Medium",
+      "confidence": "High",
       "deployment_models": [
         "Training clusters",
         "Inference fleets",
@@ -54,32 +61,32 @@
     },
     {
       "gpu_family": "H200",
-      "average_price_per_gpu_hour": 3.6169,
-      "median_price_per_gpu_hour": 3.0863,
+      "average_price_per_gpu_hour": 3.8075,
+      "median_price_per_gpu_hour": 3.4674,
       "min_price_per_gpu_hour": 1.99,
       "max_price_per_gpu_hour": 6.305,
       "supply_source_count": 4,
-      "price_source_count": 9,
+      "price_source_count": 4,
       "availability_mix": [
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 7
+          "count": 2
         },
         {
           "key": "on_demand_listed",
           "label": "Listed",
-          "count": 5
+          "count": 4
         },
         {
           "key": "reserved_capacity",
           "label": "Reserved",
-          "count": 4
+          "count": 5
         },
         {
           "key": "mentioned_only",
           "label": "Mentioned",
-          "count": 33
+          "count": 32
         }
       ],
       "regions": [
@@ -87,8 +94,7 @@
         "US",
         "Europe",
         "India",
-        "Saudi Arabia, SA",
-        ", US"
+        "Iceland, IS"
       ],
       "confidence": "High",
       "deployment_models": [
@@ -99,10 +105,10 @@
     },
     {
       "gpu_family": "B200",
-      "average_price_per_gpu_hour": 5.1151,
-      "median_price_per_gpu_hour": 5.1151,
+      "average_price_per_gpu_hour": 4.9992,
+      "median_price_per_gpu_hour": 4.9992,
       "min_price_per_gpu_hour": 3.49,
-      "max_price_per_gpu_hour": 6.7403,
+      "max_price_per_gpu_hour": 6.5083,
       "supply_source_count": 2,
       "price_source_count": 6,
       "availability_mix": [
@@ -213,27 +219,32 @@
     },
     {
       "gpu_family": "A100",
-      "average_price_per_gpu_hour": 2.2156,
-      "median_price_per_gpu_hour": 1.7475,
+      "average_price_per_gpu_hour": 2.0868,
+      "median_price_per_gpu_hour": 1.695,
       "min_price_per_gpu_hour": 0.95,
       "max_price_per_gpu_hour": 5.04,
-      "supply_source_count": 8,
-      "price_source_count": 11,
+      "supply_source_count": 9,
+      "price_source_count": 12,
       "availability_mix": [
+        {
+          "key": "on_demand_live",
+          "label": "Live",
+          "count": 1
+        },
         {
           "key": "on_demand_listed",
           "label": "Listed",
-          "count": 13
+          "count": 12
         },
         {
           "key": "reserved_capacity",
           "label": "Reserved",
-          "count": 5
+          "count": 6
         },
         {
           "key": "mentioned_only",
           "label": "Mentioned",
-          "count": 35
+          "count": 33
         }
       ],
       "regions": [
@@ -244,7 +255,7 @@
         "UK",
         "Asia"
       ],
-      "confidence": "Medium",
+      "confidence": "High",
       "deployment_models": [
         "Training",
         "Batch inference",
@@ -273,7 +284,7 @@
         {
           "key": "mentioned_only",
           "label": "Mentioned",
-          "count": 16
+          "count": 14
         }
       ],
       "regions": [
@@ -290,17 +301,17 @@
     },
     {
       "gpu_family": "RTX 5090",
-      "average_price_per_gpu_hour": 0.5839,
-      "median_price_per_gpu_hour": 0.5839,
-      "min_price_per_gpu_hour": 0.4678,
+      "average_price_per_gpu_hour": 0.6061,
+      "median_price_per_gpu_hour": 0.6061,
+      "min_price_per_gpu_hour": 0.5122,
       "max_price_per_gpu_hour": 0.7,
       "supply_source_count": 2,
-      "price_source_count": 8,
+      "price_source_count": 7,
       "availability_mix": [
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 7
+          "count": 6
         },
         {
           "key": "on_demand_listed",
@@ -310,15 +321,14 @@
         {
           "key": "mentioned_only",
           "label": "Mentioned",
-          "count": 5
+          "count": 4
         }
       ],
       "regions": [
-        "California, US",
-        "Oregon, US",
+        ", US",
         "South Korea, KR",
-        "Virginia, US",
-        "Hungary, HU",
+        "Sichuan, CN",
+        "Alberta, CA",
         "Czechia, CZ"
       ],
       "confidence": "Medium",
@@ -347,7 +357,7 @@
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 11
+          "count": 7
         },
         {
           "key": "on_demand_listed",
@@ -365,8 +375,8 @@
           "count": 35
         }
       ],
-      "supply_source_count": 72,
-      "live_or_listed_supply_sources": 29,
+      "supply_source_count": 68,
+      "live_or_listed_supply_sources": 25,
       "reserved_supply_sources": 8,
       "channel_summary": "Live on-demand supply sources plus reserved capacity",
       "confidence": "High"
@@ -388,7 +398,7 @@
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 11
+          "count": 7
         },
         {
           "key": "on_demand_listed",
@@ -406,8 +416,8 @@
           "count": 35
         }
       ],
-      "supply_source_count": 72,
-      "live_or_listed_supply_sources": 29,
+      "supply_source_count": 68,
+      "live_or_listed_supply_sources": 25,
       "reserved_supply_sources": 8,
       "channel_summary": "Live on-demand supply sources plus reserved capacity",
       "confidence": "High"
@@ -429,7 +439,7 @@
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 11
+          "count": 7
         },
         {
           "key": "on_demand_listed",
@@ -447,8 +457,8 @@
           "count": 35
         }
       ],
-      "supply_source_count": 72,
-      "live_or_listed_supply_sources": 29,
+      "supply_source_count": 68,
+      "live_or_listed_supply_sources": 25,
       "reserved_supply_sources": 8,
       "channel_summary": "Live on-demand supply sources plus reserved capacity",
       "confidence": "High"
@@ -587,6 +597,11 @@
       ],
       "availability_mix": [
         {
+          "key": "on_demand_live",
+          "label": "Live",
+          "count": 1
+        },
+        {
           "key": "on_demand_listed",
           "label": "Listed",
           "count": 1
@@ -597,8 +612,8 @@
           "count": 9
         }
       ],
-      "supply_source_count": 10,
-      "live_or_listed_supply_sources": 1,
+      "supply_source_count": 11,
+      "live_or_listed_supply_sources": 2,
       "reserved_supply_sources": 0,
       "channel_summary": "Live or listed on-demand supply sources",
       "confidence": "High"
@@ -685,7 +700,7 @@
         {
           "key": "reserved_capacity",
           "label": "Reserved",
-          "count": 6
+          "count": 7
         },
         {
           "key": "mentioned_only",
@@ -693,9 +708,9 @@
           "count": 1
         }
       ],
-      "supply_source_count": 7,
+      "supply_source_count": 8,
       "live_or_listed_supply_sources": 0,
-      "reserved_supply_sources": 6,
+      "reserved_supply_sources": 7,
       "channel_summary": "Reserved and sales-led supply sources",
       "confidence": "Medium"
     },
@@ -742,25 +757,19 @@
       "id": "japan",
       "label": "Japan",
       "gpus": [
-        "H200",
         "A100"
       ],
       "availability_mix": [
-        {
-          "key": "on_demand_live",
-          "label": "Live",
-          "count": 2
-        },
         {
           "key": "mentioned_only",
           "label": "Mentioned",
           "count": 1
         }
       ],
-      "supply_source_count": 3,
-      "live_or_listed_supply_sources": 2,
+      "supply_source_count": 1,
+      "live_or_listed_supply_sources": 0,
       "reserved_supply_sources": 0,
-      "channel_summary": "Live or listed on-demand supply sources",
+      "channel_summary": "Mentioned supply sources under review",
       "confidence": "Forming"
     },
     {
