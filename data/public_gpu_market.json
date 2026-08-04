@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0.0",
-  "generated_at": "2026-08-03T16:09:46.293Z",
+  "generated_at": "2026-08-04T16:17:34.907Z",
   "inventory_generated_at": "2026-08-03T16:09:12.946Z",
-  "pricing_generated_at": "2026-08-03T16:09:46.179Z",
-  "freshness_label": "Refreshed recently",
+  "pricing_generated_at": "2026-08-04T16:17:34.788Z",
+  "freshness_label": "Refreshed 24h ago",
   "disclosure": "Public market summary only. Provider identities, source URLs, evidence excerpts, and source-level rows are intentionally withheld.",
   "source_count_summary": {
     "registry_supplier_count": 224,
