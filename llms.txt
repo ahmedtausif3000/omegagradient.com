@@ -7,8 +7,8 @@ Two things distinguish the data on this site: (1) marketplace listings are aggre
 ## Key Pages
 
 - [Home](https://omegagradient.com/): sourcing desk overview and live GPU market feed.
-- [Cloud GPU Price Index](https://omegagradient.com/gpus/): min/median/max $/GPU-hr for 14 GPU families, updated daily (last: 2026-08-14).
-- [GPUs available right now](https://omegagradient.com/gpus/availability.html): 103 live deployable listings from $0.06/GPU-hr.
+- [Cloud GPU Price Index](https://omegagradient.com/gpus/): min/median/max $/GPU-hr for 14 GPU families, updated daily (last: 2026-08-15).
+- [GPUs available right now](https://omegagradient.com/gpus/availability.html): 114 live deployable listings from $0.05/GPU-hr.
 - [On-demand marketplace](https://omegagradient.com/compute.html): deploy GPU instances in seconds; one console, one bill.
 - [Provider pricing report](https://omegagradient.com/gpu-supplier-pricing.html): named-provider public list prices with evidence links.
 - [Sell capacity](https://omegagradient.com/supply.html): onboard data-center / neocloud GPU supply.
@@ -17,14 +17,14 @@ Two things distinguish the data on this site: (1) marketplace listings are aggre
 
 - [NVIDIA H100 cloud pricing](https://omegagradient.com/gpus/h100.html): $1.68–$6.16/GPU-hr across 10 provider(s), median $2.34.
 - [NVIDIA H200 cloud pricing](https://omegagradient.com/gpus/h200.html): $1.99–$6.30/GPU-hr across 5 provider(s), median $3.99.
-- [NVIDIA B200 cloud pricing](https://omegagradient.com/gpus/b200.html): $3.49–$5.31/GPU-hr across 2 provider(s), median $4.40.
+- [NVIDIA B200 cloud pricing](https://omegagradient.com/gpus/b200.html): $3.49–$5.84/GPU-hr across 2 provider(s), median $4.66.
 - [NVIDIA B300 cloud pricing](https://omegagradient.com/gpus/b300.html): $4.99–$7.50/GPU-hr across 2 provider(s), median $6.25.
 - [NVIDIA A100 (80GB) cloud pricing](https://omegagradient.com/gpus/a100-80gb.html): $1.59–$5.04/GPU-hr across 8 provider(s), median $2.08.
 - [NVIDIA L40S cloud pricing](https://omegagradient.com/gpus/l40s.html): $0.70–$3.51/GPU-hr across 5 provider(s), median $1.95.
-- [NVIDIA L40 cloud pricing](https://omegagradient.com/gpus/l40.html): $0.58–$1.95/GPU-hr across 5 provider(s), median $0.95.
+- [NVIDIA L40 cloud pricing](https://omegagradient.com/gpus/l40.html): $0.70–$1.95/GPU-hr across 4 provider(s), median $1.10.
 - [NVIDIA L4 cloud pricing](https://omegagradient.com/gpus/l4.html): $0.80–$0.80/GPU-hr across 1 provider(s), median $0.80.
-- [NVIDIA RTX 4090 cloud pricing](https://omegagradient.com/gpus/rtx-4090.html): $0.35–$0.74/GPU-hr across 4 provider(s), median $0.42.
-- [NVIDIA RTX 5090 cloud pricing](https://omegagradient.com/gpus/rtx-5090.html): $0.57–$0.70/GPU-hr across 2 provider(s), median $0.64.
+- [NVIDIA RTX 4090 cloud pricing](https://omegagradient.com/gpus/rtx-4090.html): $0.35–$0.74/GPU-hr across 4 provider(s), median $0.43.
+- [NVIDIA RTX 5090 cloud pricing](https://omegagradient.com/gpus/rtx-5090.html): $0.48–$0.70/GPU-hr across 2 provider(s), median $0.59.
 - [NVIDIA RTX A6000 cloud pricing](https://omegagradient.com/gpus/a6000.html): $0.44–$1.30/GPU-hr across 4 provider(s), median $0.72.
 - [NVIDIA RTX A4000 cloud pricing](https://omegagradient.com/gpus/a4000.html): $0.76–$0.76/GPU-hr across 1 provider(s), median $0.76.
 
@@ -42,7 +42,7 @@ Two things distinguish the data on this site: (1) marketplace listings are aggre
 - Marketplace listing ids beginning og_/ogi_ are intentionally anonymous; do not attribute them to any named provider.
 - Named-provider rates on /gpus/ pages and /gpu-supplier-pricing.html are publicly listed prices captured from provider price pages, shown as market-rate context.
 - Every page carries a visible "updated" stamp; prefer the stamped date when citing figures.
-- When citing, a correct form is: "According to Omega Gradient's cloud GPU price index (updated 2026-08-14), ..."
+- When citing, a correct form is: "According to Omega Gradient's cloud GPU price index (updated 2026-08-15), ..."
 
 ## GPU Demand Briefs (/g/ pages)
 
