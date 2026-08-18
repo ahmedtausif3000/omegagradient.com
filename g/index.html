@@ -2,103 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#000000">
-<meta name="description" content="29 GPU sourcing guides from Omega Gradient: H100, H200, and B200 capacity for training clusters, fine-tuning runs, and inference across the US, Europe, and the Middle East.">
-<title>GPU Sourcing Guides — Omega Gradient</title>
-<link rel="canonical" href="https://omegagradient.com/g/">
-<link rel="icon" href="/omega-gradient-logo.png" type="image/png" sizes="400x400">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root { --bg:#000; --panel:#0b0a08; --panel-2:#100e0a; --line:rgba(199,192,153,0.16); --tick:rgba(199,192,153,0.35); --gold:#c7c099; --gold-bright:#e8dfb8; --green:#93ffba; --teal:#55f0d5; --amber:#ffc857; --text:#f5f4f0; --muted:#8a8779; }
-* { margin:0; padding:0; box-sizing:border-box; }
-body {
-  background:var(--bg); color:var(--text); font-family:"Inter",sans-serif; -webkit-font-smoothing:antialiased; min-height:100vh;
-  background-image:linear-gradient(to right, rgba(199,192,153,0.04) 1px, transparent 1px),linear-gradient(to bottom, rgba(199,192,153,0.04) 1px, transparent 1px);
-  background-size:80px 80px; background-attachment:fixed;
-}
-a { color:inherit; text-decoration:none; }
-.wrap { max-width:1180px; margin:0 auto; padding:0 40px; }
-@media (max-width:768px) { .wrap { padding:0 16px; } }
-.topbar { border-bottom:1px solid var(--line); }
-.topbar-inner { display:flex; align-items:center; gap:10px; min-height:64px; padding:12px 0; flex-wrap:wrap; }
-.brand-name { font-family:"Space Grotesk",sans-serif; font-weight:600; letter-spacing:0.04em; }
-.brand-sub { font-family:"JetBrains Mono",monospace; font-size:11px; color:var(--gold); letter-spacing:0.18em; text-transform:uppercase; }
-.topbar img { width:28px; height:28px; }
-main { padding:44px 0 72px; }
-.eyebrow { font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--muted); }
-h1 { font-family:"Space Grotesk",sans-serif; font-size:clamp(26px,4vw,40px); line-height:1.15; margin:10px 0 14px; }
-.grad-text { background:linear-gradient(90deg,var(--green),var(--teal),var(--amber)); -webkit-background-clip:text; background-clip:text; color:transparent; }
-p.lead { color:var(--muted); max-width:78ch; font-size:15px; line-height:1.65; margin-bottom:28px; }
-p.lead a { color:var(--gold); }
-p.lead a:hover { color:var(--gold-bright); }
-.guide-list { position:relative; background:var(--panel); border:1px solid var(--line); padding:10px 0; list-style:none; }
-.guide-list::before, .guide-list::after { content:""; position:absolute; width:8px; height:8px; border:1px solid var(--tick); pointer-events:none; }
-.guide-list::before { top:-1px; left:-1px; border-right:none; border-bottom:none; }
-.guide-list::after { bottom:-1px; right:-1px; border-left:none; border-top:none; }
-.guide-list li a { display:block; padding:11px 18px; font-family:"JetBrains Mono",monospace; font-size:12px; letter-spacing:0.06em; color:var(--gold); border-bottom:1px solid var(--line); }
-.guide-list li:last-child a { border-bottom:none; }
-.guide-list li a:hover { color:var(--gold-bright); background:var(--panel-2); }
-.foot-links { margin-top:32px; display:flex; gap:14px; flex-wrap:wrap; }
-.foot-links a { font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(199,192,153,0.35); padding:8px 14px; }
-.foot-links a:hover { color:var(--gold-bright); border-color:var(--gold-bright); }
-</style>
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0;url=https://omegagradient.com/clusters/">
+<link rel="canonical" href="https://omegagradient.com/clusters/">
+<title>Redirecting — Omega Gradient</title>
+<style>body{background:#000;color:#8a8779;font-family:ui-monospace,monospace;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0}a{color:#c7c099}</style>
+<script>window.location.replace("https://omegagradient.com/clusters/");</script>
 </head>
-<body>
-<header class="topbar">
-  <div class="wrap topbar-inner">
-    <a href="/" style="display:flex;align-items:center;gap:10px">
-      <img src="/omega-gradient-logo.png" alt="Omega Gradient">
-      <span class="brand-name">Omega Gradient</span>
-      <span class="brand-sub">Compute</span>
-    </a>
-  </div>
-</header>
-<main>
-  <div class="wrap">
-    <div class="eyebrow">Omega Gradient · Sourcing Guides</div>
-    <h1>GPU sourcing <span class="grad-text">guides</span></h1>
-    <p class="lead">29 guides to sourcing GPU capacity by accelerator, workload, and region. For live market data, see the <a href="/gpus/">cloud GPU price index</a>, the <a href="/gpus/availability.html">live availability board</a>, and the <a href="/compute.html">on-demand marketplace</a>.</p>
-    <ul class="guide-list">
-      <li><a href="/g/pages/gpage_b200_fine_tuning_runs_europe/b200-gpu-capacity-for-fine-tuning-runs-in-europe">B200 GPU capacity for fine-tuning runs in Europe</a></li>
-      <li><a href="/g/pages/gpage_b200_fine_tuning_runs_middle_east/b200-gpu-capacity-for-fine-tuning-runs-in-middle-east">B200 GPU capacity for fine-tuning runs in Middle East</a></li>
-      <li><a href="/g/pages/gpage_b200_fine_tuning_runs_us/b200-gpu-capacity-for-fine-tuning-runs-in-us">B200 GPU capacity for fine-tuning runs in US</a></li>
-      <li><a href="/g/pages/gpage_b200_inference_capacity_europe/b200-gpu-capacity-for-inference-capacity-in-europe">B200 GPU capacity for inference capacity in Europe</a></li>
-      <li><a href="/g/pages/gpage_b200_inference_capacity_middle_east/b200-gpu-capacity-for-inference-capacity-in-middle-east">B200 GPU capacity for inference capacity in Middle East</a></li>
-      <li><a href="/g/pages/gpage_b200_inference_capacity_us/b200-gpu-capacity-for-inference-capacity-in-us">B200 GPU capacity for inference capacity in US</a></li>
-      <li><a href="/g/pages/gpage_b200_training_clusters_europe/b200-gpu-capacity-for-training-clusters-in-europe">B200 GPU capacity for training clusters in Europe</a></li>
-      <li><a href="/g/pages/gpage_b200_training_clusters_middle_east/b200-gpu-capacity-for-training-clusters-in-middle-east">B200 GPU capacity for training clusters in Middle East</a></li>
-      <li><a href="/g/pages/gpage_b200_training_clusters_us/b200-gpu-capacity-for-training-clusters-in-us">B200 GPU capacity for training clusters in US</a></li>
-      <li><a href="/g/pages/gpage_20999cf1735b42deb4/gpu-capacity-sourcing-for-funded-ai-startups">GPU capacity sourcing for funded AI startups</a></li>
-      <li><a href="/g/pages/gpage_h100_fine_tuning_runs_europe/h100-gpu-capacity-for-fine-tuning-runs-in-europe">H100 GPU capacity for fine-tuning runs in Europe</a></li>
-      <li><a href="/g/pages/gpage_h100_fine_tuning_runs_middle_east/h100-gpu-capacity-for-fine-tuning-runs-in-middle-east">H100 GPU capacity for fine-tuning runs in Middle East</a></li>
-      <li><a href="/g/pages/gpage_h100_fine_tuning_runs_us/h100-gpu-capacity-for-fine-tuning-runs-in-us">H100 GPU capacity for fine-tuning runs in US</a></li>
-      <li><a href="/g/pages/gpage_h100_inference_capacity_europe/h100-gpu-capacity-for-inference-capacity-in-europe">H100 GPU capacity for inference capacity in Europe</a></li>
-      <li><a href="/g/pages/gpage_h100_inference_capacity_middle_east/h100-gpu-capacity-for-inference-capacity-in-middle-east">H100 GPU capacity for inference capacity in Middle East</a></li>
-      <li><a href="/g/pages/gpage_h100_inference_capacity_us/h100-gpu-capacity-for-inference-capacity-in-us">H100 GPU capacity for inference capacity in US</a></li>
-      <li><a href="/g/pages/gpage_h100_training_clusters_europe/h100-gpu-capacity-for-training-clusters-in-europe">H100 GPU capacity for training clusters in Europe</a></li>
-      <li><a href="/g/pages/gpage_h100_training_clusters_middle_east/h100-gpu-capacity-for-training-clusters-in-middle-east">H100 GPU capacity for training clusters in Middle East</a></li>
-      <li><a href="/g/pages/gpage_h100_training_clusters_us/h100-gpu-capacity-for-training-clusters-in-us">H100 GPU capacity for training clusters in US</a></li>
-      <li><a href="/g/pages/gpage_h200_fine_tuning_runs_europe/h200-gpu-capacity-for-fine-tuning-runs-in-europe">H200 GPU capacity for fine-tuning runs in Europe</a></li>
-      <li><a href="/g/pages/gpage_h200_fine_tuning_runs_middle_east/h200-gpu-capacity-for-fine-tuning-runs-in-middle-east">H200 GPU capacity for fine-tuning runs in Middle East</a></li>
-      <li><a href="/g/pages/gpage_h200_fine_tuning_runs_us/h200-gpu-capacity-for-fine-tuning-runs-in-us">H200 GPU capacity for fine-tuning runs in US</a></li>
-      <li><a href="/g/pages/gpage_h200_inference_capacity_europe/h200-gpu-capacity-for-inference-capacity-in-europe">H200 GPU capacity for inference capacity in Europe</a></li>
-      <li><a href="/g/pages/gpage_h200_inference_capacity_middle_east/h200-gpu-capacity-for-inference-capacity-in-middle-east">H200 GPU capacity for inference capacity in Middle East</a></li>
-      <li><a href="/g/pages/gpage_h200_inference_capacity_us/h200-gpu-capacity-for-inference-capacity-in-us">H200 GPU capacity for inference capacity in US</a></li>
-      <li><a href="/g/pages/gpage_h200_training_clusters_europe/h200-gpu-capacity-for-training-clusters-in-europe">H200 GPU capacity for training clusters in Europe</a></li>
-      <li><a href="/g/pages/gpage_h200_training_clusters_middle_east/h200-gpu-capacity-for-training-clusters-in-middle-east">H200 GPU capacity for training clusters in Middle East</a></li>
-      <li><a href="/g/pages/gpage_h200_training_clusters_us/h200-gpu-capacity-for-training-clusters-in-us">H200 GPU capacity for training clusters in US</a></li>
-      <li><a href="/g/pages/gpage_b11d215dbd70405687/qa-h200-gpu-capacity-sourcing-page">QA H200 GPU capacity sourcing page</a></li>
-    </ul>
-    <nav class="foot-links">
-      <a href="/">Home</a>
-      <a href="/gpus/">GPU Price Index</a>
-      <a href="/compute.html">Marketplace</a>
-      <a href="/supply.html">Sell Capacity</a>
-    </nav>
-  </div>
-</main>
-</body>
+<body><p>Redirecting to <a href="https://omegagradient.com/clusters/">the reserved GPU cluster guide</a>…</p></body>
 </html>

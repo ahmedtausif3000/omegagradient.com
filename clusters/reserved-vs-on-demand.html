@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Reserved vs on-demand vs scheduled GPU capacity: compare assurance, flexibility, economics, topology, procurement risk, and the base-plus-burst model.">
+  <title>Reserved vs On-Demand GPU Capacity | Omega Gradient</title>
+  <link rel="canonical" href="https://omegagradient.com/clusters/reserved-vs-on-demand.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Reserved vs On-Demand GPU Capacity">
+  <meta property="og:description" content="A practical decision framework for GPU reservations, on-demand instances, scheduled blocks, and base-plus-burst capacity.">
+  <meta property="og:url" content="https://omegagradient.com/clusters/reserved-vs-on-demand.html">
+  <meta property="og:image" content="https://omegagradient.com/og-image-omega-logo-globe-centered-20260628.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/omega-gradient-logo.png" type="image/png" sizes="400x400">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/clusters/reserved-clusters.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "Organization", "@id": "https://omegagradient.com/#organization", "name": "Omega Gradient", "url": "https://omegagradient.com/", "logo": "https://omegagradient.com/omega-gradient-logo.png" },
+      {
+        "@type": "Article",
+        "@id": "https://omegagradient.com/clusters/reserved-vs-on-demand.html#article",
+        "headline": "Reserved vs On-Demand GPU Capacity: A Buyer Decision Guide",
+        "description": "Compare GPU reservations, on-demand instances, scheduled capacity, and base-plus-burst strategies.",
+        "datePublished": "2026-08-17",
+        "dateModified": "2026-08-17",
+        "author": { "@id": "https://omegagradient.com/#organization" },
+        "publisher": { "@id": "https://omegagradient.com/#organization" },
+        "mainEntityOfPage": "https://omegagradient.com/clusters/reserved-vs-on-demand.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://omegagradient.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Reserved GPU Clusters", "item": "https://omegagradient.com/clusters/" },
+          { "@type": "ListItem", "position": 3, "name": "Reserved vs On-Demand", "item": "https://omegagradient.com/clusters/reserved-vs-on-demand.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="Omega Gradient home"><img src="/omega-gradient-logo.png" alt="" width="28" height="28"><span class="brand-name">Omega <span>Gradient</span></span></a><nav class="primary-nav" aria-label="Primary navigation"><a href="/clusters/">Reserved clusters</a><a href="/clusters/how-we-qualify.html">Diligence</a><a href="/clusters/reserved-vs-on-demand.html" aria-current="page">Decision guide</a><a href="/gpus/">Price index</a><a href="/compute.html">On-demand</a></nav><a class="btn btn-gold btn-small header-cta" href="/clusters/#request">Request capacity</a><button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open menu">Menu</button></div></header>
+  <main>
+    <div class="wrap breadcrumbs"><a href="/">Home</a><span>/</span><a href="/clusters/">Reserved clusters</a><span>/</span>Reserved vs on-demand</div>
+    <article class="article-shell">
+      <header class="reading article-header" data-reveal>
+        <span class="eyebrow">Buyer decision guide · access models</span>
+        <h1>Reserved vs on-demand GPU capacity.</h1>
+        <p class="article-lede">Reserve when continuity, topology, locality, and a known start date matter enough to justify commitment. Use on-demand when speed and flexibility matter more than guaranteed supply. Use scheduled blocks or a base-plus-burst portfolio when the workload sits between those poles.</p>
+        <div class="article-meta"><span>Published August 17, 2026</span><span>Omega Gradient Intelligence</span><span>10-minute read</span></div>
+      </header>
+      <div class="reading article-body">
+        <aside class="toc" aria-label="On this page"><strong>On this page</strong><a href="#answer">Direct answer</a><a href="#models">Four access models</a><a href="#matrix">Comparison matrix</a><a href="#utilization">Utilization economics</a><a href="#topology">Topology and continuity</a><a href="#procurement">Procurement risk</a><a href="#portfolio">Base plus burst</a><a href="#questions">Decision questions</a></aside>
+        <div class="prose">
+          <h2 id="answer">Direct answer</h2>
+          <p><strong>Reserved GPU clusters</strong> are best for sustained training, post-training, inference, or HPC workloads that need a defined block, consistent topology, capacity assurance, data locality, or a committed start date. <strong>On-demand GPUs</strong> are best for experiments, short jobs, uncertain demand, variable inference, and teams that cannot yet forecast utilization. <strong>Scheduled capacity</strong> is best for known finite runs. A <strong>base-plus-burst</strong> design reserves the predictable floor and sources flexible capacity for peaks.</p>
+          <p>The decision should not begin with the published hourly rate. It should begin with the cost of a missed run, the shape of utilization, the workload’s communication pattern, and the operational cost of moving between environments.</p>
+
+          <h2 id="models">The four practical access models</h2>
+          <h3>1. Long- or medium-term reserved cluster</h3>
+          <p>A provider commits a defined system to the buyer for a term, commonly measured in months or years. The commitment may improve unit economics and assurance, but the buyer takes utilization risk and must diligence delivery, topology, counterparty, acceptance, service, and renewal terms.</p>
+          <h3>2. Scheduled or short-duration capacity block</h3>
+          <p>The buyer reserves a known block for a defined future window. This is useful for finite training or fine-tuning programs where the dates are known but a long-term reservation would create idle capacity. AWS describes its Capacity Blocks for ML as future-dated reservations for short-duration workloads, with capacity placed in EC2 UltraClusters; the specific instance types, regions, sizes, and booking windows vary.</p>
+          <h3>3. On-demand instances</h3>
+          <p>The buyer launches capacity without a long contractual commitment, subject to current availability and provider rules. It is the fastest way to learn, benchmark, and serve variable demand. The trade-off is less assurance that the same count, location, and topology will remain available when a job needs to scale.</p>
+          <h3>4. Spot or interruptible capacity</h3>
+          <p>The buyer accepts interruption or revocation risk for lower cost. This can be effective for fault-tolerant inference, batch processing, simulation, and checkpointed training. It is a poor fit when a missed deadline, restart, or unstable topology costs more than the discount.</p>
+
+          <h2 id="matrix">Comparison matrix</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Factor</th><th>Reserved cluster</th><th>Scheduled block</th><th>On-demand</th><th>Spot / interruptible</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Capacity assurance</strong></td><td>High after allocation, contract, delivery, and acceptance</td><td>High for the booked window, subject to product terms</td><td>Dependent on live inventory</td><td>Low; interruption is part of the product</td></tr>
+                <tr><td><strong>Commitment</strong></td><td>Medium to high</td><td>Bounded to a defined run</td><td>Low</td><td>Low</td></tr>
+                <tr><td><strong>Topology control</strong></td><td>Can be specified and accepted</td><td>Product-specific</td><td>Varies by provider and inventory</td><td>Often fragmented or variable</td></tr>
+                <tr><td><strong>Time to start</strong></td><td>Immediate if live; longer if delivered or built</td><td>Future scheduled date</td><td>Minutes when inventory exists</td><td>Minutes when inventory exists</td></tr>
+                <tr><td><strong>Utilization risk</strong></td><td>Buyer</td><td>Buyer during the block</td><td>Provider / marketplace</td><td>Provider / marketplace</td></tr>
+                <tr><td><strong>Rate predictability</strong></td><td>Usually strong during term</td><td>Strong for booked block</td><td>Varies by provider</td><td>Can be volatile</td></tr>
+                <tr><td><strong>Best fit</strong></td><td>Steady, critical, or topology-sensitive workloads</td><td>Known finite training or fine-tuning run</td><td>Experiments, bursts, variable inference</td><td>Fault-tolerant and restartable jobs</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2 id="utilization">Utilization—not the discount—drives reservation economics</h2>
+          <p>A reservation can have a lower contracted rate and still cost more per useful GPU-hour if the cluster is underused. The basic comparison is:</p>
+          <blockquote>Effective reserved cost per useful GPU-hour = total committed cost ÷ GPU-hours that create useful work.</blockquote>
+          <p>The numerator should include more than the quoted GPU rate: unused ramp, deposits or financing cost, required storage, bandwidth, support, management, software, and the engineering needed to operate the cluster. The denominator should exclude idle time, failed jobs, unusable nodes, and time lost to a storage or fabric bottleneck.</p>
+          <p>A buyer should model low, base, and high utilization scenarios. If the reservation only wins in the high scenario, the commercial structure may need a smaller base block, later ramp, shorter term, portability right, or a scheduled product instead.</p>
+
+          <h2 id="topology">Topology and continuity can outweigh price</h2>
+          <p>Distributed workloads are not indifferent to where GPUs sit. An on-demand marketplace can provide many GPUs without providing one coherent cluster. Training may require nodes within a known fabric, consistent software and firmware, predictable storage, and a failure model that does not change between runs. The reservation buys continuity of that system, not merely a number of accelerators.</p>
+          <p>On the other hand, many inference and development workloads are deliberately portable. If the application can distribute traffic across providers, tolerate instance churn, and move artifacts cheaply, a flexible portfolio may be more resilient than a single long reservation.</p>
+
+          <h2 id="procurement">A reservation replaces availability risk with procurement risk</h2>
+          <p>On-demand buyers face the risk that inventory disappears. Reserved buyers reduce that risk but accept new ones: delivery slips, infrastructure differs from the quote, a build depends on financing or facility milestones, a weak counterparty cannot support the term, or the workload changes before the commitment ends.</p>
+          <p>This is why a reserved decision needs more diligence than an on-demand launch. Omega Gradient evaluates the chain of control, facility readiness, system architecture, acceptance design, operational boundary, and commercial remedies. See the <a href="/clusters/how-we-qualify.html">full qualification framework</a>.</p>
+
+          <h2 id="portfolio">The base-plus-burst model</h2>
+          <p>For many AI teams, the correct answer is not reserved <em>or</em> on-demand. It is a portfolio:</p>
+          <ol>
+            <li>Estimate the steady workload floor using a conservative utilization case.</li>
+            <li>Reserve only the block that remains useful through normal demand variance.</li>
+            <li>Use on-demand, scheduled, or interruptible supply for peaks, testing, migration, and queue relief.</li>
+            <li>Design data, containers, orchestration, and identity so workloads can move without a full rebuild.</li>
+            <li>Re-evaluate the base before renewal using actual useful utilization, not booked hours.</li>
+          </ol>
+          <p>This structure preserves a reliable home for critical work while keeping option value. It also creates real operating data before the team makes a larger reservation.</p>
+
+          <h2 id="questions">Eight questions that usually decide the model</h2>
+          <ol>
+            <li>What happens to the business if the GPUs are unavailable for a day, week, or launch window?</li>
+            <li>How many GPU-hours are truly predictable in the low, base, and high cases?</li>
+            <li>Does the workload require one coherent fabric, or can it distribute across isolated nodes and providers?</li>
+            <li>How costly is it to move data, checkpoints, containers, keys, and observability?</li>
+            <li>Is there a known finite run that fits a scheduled block better than a long reservation?</li>
+            <li>Can the team operate bare metal, or does it need a managed service boundary?</li>
+            <li>Which matters more: lowest possible unit price, predictable capacity, or commercial flexibility?</li>
+            <li>What evidence and remedy are required before a deposit or prepayment is acceptable?</li>
+          </ol>
+          <p>If those answers are not clear, run an on-demand benchmark and shape the reserved requirement from measured behavior. Omega Gradient’s <a href="/compute.html">on-demand marketplace</a> and <a href="/gpus/">GPU price index</a> support that exploratory step; the reserved sourcing process begins when the system and risk need to be controlled.</p>
+
+          <div class="source-note"><strong>Primary references</strong><br>AWS, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html" rel="noopener">Capacity Blocks for ML</a>; Together AI, <a href="https://docs.together.ai/reference/clusters" rel="noopener">cluster API reference</a> (reserved, on-demand, and scheduled-capacity billing types). Product details change; verify region, size, booking window, and contract terms with the provider before procurement.</div>
+        </div>
+      </div>
+    </article>
+    <section class="request-section"><div class="reading"><div class="panel callout"><i class="tk" aria-hidden="true"></i><div class="callout-grid"><div><span class="eyebrow">Make the decision concrete</span><h2>Model the base. Source the burst.</h2></div><div><p>Bring forecast utilization, a target start date, or an existing quote. Omega Gradient will turn it into a comparable reserved and flexible-capacity plan.</p><div class="hero-actions"><a class="btn btn-gold" href="/clusters/#request">Start a cluster brief</a><a class="btn" href="/compute.html">Browse on-demand</a></div></div></div></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="wrap"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="/"><img src="/omega-gradient-logo.png" alt="" width="28" height="28"><span class="brand-name">Omega <span>Gradient</span></span></a><p>GPU supply sourcing and intelligence for reserved clusters and on-demand compute.</p></div><div class="footer-col"><h2>Reserved</h2><a href="/clusters/">Cluster sourcing</a><a href="/clusters/hopper-h100-h200.html">H100 &amp; H200</a><a href="/clusters/blackwell-b200-b300.html">B200 &amp; B300</a></div><div class="footer-col"><h2>Intelligence</h2><a href="/clusters/how-we-qualify.html">Diligence method</a><a href="/clusters/reserved-vs-on-demand.html">Decision guide</a><a href="/gpus/">GPU price index</a></div><div class="footer-col"><h2>Access</h2><a href="/compute.html">On-demand marketplace</a><a href="/supply.html">List GPU supply</a><a href="mailto:tausif@omegagradient.com">tausif@omegagradient.com</a></div></div><div class="footer-legal">© <span data-year>2026</span> Omega Gradient · Provider identities and private supply evidence remain confidential until qualification.</div></div></footer>
+  <script src="/clusters/reserved-clusters.js" defer></script>
+</body>
+</html>

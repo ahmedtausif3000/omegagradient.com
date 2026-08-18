@@ -1,5 +1,6 @@
-# omegagradient.com — GPU supply sourcing & intelligence desk with an on-demand GPU marketplace.
-# Live pricing data: https://omegagradient.com/gpus/ and https://omegagradient.com/data/public_gpu_market.json
+# omegagradient.com — reserved GPU cluster sourcing, diligence, and on-demand compute.
+# Reserved cluster intelligence: https://omegagradient.com/clusters/
+# Live on-demand pricing data: https://omegagradient.com/gpus/ and https://omegagradient.com/data/public_gpu_market.json
 # Machine-readable overview: https://omegagradient.com/llms.txt
 
 User-agent: *
@@ -37,4 +38,3 @@ User-agent: Bytespider
 Allow: /
 
 Sitemap: https://omegagradient.com/sitemap.xml
-Sitemap: https://omegagradient.com/g/sitemap.xml

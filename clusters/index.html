@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="Source and qualify reserved H100, H200, B200, B300, GB200, and GB300 GPU clusters. Omega Gradient normalizes quotes and validates infrastructure across providers.">
+  <title>Reserved GPU Clusters | Omega Gradient</title>
+  <link rel="canonical" href="https://omegagradient.com/clusters/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://omegagradient.com/clusters/">
+  <meta property="og:title" content="Reserved GPU Clusters | Omega Gradient">
+  <meta property="og:description" content="A sourcing and diligence desk for reserved GPU clusters—requirements, market scan, quote normalization, provider qualification, and acceptance planning.">
+  <meta property="og:image" content="https://omegagradient.com/og-image-omega-logo-globe-centered-20260628.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/omega-gradient-logo.png" type="image/png" sizes="400x400">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/clusters/reserved-clusters.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://omegagradient.com/#organization",
+        "name": "Omega Gradient",
+        "url": "https://omegagradient.com/",
+        "logo": "https://omegagradient.com/omega-gradient-logo.png",
+        "email": "tausif@omegagradient.com",
+        "sameAs": [
+          "https://www.trustpilot.com/review/omegagradient.com",
+          "https://computeprices.com/providers/omegagradient"
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://omegagradient.com/clusters/#service",
+        "name": "Reserved GPU cluster sourcing and diligence",
+        "serviceType": "GPU infrastructure sourcing, commercial normalization, and provider diligence",
+        "provider": { "@id": "https://omegagradient.com/#organization" },
+        "areaServed": "Worldwide",
+        "url": "https://omegagradient.com/clusters/",
+        "description": "Omega Gradient helps AI teams source and qualify reserved GPU clusters across providers, including H100, H200, B200, B300, GB200, and GB300 infrastructure."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://omegagradient.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Reserved GPU Clusters", "item": "https://omegagradient.com/clusters/" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is a reserved GPU cluster?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A reserved GPU cluster is a defined block of GPU infrastructure committed to one buyer for an agreed start date and term. The reservation should specify the accelerator, node and fabric topology, region, storage, network, support, acceptance criteria, and commercial terms—not only a GPU count and hourly rate." }
+          },
+          {
+            "@type": "Question",
+            "name": "Which GPUs can Omega Gradient source?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Omega Gradient evaluates reserved-cluster requirements for Hopper and Blackwell platforms, including H100, H200, B200, B300, GB200 NVL72, and GB300 NVL72, subject to provider availability, geography, technical fit, term, and buyer qualification." }
+          },
+          {
+            "@type": "Question",
+            "name": "How are reserved cluster quotes compared?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Quotes are normalized into a common commercial and technical view: effective GPU-hour cost, term, deposit and prepayment, delivery assumptions, topology, network, storage, support, service levels, acceptance testing, remedies, and counterparty structure." }
+          },
+          {
+            "@type": "Question",
+            "name": "When should a buyer use on-demand GPUs instead?",
+            "acceptedAnswer": { "@type": "Answer", "text": "On-demand capacity is generally a better fit for experiments, variable inference, short bursts, and workloads that do not need guaranteed continuity. Reserved clusters are generally a better fit when utilization is predictable and topology, start date, continuity, or data locality matter." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/" aria-label="Omega Gradient home">
+        <img src="/omega-gradient-logo.png" alt="" width="28" height="28">
+        <span class="brand-name">Omega <span>Gradient</span></span>
+      </a>
+      <nav class="primary-nav" aria-label="Primary navigation">
+        <a href="/clusters/" aria-current="page">Reserved clusters</a>
+        <a href="/clusters/how-we-qualify.html">Diligence</a>
+        <a href="/clusters/reserved-vs-on-demand.html">Decision guide</a>
+        <a href="/gpus/">Price index</a>
+        <a href="/compute.html">On-demand</a>
+      </nav>
+      <a class="btn btn-gold btn-small header-cta" href="#request">Request capacity</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap breadcrumbs"><a href="/">Home</a><span>/</span>Reserved GPU clusters</div>
+
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div data-reveal>
+          <span class="eyebrow">Reserved compute · sourcing · diligence</span>
+          <h1>Secure the cluster. <span class="accent">Understand the risk.</span></h1>
+          <p class="hero-copy"><strong>Omega Gradient is a sourcing and intelligence desk for reserved GPU infrastructure.</strong> We translate a workload into a procurement brief, scan the provider market, normalize technical and commercial terms, and pressure-test the capacity behind the quote.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#request">Start a cluster brief</a>
+            <a class="btn" href="/clusters/how-we-qualify.html">Review our diligence method</a>
+          </div>
+        </div>
+        <aside class="hero-rail" aria-label="Reserved cluster priorities" data-reveal>
+          <div class="rail-item">
+            <span class="rail-label">01 · Technical fit</span>
+            <strong>Topology before logo</strong>
+            <p>GPU form factor, NVLink domain, fabric, storage, CPU, and orchestration.</p>
+          </div>
+          <div class="rail-item">
+            <span class="rail-label">02 · Commercial truth</span>
+            <strong>Comparable quotes</strong>
+            <p>Normalize term, deposits, delivery, support, credits, and effective cost.</p>
+          </div>
+          <div class="rail-item">
+            <span class="rail-label">03 · Delivery risk</span>
+            <strong>Evidence, not inventory claims</strong>
+            <p>Separate operator, host, owner, reseller, and future capacity.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="answer-strip">
+      <div class="reading">
+        <div class="answer-label">Direct answer</div>
+        <p>A reserved GPU quote is not a cluster until the buyer can verify <strong>what hardware is committed, where it will run, how the nodes communicate, when it will be accepted, who is accountable, and what happens if delivery or performance misses the agreement.</strong> Omega Gradient structures that evaluation before a buyer commits capital.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <div class="section-index">01 / The mandate</div>
+          <div>
+            <h2>Reserved cluster procurement is an infrastructure decision.</h2>
+            <p class="section-intro">The same GPU model can describe very different systems. A low headline rate can hide an unsuitable fabric, oversubscribed storage, weak support, an uncommitted delivery date, or a counterparty that does not control the equipment. The job is to make every material difference visible.</p>
+          </div>
+        </div>
+        <div class="card-grid" data-reveal>
+          <article class="panel card"><i class="tk" aria-hidden="true"></i><span class="card-number">A / REQUIREMENTS</span><h3>Define the system</h3><p>Translate model, training or inference pattern, data volume, checkpoint behavior, framework, and timeline into a technical bill of requirements.</p><ul><li>GPU generation and form factor</li><li>Node and scale-out topology</li><li>Storage throughput and capacity</li><li>Network, security, and region</li></ul></article>
+          <article class="panel card"><i class="tk" aria-hidden="true"></i><span class="card-number">B / MARKET</span><h3>Scan beyond one channel</h3><p>Compare hyperscalers, neoclouds, operators, private-cloud structures, capacity resellers, and qualified off-market supply against the same brief.</p><ul><li>Available now vs future delivery</li><li>Single site vs distributed capacity</li><li>Managed vs buyer-operated</li><li>Direct operator vs intermediary</li></ul></article>
+          <article class="panel card"><i class="tk" aria-hidden="true"></i><span class="card-number">C / DILIGENCE</span><h3>Verify the path to delivery</h3><p>Request evidence proportionate to the commitment and distinguish what is documented, what is represented, and what remains conditional.</p><ul><li>Facility and equipment control</li><li>Power and cooling readiness</li><li>Acceptance and burn-in plan</li><li>SLA, remedies, and support</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <div class="section-index">02 / The workflow</div>
+          <div><h2>From workload brief to an executable cluster decision.</h2><p class="section-intro">Omega Gradient uses a gated process. A provider only advances when the commercial structure and the technical system are both sufficiently clear for the buyer’s risk level.</p></div>
+        </div>
+        <div class="process" data-reveal>
+          <div class="process-step"><h3>Shape the demand brief</h3><p>Capture accelerator, count, start window, term, region, workload, topology, storage, compliance, budget, and operating model. Unknowns are recorded rather than silently assumed.</p></div>
+          <div class="process-step"><h3>Map the market</h3><p>Search relevant provider categories and private supply paths. Remove options that fail hard constraints before asking the buyer to spend time on them.</p></div>
+          <div class="process-step"><h3>Normalize each option</h3><p>Convert quotes into a common matrix covering effective unit economics, included services, deposits, ramp, minimums, delivery dependencies, renewal, termination, and performance obligations.</p></div>
+          <div class="process-step"><h3>Qualify infrastructure and counterparties</h3><p>Separate equipment owner, facility operator, cloud operator, reseller, and contracting entity. Request evidence appropriate to whether capacity is live, being installed, financed, or merely forecast.</p></div>
+          <div class="process-step"><h3>Plan acceptance</h3><p>Define the tests and artifacts that convert “delivered” into “accepted”: inventory, burn-in, node health, fabric, storage, collective performance, access, observability, and remediation.</p></div>
+          <div class="process-step"><h3>Support the decision</h3><p>Present the trade-offs and unresolved risks. The output is not a list of URLs; it is a decision-ready shortlist with an evidence trail.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <div class="section-index">03 / What gets compared</div>
+          <div><h2>A GPU-hour is only one line in the quote.</h2><p class="section-intro">Reserved procurement fails when price is normalized but the system is not. The comparison has to preserve the technical facts that drive delivered workload performance and operating risk.</p></div>
+        </div>
+        <div class="table-wrap" data-reveal>
+          <table>
+            <thead><tr><th>Dimension</th><th>What must be explicit</th><th>Why it changes the decision</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Accelerator and node</strong></td><td>Exact GPU, SXM/PCIe or rack-scale system, GPUs per node, CPU, memory, local NVMe</td><td>“H100” or “B200” alone does not establish memory, topology, or expected scaling behavior.</td></tr>
+              <tr><td><strong>Scale-up fabric</strong></td><td>NVLink/NVSwitch domain and boundaries</td><td>Controls communication inside the node or rack-scale domain.</td></tr>
+              <tr><td><strong>Scale-out fabric</strong></td><td>InfiniBand or Ethernet generation, link speed, topology, blocking ratio, RDMA configuration</td><td>Distributed training can be bottlenecked by the fabric long before GPUs saturate.</td></tr>
+              <tr><td><strong>Storage</strong></td><td>Usable capacity, read/write throughput, metadata performance, checkpoint path, egress</td><td>Data loading and checkpointing can erase theoretical GPU gains.</td></tr>
+              <tr><td><strong>Availability</strong></td><td>Live, allocated, under installation, financed, or forecast; start date and dependencies</td><td>A future pipeline is not the same risk as a running cluster.</td></tr>
+              <tr><td><strong>Commercials</strong></td><td>Rate basis, term, deposit, prepay, minimums, taxes, bandwidth, storage, support, renewal</td><td>Headline GPU-hour rates are not comparable without the surrounding obligations.</td></tr>
+              <tr><td><strong>Acceptance and SLA</strong></td><td>Test plan, service boundary, uptime, performance, maintenance, credits, replacement, termination rights</td><td>The contract needs a measurable line between delivery, acceptance, and remediation.</td></tr>
+              <tr><td><strong>Counterparty</strong></td><td>Owner, host, operator, reseller, contracting entity, support owner</td><td>The buyer needs to know who controls delivery and who carries each obligation.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <div class="section-index">04 / Choose the access model</div>
+          <div><h2>Reserved first when continuity matters. On-demand when flexibility does.</h2><p class="section-intro">The right answer can be a reservation, scheduled capacity, on-demand instances, or a blend. Omega Gradient starts with the workload’s risk and utilization profile rather than forcing every buyer into one commercial model.</p></div>
+        </div>
+        <div class="decision-grid" data-reveal>
+          <article class="decision"><span class="tag">Priority · reserved</span><h3>Reserved cluster</h3><p>Best when a known workload needs continuity, a controlled topology, a defined start date, or a long enough run to justify commitment.</p><dl><div><dt>Optimizes</dt><dd>Capacity assurance and system consistency</dd></div><div><dt>Buyer must solve</dt><dd>Forecasting, commitment, diligence, acceptance</dd></div><div><dt>Typical motion</dt><dd>Multi-week, monthly, or multi-year agreement</dd></div></dl></article>
+          <article class="decision"><span class="tag">Flexible · on-demand</span><h3>On-demand</h3><p>Best for experiments, variable inference, small jobs, short bursts, and teams that value immediate access over a fixed block.</p><dl><div><dt>Optimizes</dt><dd>Speed and commercial flexibility</dd></div><div><dt>Buyer must solve</dt><dd>Availability variance and interruption planning</dd></div><div><dt>Start here</dt><dd><a class="gold" href="/compute.html">Omega Gradient marketplace</a></dd></div></dl></article>
+          <article class="decision"><span class="tag">Blended · portfolio</span><h3>Base + burst</h3><p>Reserve a predictable base load and use on-demand or scheduled capacity for peaks, migration, testing, and overflow.</p><dl><div><dt>Optimizes</dt><dd>Continuity without over-reserving the peak</dd></div><div><dt>Buyer must solve</dt><dd>Portability, data movement, orchestration</dd></div><div><dt>Useful for</dt><dd>Training programs and variable inference</dd></div></dl></article>
+        </div>
+        <a class="card-link" href="/clusters/reserved-vs-on-demand.html">Read the full reserved vs on-demand decision guide →</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head" data-reveal>
+          <div class="section-index">05 / Platform routes</div>
+          <div><h2>Start with the architecture, not the acronym.</h2><p class="section-intro">Hopper and Blackwell clusters solve overlapping but not identical problems. The preferred system depends on memory, precision, communication pattern, software readiness, deployment risk, and the economics of useful work—not generational prestige.</p></div>
+        </div>
+        <div class="card-grid" data-reveal>
+          <article class="panel card"><i class="tk" aria-hidden="true"></i><span class="card-number">HOPPER / H100 · H200</span><h3>Mature distributed AI infrastructure</h3><p>H100 and H200 are widely deployed building blocks for training, fine-tuning, inference, and HPC. H200’s larger HBM footprint can materially change memory-bound workloads, but node, fabric, and storage still decide cluster behavior.</p><a class="card-link" href="/clusters/hopper-h100-h200.html">Evaluate Hopper clusters →</a></article>
+          <article class="panel card"><i class="tk" aria-hidden="true"></i><span class="card-number">BLACKWELL / B200 · B300 · NVL72</span><h3>New systems with facility-level implications</h3><p>Blackwell procurement may span HGX nodes, Grace Blackwell rack-scale systems, and Blackwell Ultra. Power, liquid cooling, scale-up domain, network generation, software readiness, and acceptance design are first-order diligence items.</p><a class="card-link" href="/clusters/blackwell-b200-b300.html">Evaluate Blackwell clusters →</a></article>
+          <article class="panel card"><i class="tk" aria-hidden="true"></i><span class="card-number">RUBIN / VERA RUBIN NVL72</span><h3>The next rack-scale procurement cycle</h3><p>Vera Rubin production is ramping, but partner announcements are not the same as broadly contractable supply. Understand HBM4, Vera CPUs, NVLink 6, facility readiness, preliminary specifications, and delivery evidence before reserving.</p><a class="card-link" href="/clusters/vera-rubin-guide.html">Read the Vera Rubin buyer guide →</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight">
+      <div class="wrap">
+        <div class="panel callout" data-reveal><i class="tk" aria-hidden="true"></i><div class="callout-grid"><div><span class="eyebrow">Operating principle</span><h2>Evidence has a status.</h2></div><div><p>Omega Gradient distinguishes <strong>validated facts, provider representations, commercial indications, and open diligence items.</strong> A screenshot is not a reservation. A manufacturer allocation is not an energized cluster. A reseller relationship is not proof that the contracting party controls the capacity.</p><p>This classification keeps a promising option in view without presenting it as more certain than the evidence supports.</p><a class="card-link" href="/clusters/how-we-qualify.html">See the qualification framework →</a></div></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="reading">
+        <div class="section-head" data-reveal><div class="section-index">06 / Buyer questions</div><div><h2>Reserved GPU clusters, answered directly.</h2></div></div>
+        <div class="faq-list" data-reveal>
+          <details><summary><span class="q">Q.01</span><h3>What is a reserved GPU cluster?</h3><span class="plus">+</span></summary><div class="faq-answer">A reserved GPU cluster is a defined block of GPU infrastructure committed to one buyer for an agreed start date and term. A decision-ready reservation specifies the accelerator, node and fabric topology, region, storage, network, support, acceptance criteria, commercial structure, and remedies—not only a GPU count and rate.</div></details>
+          <details><summary><span class="q">Q.02</span><h3>Which GPU platforms can Omega Gradient evaluate?</h3><span class="plus">+</span></summary><div class="faq-answer">Omega Gradient evaluates requirements for Hopper and Blackwell systems, including H100, H200, B200, B300, GB200 NVL72, and GB300 NVL72. Availability depends on geography, start date, term, workload, provider readiness, and buyer qualification.</div></details>
+          <details><summary><span class="q">Q.03</span><h3>How do you compare quotes from different providers?</h3><span class="plus">+</span></summary><div class="faq-answer">Quotes are normalized into a common commercial and technical matrix: effective GPU-hour economics, minimums, deposit and prepayment, ramp, term, delivery dependencies, hardware and fabric, storage, network, support, acceptance, SLA, credits, renewal, termination, and counterparty structure.</div></details>
+          <details><summary><span class="q">Q.04</span><h3>Can Omega Gradient guarantee availability?</h3><span class="plus">+</span></summary><div class="faq-answer">No market intermediary should treat an indicative supply signal as guaranteed capacity. Availability becomes credible through provider confirmation, contracting, allocation, delivery evidence, and acceptance. Omega Gradient tracks that progression and makes the unresolved conditions explicit.</div></details>
+          <details><summary><span class="q">Q.05</span><h3>When is on-demand a better choice?</h3><span class="plus">+</span></summary><div class="faq-answer">On-demand is usually the better starting point for experiments, uncertain workloads, variable inference, small jobs, and short bursts. A reservation becomes more attractive when continuity, topology, data locality, start-date assurance, or predictable utilization matters enough to justify a commitment.</div></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="request-section" id="request">
+      <div class="wrap request-grid">
+        <div class="request-copy" data-reveal>
+          <span class="eyebrow">Start with the brief</span>
+          <h2>Describe the system you actually need.</h2>
+          <p>A precise brief creates better options and exposes weak ones earlier. If some fields are unknown, say so—Omega Gradient can help shape the requirement.</p>
+          <ul class="request-list"><li>GPU and count</li><li>Region and start window</li><li>Term and workload</li><li>Fabric and storage</li><li>Budget and commercial constraints</li></ul>
+        </div>
+        <form class="panel request-form" id="clusterRequestForm" data-endpoint="/api/capacity-request" novalidate data-reveal><i class="tk" aria-hidden="true"></i>
+          <label class="form-trap" aria-hidden="true">Website<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
+          <div class="field-grid"><div class="field"><label for="full-name">Full name</label><input id="full-name" name="full-name" autocomplete="name" required></div><div class="field"><label for="company">Company</label><input id="company" name="company" autocomplete="organization" required></div></div>
+          <div class="field-grid"><div class="field"><label for="email">Business email</label><input id="email" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div></div>
+          <div class="field-grid"><div class="field"><label for="gpu">GPU platform</label><select id="gpu" name="gpu" required><option value="">Select</option><option>H100</option><option>H200</option><option>B200</option><option>B300</option><option>GB200 NVL72</option><option>GB300 NVL72</option><option>Flexible / advise</option></select></div><div class="field"><label for="gpu-count">GPU count</label><input id="gpu-count" name="gpu-count" placeholder="e.g. 64, 256, 1024" required></div></div>
+          <div class="field-grid"><div class="field"><label for="region">Region</label><input id="region" name="region" placeholder="e.g. US East, Europe, flexible"></div><div class="field"><label for="start-date">Target start</label><input id="start-date" name="start-date" placeholder="Date or window"></div></div>
+          <div class="field-grid"><div class="field"><label for="term">Term</label><select id="term" name="term"><option value="">Select</option><option>Days / scheduled block</option><option>1–3 months</option><option>3–12 months</option><option>1–3 years</option><option>3+ years</option><option>Flexible / advise</option></select></div><div class="field"><label for="workload">Workload</label><select id="workload" name="workload"><option value="">Select</option><option>Pre-training</option><option>Post-training / fine-tuning</option><option>Inference / reasoning</option><option>HPC / scientific computing</option><option>Mixed</option></select></div></div>
+          <div class="field"><label for="requirements">Requirements and constraints</label><textarea id="requirements" name="requirements" placeholder="Model or framework, interconnect, storage, security, budget, operating model, and anything already quoted..."></textarea></div>
+          <button class="btn btn-gold" type="submit">Send requirements</button>
+          <p class="form-status" id="clusterRequestStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand"><a class="brand" href="/"><img src="/omega-gradient-logo.png" alt="" width="28" height="28"><span class="brand-name">Omega <span>Gradient</span></span></a><p>GPU supply sourcing and intelligence for reserved clusters and on-demand compute.</p></div>
+        <div class="footer-col"><h2>Reserved</h2><a href="/clusters/">Cluster sourcing</a><a href="/clusters/vera-rubin-guide.html">Vera Rubin</a><a href="/clusters/hopper-h100-h200.html">H100 &amp; H200</a><a href="/clusters/blackwell-b200-b300.html">B200 &amp; B300</a></div>
+        <div class="footer-col"><h2>Intelligence</h2><a href="/clusters/how-we-qualify.html">Diligence method</a><a href="/clusters/reserved-vs-on-demand.html">Decision guide</a><a href="/gpus/">GPU price index</a></div>
+        <div class="footer-col"><h2>Access</h2><a href="/compute.html">On-demand marketplace</a><a href="/supply.html">List GPU supply</a><a href="mailto:tausif@omegagradient.com">tausif@omegagradient.com</a></div>
+      </div>
+      <div class="footer-legal">© <span data-year>2026</span> Omega Gradient · Provider identities and private supply evidence remain confidential until qualification.</div>
+    </div>
+  </footer>
+  <script src="/clusters/reserved-clusters.js" defer></script>
+</body>
+</html>

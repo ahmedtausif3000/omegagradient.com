@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="A buyer's guide to reserved H100 and H200 GPU clusters: SXM vs PCIe/NVL, memory, NVLink and InfiniBand topology, storage, sourcing diligence, quote normalization, and acceptance.">
+  <title>H100 &amp; H200 Reserved GPU Clusters | Omega Gradient</title>
+  <link rel="canonical" href="https://omegagradient.com/clusters/hopper-h100-h200.html">
+  <meta property="og:type" content="article"><meta property="og:title" content="H100 &amp; H200 Reserved GPU Clusters"><meta property="og:description" content="How to compare and qualify Hopper clusters across architecture, fabric, storage, operations, commercials, and acceptance."><meta property="og:url" content="https://omegagradient.com/clusters/hopper-h100-h200.html"><meta property="og:image" content="https://omegagradient.com/og-image-omega-logo-globe-centered-20260628.png"><meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/omega-gradient-logo.png" type="image/png" sizes="400x400">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/clusters/reserved-clusters.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://omegagradient.com/#organization","name":"Omega Gradient","url":"https://omegagradient.com/","logo":"https://omegagradient.com/omega-gradient-logo.png"},{"@type":"Article","@id":"https://omegagradient.com/clusters/hopper-h100-h200.html#article","headline":"Reserved H100 and H200 GPU Clusters: A Buyer Guide","description":"Architecture, topology, storage, sourcing diligence, commercial normalization, and acceptance for Hopper GPU clusters.","datePublished":"2026-08-17","dateModified":"2026-08-17","author":{"@id":"https://omegagradient.com/#organization"},"publisher":{"@id":"https://omegagradient.com/#organization"},"mainEntityOfPage":"https://omegagradient.com/clusters/hopper-h100-h200.html"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://omegagradient.com/"},{"@type":"ListItem","position":2,"name":"Reserved GPU Clusters","item":"https://omegagradient.com/clusters/"},{"@type":"ListItem","position":3,"name":"H100 and H200","item":"https://omegagradient.com/clusters/hopper-h100-h200.html"}]}]}
+  </script>
+</head>
+<body>
+  <header class="site-header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="Omega Gradient home"><img src="/omega-gradient-logo.png" alt="" width="28" height="28"><span class="brand-name">Omega <span>Gradient</span></span></a><nav class="primary-nav" aria-label="Primary navigation"><a href="/clusters/" aria-current="page">Reserved clusters</a><a href="/clusters/how-we-qualify.html">Diligence</a><a href="/clusters/reserved-vs-on-demand.html">Decision guide</a><a href="/gpus/">Price index</a><a href="/compute.html">On-demand</a></nav><a class="btn btn-gold btn-small header-cta" href="/clusters/#request">Request capacity</a><button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open menu">Menu</button></div></header>
+  <main>
+    <div class="wrap breadcrumbs"><a href="/">Home</a><span>/</span><a href="/clusters/">Reserved clusters</a><span>/</span>Hopper clusters</div>
+    <article class="article-shell">
+      <header class="reading article-header" data-reveal><span class="eyebrow">Hopper infrastructure · buyer guide</span><h1>H100 and H200 reserved GPU clusters.</h1><p class="article-lede">Hopper is a mature foundation for distributed training, post-training, inference, and HPC—but two H100 or H200 quotes can describe materially different systems. Form factor, memory, scale-up domain, scale-out fabric, storage, service boundary, and delivery evidence must be compared alongside price.</p><div class="article-meta"><span>Published August 17, 2026</span><span>Omega Gradient Intelligence</span><span>Reserved-cluster sourcing</span></div></header>
+      <div class="reading article-body">
+        <aside class="toc" aria-label="On this page"><strong>On this page</strong><a href="#answer">Direct answer</a><a href="#h100-h200">H100 vs H200</a><a href="#form-factor">Form factor matters</a><a href="#fabric">Fabric and storage</a><a href="#quotes">Normalize quotes</a><a href="#availability">Availability evidence</a><a href="#acceptance">Acceptance plan</a><a href="#brief">Buyer brief</a></aside>
+        <div class="prose">
+          <h2 id="answer">Direct answer</h2>
+          <p>Choose an H100 or H200 cluster by useful workload performance, memory fit, delivery confidence, and total commitment—not by accelerator name or headline GPU-hour rate alone. H200’s 141 GB HBM3e footprint can reduce memory pressure for large models and memory-bound inference, while H100 remains a broadly deployed and often easier-to-source platform. In either case, node topology, fabric, storage, and operational consistency determine whether a distributed workload scales.</p>
+          <p><strong>Omega Gradient sources and compares reserved Hopper clusters for buyers that need a defined count, region, start date, topology, or term.</strong> On-demand options remain available for benchmarking, experiments, and flexible workloads.</p>
+
+          <h2 id="h100-h200">H100 vs H200: start with memory behavior and workload economics</h2>
+          <p>NVIDIA’s DGX documentation describes eight-GPU systems with 640 GB total H100 memory or 1,128 GB total H200 memory. At the accelerator level, NVIDIA lists H100 SXM with 80 GB HBM3 and H200-based systems with 141 GB per GPU. That larger memory footprint can reduce model partitioning, enable larger batches or contexts, or keep more of an inference workload resident. It does not guarantee that every H200 workload is faster or cheaper.</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Decision area</th><th>H100</th><th>H200</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Memory</strong></td><td>Common H100 SXM systems provide 80 GB per GPU; H100 NVL is a different PCIe product</td><td>141 GB HBM3e per GPU in common H200 systems</td></tr>
+                <tr><td><strong>Best reason to choose</strong></td><td>Broad deployment, mature operating experience, potentially wider supply</td><td>Workloads that benefit from larger memory and higher memory bandwidth</td></tr>
+                <tr><td><strong>Validation focus</strong></td><td>Exact variant, node topology, fabric, and system consistency</td><td>Measured memory benefit, software readiness, node topology, and fabric</td></tr>
+                <tr><td><strong>Commercial question</strong></td><td>Does availability or rate outweigh the value of more memory?</td><td>Does the workload save enough nodes, time, or engineering complexity to justify the premium?</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>A useful comparison runs the buyer’s model or a representative benchmark under the intended precision, parallelism, sequence length, batch behavior, and storage path. The economic unit is cost per completed training objective, fine-tuning run, inference token at the target latency, or scientific result—not the GPU-hour in isolation.</p>
+
+          <h2 id="form-factor">“H100” is not a complete hardware description</h2>
+          <p>H100 appears in SXM systems and in H100 NVL/PCIe configurations. NVIDIA lists different memory and NVLink characteristics for those products. An eight-GPU HGX or DGX-style node with NVSwitch is not interchangeable with independent PCIe GPUs connected only through host PCIe and the scale-out network.</p>
+          <p>The quote should state exact accelerator variant, GPUs per node, CPU, host memory, local NVMe, NICs, NVLink/NVSwitch topology, and the network between nodes. If the seller cannot provide that information, the buyer does not yet have a cluster design to compare.</p>
+
+          <h2 id="fabric">Fabric and storage determine distributed efficiency</h2>
+          <p>NVIDIA cites 900 GB/s GPU-to-GPU interconnect for H100 SXM through fourth-generation NVLink, while DGX H100/H200 systems use NVSwitch inside the eight-GPU node. Multi-node scaling still depends on the external fabric. The provider should specify InfiniBand or Ethernet, generation and link speed, topology, blocking ratio, RDMA, network isolation, and the expected behavior of NCCL or other collectives.</p>
+          <p>Storage should be qualified against the buyer’s data and checkpoint pattern. Important facts include usable capacity, aggregate and per-node read/write throughput, metadata performance, local scratch, object-store path, checkpoint frequency, restore behavior, ingress, and egress. A cluster can pass a GPU microbenchmark and fail the actual training pipeline because the data path is undersized.</p>
+
+          <h2 id="quotes">Normalize the whole quote</h2>
+          <p>Hopper is available through hyperscalers, neoclouds, private-cloud operators, bare-metal providers, scheduled-capacity products, marketplaces, and resellers. Each channel packages the system differently. Omega Gradient compares:</p>
+          <ul>
+            <li>effective GPU-hour economics at the contracted count and billed hours;</li>
+            <li>term, ramp, deposit, prepayment, taxes, currency, and minimums;</li>
+            <li>included storage, bandwidth, public IPs, support, management, and software;</li>
+            <li>exact node and fabric design, orchestration, access, and tenant isolation;</li>
+            <li>delivery state, dependencies, acceptance window, service start, and remedies;</li>
+            <li>renewal, price reset, termination, portability, and end-of-term data handling.</li>
+          </ul>
+          <p>Public on-demand pricing is useful as a market reference, not as a substitute for a reserved quote. Omega Gradient’s <a href="/gpus/">daily GPU price index</a> and <a href="/gpu-supplier-pricing.html">provider pricing report</a> help establish the visible market; reserved pricing still depends on count, term, start date, system, region, and commercial structure.</p>
+
+          <h2 id="availability">Availability needs a date and an evidence status</h2>
+          <p>A Hopper cluster may be live, allocated to another customer until a future date, assembled from inventory across sites, or planned. The diligence record should state what is available, where, from when, in what topology, and under whose control.</p>
+          <p>A provider representation can be commercially useful before full validation, but it should remain attributed. For a material deposit or long commitment, the buyer may need current system evidence, a controlled test, chain-of-control documentation, facility confirmation, or milestone-based payment and termination protection.</p>
+
+          <h2 id="acceptance">H100/H200 acceptance should test the contracted system</h2>
+          <ol>
+            <li><strong>Inventory:</strong> count, exact variant, memory, node configuration, NICs, storage, firmware, and access.</li>
+            <li><strong>Health:</strong> component diagnostics, error history, thermals, sustained burn-in, and spare/replacement process.</li>
+            <li><strong>Scale-up:</strong> NVLink/NVSwitch health and topology inside each node.</li>
+            <li><strong>Scale-out:</strong> link state, bandwidth, latency, RDMA, and collective performance across the reserved block.</li>
+            <li><strong>Storage:</strong> read/write and metadata behavior under realistic concurrency, plus checkpoint and restore.</li>
+            <li><strong>Workload:</strong> an agreed benchmark or representative job using versioned drivers, libraries, and configuration.</li>
+          </ol>
+          <p>The contract should define pass criteria, test duration, partial failure, cure period, replacement, service-start adjustment, and the buyer remedy if the system does not match the agreed design.</p>
+
+          <h2 id="brief">Minimum Hopper cluster brief</h2>
+          <ul>
+            <li>H100, H200, or flexible; acceptable form factor and GPUs per node;</li>
+            <li>total GPU count, region, target start window, ramp, and term;</li>
+            <li>training, post-training, inference, or HPC workload and current benchmark data;</li>
+            <li>required scale-up topology and scale-out fabric;</li>
+            <li>dataset, storage throughput, checkpointing, ingress, and egress;</li>
+            <li>bare metal, private cloud, Slurm, Kubernetes, or managed-service preference;</li>
+            <li>security, compliance, support, budget, and commercial constraints.</li>
+          </ul>
+          <p>If the team does not yet know the right platform, begin with a measured on-demand benchmark and use the result to size the reservation.</p>
+
+          <div class="source-note"><strong>Primary references</strong><br>NVIDIA, <a href="https://www.nvidia.com/en-us/data-center/h100/" rel="noopener">H100 specifications</a>; NVIDIA, <a href="https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html" rel="noopener">DGX H100/H200 system architecture</a>; NVIDIA, <a href="https://developer.nvidia.com/blog/deploying-nvidia-h200-nvl-at-scale-with-new-enterprise-reference-architecture/" rel="noopener">H200 NVL reference architecture</a>; AWS, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html" rel="noopener">H100/H200 Capacity Blocks documentation</a>. Verify current product, region, and availability details with the provider.</div>
+        </div>
+      </div>
+    </article>
+    <section class="request-section"><div class="reading"><div class="panel callout"><i class="tk" aria-hidden="true"></i><div class="callout-grid"><div><span class="eyebrow">Hopper mandate</span><h2>Make the H100/H200 comparison workload-specific.</h2></div><div><p>Send the GPU count, region, start window, term, workload, topology, storage, and any current quote. Omega Gradient will structure the comparison and identify the evidence gaps.</p><a class="btn btn-gold" href="/clusters/#request">Start a Hopper cluster brief</a></div></div></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="wrap"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="/"><img src="/omega-gradient-logo.png" alt="" width="28" height="28"><span class="brand-name">Omega <span>Gradient</span></span></a><p>GPU supply sourcing and intelligence for reserved clusters and on-demand compute.</p></div><div class="footer-col"><h2>Reserved</h2><a href="/clusters/">Cluster sourcing</a><a href="/clusters/hopper-h100-h200.html">H100 &amp; H200</a><a href="/clusters/blackwell-b200-b300.html">B200 &amp; B300</a></div><div class="footer-col"><h2>Intelligence</h2><a href="/clusters/how-we-qualify.html">Diligence method</a><a href="/clusters/reserved-vs-on-demand.html">Decision guide</a><a href="/gpus/">GPU price index</a></div><div class="footer-col"><h2>Access</h2><a href="/compute.html">On-demand marketplace</a><a href="/supply.html">List GPU supply</a><a href="mailto:tausif@omegagradient.com">tausif@omegagradient.com</a></div></div><div class="footer-legal">© <span data-year>2026</span> Omega Gradient · Provider identities and private supply evidence remain confidential until qualification.</div></div></footer>
+  <script src="/clusters/reserved-clusters.js" defer></script>
+</body>
+</html>

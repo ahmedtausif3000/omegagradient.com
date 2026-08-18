@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="A buyer's guide to reserved NVIDIA Blackwell GPU clusters: B200, B300, GB200 NVL72, and GB300 NVL72 architecture, facility readiness, sourcing, diligence, and acceptance.">
+  <title>B200, B300 &amp; NVL72 Reserved Clusters | Omega Gradient</title>
+  <link rel="canonical" href="https://omegagradient.com/clusters/blackwell-b200-b300.html">
+  <meta property="og:type" content="article"><meta property="og:title" content="B200, B300 &amp; NVL72 Reserved Clusters"><meta property="og:description" content="How to source and qualify Blackwell and Blackwell Ultra infrastructure without reducing the decision to a GPU-hour quote."><meta property="og:url" content="https://omegagradient.com/clusters/blackwell-b200-b300.html"><meta property="og:image" content="https://omegagradient.com/og-image-omega-logo-globe-centered-20260628.png"><meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/omega-gradient-logo.png" type="image/png" sizes="400x400">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="/clusters/reserved-clusters.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://omegagradient.com/#organization","name":"Omega Gradient","url":"https://omegagradient.com/","logo":"https://omegagradient.com/omega-gradient-logo.png"},{"@type":"Article","@id":"https://omegagradient.com/clusters/blackwell-b200-b300.html#article","headline":"Reserved B200, B300, GB200 NVL72, and GB300 NVL72 Clusters: A Buyer Guide","description":"Architecture, facility readiness, sourcing diligence, and acceptance for NVIDIA Blackwell reserved clusters.","datePublished":"2026-08-17","dateModified":"2026-08-17","author":{"@id":"https://omegagradient.com/#organization"},"publisher":{"@id":"https://omegagradient.com/#organization"},"mainEntityOfPage":"https://omegagradient.com/clusters/blackwell-b200-b300.html"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://omegagradient.com/"},{"@type":"ListItem","position":2,"name":"Reserved GPU Clusters","item":"https://omegagradient.com/clusters/"},{"@type":"ListItem","position":3,"name":"Blackwell B200 and B300","item":"https://omegagradient.com/clusters/blackwell-b200-b300.html"}]}]}
+  </script>
+</head>
+<body>
+  <header class="site-header"><div class="wrap header-inner"><a class="brand" href="/" aria-label="Omega Gradient home"><img src="/omega-gradient-logo.png" alt="" width="28" height="28"><span class="brand-name">Omega <span>Gradient</span></span></a><nav class="primary-nav" aria-label="Primary navigation"><a href="/clusters/" aria-current="page">Reserved clusters</a><a href="/clusters/how-we-qualify.html">Diligence</a><a href="/clusters/reserved-vs-on-demand.html">Decision guide</a><a href="/gpus/">Price index</a><a href="/compute.html">On-demand</a></nav><a class="btn btn-gold btn-small header-cta" href="/clusters/#request">Request capacity</a><button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open menu">Menu</button></div></header>
+  <main>
+    <div class="wrap breadcrumbs"><a href="/">Home</a><span>/</span><a href="/clusters/">Reserved clusters</a><span>/</span>Blackwell clusters</div>
+    <article class="article-shell">
+      <header class="reading article-header" data-reveal><span class="eyebrow">Blackwell infrastructure · buyer guide</span><h1>B200, B300 and NVL72 reserved clusters.</h1><p class="article-lede">Blackwell procurement is a system and facility decision. Buyers need to distinguish HGX B200 or B300 nodes from Grace Blackwell NVL72 rack-scale systems, then qualify power, liquid cooling, scale-up fabric, scale-out network, software readiness, delivery dependencies, and acceptance.</p><div class="article-meta"><span>Published August 17, 2026</span><span>Omega Gradient Intelligence</span><span>Architecture-first sourcing</span></div></header>
+      <div class="reading article-body">
+        <aside class="toc" aria-label="On this page"><strong>On this page</strong><a href="#answer">Direct answer</a><a href="#names">Decode the names</a><a href="#choose">Choose the system</a><a href="#facility">Facility diligence</a><a href="#fabric">Fabric and storage</a><a href="#delivery">Delivery risk</a><a href="#acceptance">Acceptance plan</a><a href="#brief">Buyer brief</a></aside>
+        <div class="prose">
+          <h2 id="answer">Direct answer</h2>
+          <p>A request for a “B200 cluster” is incomplete. It could mean eight-GPU HGX nodes connected over a scale-out fabric, a GB200 NVL72 rack-scale system with 72 Blackwell GPUs and 36 Grace CPUs, or capacity marketed before the facility and system are ready. A buyer should specify the workload and required system boundary, then compare only options that make the exact architecture, site, delivery state, and acceptance path explicit.</p>
+          <p><strong>Omega Gradient prioritizes reserved Blackwell mandates where the buyer needs a coherent cluster, a future delivery window, or a commercial comparison across different provider structures.</strong> We do not publish private operator identities or uncontracted capacity as “available.”</p>
+
+          <h2 id="names">Decode the names before comparing quotes</h2>
+          <h3>B200 and B300</h3>
+          <p>B200 is a Blackwell data-center GPU; B300 is the Blackwell Ultra successor. Providers may offer these accelerators in HGX systems or cloud instance products. The accelerator tells you the generation, but it does not by itself define GPU count per node, host architecture, NVLink/NVSwitch domain, network, cooling, or storage.</p>
+          <h3>GB200 and GB300 NVL72</h3>
+          <p>GB200 and GB300 pair Grace CPUs with Blackwell GPUs in rack-scale NVL72 systems. NVIDIA describes GB300 NVL72 as a fully liquid-cooled rack-scale architecture with <strong>72 Blackwell Ultra GPUs and 36 Grace CPUs</strong>. That 72-GPU scale-up domain is materially different from a collection of independent eight-GPU nodes. It also carries different facility, installation, commissioning, and operational requirements.</p>
+          <h3>Cloud product names</h3>
+          <p>Cloud providers wrap the underlying platform in their own instance, cluster, or capacity-block products. The product can add an orchestration layer, storage, network, and commercial rules. Compare the underlying system and service boundary, not a provider SKU alone.</p>
+
+          <h2 id="choose">Choose HGX nodes or rack-scale NVL72 from the workload</h2>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Question</th><th>HGX B200 / B300 cluster</th><th>GB200 / GB300 NVL72</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Scale-up domain</strong></td><td>Typically centered on the GPUs within each HGX node, then scales out across the cluster fabric</td><td>Rack-scale 72-GPU NVLink domain</td></tr>
+                <tr><td><strong>Deployment unit</strong></td><td>Node-based; can support more incremental cluster shapes</td><td>Integrated rack-scale system with Grace CPUs, compute trays, switch trays, and liquid cooling</td></tr>
+                <tr><td><strong>Facility burden</strong></td><td>High-density GPU infrastructure; exact cooling and power depend on system</td><td>Facility integration and liquid-cooling readiness are central to delivery</td></tr>
+                <tr><td><strong>Workload fit</strong></td><td>Broad training, fine-tuning, inference, and HPC where node-based scaling is suitable</td><td>Large AI training and reasoning workloads that benefit from the rack-scale scale-up domain</td></tr>
+                <tr><td><strong>Diligence focus</strong></td><td>Node consistency, scale-out fabric, storage, orchestration, and available count</td><td>Rack configuration, liquid cooling, power, NVLink domain, scale-out network, commissioning, and system software</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Neither architecture is automatically better. NVL72’s integrated scale-up domain can be decisive for some model architectures and parallelism strategies. Node-based clusters can be easier to source incrementally, fit existing facilities, or align with an established Slurm or Kubernetes operating model. Benchmark the intended software stack and communication pattern.</p>
+          <p>Teams planning beyond Blackwell should also review the <a href="/clusters/vera-rubin-guide.html">Vera Rubin buyer guide</a>. Vera Rubin introduces HBM4, Vera CPUs, NVLink 6, and a new facility and delivery cycle, but an announced provider deployment should not be treated as contractable capacity without buyer-specific evidence.</p>
+
+          <h2 id="facility">Facility readiness is part of the product</h2>
+          <p>Blackwell supply discussions often focus on manufacturer allocation. The actual delivery chain is longer: equipment, rack integration, facility space, power, cooling, network, installation, firmware, cluster software, burn-in, and buyer acceptance. Each dependency needs an owner and a date.</p>
+          <h3>Facility questions for a material reservation</h3>
+          <ul>
+            <li>Which site will host the system, and is the quoted power allocated to that hall and deployment?</li>
+            <li>What cooling architecture serves the exact rack configuration? If liquid-cooled, who owns the CDU and facility-water responsibilities?</li>
+            <li>What are the installation, energization, network, and commissioning milestones?</li>
+            <li>Is the equipment live, on site, in transit, allocated, ordered, or dependent on a future purchase?</li>
+            <li>Which party controls the equipment and which party controls the site?</li>
+            <li>What redundancy and maintenance design applies to the buyer’s service boundary?</li>
+          </ul>
+          <p>A provider can have a legitimate allocation and still miss the desired start date because the facility is the critical path. Omega Gradient records that distinction rather than treating all future capacity as equivalent.</p>
+
+          <h2 id="fabric">Scale-up fabric, scale-out fabric, and storage all need acceptance criteria</h2>
+          <p>NVLink and NVSwitch describe communication inside the scale-up domain. A cluster with multiple nodes or NVL72 racks still needs a scale-out network. NVIDIA positions Quantum-X800 InfiniBand and Spectrum-X Ethernet with its GB300 NVL72 platform; the provider must specify the actual network deployed, topology, link speed, RDMA design, isolation, and expected collective behavior.</p>
+          <p>Storage can be just as limiting. The brief should define dataset ingress, aggregate read throughput, metadata behavior, checkpoint frequency and size, restore path, local scratch, durable storage, and the cost and time to move data out. A provider benchmark that runs entirely in GPU memory does not validate the buyer’s end-to-end training pipeline.</p>
+
+          <h2 id="delivery">Separate live, near-term, and development capacity</h2>
+          <p>Omega Gradient classifies Blackwell options by delivery state:</p>
+          <ol>
+            <li><strong>Live and testable:</strong> system is operating and can support a scoped technical validation.</li>
+            <li><strong>Installed or commissioning:</strong> equipment is on site but acceptance dependencies remain.</li>
+            <li><strong>Allocated and scheduled:</strong> equipment and site path are documented, with future milestones.</li>
+            <li><strong>Conditional development:</strong> delivery depends on financing, power, equipment, customer anchor, or another unresolved condition.</li>
+            <li><strong>Indicative only:</strong> market signal without sufficient evidence for a procurement decision.</li>
+          </ol>
+          <p>That classification does not automatically exclude a future project. It determines the evidence, contract structure, deposit protection, milestone payments, and remedies the buyer should require.</p>
+
+          <h2 id="acceptance">Blackwell cluster acceptance</h2>
+          <p>A suitable plan is architecture-specific. It should cover inventory and firmware, component health, sustained burn-in, thermals and power, scale-up link health, scale-out bandwidth and collective tests, storage throughput, orchestration, observability, tenant access, and a representative workload. For NVL72, acceptance should confirm the expected rack-scale system boundary rather than treating each compute tray as an unrelated node.</p>
+          <p>The contract should state the test versions and conditions, acceptance window, partial-delivery treatment, cure period, component replacement process, service-start adjustment, and the remedy if the delivered topology or performance materially differs from the agreed design.</p>
+
+          <h2 id="brief">Minimum Blackwell buyer brief</h2>
+          <ul>
+            <li>Target platform: HGX B200, HGX B300, GB200 NVL72, GB300 NVL72, or architecture-flexible;</li>
+            <li>GPU or rack count, target start window, ramp, term, and acceptable regions;</li>
+            <li>Model, framework, precision, parallelism strategy, sequence/context characteristics, and expected utilization;</li>
+            <li>Required scale-up and scale-out topology, network preference, and orchestration model;</li>
+            <li>Dataset size, ingress, storage throughput, checkpoint pattern, and egress constraints;</li>
+            <li>Security, tenancy, compliance, support, and managed-service requirements;</li>
+            <li>Budget range, deposit or prepayment constraints, and acceptance requirements.</li>
+          </ul>
+          <p>With that brief, Omega Gradient can compare credible paths instead of collecting generic “B200 available” claims.</p>
+
+          <div class="source-note"><strong>Primary references</strong><br>NVIDIA, <a href="https://www.nvidia.com/en-us/data-center/gb300-nvl72/" rel="noopener">GB300 NVL72 overview and specifications</a>; NVIDIA, <a href="https://docs.nvidia.com/dsx/ncp/software-reference-guide/data-center-architecture" rel="noopener">GB200/GB300 data-center architecture</a>; NVIDIA, <a href="https://docs.nvidia.com/enterprise-reference-architectures/hgx-ai-factory-h100-h200-b200/latest/components.html" rel="noopener">HGX AI Factory components</a>; AWS, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html" rel="noopener">B200 and B300 Capacity Blocks documentation</a>. Verify current product, region, and availability details with the provider.</div>
+        </div>
+      </div>
+    </article>
+    <section class="request-section"><div class="reading"><div class="panel callout"><i class="tk" aria-hidden="true"></i><div class="callout-grid"><div><span class="eyebrow">Blackwell mandate</span><h2>Source the system, not the label.</h2></div><div><p>Send the target platform, GPU or rack count, region, start window, term, workload, fabric, and storage requirements. Unknowns can be worked through in the brief.</p><a class="btn btn-gold" href="/clusters/#request">Start a Blackwell cluster brief</a></div></div></div></div></section>
+  </main>
+  <footer class="site-footer"><div class="wrap"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="/"><img src="/omega-gradient-logo.png" alt="" width="28" height="28"><span class="brand-name">Omega <span>Gradient</span></span></a><p>GPU supply sourcing and intelligence for reserved clusters and on-demand compute.</p></div><div class="footer-col"><h2>Reserved</h2><a href="/clusters/">Cluster sourcing</a><a href="/clusters/hopper-h100-h200.html">H100 &amp; H200</a><a href="/clusters/blackwell-b200-b300.html">B200 &amp; B300</a></div><div class="footer-col"><h2>Intelligence</h2><a href="/clusters/how-we-qualify.html">Diligence method</a><a href="/clusters/reserved-vs-on-demand.html">Decision guide</a><a href="/gpus/">GPU price index</a></div><div class="footer-col"><h2>Access</h2><a href="/compute.html">On-demand marketplace</a><a href="/supply.html">List GPU supply</a><a href="mailto:tausif@omegagradient.com">tausif@omegagradient.com</a></div></div><div class="footer-legal">© <span data-year>2026</span> Omega Gradient · Provider identities and private supply evidence remain confidential until qualification.</div></div></footer>
+  <script src="/clusters/reserved-clusters.js" defer></script>
+</body>
+</html>
