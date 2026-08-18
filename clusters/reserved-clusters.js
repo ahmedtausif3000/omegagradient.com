@@ -21,6 +21,41 @@
     node.textContent = String(new Date().getFullYear());
   });
 
+  var trackingEndpoint = "https://track.omegagradient.com/g/events";
+  var canonicalNode = document.querySelector('link[rel="canonical"]');
+  var canonicalUrl = canonicalNode ? canonicalNode.href : window.location.href.split("#")[0];
+  var sourcePath = "/";
+  var referrerOrigin = "";
+  try { sourcePath = new URL(canonicalUrl, window.location.origin).pathname; } catch (_) {}
+  try { referrerOrigin = document.referrer ? new URL(document.referrer).origin : ""; } catch (_) {}
+
+  function trackEvent(eventType) {
+    var params = new URLSearchParams(window.location.search);
+    var payload = JSON.stringify({
+      event_type: eventType,
+      source_url: canonicalUrl,
+      referrer: referrerOrigin,
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+      utm_content: params.get("utm_content") || "",
+      content_asset_id: sourcePath
+    });
+
+    if (navigator.sendBeacon) {
+      var queued = navigator.sendBeacon(trackingEndpoint, new Blob([payload], { type: "text/plain;charset=UTF-8" }));
+      if (queued) return;
+    }
+    fetch(trackingEndpoint, {
+      method: "POST",
+      body: payload,
+      keepalive: true,
+      credentials: "omit"
+    }).catch(function () {});
+  }
+
+  trackEvent("reserved_page_view");
+
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var revealNodes = document.querySelectorAll("[data-reveal]");
   if (reduced || !("IntersectionObserver" in window)) {
@@ -41,6 +76,13 @@
   var status = document.querySelector("#clusterRequestStatus");
   var submit = form.querySelector('button[type="submit"]');
   var defaultText = submit ? submit.textContent : "Send requirements";
+  var briefStarted = false;
+
+  form.addEventListener("focusin", function (event) {
+    if (briefStarted || !event.target.matches("input, select, textarea") || event.target.name === "website") return;
+    briefStarted = true;
+    trackEvent("cluster_brief_start");
+  });
 
   function setStatus(message, tone) {
     if (!status) return;
@@ -93,6 +135,7 @@
       });
       var result = await response.json().catch(function () { return {}; });
       if (!response.ok || !result.ok) throw new Error(result.error || "Submission failed");
+      trackEvent("cluster_brief_submit");
       form.reset();
       setStatus(result.message || "Requirements received. Omega Gradient will follow up directly.", "success");
     } catch (error) {
