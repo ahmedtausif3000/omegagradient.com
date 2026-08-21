@@ -112,7 +112,7 @@
   .machine-list { display: flex; flex-direction: column; gap: 12px; }
   .install-box { background: var(--bg); border: 1px solid var(--line-strong); padding: 12px 14px; font-family: var(--mono); font-size: 11px; color: var(--teal); overflow-x: auto; white-space: nowrap; }
 </style>
-  <link rel="stylesheet" href="/site-chrome.css">
+  <link rel="stylesheet" href="/site-chrome.css?v=20260821-2">
 </head>
 <body>
 
@@ -427,6 +427,6 @@
   setInterval(() => { me().then((p) => { if (p.signedIn) api("/supply/me").then((d) => { if (d.registered) renderMachines(d); }).catch(() => {}); }); }, 15000);
 })();
 </script>
-  <script src="/site-chrome.js" defer></script>
+  <script src="/site-chrome.js?v=20260821-2" defer></script>
 </body>
 </html>
