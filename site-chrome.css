@@ -200,17 +200,41 @@
 }
 .og-footer-col a:hover { color: var(--og-chrome-gold-bright); }
 .og-footer-wordmark {
+  position: relative;
+  display: grid;
+  place-items: center;
   overflow: hidden;
-  padding: 16px 0 10px;
   border-top: 1px solid var(--og-chrome-line);
-  color: var(--og-chrome-gold);
   font: 700 clamp(54px, 10.5vw, 146px)/0.88 var(--og-chrome-display);
   letter-spacing: -0.075em;
   text-align: center;
   text-transform: uppercase;
   white-space: nowrap;
 }
-.og-footer-wordmark span { color: var(--og-chrome-text); }
+.og-footer-wordmark > span {
+  grid-area: 1 / 1;
+  display: block;
+  width: 100%;
+  padding: 16px 0 10px;
+  font: inherit;
+  letter-spacing: inherit;
+  white-space: inherit;
+}
+.og-footer-wordmark b,
+.og-footer-wordmark em { font: inherit; font-style: normal; }
+.og-footer-wordmark-outline,
+.og-footer-wordmark-outline b,
+.og-footer-wordmark-outline em {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(199, 192, 153, 0.42);
+}
+.og-footer-wordmark-fill {
+  clip-path: inset(0% 0% 0% 0%);
+  will-change: clip-path;
+  transition: clip-path 120ms linear;
+}
+.og-footer-wordmark-fill b { color: var(--og-chrome-text); }
+.og-footer-wordmark-fill em { color: var(--og-chrome-gold); }
 .og-footer-legal {
   padding: 18px 0 22px;
   border-top: 1px solid var(--og-chrome-line);

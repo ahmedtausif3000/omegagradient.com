@@ -49,6 +49,41 @@
     node.textContent = String(new Date().getFullYear());
   });
 
+  var footerWordmarks = Array.from(document.querySelectorAll("[data-og-footer-wordmark]"));
+  if (footerWordmarks.length) {
+    var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var wordmarkFrame = 0;
+
+    function revealFooterWordmarks() {
+      wordmarkFrame = 0;
+      footerWordmarks.forEach(function (wordmark) {
+        var fill = wordmark.querySelector("[data-og-footer-wordmark-fill]");
+        var footer = wordmark.closest("footer");
+        if (!fill || !footer) return;
+
+        var progress = 1;
+        if (!reducedMotion) {
+          var rect = footer.getBoundingClientRect();
+          var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+          var travel = Math.max(1, rect.height - viewportHeight * 0.25);
+          progress = Math.max(0, Math.min(1, (viewportHeight * 0.75 - rect.top) / travel));
+        }
+        fill.style.clipPath = "inset(0% " + ((1 - progress) * 100).toFixed(3) + "% 0% 0%)";
+        wordmark.dataset.ogReveal = progress.toFixed(3);
+      });
+    }
+
+    function requestWordmarkReveal() {
+      if (wordmarkFrame) return;
+      wordmarkFrame = window.requestAnimationFrame(revealFooterWordmarks);
+    }
+
+    revealFooterWordmarks();
+    window.addEventListener("scroll", requestWordmarkReveal, { passive: true });
+    window.addEventListener("resize", requestWordmarkReveal);
+    window.addEventListener("load", requestWordmarkReveal, { once: true });
+  }
+
   var trackingEndpoint = "https://track.omegagradient.com/g/events";
   document.addEventListener("click", function (event) {
     var link = event.target.closest("a[data-og-link]");
