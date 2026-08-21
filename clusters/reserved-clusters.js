@@ -56,6 +56,13 @@
 
   trackEvent("reserved_page_view");
 
+  document.querySelectorAll("[data-print-checklist]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      trackEvent("procurement_checklist_print");
+      window.print();
+    });
+  });
+
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var revealNodes = document.querySelectorAll("[data-reveal]");
   if (reduced || !("IntersectionObserver" in window)) {

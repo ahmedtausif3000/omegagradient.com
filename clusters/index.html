@@ -28,7 +28,7 @@
         "name": "Omega Gradient",
         "url": "https://omegagradient.com/",
         "logo": "https://omegagradient.com/omega-gradient-logo.png",
-        "email": "tausif@omegagradient.com",
+        "email": "hello@omegagradient.com",
         "sameAs": [
           "https://www.trustpilot.com/review/omegagradient.com",
           "https://computeprices.com/providers/omegagradient"
@@ -79,25 +79,45 @@
     ]
   }
   </script>
+  <link rel="stylesheet" href="/site-chrome.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="brand" href="/" aria-label="Omega Gradient home">
-        <img src="/omega-gradient-logo.png" alt="" width="28" height="28">
-        <span class="brand-name">Omega <span>Gradient</span></span>
-      </a>
-      <nav class="primary-nav" aria-label="Primary navigation">
-        <a href="/clusters/" aria-current="page">Reserved clusters</a>
-        <a href="/clusters/how-we-qualify.html">Diligence</a>
-        <a href="/clusters/reserved-vs-on-demand.html">Decision guide</a>
-        <a href="/gpus/">Price index</a>
-        <a href="/compute.html">On-demand</a>
-      </nav>
-      <a class="btn btn-gold btn-small header-cta" href="#request">Request capacity</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Open menu">Menu</button>
-    </div>
-  </header>
+  <!-- SITE_HEADER_START -->
+<header class="og-site-header" data-og-site-header>
+  <div class="og-site-shell">
+    <a class="og-brand" href="/" aria-label="Omega Gradient home" data-og-area="header" data-og-link="home">
+      <img src="/omega-gradient-logo.png" alt="" width="28" height="28">
+      <span><b>Omega</b> <em>Gradient</em></span>
+    </a>
+    <button class="og-nav-toggle" type="button" aria-expanded="false" aria-controls="og-global-nav" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="og-global-nav" id="og-global-nav" aria-label="Primary navigation">
+      <a href="/clusters/" data-og-area="header" data-og-link="reserved" aria-current="page">Reserved clusters</a>
+      <a href="/clusters/how-we-qualify.html" data-og-area="header" data-og-link="qualify">How we qualify</a>
+      <details class="og-nav-menu">
+          <summary>Guides<span aria-hidden="true">+</span></summary>
+          <div class="og-nav-panel">
+            <a href="/clusters/reserved-vs-on-demand.html" data-og-area="header" data-og-link="reserved_vs_on_demand">Reserved vs. on-demand</a>
+            <a href="/clusters/hopper-h100-h200.html" data-og-area="header" data-og-link="h100_h200">H100 &amp; H200</a>
+            <a href="/clusters/blackwell-b200-b300.html" data-og-area="header" data-og-link="b200_b300_gb300">B200, B300 &amp; GB300</a>
+            <a href="/clusters/vera-rubin-guide.html" data-og-area="header" data-og-link="vera_rubin">Vera Rubin</a>
+          </div>
+        </details>
+      <details class="og-nav-menu">
+          <summary>Market data<span aria-hidden="true">+</span></summary>
+          <div class="og-nav-panel">
+            <a href="/gpus/" data-og-area="header" data-og-link="gpu_price_index">GPU price index</a>
+            <a href="/gpus/availability.html" data-og-area="header" data-og-link="live_availability">Live availability</a>
+            <a href="/gpu-supplier-pricing.html" data-og-area="header" data-og-link="supplier_pricing_report">Supplier pricing report</a>
+          </div>
+        </details>
+      <a href="/compute.html" data-og-area="header" data-og-link="on-demand">On-demand marketplace</a>
+      <a class="og-nav-cta" href="/clusters/#request" data-og-area="header" data-og-link="request_capacity">Request capacity</a>
+    </nav>
+  </div>
+</header>
+<!-- SITE_HEADER_END -->
 
   <main>
     <div class="wrap breadcrumbs"><a href="/">Home</a><span>/</span>Reserved GPU clusters</div>
@@ -111,6 +131,7 @@
           <div class="hero-actions">
             <a class="btn btn-gold" href="#request">Start a cluster brief</a>
             <a class="btn" href="/clusters/how-we-qualify.html">Review our diligence method</a>
+            <a class="btn" href="/clusters/reserved-vs-on-demand.html">Compare reserved and on-demand</a>
           </div>
         </div>
         <aside class="hero-rail" aria-label="Reserved cluster priorities" data-reveal>
@@ -269,17 +290,44 @@
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <div class="footer-grid">
-        <div class="footer-brand"><a class="brand" href="/"><img src="/omega-gradient-logo.png" alt="" width="28" height="28"><span class="brand-name">Omega <span>Gradient</span></span></a><p>GPU supply sourcing and intelligence for reserved clusters and on-demand compute.</p></div>
-        <div class="footer-col"><h2>Reserved</h2><a href="/clusters/">Cluster sourcing</a><a href="/clusters/vera-rubin-guide.html">Vera Rubin</a><a href="/clusters/hopper-h100-h200.html">H100 &amp; H200</a><a href="/clusters/blackwell-b200-b300.html">B200 &amp; B300</a></div>
-        <div class="footer-col"><h2>Intelligence</h2><a href="/clusters/how-we-qualify.html">Diligence method</a><a href="/clusters/reserved-vs-on-demand.html">Decision guide</a><a href="/gpus/">GPU price index</a></div>
-        <div class="footer-col"><h2>Access</h2><a href="/compute.html">On-demand marketplace</a><a href="/supply.html">List GPU supply</a><a href="mailto:tausif@omegagradient.com">tausif@omegagradient.com</a></div>
+  <!-- SITE_FOOTER_START -->
+<footer class="og-site-footer">
+  <div class="og-footer-shell">
+    <div class="og-footer-grid">
+      <div class="og-footer-col">
+        <h2>Reserved</h2>
+        <a href="/clusters/" data-og-area="footer" data-og-link="reserved_reserved_clusters">Reserved clusters</a>
+        <a href="/clusters/how-we-qualify.html" data-og-area="footer" data-og-link="reserved_how_we_qualify">How we qualify</a>
+        <a href="/clusters/reserved-vs-on-demand.html" data-og-area="footer" data-og-link="reserved_reserved_vs_on_demand">Reserved vs. on-demand</a>
+        <a href="/clusters/#request" data-og-area="footer" data-og-link="reserved_request_capacity">Request capacity</a>
       </div>
-      <div class="footer-legal">© <span data-year>2026</span> Omega Gradient · Provider identities and private supply evidence remain confidential until qualification.</div>
+      <div class="og-footer-col">
+        <h2>Guides</h2>
+        <a href="/clusters/hopper-h100-h200.html" data-og-area="footer" data-og-link="guides_h100_h200">H100 &amp; H200</a>
+        <a href="/clusters/blackwell-b200-b300.html" data-og-area="footer" data-og-link="guides_b200_b300_gb300">B200, B300 &amp; GB300</a>
+        <a href="/clusters/vera-rubin-guide.html" data-og-area="footer" data-og-link="guides_vera_rubin">Vera Rubin</a>
+      </div>
+      <div class="og-footer-col">
+        <h2>Market data</h2>
+        <a href="/gpus/" data-og-area="footer" data-og-link="data_gpu_price_index">GPU price index</a>
+        <a href="/gpus/availability.html" data-og-area="footer" data-og-link="data_live_availability">Live availability</a>
+        <a href="/gpu-supplier-pricing.html" data-og-area="footer" data-og-link="data_supplier_pricing_report">Supplier pricing report</a>
+        <a href="/data/public_gpu_market.json" data-og-area="footer" data-og-link="data_public_market_feed">Public market feed</a>
+      </div>
+      <div class="og-footer-col">
+        <h2>Deploy &amp; supply</h2>
+        <a href="/compute.html" data-og-area="footer" data-og-link="deploy_on_demand_marketplace">On-demand marketplace</a>
+        <a href="/console.html" data-og-area="footer" data-og-link="deploy_console">Console</a>
+        <a href="/supply.html" data-og-area="footer" data-og-link="deploy_list_capacity">List capacity</a>
+        <a href="mailto:hello@omegagradient.com" data-og-area="footer" data-og-link="deploy_hello_omegagradient_com">hello@omegagradient.com</a>
+      </div>
     </div>
-  </footer>
+    <div class="og-footer-wordmark" aria-hidden="true"><span>OMEGA</span> GRADIENT</div>
+    <div class="og-footer-legal">© <span data-og-year>2026</span> Omega Gradient · Provider identities and private supply evidence remain confidential until qualification.</div>
+  </div>
+</footer>
+<!-- SITE_FOOTER_END -->
   <script src="/clusters/reserved-clusters.js" defer></script>
+  <script src="/site-chrome.js" defer></script>
 </body>
 </html>

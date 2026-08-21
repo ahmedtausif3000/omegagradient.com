@@ -14,7 +14,7 @@ Two things distinguish the data on this site: (1) marketplace listings are aggre
 - [Vera Rubin buyer guide](https://omegagradient.com/clusters/vera-rubin-guide.html): Rubin architecture, preliminary specifications, availability evidence, and procurement readiness.
 - [Home](https://omegagradient.com/): sourcing desk overview and live GPU market feed.
 - [Cloud GPU Price Index](https://omegagradient.com/gpus/): min/median/max $/GPU-hr for 14 GPU families, updated daily (last: 2026-08-21).
-- [GPUs available right now](https://omegagradient.com/gpus/availability.html): 96 live deployable listings from $0.06/GPU-hr.
+- [GPUs available right now](https://omegagradient.com/gpus/availability.html): 105 live deployable listings from $0.06/GPU-hr.
 - [On-demand marketplace](https://omegagradient.com/compute.html): deploy GPU instances in seconds; one console, one bill.
 - [Provider pricing report](https://omegagradient.com/gpu-supplier-pricing.html): named-provider public list prices with evidence links.
 - [Sell capacity](https://omegagradient.com/supply.html): onboard data-center / neocloud GPU supply.
@@ -52,5 +52,5 @@ Two things distinguish the data on this site: (1) marketplace listings are aggre
 
 ## Contact
 
-- Reserved-cluster requirements: tausif@omegagradient.com
+- Reserved-cluster requirements: hello@omegagradient.com
 - On-demand compute: https://omegagradient.com/compute.html · Sell capacity: https://omegagradient.com/supply.html
