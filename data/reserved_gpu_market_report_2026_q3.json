@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "title": "Reserved GPU Market Report — Q3 2026 Early Read",
+  "description": "An anonymized early read of represented reserved GPU supply, covering platform mix, start windows, block-size bands, evidence freshness, and quote-field completeness through August 21, 2026.",
+  "edition": "2026-Q3-early-read-v1",
+  "published_at": "2026-08-21",
+  "generated_at": "2026-08-21T23:00:00Z",
+  "observation_window": {
+    "start": "2026-07-08",
+    "end": "2026-08-21",
+    "start_label": "July 8, 2026",
+    "end_label": "August 21, 2026"
+  },
+  "sample": {
+    "raw_rows": 128,
+    "eligible_observations": 50,
+    "unit": "row-level supply observation",
+    "important_note": "An observation is not a unique provider, facility, physical system, or audited unit of currently deliverable capacity. Do not sum GPU counts across observations."
+  },
+  "methodology": {
+    "included_statuses": [
+      "active",
+      "available_now",
+      "build_to_order",
+      "out_of_window"
+    ],
+    "required_fields": [
+      "numeric GPU count",
+      "valid last_verified date on or before the cutoff"
+    ],
+    "excluded": [
+      "demand-side",
+      "sold",
+      "dropped",
+      "watch",
+      "unconfirmed",
+      "malformed or non-quantified"
+    ],
+    "minimum_public_cell": 5,
+    "privacy": "No provider names, buyer names, contacts, private quotes, notes, row-level prices, or row-level capacity records are published.",
+    "pricing_note": "Price fields are measured for completeness only; heterogeneous units, terms, inclusions, fabrics, and payment structures prevent a responsible public median."
+  },
+  "findings": {
+    "platform_generation": {
+      "denominator": 50,
+      "rows": [
+        {
+          "label": "Blackwell",
+          "n": 35,
+          "percent": 70
+        },
+        {
+          "label": "Hopper",
+          "n": 11,
+          "percent": 22
+        },
+        {
+          "label": "Other / mixed",
+          "n": 4,
+          "percent": 8
+        }
+      ]
+    },
+    "block_size": {
+      "denominator": 50,
+      "rows": [
+        {
+          "label": "1–255 GPUs",
+          "n": 13,
+          "percent": 26
+        },
+        {
+          "label": "256–1,023 GPUs",
+          "n": 15,
+          "percent": 30
+        },
+        {
+          "label": "1,024+ GPUs",
+          "n": 22,
+          "percent": 44
+        }
+      ]
+    },
+    "start_window": {
+      "denominator": 50,
+      "rows": [
+        {
+          "label": "Represented available now",
+          "n": 9,
+          "percent": 18
+        },
+        {
+          "label": "By September 2026",
+          "n": 7,
+          "percent": 14
+        },
+        {
+          "label": "Q4 2026",
+          "n": 27,
+          "percent": 54
+        },
+        {
+          "label": "2027 or later",
+          "n": 7,
+          "percent": 14
+        }
+      ]
+    },
+    "freshness": {
+      "denominator": 50,
+      "cutoff": "2026-08-21",
+      "rows": [
+        {
+          "label": "Verified 0–14 days before cutoff",
+          "n": 22,
+          "percent": 44
+        },
+        {
+          "label": "Verified 15–30 days before cutoff",
+          "n": 11,
+          "percent": 22
+        },
+        {
+          "label": "Verified 31+ days before cutoff",
+          "n": 17,
+          "percent": 34
+        }
+      ]
+    },
+    "field_completeness": {
+      "denominator": 50,
+      "rows": [
+        {
+          "label": "Headline price field stated",
+          "n": 49,
+          "percent": 98
+        },
+        {
+          "label": "Term field stated",
+          "n": 35,
+          "percent": 70
+        },
+        {
+          "label": "Upfront / deposit field stated",
+          "n": 26,
+          "percent": 52
+        },
+        {
+          "label": "Network / fabric field stated",
+          "n": 18,
+          "percent": 36
+        },
+        {
+          "label": "Dated availability field",
+          "n": 50,
+          "percent": 100
+        }
+      ]
+    }
+  },
+  "integrity": {
+    "source_sha256": "afef1a0f8c568378951bfff7d37437ea1a72778e153076173ce46a46f9ad5119",
+    "note": "The digest fingerprints the private source snapshot used for this fixed edition; the source itself is not public."
+  }
+}

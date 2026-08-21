@@ -12,9 +12,11 @@ Two things distinguish the data on this site: (1) marketplace listings are aggre
 - [H100 and H200 reserved clusters](https://omegagradient.com/clusters/hopper-h100-h200.html): Hopper architecture and procurement guide.
 - [B200, B300, and NVL72 reserved clusters](https://omegagradient.com/clusters/blackwell-b200-b300.html): Blackwell architecture and procurement guide.
 - [Vera Rubin buyer guide](https://omegagradient.com/clusters/vera-rubin-guide.html): Rubin architecture, preliminary specifications, availability evidence, and procurement readiness.
+- [Reserved GPU cluster procurement checklist](https://omegagradient.com/clusters/gpu-cluster-procurement-checklist.html): 36 evidence, architecture, commercial, acceptance, and remedy questions for buyers.
+- [Reserved GPU Market Report — Q3 2026 early read](https://omegagradient.com/research/reserved-gpu-market-report-2026-q3.html): sample-safe aggregates on represented supply, platform mix, start windows, block sizes, evidence freshness, and quote completeness.
 - [Home](https://omegagradient.com/): sourcing desk overview and live GPU market feed.
 - [Cloud GPU Price Index](https://omegagradient.com/gpus/): min/median/max $/GPU-hr for 14 GPU families, updated daily (last: 2026-08-21).
-- [GPUs available right now](https://omegagradient.com/gpus/availability.html): 106 live deployable listings from $0.06/GPU-hr.
+- [GPUs available right now](https://omegagradient.com/gpus/availability.html): 102 live deployable listings from $0.06/GPU-hr.
 - [On-demand marketplace](https://omegagradient.com/compute.html): deploy GPU instances in seconds; one console, one bill.
 - [Provider pricing report](https://omegagradient.com/gpu-supplier-pricing.html): named-provider public list prices with evidence links.
 - [Sell capacity](https://omegagradient.com/supply.html): onboard data-center / neocloud GPU supply.
@@ -37,6 +39,7 @@ Two things distinguish the data on this site: (1) marketplace listings are aggre
 ## Public Data
 
 - Public GPU market feed (JSON): https://omegagradient.com/data/public_gpu_market.json — per-family average/median/min/max $/GPU-hr, availability mix, regions, refreshed daily.
+- Reserved GPU Market Report aggregate (JSON): https://omegagradient.com/data/reserved_gpu_market_report_2026_q3.json — fixed-edition denominators, methodology, and sample-safe findings; no provider or buyer identities.
 - Live marketplace catalog (JSON API): https://omegagradient.com/api/market/catalog — current deployable listings with GPU model, count, vRAM, region, and price in cents/hour. Listings are provider-anonymous.
 - Root sitemap: https://omegagradient.com/sitemap.xml
 

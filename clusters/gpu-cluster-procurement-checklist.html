@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="A practical 36-point checklist for buying reserved GPU clusters: capacity evidence, topology, facilities, pricing, acceptance, SLAs, and contract protections.">
+  <title>GPU Cluster Procurement Checklist | Omega Gradient</title>
+  <link rel="canonical" href="https://omegagradient.com/clusters/gpu-cluster-procurement-checklist.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Reserved GPU Cluster Procurement Checklist">
+  <meta property="og:description" content="Thirty-six questions to answer before committing to a reserved GPU cluster—from capacity control and topology to acceptance, remedies, and total cost.">
+  <meta property="og:url" content="https://omegagradient.com/clusters/gpu-cluster-procurement-checklist.html">
+  <meta property="og:image" content="https://omegagradient.com/og-image-omega-logo-globe-centered-20260628.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/omega-gradient-logo.png" type="image/png" sizes="400x400">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/clusters/reserved-clusters.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://omegagradient.com/#organization",
+        "name": "Omega Gradient",
+        "url": "https://omegagradient.com/",
+        "logo": "https://omegagradient.com/omega-gradient-logo.png"
+      },
+      {
+        "@type": "Article",
+        "@id": "https://omegagradient.com/clusters/gpu-cluster-procurement-checklist.html#article",
+        "headline": "The Reserved GPU Cluster Procurement Checklist",
+        "description": "A 36-point buyer checklist covering capacity evidence, cluster architecture, facilities, operations, pricing, acceptance, and contract protections.",
+        "datePublished": "2026-08-21",
+        "dateModified": "2026-08-21",
+        "author": { "@id": "https://omegagradient.com/#organization" },
+        "publisher": { "@id": "https://omegagradient.com/#organization" },
+        "mainEntityOfPage": "https://omegagradient.com/clusters/gpu-cluster-procurement-checklist.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://omegagradient.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Reserved GPU Clusters", "item": "https://omegagradient.com/clusters/" },
+          { "@type": "ListItem", "position": 3, "name": "Procurement Checklist", "item": "https://omegagradient.com/clusters/gpu-cluster-procurement-checklist.html" }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "Reserved GPU cluster procurement diligence areas",
+        "numberOfItems": 9,
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Workload and system definition" },
+          { "@type": "ListItem", "position": 2, "name": "Capacity control and delivery evidence" },
+          { "@type": "ListItem", "position": 3, "name": "Facility readiness" },
+          { "@type": "ListItem", "position": 4, "name": "Node and fabric architecture" },
+          { "@type": "ListItem", "position": 5, "name": "Storage, security, and software" },
+          { "@type": "ListItem", "position": 6, "name": "Operations and service levels" },
+          { "@type": "ListItem", "position": 7, "name": "Commercial normalization" },
+          { "@type": "ListItem", "position": 8, "name": "Acceptance and remedies" },
+          { "@type": "ListItem", "position": 9, "name": "Decision record and red flags" }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="/site-chrome.css?v=20260821-3">
+</head>
+<body>
+  <!-- SITE_HEADER_START -->
+<header class="og-site-header" data-og-site-header>
+  <div class="og-site-shell">
+    <a class="og-brand" href="/" aria-label="Omega Gradient home" data-og-area="header" data-og-link="home">
+      <img src="/omega-gradient-logo.png" alt="" width="28" height="28">
+      <span><b>Omega</b> <em>Gradient</em></span>
+    </a>
+    <button class="og-nav-toggle" type="button" aria-expanded="false" aria-controls="og-global-nav" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="og-global-nav" id="og-global-nav" aria-label="Primary navigation">
+      <a href="/clusters/" data-og-area="header" data-og-link="reserved">Reserved clusters</a>
+      <a href="/clusters/how-we-qualify.html" data-og-area="header" data-og-link="qualify">How we qualify</a>
+      <details class="og-nav-menu is-current">
+          <summary aria-current="page">Guides<span aria-hidden="true">+</span></summary>
+          <div class="og-nav-panel">
+            <a href="/clusters/reserved-vs-on-demand.html" data-og-area="header" data-og-link="reserved_vs_on_demand">Reserved vs. on-demand</a>
+            <a href="/clusters/hopper-h100-h200.html" data-og-area="header" data-og-link="h100_h200">H100 &amp; H200</a>
+            <a href="/clusters/blackwell-b200-b300.html" data-og-area="header" data-og-link="b200_b300_gb300">B200, B300 &amp; GB300</a>
+            <a href="/clusters/vera-rubin-guide.html" data-og-area="header" data-og-link="vera_rubin">Vera Rubin</a>
+            <a href="/clusters/gpu-cluster-procurement-checklist.html" data-og-area="header" data-og-link="procurement_checklist">Procurement checklist</a>
+          </div>
+        </details>
+      <details class="og-nav-menu">
+          <summary>Market data<span aria-hidden="true">+</span></summary>
+          <div class="og-nav-panel">
+            <a href="/research/reserved-gpu-market-report-2026-q3.html" data-og-area="header" data-og-link="reserved_market_report">Reserved market report</a>
+            <a href="/gpus/" data-og-area="header" data-og-link="gpu_price_index">GPU price index</a>
+            <a href="/gpus/availability.html" data-og-area="header" data-og-link="live_availability">Live availability</a>
+            <a href="/gpu-supplier-pricing.html" data-og-area="header" data-og-link="supplier_pricing_report">Supplier pricing report</a>
+          </div>
+        </details>
+      <a href="/compute.html" data-og-area="header" data-og-link="on-demand">On-demand marketplace</a>
+      <a class="og-nav-cta" href="/clusters/#request" data-og-area="header" data-og-link="request_capacity">Request capacity</a>
+    </nav>
+  </div>
+</header>
+<!-- SITE_HEADER_END -->
+
+  <main>
+    <div class="wrap breadcrumbs"><a href="/">Home</a><span>/</span><a href="/clusters/">Reserved clusters</a><span>/</span>Procurement checklist</div>
+    <article class="article-shell">
+      <header class="reading article-header" data-reveal>
+        <span class="eyebrow">Buyer field guide · 36 diligence questions</span>
+        <h1>The reserved GPU cluster procurement checklist.</h1>
+        <p class="article-lede">A quote is not a cluster. Use this checklist to turn a GPU count and headline rate into a decision-ready view of the system, the delivery chain, the total obligation, and the evidence supporting it.</p>
+        <div class="article-meta"><span>Published August 21, 2026</span><span>Omega Gradient Intelligence</span><span>Buyer-side framework v1.0</span></div>
+      </header>
+
+      <div class="reading article-body">
+        <aside class="toc" aria-label="On this page"><strong>On this page</strong><a href="#answer">Direct answer</a><a href="#use">How to use it</a><a href="#requirements">1. Requirements</a><a href="#evidence">2. Capacity evidence</a><a href="#facility">3. Facility</a><a href="#architecture">4. Architecture</a><a href="#platform">5. Platform</a><a href="#operations">6. Operations</a><a href="#commercial">7. Commercials</a><a href="#acceptance">8. Acceptance</a><a href="#decision">9. Decision record</a></aside>
+
+        <div class="prose">
+          <h2 id="answer">Direct answer</h2>
+          <p><strong>Before signing a reserved GPU cluster agreement, a buyer should be able to answer four questions without relying on inference:</strong> What exact system is being delivered? Who controls the equipment and facility? What evidence supports the start date and performance? What contractual remedy applies when delivery, acceptance, uptime, or support misses the promise?</p>
+          <p>A defensible procurement process covers nine connected areas: workload requirements, capacity provenance, facility readiness, node and fabric architecture, storage and software, operations, normalized economics, acceptance, and the final decision record. Missing facts do not automatically disqualify a provider, but they must be labeled as open, conditional, or represented—not silently upgraded into validated capacity.</p>
+
+          <div class="panel checklist-toolbar" id="use"><i class="tk" aria-hidden="true"></i><p><strong>Working method:</strong> print or save this page, mark every item as validated, represented, conditional, or open, and attach the evidence location. Re-score whenever the provider, facility, delivery date, or bill of materials changes.</p><button class="btn" type="button" data-print-checklist>Print / save PDF</button></div>
+
+          <h2>Use a four-state evidence model</h2>
+          <p>Binary “yes/no” diligence hides too much. A provider may give a credible answer that is not yet evidenced, or show an allocation that still depends on facility work. The following status model preserves that difference throughout sourcing and negotiation.</p>
+          <div class="score-key">
+            <div><strong>Validated</strong><span>Primary evidence supports the claim and matches the offered system.</span></div>
+            <div><strong>Represented</strong><span>The accountable party states it, but documentary or technical proof is pending.</span></div>
+            <div><strong>Conditional</strong><span>The outcome depends on a named milestone, third party, or unresolved dependency.</span></div>
+            <div><strong>Open</strong><span>The answer, owner, evidence, or remedy has not been established.</span></div>
+          </div>
+
+          <section class="panel checklist-group" id="requirements"><i class="tk" aria-hidden="true"></i>
+            <h3>1. Workload and system definition</h3>
+            <p>Start with the useful work. A provider cannot design or price the right cluster when the brief stops at a GPU model and count.</p>
+            <ol class="checklist">
+              <li><strong>What workload must the cluster run?</strong> Record training, post-training, inference, rendering, simulation, or HPC; model scale; frameworks; precision; expected concurrency; and data behavior.</li>
+              <li><strong>What result defines success?</strong> Establish target time-to-train, tokens per second, latency, throughput, checkpoint time, or another workload-level measure.</li>
+              <li><strong>Which requirements are hard constraints?</strong> Separate mandatory GPU, memory, region, security, topology, start date, and term from preferences that can trade against price or availability.</li>
+              <li><strong>What utilization will actually be sustained?</strong> Model ramp, idle periods, maintenance, data preparation, experimentation, and demand variability before comparing reservation economics with <a href="/clusters/reserved-vs-on-demand.html">on-demand or blended access</a>.</li>
+            </ol>
+          </section>
+
+          <section class="panel checklist-group" id="evidence"><i class="tk" aria-hidden="true"></i>
+            <h3>2. Capacity control and delivery evidence</h3>
+            <p>The commercial seller, equipment owner, facility operator, cloud operator, and support team may be different entities. Map the chain before relying on an availability claim.</p>
+            <ol class="checklist">
+              <li><strong>Who is the contracting entity?</strong> Confirm the legal name, jurisdiction, authority to sell the service, and the balance sheet standing behind refunds, credits, and damages.</li>
+              <li><strong>Who owns or controls the equipment?</strong> Ask whether the seller owns it, leases it, has a binding allocation, resells another operator, or is still assembling supply.</li>
+              <li><strong>What is the capacity state today?</strong> Classify the block as live and testable, installed, commissioning, allocated, ordered, financed, forecast, or dependent on another customer.</li>
+              <li><strong>What evidence matches this exact block?</strong> Request redacted serial inventory, rack or cluster identifiers, purchase or allocation support, facility confirmation, commissioning records, or a scoped test path—not a generic screenshot.</li>
+            </ol>
+          </section>
+
+          <section class="panel checklist-group" id="facility"><i class="tk" aria-hidden="true"></i>
+            <h3>3. Facility and delivery readiness</h3>
+            <p>An equipment allocation is not usable capacity until the site can power, cool, network, secure, commission, and operate the promised system.</p>
+            <ol class="checklist">
+              <li><strong>Where will the cluster run?</strong> Identify country, metro, facility, hall or deployment boundary, data-sovereignty implications, and whether relocation is permitted.</li>
+              <li><strong>Is power committed to these racks?</strong> Distinguish contracted utility capacity, energized capacity, reserved distribution, and power that still depends on construction or interconnection.</li>
+              <li><strong>Is the cooling design ready?</strong> For liquid-cooled systems, assign responsibility for CDUs, facility-water loops, water quality, leak response, monitoring, and remediation.</li>
+              <li><strong>What milestones lead to service?</strong> Put equipment arrival, installation, energization, network turn-up, burn-in, customer access, acceptance, and production start on one dated critical path.</li>
+            </ol>
+          </section>
+
+          <section class="panel checklist-group" id="architecture"><i class="tk" aria-hidden="true"></i>
+            <h3>4. Node, scale-up, and scale-out architecture</h3>
+            <p>“H100,” “B200,” or “Rubin” is not a system specification. The useful cluster is defined by the entire communication path around the accelerator.</p>
+            <ol class="checklist">
+              <li><strong>What is the exact node or rack-scale bill of materials?</strong> Record accelerator form factor, GPUs per node or rack, GPU memory, CPU, host memory, local NVMe, NICs, DPUs, firmware, and OEM.</li>
+              <li><strong>What is the scale-up domain?</strong> Confirm NVLink and NVSwitch generation, bandwidth, GPU boundaries, and whether the offered partition preserves the topology assumed by the workload.</li>
+              <li><strong>What is the scale-out fabric?</strong> Specify InfiniBand or Ethernet generation, link speed per GPU or node, topology, rail design, RDMA configuration, adaptive routing, and congestion controls.</li>
+              <li><strong>Where is the oversubscription boundary?</strong> Ask for blocking ratio and topology diagrams across compute, storage, management, and external connectivity; “non-blocking” should name the measured boundary.</li>
+            </ol>
+          </section>
+
+          <section class="panel checklist-group" id="platform"><i class="tk" aria-hidden="true"></i>
+            <h3>5. Storage, security, and software platform</h3>
+            <p>GPU utilization often fails outside the GPU. Storage, identity, orchestration, observability, and image support need measurable service boundaries.</p>
+            <ol class="checklist">
+              <li><strong>Can storage feed the workload?</strong> Define usable capacity, aggregate and per-client throughput, metadata performance, checkpoint behavior, local scratch, durability, backup, and restore.</li>
+              <li><strong>How does data enter and leave?</strong> Document network paths, private connectivity, transfer windows, bandwidth caps, egress pricing, encryption, deletion, and end-of-term export.</li>
+              <li><strong>What isolation and access model applies?</strong> Confirm single tenancy or partitioning, identity provider integration, roles, audit logs, key management, vulnerability process, remote-hands controls, and compliance evidence.</li>
+              <li><strong>Who owns software compatibility?</strong> Freeze or bound driver, firmware, CUDA, framework, scheduler, container, image, observability, and upgrade responsibilities; define who cures regressions.</li>
+            </ol>
+          </section>
+
+          <section class="panel checklist-group" id="operations"><i class="tk" aria-hidden="true"></i>
+            <h3>6. Operations, support, and service level</h3>
+            <p>A large cluster is an operating relationship. The buyer needs named response paths and measurable responsibilities, not only an uptime percentage.</p>
+            <ol class="checklist">
+              <li><strong>What does the provider operate?</strong> Draw the boundary across facility, hardware, network, storage, base software, scheduler, Kubernetes or Slurm, images, security, and application support.</li>
+              <li><strong>How are failed components handled?</strong> Set spares strategy, GPU and node replacement targets, drain procedures, maintenance coordination, and the treatment of chronically degraded hardware.</li>
+              <li><strong>What is measured for the SLA?</strong> Define availability denominator, excluded events, planned maintenance, degraded performance, network and storage failures, reporting source, and dispute process.</li>
+              <li><strong>Who responds at 2:00 AM?</strong> Establish severity definitions, 24/7 channels, acknowledgement and restoration targets, escalation names, incident reports, and executive review cadence.</li>
+            </ol>
+          </section>
+
+          <section class="panel checklist-group" id="commercial"><i class="tk" aria-hidden="true"></i>
+            <h3>7. Commercial normalization and total obligation</h3>
+            <p>Normalize the whole commitment. Two identical GPU-hour rates can produce different effective costs once minimums, deposits, ramp, support, and data movement are included.</p>
+            <ol class="checklist">
+              <li><strong>What exactly is the billing unit?</strong> Confirm whether the quote is per GPU, node, rack, cluster, reserved block, or consumed hour; define calendar hours, partial availability, and rounding.</li>
+              <li><strong>What cash moves before acceptance?</strong> Record deposit, prepayment, milestone payment, letter of credit, security, refund conditions, and the party holding buyer funds.</li>
+              <li><strong>Which costs sit outside the headline rate?</strong> Include storage, bandwidth, egress, IP addresses, support, licenses, remote hands, setup, taxes, power adjustment, and cross-connects.</li>
+              <li><strong>What changes during the term?</strong> Model ramp, take-or-pay, usage minimums, renewal, indexation, hardware substitution, expansion, contraction, assignment, and early termination.</li>
+            </ol>
+          </section>
+
+          <section class="panel checklist-group" id="acceptance"><i class="tk" aria-hidden="true"></i>
+            <h3>8. Acceptance, cure, and remedies</h3>
+            <p>Acceptance is where sales language becomes an operational obligation. The test plan should be agreed before delivery and attached to the contract.</p>
+            <ol class="checklist">
+              <li><strong>What converts delivery into acceptance?</strong> Require inventory and configuration verification, burn-in, GPU health, NVLink, fabric, storage, security, scheduler, and access tests.</li>
+              <li><strong>Does the test reflect the workload?</strong> Add representative collectives, framework tests, checkpointing, or application benchmarks with dataset, configuration, duration, and reproducible pass criteria.</li>
+              <li><strong>What happens when only part passes?</strong> Define partial acceptance, replacement, retest, cure period, billing start, schedule relief, and whether a smaller topology can be forced on the buyer.</li>
+              <li><strong>What remedy matches each failure?</strong> Separate late delivery, failed acceptance, chronic degradation, downtime, security events, specification changes, and abandonment; pair each with refund, credit, replacement, or termination rights.</li>
+            </ol>
+          </section>
+
+          <section class="panel checklist-group" id="decision"><i class="tk" aria-hidden="true"></i>
+            <h3>9. Decision record and red flags</h3>
+            <p>The final memo should make the trade-off legible to technical, finance, security, and legal reviewers—and preserve what was known when the commitment was approved.</p>
+            <ol class="checklist">
+              <li><strong>Which facts are still unresolved?</strong> Carry every open and conditional item into the approval record with an owner, evidence request, deadline, and consequence.</li>
+              <li><strong>What is the credible alternative?</strong> Compare the preferred reservation with a second provider, a mature GPU generation, delayed start, smaller base plus burst, and <a href="/compute.html">on-demand capacity</a>.</li>
+              <li><strong>What would cause a no-go?</strong> Predefine red lines such as unclear equipment control, unverifiable site, payment before evidence, refusal to attach specifications, no acceptance rights, or remedies that cannot be collected.</li>
+              <li><strong>Who signs each risk?</strong> Require explicit approval from the owners of technical architecture, security, finance, legal, operations, and the business workload—not a blended “team approved” status.</li>
+            </ol>
+          </section>
+
+          <h2>How to compare shortlisted clusters</h2>
+          <p>Do not reduce the scorecard to one total. A high aggregate score can hide a fatal dependency. First apply hard gates: legal seller identified, capacity path evidenced, site and architecture defined, economics normalized, acceptance attached, and remedies enforceable. Then compare the surviving options across workload performance, delivery confidence, operating model, total cost, flexibility, and counterparty exposure.</p>
+          <p>Red flags deserve asymmetric weight. A provider may have an excellent technical design but still be unbuyable if it cannot demonstrate control of the capacity. Another may control live equipment but fail the workload because the fabric or storage boundary is wrong. The purpose of diligence is not to make every option look comparable; it is to reveal when they are not.</p>
+
+          <blockquote>A reserved cluster is ready to buy when the system, evidence, obligations, and remedies describe the same capacity.</blockquote>
+
+          <h2>What should be attached to the contract?</h2>
+          <p>At minimum, attach the final bill of materials, topology, facility region, capacity and tenancy definition, delivery milestones, acceptance plan, service description, support matrix, SLA measurement method, pricing schedule, excluded charges, data return or deletion procedure, security responsibilities, substitution rules, and remedies. If a material diligence answer lives only in email or a sales deck, convert it into the agreement or explicitly accept that it is not an obligation.</p>
+          <p>Omega Gradient uses this framework to structure demand briefs, qualify providers, normalize offers, and produce an evidence-marked shortlist. For the underlying method, read <a href="/clusters/how-we-qualify.html">how Omega Gradient qualifies reserved GPU clusters</a>. For platform-specific considerations, see the <a href="/clusters/hopper-h100-h200.html">H100 and H200 guide</a>, <a href="/clusters/blackwell-b200-b300.html">Blackwell guide</a>, and <a href="/clusters/vera-rubin-guide.html">Vera Rubin buyer guide</a>.</p>
+
+          <div class="source-note"><strong>Scope note</strong><br>This is a buyer-side operational framework, not legal, engineering, security, tax, or financial advice. Adapt the questions, evidence threshold, tests, and contract language to the workload, jurisdiction, risk level, and provider structure.</div>
+        </div>
+      </div>
+    </article>
+
+    <section class="request-section"><div class="reading"><div class="panel callout"><i class="tk" aria-hidden="true"></i><div class="callout-grid"><div><span class="eyebrow">Procurement mandate</span><h2>Turn the checklist into a live market scan.</h2></div><div><p>Send the GPU platform, count, region, start window, term, workload, and any quotes already under review. Omega Gradient can shape the brief, identify relevant capacity paths, and mark the evidence and open risks behind each option.</p><a class="btn btn-gold" href="/clusters/#request">Start a reserved cluster brief</a></div></div></div></div></section>
+  </main>
+
+  <!-- SITE_FOOTER_START -->
+<footer class="og-site-footer">
+  <div class="og-footer-shell">
+    <div class="og-footer-grid">
+      <div class="og-footer-col">
+        <h2>Reserved</h2>
+        <a href="/clusters/" data-og-area="footer" data-og-link="reserved_reserved_clusters">Reserved clusters</a>
+        <a href="/clusters/how-we-qualify.html" data-og-area="footer" data-og-link="reserved_how_we_qualify">How we qualify</a>
+        <a href="/clusters/reserved-vs-on-demand.html" data-og-area="footer" data-og-link="reserved_reserved_vs_on_demand">Reserved vs. on-demand</a>
+        <a href="/clusters/#request" data-og-area="footer" data-og-link="reserved_request_capacity">Request capacity</a>
+      </div>
+      <div class="og-footer-col">
+        <h2>Guides</h2>
+        <a href="/clusters/hopper-h100-h200.html" data-og-area="footer" data-og-link="guides_h100_h200">H100 &amp; H200</a>
+        <a href="/clusters/blackwell-b200-b300.html" data-og-area="footer" data-og-link="guides_b200_b300_gb300">B200, B300 &amp; GB300</a>
+        <a href="/clusters/vera-rubin-guide.html" data-og-area="footer" data-og-link="guides_vera_rubin">Vera Rubin</a>
+        <a href="/clusters/gpu-cluster-procurement-checklist.html" data-og-area="footer" data-og-link="guides_procurement_checklist">Procurement checklist</a>
+      </div>
+      <div class="og-footer-col">
+        <h2>Market data</h2>
+        <a href="/research/reserved-gpu-market-report-2026-q3.html" data-og-area="footer" data-og-link="data_reserved_market_report">Reserved market report</a>
+        <a href="/gpus/" data-og-area="footer" data-og-link="data_gpu_price_index">GPU price index</a>
+        <a href="/gpus/availability.html" data-og-area="footer" data-og-link="data_live_availability">Live availability</a>
+        <a href="/gpu-supplier-pricing.html" data-og-area="footer" data-og-link="data_supplier_pricing_report">Supplier pricing report</a>
+        <a href="/data/public_gpu_market.json" data-og-area="footer" data-og-link="data_public_market_feed">Public market feed</a>
+      </div>
+      <div class="og-footer-col">
+        <h2>Deploy &amp; supply</h2>
+        <a href="/compute.html" data-og-area="footer" data-og-link="deploy_on_demand_marketplace">On-demand marketplace</a>
+        <a href="/console.html" data-og-area="footer" data-og-link="deploy_console">Console</a>
+        <a href="/supply.html" data-og-area="footer" data-og-link="deploy_list_capacity">List capacity</a>
+        <a href="mailto:hello@omegagradient.com" data-og-area="footer" data-og-link="deploy_hello_omegagradient_com">hello@omegagradient.com</a>
+      </div>
+    </div>
+    <div class="og-footer-wordmark" data-og-footer-wordmark aria-hidden="true">
+      <span class="og-footer-wordmark-outline"><b>OMEGA</b> <em>GRADIENT</em></span>
+      <span class="og-footer-wordmark-fill" data-og-footer-wordmark-fill><b>OMEGA</b> <em>GRADIENT</em></span>
+    </div>
+    <div class="og-footer-legal">© <span data-og-year>2026</span> Omega Gradient · Provider identities and private supply evidence remain confidential until qualification.</div>
+  </div>
+</footer>
+<!-- SITE_FOOTER_END -->
+  <script src="/clusters/reserved-clusters.js" defer></script>
+  <script src="/site-chrome.js?v=20260821-3" defer></script>
+</body>
+</html>

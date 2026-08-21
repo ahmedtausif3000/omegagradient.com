@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="An anonymized early read of represented reserved GPU supply, covering platform mix, start windows, block-size bands, evidence freshness, and quote-field completeness through August 21, 2026.">
+  <title>Reserved GPU Market Report — Q3 2026 | Omega Gradient</title>
+  <link rel="canonical" href="https://omegagradient.com/research/reserved-gpu-market-report-2026-q3.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Reserved GPU Market Report — Q3 2026 Early Read">
+  <meta property="og:description" content="50 sample-safe observations on platform mix, start windows, block sizes, evidence freshness, and quote completeness.">
+  <meta property="og:url" content="https://omegagradient.com/research/reserved-gpu-market-report-2026-q3.html">
+  <meta property="og:image" content="https://omegagradient.com/og-image-omega-logo-globe-centered-20260628.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/omega-gradient-logo.png" type="image/png" sizes="400x400">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/clusters/reserved-clusters.css">
+  <link rel="stylesheet" href="/site-chrome.css?v=20260821-3">
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://omegagradient.com/#organization",
+      "name": "Omega Gradient",
+      "url": "https://omegagradient.com/",
+      "logo": "https://omegagradient.com/omega-gradient-logo.png"
+    },
+    {
+      "@type": "Report",
+      "@id": "https://omegagradient.com/research/reserved-gpu-market-report-2026-q3.html#report",
+      "name": "Reserved GPU Market Report — Q3 2026 Early Read",
+      "headline": "Reserved GPU Market Report — Q3 2026 Early Read",
+      "description": "An anonymized early read of represented reserved GPU supply, covering platform mix, start windows, block-size bands, evidence freshness, and quote-field completeness through August 21, 2026.",
+      "datePublished": "2026-08-21",
+      "dateModified": "2026-08-21",
+      "temporalCoverage": "2026-07-08/2026-08-21",
+      "author": {
+        "@id": "https://omegagradient.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://omegagradient.com/#organization"
+      },
+      "mainEntityOfPage": "https://omegagradient.com/research/reserved-gpu-market-report-2026-q3.html",
+      "isBasedOn": {
+        "@id": "https://omegagradient.com/research/reserved-gpu-market-report-2026-q3.html#dataset"
+      }
+    },
+    {
+      "@type": "Dataset",
+      "@id": "https://omegagradient.com/research/reserved-gpu-market-report-2026-q3.html#dataset",
+      "name": "Omega Gradient Q3 2026 reserved GPU market aggregate",
+      "description": "An anonymized aggregate of 50 eligible reserved-GPU supply observations tracked from July 8 through August 21, 2026.",
+      "creator": {
+        "@id": "https://omegagradient.com/#organization"
+      },
+      "datePublished": "2026-08-21",
+      "temporalCoverage": "2026-07-08/2026-08-21",
+      "measurementTechnique": "Anonymized, row-level sourcing tracker analysis with a minimum public cell threshold of five observations.",
+      "distribution": {
+        "@type": "DataDownload",
+        "encodingFormat": "application/json",
+        "contentUrl": "https://omegagradient.com/data/reserved_gpu_market_report_2026_q3.json"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://omegagradient.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Reserved GPU Clusters",
+          "item": "https://omegagradient.com/clusters/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Reserved GPU Market Report",
+          "item": "https://omegagradient.com/research/reserved-gpu-market-report-2026-q3.html"
+        }
+      ]
+    }
+  ]
+}</script>
+</head>
+<body>
+  <!-- SITE_HEADER_START -->
+<header class="og-site-header" data-og-site-header>
+  <div class="og-site-shell">
+    <a class="og-brand" href="/" aria-label="Omega Gradient home" data-og-area="header" data-og-link="home">
+      <img src="/omega-gradient-logo.png" alt="" width="28" height="28">
+      <span><b>Omega</b> <em>Gradient</em></span>
+    </a>
+    <button class="og-nav-toggle" type="button" aria-expanded="false" aria-controls="og-global-nav" aria-label="Open navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="og-global-nav" id="og-global-nav" aria-label="Primary navigation">
+      <a href="/clusters/" data-og-area="header" data-og-link="reserved">Reserved clusters</a>
+      <a href="/clusters/how-we-qualify.html" data-og-area="header" data-og-link="qualify">How we qualify</a>
+      <details class="og-nav-menu">
+          <summary>Guides<span aria-hidden="true">+</span></summary>
+          <div class="og-nav-panel">
+            <a href="/clusters/reserved-vs-on-demand.html" data-og-area="header" data-og-link="reserved_vs_on_demand">Reserved vs. on-demand</a>
+            <a href="/clusters/hopper-h100-h200.html" data-og-area="header" data-og-link="h100_h200">H100 &amp; H200</a>
+            <a href="/clusters/blackwell-b200-b300.html" data-og-area="header" data-og-link="b200_b300_gb300">B200, B300 &amp; GB300</a>
+            <a href="/clusters/vera-rubin-guide.html" data-og-area="header" data-og-link="vera_rubin">Vera Rubin</a>
+            <a href="/clusters/gpu-cluster-procurement-checklist.html" data-og-area="header" data-og-link="procurement_checklist">Procurement checklist</a>
+          </div>
+        </details>
+      <details class="og-nav-menu is-current">
+          <summary aria-current="page">Market data<span aria-hidden="true">+</span></summary>
+          <div class="og-nav-panel">
+            <a href="/research/reserved-gpu-market-report-2026-q3.html" data-og-area="header" data-og-link="reserved_market_report">Reserved market report</a>
+            <a href="/gpus/" data-og-area="header" data-og-link="gpu_price_index">GPU price index</a>
+            <a href="/gpus/availability.html" data-og-area="header" data-og-link="live_availability">Live availability</a>
+            <a href="/gpu-supplier-pricing.html" data-og-area="header" data-og-link="supplier_pricing_report">Supplier pricing report</a>
+          </div>
+        </details>
+      <a href="/compute.html" data-og-area="header" data-og-link="on-demand">On-demand marketplace</a>
+      <a class="og-nav-cta" href="/clusters/#request" data-og-area="header" data-og-link="request_capacity">Request capacity</a>
+    </nav>
+  </div>
+</header>
+<!-- SITE_HEADER_END -->
+  <main>
+    <div class="wrap breadcrumbs"><a href="/">Home</a><span>/</span><a href="/clusters/">Reserved clusters</a><span>/</span>Market report</div>
+    <article class="article-shell report-shell">
+      <header class="reading article-header" data-reveal>
+        <span class="eyebrow">Q3 2026 early read · 50 eligible observations</span>
+        <h1>Reserved GPU market report.</h1>
+        <p class="article-lede">A sample-safe view of represented reserved supply: which platforms are showing up, how large the offered blocks are, when capacity is expected, and where the evidence record is still incomplete.</p>
+        <div class="article-meta"><span>Published August 21, 2026</span><span>Data cut August 21, 2026</span><span>Fixed edition · v1.0</span></div>
+      </header>
+
+      <div class="reading article-body">
+        <aside class="toc" aria-label="On this page"><strong>On this page</strong><a href="#answer">Executive read</a><a href="#method">Method</a><a href="#generation">Platform mix</a><a href="#start">Start windows</a><a href="#blocks">Block sizes</a><a href="#evidence">Evidence maturity</a><a href="#buyers">Buyer actions</a><a href="#limits">Limitations</a><a href="#data">Data download</a></aside>
+        <div class="prose report-prose">
+          <h2 id="answer">Executive read</h2>
+          <p><strong>Omega Gradient’s Q3 2026 early read shows a forward-heavy, Blackwell-heavy represented supply market in which evidence maturity often trails the headline availability claim.</strong> Across 50 eligible observations, 70% referenced Blackwell-family platforms, 54% pointed to Q4 2026 start windows, 18% were represented as available now, and only 36% explicitly recorded a network or fabric field.</p>
+          <p>The practical implication is simple: a GPU model, count, price, and target date are opening metadata—not a decision-ready cluster. Buyers should refresh old representations, require the fabric and service boundary, normalize the full commitment, and tie forward delivery to dated evidence and acceptance milestones.</p>
+
+          <div class="report-stats" aria-label="Report highlights">
+            <div class="report-stat"><strong>70%</strong><span>Blackwell-family</span><p>35 of 50 eligible observations</p></div>
+            <div class="report-stat"><strong>54%</strong><span>Q4 start window</span><p>27 represented paths</p></div>
+            <div class="report-stat"><strong>18%</strong><span>Available now</span><p>9 represented paths; not independently audited</p></div>
+            <div class="report-stat"><strong>36%</strong><span>Fabric stated</span><p>18 observations recorded a network field</p></div>
+          </div>
+
+          <div class="source-note report-warning"><strong>Read this first</strong><br>An observation is a tracker row, not a unique provider, facility, physical system, or audited unit of available capacity. Multiple observations can refer to alternative configurations or the same underlying supply path. For that reason, this report does not sum GPUs or present the sample as market share.</div>
+
+          <h2 id="method">Method and sample</h2>
+          <p>The source contained 128 internal tracker rows. We included 50 supply-side observations with a numeric GPU count, a valid verification date, and a status of active, represented available now, build-to-order, or outside a near-term buyer window. We excluded demand-side records, sold or dropped paths, watch and unconfirmed rows, and records that could not support the required fields.</p>
+          <div class="report-method-grid">
+            <div><strong>July 8, 2026</strong><span>Earliest eligible verification</span></div>
+            <div><strong>August 21, 2026</strong><span>Report cutoff</span></div>
+            <div><strong>n ≥ 5</strong><span>Minimum public segment</span></div>
+            <div><strong>0 names</strong><span>Providers and buyers disclosed</span></div>
+          </div>
+          <p>Every percentage below uses row-level observations as its denominator. Categories smaller than the public threshold are suppressed or combined. Price fields were reviewed only for completeness because their units, inclusions, terms, fabric assumptions, and payment structures were not sufficiently normalized for a responsible public median.</p>
+
+          <h2 id="generation">Blackwell leads the observed platform mix</h2>
+          <p>Blackwell-family systems appeared in 35 of 50 eligible observations (70%). Hopper-family systems appeared in 11 (22%). Smaller platform groups were suppressed to avoid over-reading thin segments.</p>
+          <div class="report-chart" aria-label="Platform generation mix"><div class="report-bar-row">
+      <div class="report-bar-label"><span>Blackwell</span><strong>35 observations · 70%</strong></div>
+      <div class="report-bar-track" aria-hidden="true"><span style="width:70%"></span></div>
+    </div>
+<div class="report-bar-row">
+      <div class="report-bar-label"><span>Hopper</span><strong>11 observations · 22%</strong></div>
+      <div class="report-bar-track" aria-hidden="true"><span style="width:22%"></span></div>
+    </div>
+<div class="report-bar-row">
+      <div class="report-bar-label"><span>Other / mixed</span><strong>Suppressed (n &lt; 5)</strong></div>
+      <div class="report-bar-track" aria-hidden="true"><span style="width:0%"></span></div>
+    </div></div>
+          <div class="table-wrap"><table class="report-table">
+    <thead><tr><th>Observed segment</th><th>Observations</th><th>Share</th></tr></thead>
+    <tbody><tr><td><strong>Blackwell</strong></td><td>35</td><td>70%</td></tr><tr><td><strong>Hopper</strong></td><td>11</td><td>22%</td></tr><tr><td><strong>Other / mixed</strong></td><td>n &lt; 5</td><td>Suppressed</td></tr></tbody>
+    <tfoot><tr><td>Total eligible sample</td><td>50</td><td>100%</td></tr></tfoot>
+  </table></div>
+          <p>This is a mix of represented sourcing paths, not a shipment forecast or installed-base estimate. The signal is directionally useful: buyers comparing new reservations are increasingly likely to encounter Blackwell and Blackwell Ultra proposals, which makes rack, power, cooling, scale-up domain, and scale-out fabric part of the commercial comparison—not technical details to defer until after award.</p>
+
+          <h2 id="start">Most represented starts sit in Q4</h2>
+          <p>27 observations (54%) pointed to Q4 2026. Only 9 (18%) were represented as available now, while the remainder sat in nearer forward windows or lacked a dated start. A target date should therefore be decomposed into equipment, facility, commissioning, access, and acceptance milestones.</p>
+          <div class="report-chart" aria-label="Represented start-window mix"><div class="report-bar-row">
+      <div class="report-bar-label"><span>Represented available now</span><strong>9 observations · 18%</strong></div>
+      <div class="report-bar-track" aria-hidden="true"><span style="width:18%"></span></div>
+    </div>
+<div class="report-bar-row">
+      <div class="report-bar-label"><span>By September 2026</span><strong>7 observations · 14%</strong></div>
+      <div class="report-bar-track" aria-hidden="true"><span style="width:14%"></span></div>
+    </div>
+<div class="report-bar-row">
+      <div class="report-bar-label"><span>Q4 2026</span><strong>27 observations · 54%</strong></div>
+      <div class="report-bar-track" aria-hidden="true"><span style="width:54%"></span></div>
+    </div>
+<div class="report-bar-row">
+      <div class="report-bar-label"><span>2027 or later</span><strong>7 observations · 14%</strong></div>
+      <div class="report-bar-track" aria-hidden="true"><span style="width:14%"></span></div>
+    </div></div>
+          <div class="table-wrap"><table class="report-table">
+    <thead><tr><th>Observed segment</th><th>Observations</th><th>Share</th></tr></thead>
+    <tbody><tr><td><strong>Represented available now</strong></td><td>9</td><td>18%</td></tr><tr><td><strong>By September 2026</strong></td><td>7</td><td>14%</td></tr><tr><td><strong>Q4 2026</strong></td><td>27</td><td>54%</td></tr><tr><td><strong>2027 or later</strong></td><td>7</td><td>14%</td></tr></tbody>
+    <tfoot><tr><td>Total eligible sample</td><td>50</td><td>100%</td></tr></tfoot>
+  </table></div>
+          <p>“Available now” is the status recorded in the sourcing tracker, not independent certification. Buyers should still verify the exact block, tenancy boundary, software state, test path, and contracting chain.</p>
+
+          <h2 id="blocks">The observation set skews toward large blocks</h2>
+          <p>The largest band—1,024 GPUs or more—accounted for 22 observations (44%). That concentration does not mean those GPUs should be added together or treated as simultaneously available. It shows that many represented paths are being discussed as major programs rather than small, immediately testable allocations.</p>
+          <div class="report-chart" aria-label="Observed GPU block-size bands"><div class="report-bar-row">
+      <div class="report-bar-label"><span>1–255 GPUs</span><strong>13 observations · 26%</strong></div>
+      <div class="report-bar-track" aria-hidden="true"><span style="width:26%"></span></div>
+    </div>
+<div class="report-bar-row">
+      <div class="report-bar-label"><span>256–1,023 GPUs</span><strong>15 observations · 30%</strong></div>
+      <div class="report-bar-track" aria-hidden="true"><span style="width:30%"></span></div>
+    </div>
+<div class="report-bar-row">
+      <div class="report-bar-label"><span>1,024+ GPUs</span><strong>22 observations · 44%</strong></div>
+      <div class="report-bar-track" aria-hidden="true"><span style="width:44%"></span></div>
+    </div></div>
+          <div class="table-wrap"><table class="report-table">
+    <thead><tr><th>Observed segment</th><th>Observations</th><th>Share</th></tr></thead>
+    <tbody><tr><td><strong>1–255 GPUs</strong></td><td>13</td><td>26%</td></tr><tr><td><strong>256–1,023 GPUs</strong></td><td>15</td><td>30%</td></tr><tr><td><strong>1,024+ GPUs</strong></td><td>22</td><td>44%</td></tr></tbody>
+    <tfoot><tr><td>Total eligible sample</td><td>50</td><td>100%</td></tr></tfoot>
+  </table></div>
+          <p>For a buyer, a larger represented block increases the importance of chain-of-control evidence, phased acceptance, topology preservation, facility milestones, replacement capacity, and remedies that remain collectible if the full program does not arrive on schedule.</p>
+
+          <h2 id="evidence">Evidence freshness and quote completeness are uneven</h2>
+          <p>22 observations (44%) were verified within 14 days of the cutoff. 17 (34%) were more than 30 days old. A stale representation may still be useful as a lead, but it should not survive into a shortlist without a dated refresh.</p>
+          <div class="report-chart" aria-label="Evidence freshness bands"><div class="report-bar-row">
+      <div class="report-bar-label"><span>Verified 0–14 days before cutoff</span><strong>22 observations · 44%</strong></div>
+      <div class="report-bar-track" aria-hidden="true"><span style="width:44%"></span></div>
+    </div>
+<div class="report-bar-row">
+      <div class="report-bar-label"><span>Verified 15–30 days before cutoff</span><strong>11 observations · 22%</strong></div>
+      <div class="report-bar-track" aria-hidden="true"><span style="width:22%"></span></div>
+    </div>
+<div class="report-bar-row">
+      <div class="report-bar-label"><span>Verified 31+ days before cutoff</span><strong>17 observations · 34%</strong></div>
+      <div class="report-bar-track" aria-hidden="true"><span style="width:34%"></span></div>
+    </div></div>
+          <div class="table-wrap"><table class="report-table">
+    <thead><tr><th>Observed segment</th><th>Observations</th><th>Share</th></tr></thead>
+    <tbody><tr><td><strong>Verified 0–14 days before cutoff</strong></td><td>22</td><td>44%</td></tr><tr><td><strong>Verified 15–30 days before cutoff</strong></td><td>11</td><td>22%</td></tr><tr><td><strong>Verified 31+ days before cutoff</strong></td><td>17</td><td>34%</td></tr></tbody>
+    <tfoot><tr><td>Total eligible sample</td><td>50</td><td>100%</td></tr></tfoot>
+  </table></div>
+
+          <h3>Field completeness exposes the comparison risk</h3>
+          <p>Headline pricing was present in almost every eligible row, but the terms needed to interpret that number were not. A term field appeared in 70% of observations, an upfront-payment or deposit field in 52%, and network or fabric detail in only 36%.</p>
+          <div class="report-chart" aria-label="Field completeness"><div class="report-bar-row">
+      <div class="report-bar-label"><span>Headline price field stated</span><strong>49 observations · 98%</strong></div>
+      <div class="report-bar-track" aria-hidden="true"><span style="width:98%"></span></div>
+    </div>
+<div class="report-bar-row">
+      <div class="report-bar-label"><span>Term field stated</span><strong>35 observations · 70%</strong></div>
+      <div class="report-bar-track" aria-hidden="true"><span style="width:70%"></span></div>
+    </div>
+<div class="report-bar-row">
+      <div class="report-bar-label"><span>Upfront / deposit field stated</span><strong>26 observations · 52%</strong></div>
+      <div class="report-bar-track" aria-hidden="true"><span style="width:52%"></span></div>
+    </div>
+<div class="report-bar-row">
+      <div class="report-bar-label"><span>Network / fabric field stated</span><strong>18 observations · 36%</strong></div>
+      <div class="report-bar-track" aria-hidden="true"><span style="width:36%"></span></div>
+    </div>
+<div class="report-bar-row">
+      <div class="report-bar-label"><span>Dated availability field</span><strong>50 observations · 100%</strong></div>
+      <div class="report-bar-track" aria-hidden="true"><span style="width:100%"></span></div>
+    </div></div>
+          <p>This is why a public “average reserved GPU price” would be misleading. Rates can differ in GPU generation, topology, networking, storage, support, start state, term, prepayment, and what happens before acceptance. The unit must be normalized before the price can be compared.</p>
+
+          <h2 id="buyers">What buyers should do with this signal</h2>
+          <ol class="report-actions">
+            <li><strong>Refresh the representation.</strong> Reconfirm SKU, count, location, start, block state, and accountable seller whenever the supporting evidence is more than 14 days old or a milestone has moved.</li>
+            <li><strong>Make fabric a gate.</strong> Do not shortlist a large training or post-training cluster without the scale-up domain, scale-out fabric, link speeds, topology, oversubscription boundary, and storage path.</li>
+            <li><strong>Normalize the full obligation.</strong> Compare rate, term, deposit, payment timing, included services, data movement, support, maintenance, ramp, and remedies on one sheet.</li>
+            <li><strong>Turn forward dates into milestones.</strong> Separate equipment allocation, site readiness, installation, commissioning, buyer access, acceptance, and production start.</li>
+            <li><strong>Accept in phases.</strong> For large blocks, attach reproducible health, collective, storage, and workload tests; define partial acceptance, cure, billing start, and termination rights before signing.</li>
+          </ol>
+          <p>Use the <a href="/clusters/gpu-cluster-procurement-checklist.html">36-point procurement checklist</a> to structure the evidence request, and read <a href="/clusters/how-we-qualify.html">how Omega Gradient qualifies reserved clusters</a> for the full delivery and counterparty framework.</p>
+
+          <h2 id="limits">Limitations</h2>
+          <ul>
+            <li>This is a partial-quarter early read covering eligible verifications from July 8, 2026 through August 21, 2026; it is not a complete census of the reserved GPU market.</li>
+            <li>The sample is shaped by Omega Gradient’s sourcing workflow and may overrepresent platforms, regions, block sizes, or counterparties relevant to active mandates.</li>
+            <li>One tracker observation is not necessarily one unique provider, one facility, or one unique physical cluster.</li>
+            <li>Statuses and dates are represented states as of the recorded verification date. They can change after the cutoff.</li>
+            <li>No raw price distribution is published because the commercial units and service inclusions were not consistently normalized.</li>
+            <li>Provider identities, buyer identities, private quotes, contacts, and row-level capacity details are intentionally withheld.</li>
+          </ul>
+
+          <h2 id="data">Download the aggregate</h2>
+          <p>The machine-readable report includes the denominators, inclusion rules, minimum cell threshold, and the exact aggregate values used on this page. It contains no provider, buyer, contact, quote, or row-level capacity data.</p>
+          <p><a class="btn" href="/data/reserved_gpu_market_report_2026_q3.json">Download aggregate JSON</a></p>
+
+          <div class="source-note"><strong>Reference register</strong><br>Platform-family labeling was checked against NVIDIA’s <a href="https://docs.nvidia.com/dgx/dgxh100-user-guide/introduction-to-dgxh100.html">DGX H100/H200 guide</a>, <a href="https://images.nvidia.com/aem-dam/Solutions/documents/HGX-B200-PCF-Summary.pdf">HGX B200 product summary</a>, and <a href="https://docs.nvidia.com/enterprise-reference-architectures/nvl72-ai-factory/latest/components.html">GB300 NVL72 reference architecture</a>. These sources establish platform context; all market percentages are Omega Gradient tracker aggregates.</div>
+          <div class="source-note"><strong>Corrections policy</strong><br>This is a fixed edition. Material corrections will be dated and described here; later market changes will be published as a new edition rather than silently rewriting this sample.</div>
+        </div>
+      </div>
+    </article>
+
+    <section class="request-section"><div class="reading"><div class="panel callout"><i class="tk" aria-hidden="true"></i><div class="callout-grid"><div><span class="eyebrow">Reserved cluster mandate</span><h2>Turn the market signal into a qualified shortlist.</h2></div><div><p>Send the platform, count, region, start window, term, workload, topology, and any quotes already under review. Omega Gradient can scan relevant capacity paths, normalize the offers, and mark the evidence and open risks behind each option.</p><a class="btn btn-gold" href="/clusters/#request">Start a reserved cluster brief</a></div></div></div></div></section>
+  </main>
+  <!-- SITE_FOOTER_START -->
+<footer class="og-site-footer">
+  <div class="og-footer-shell">
+    <div class="og-footer-grid">
+      <div class="og-footer-col">
+        <h2>Reserved</h2>
+        <a href="/clusters/" data-og-area="footer" data-og-link="reserved_reserved_clusters">Reserved clusters</a>
+        <a href="/clusters/how-we-qualify.html" data-og-area="footer" data-og-link="reserved_how_we_qualify">How we qualify</a>
+        <a href="/clusters/reserved-vs-on-demand.html" data-og-area="footer" data-og-link="reserved_reserved_vs_on_demand">Reserved vs. on-demand</a>
+        <a href="/clusters/#request" data-og-area="footer" data-og-link="reserved_request_capacity">Request capacity</a>
+      </div>
+      <div class="og-footer-col">
+        <h2>Guides</h2>
+        <a href="/clusters/hopper-h100-h200.html" data-og-area="footer" data-og-link="guides_h100_h200">H100 &amp; H200</a>
+        <a href="/clusters/blackwell-b200-b300.html" data-og-area="footer" data-og-link="guides_b200_b300_gb300">B200, B300 &amp; GB300</a>
+        <a href="/clusters/vera-rubin-guide.html" data-og-area="footer" data-og-link="guides_vera_rubin">Vera Rubin</a>
+        <a href="/clusters/gpu-cluster-procurement-checklist.html" data-og-area="footer" data-og-link="guides_procurement_checklist">Procurement checklist</a>
+      </div>
+      <div class="og-footer-col">
+        <h2>Market data</h2>
+        <a href="/research/reserved-gpu-market-report-2026-q3.html" data-og-area="footer" data-og-link="data_reserved_market_report">Reserved market report</a>
+        <a href="/gpus/" data-og-area="footer" data-og-link="data_gpu_price_index">GPU price index</a>
+        <a href="/gpus/availability.html" data-og-area="footer" data-og-link="data_live_availability">Live availability</a>
+        <a href="/gpu-supplier-pricing.html" data-og-area="footer" data-og-link="data_supplier_pricing_report">Supplier pricing report</a>
+        <a href="/data/public_gpu_market.json" data-og-area="footer" data-og-link="data_public_market_feed">Public market feed</a>
+      </div>
+      <div class="og-footer-col">
+        <h2>Deploy &amp; supply</h2>
+        <a href="/compute.html" data-og-area="footer" data-og-link="deploy_on_demand_marketplace">On-demand marketplace</a>
+        <a href="/console.html" data-og-area="footer" data-og-link="deploy_console">Console</a>
+        <a href="/supply.html" data-og-area="footer" data-og-link="deploy_list_capacity">List capacity</a>
+        <a href="mailto:hello@omegagradient.com" data-og-area="footer" data-og-link="deploy_hello_omegagradient_com">hello@omegagradient.com</a>
+      </div>
+    </div>
+    <div class="og-footer-wordmark" data-og-footer-wordmark aria-hidden="true">
+      <span class="og-footer-wordmark-outline"><b>OMEGA</b> <em>GRADIENT</em></span>
+      <span class="og-footer-wordmark-fill" data-og-footer-wordmark-fill><b>OMEGA</b> <em>GRADIENT</em></span>
+    </div>
+    <div class="og-footer-legal">© <span data-og-year>2026</span> Omega Gradient · Provider identities and private supply evidence remain confidential until qualification.</div>
+  </div>
+</footer>
+<!-- SITE_FOOTER_END -->
+  <script src="/clusters/reserved-clusters.js" defer></script>
+  <script src="/site-chrome.js?v=20260821-3" defer></script>
+</body>
+</html>
