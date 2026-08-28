@@ -1,13 +1,13 @@
 window.OMEGA_GPU_MARKET = {
   "schema_version": "1.0.0",
-  "generated_at": "2026-08-27T16:10:04.318Z",
-  "inventory_generated_at": "2026-08-27T15:11:01.264Z",
-  "pricing_generated_at": "2026-08-27T16:10:04.164Z",
+  "generated_at": "2026-08-28T16:14:01.739Z",
+  "inventory_generated_at": "2026-08-28T16:08:04.126Z",
+  "pricing_generated_at": "2026-08-28T16:14:01.604Z",
   "freshness_label": "Refreshed recently",
   "disclosure": "Public market summary only. Provider identities, source URLs, evidence excerpts, and source-level rows are intentionally withheld.",
   "source_count_summary": {
     "registry_supplier_count": 224,
-    "public_price_sources": 69,
+    "public_price_sources": 72,
     "supply_source_gpu_pairs": 47,
     "quarantined_price_sources": 5,
     "tracked_gpu_families": 8
@@ -16,17 +16,17 @@ window.OMEGA_GPU_MARKET = {
   "gpu_market": [
     {
       "gpu_family": "H100",
-      "average_price_per_gpu_hour": 3.1916,
-      "median_price_per_gpu_hour": 2.585,
+      "average_price_per_gpu_hour": 3.1194,
+      "median_price_per_gpu_hour": 2.6795,
       "min_price_per_gpu_hour": 1.68,
       "max_price_per_gpu_hour": 6.155,
       "supply_source_count": 10,
-      "price_source_count": 13,
+      "price_source_count": 10,
       "availability_mix": [
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 4
+          "count": 1
         },
         {
           "key": "on_demand_listed",
@@ -49,7 +49,6 @@ window.OMEGA_GPU_MARKET = {
         "Europe",
         "Spain",
         "India",
-        "Czechia, CZ",
         "Ireland, IE"
       ],
       "confidence": "High",
@@ -61,17 +60,17 @@ window.OMEGA_GPU_MARKET = {
     },
     {
       "gpu_family": "H200",
-      "average_price_per_gpu_hour": 3.7149,
-      "median_price_per_gpu_hour": 3.99,
+      "average_price_per_gpu_hour": 3.6253,
+      "median_price_per_gpu_hour": 3.8417,
       "min_price_per_gpu_hour": 1.99,
       "max_price_per_gpu_hour": 6.305,
       "supply_source_count": 5,
-      "price_source_count": 9,
+      "price_source_count": 10,
       "availability_mix": [
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 6
+          "count": 7
         },
         {
           "key": "on_demand_listed",
@@ -93,8 +92,8 @@ window.OMEGA_GPU_MARKET = {
         "US",
         "Europe",
         "India",
+        "Czechia, CZ",
         "Saudi Arabia, SA",
-        "Japan, JP",
         "Bulgaria, BG"
       ],
       "confidence": "High",
@@ -106,17 +105,17 @@ window.OMEGA_GPU_MARKET = {
     },
     {
       "gpu_family": "B200",
-      "average_price_per_gpu_hour": 4.6948,
-      "median_price_per_gpu_hour": 4.6948,
+      "average_price_per_gpu_hour": 5.0847,
+      "median_price_per_gpu_hour": 5.0847,
       "min_price_per_gpu_hour": 3.49,
-      "max_price_per_gpu_hour": 5.8996,
+      "max_price_per_gpu_hour": 6.6794,
       "supply_source_count": 2,
-      "price_source_count": 7,
+      "price_source_count": 6,
       "availability_mix": [
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 7
+          "count": 6
         },
         {
           "key": "on_demand_listed",
@@ -139,7 +138,7 @@ window.OMEGA_GPU_MARKET = {
         "Europe",
         "India",
         ", US",
-        "Oregon, US"
+        "Ohio, US"
       ],
       "confidence": "Medium",
       "deployment_models": [
@@ -225,17 +224,17 @@ window.OMEGA_GPU_MARKET = {
     },
     {
       "gpu_family": "A100",
-      "average_price_per_gpu_hour": 2.2506,
+      "average_price_per_gpu_hour": 2.2501,
       "median_price_per_gpu_hour": 1.7475,
-      "min_price_per_gpu_hour": 1.0198,
+      "min_price_per_gpu_hour": 1.0154,
       "max_price_per_gpu_hour": 5.04,
       "supply_source_count": 8,
-      "price_source_count": 13,
+      "price_source_count": 14,
       "availability_mix": [
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 3
+          "count": 4
         },
         {
           "key": "on_demand_listed",
@@ -307,17 +306,17 @@ window.OMEGA_GPU_MARKET = {
     },
     {
       "gpu_family": "RTX 5090",
-      "average_price_per_gpu_hour": 0.5852,
-      "median_price_per_gpu_hour": 0.5852,
-      "min_price_per_gpu_hour": 0.4704,
+      "average_price_per_gpu_hour": 0.5993,
+      "median_price_per_gpu_hour": 0.5993,
+      "min_price_per_gpu_hour": 0.4986,
       "max_price_per_gpu_hour": 0.7,
       "supply_source_count": 2,
-      "price_source_count": 3,
+      "price_source_count": 6,
       "availability_mix": [
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 2
+          "count": 5
         },
         {
           "key": "on_demand_listed",
@@ -331,8 +330,10 @@ window.OMEGA_GPU_MARKET = {
         }
       ],
       "regions": [
+        "Estonia, EE",
         "South Korea, KR",
-        "Taiwan, TW"
+        "Virginia, US",
+        "Alberta, CA"
       ],
       "confidence": "Medium",
       "deployment_models": [
@@ -353,13 +354,14 @@ window.OMEGA_GPU_MARKET = {
         "B300",
         "GB300",
         "A100",
-        "L40S"
+        "L40S",
+        "RTX 5090"
       ],
       "availability_mix": [
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 8
+          "count": 9
         },
         {
           "key": "on_demand_listed",
@@ -377,8 +379,8 @@ window.OMEGA_GPU_MARKET = {
           "count": 34
         }
       ],
-      "supply_source_count": 68,
-      "live_or_listed_supply_sources": 26,
+      "supply_source_count": 69,
+      "live_or_listed_supply_sources": 27,
       "reserved_supply_sources": 8,
       "channel_summary": "Live on-demand supply sources plus reserved capacity",
       "confidence": "High"
@@ -393,13 +395,14 @@ window.OMEGA_GPU_MARKET = {
         "B300",
         "GB300",
         "A100",
-        "L40S"
+        "L40S",
+        "RTX 5090"
       ],
       "availability_mix": [
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 8
+          "count": 9
         },
         {
           "key": "on_demand_listed",
@@ -417,8 +420,8 @@ window.OMEGA_GPU_MARKET = {
           "count": 34
         }
       ],
-      "supply_source_count": 68,
-      "live_or_listed_supply_sources": 26,
+      "supply_source_count": 69,
+      "live_or_listed_supply_sources": 27,
       "reserved_supply_sources": 8,
       "channel_summary": "Live on-demand supply sources plus reserved capacity",
       "confidence": "High"
@@ -433,13 +436,14 @@ window.OMEGA_GPU_MARKET = {
         "B300",
         "GB300",
         "A100",
-        "L40S"
+        "L40S",
+        "RTX 5090"
       ],
       "availability_mix": [
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 8
+          "count": 9
         },
         {
           "key": "on_demand_listed",
@@ -457,8 +461,8 @@ window.OMEGA_GPU_MARKET = {
           "count": 34
         }
       ],
-      "supply_source_count": 68,
-      "live_or_listed_supply_sources": 26,
+      "supply_source_count": 69,
+      "live_or_listed_supply_sources": 27,
       "reserved_supply_sources": 8,
       "channel_summary": "Live on-demand supply sources plus reserved capacity",
       "confidence": "High"
@@ -509,7 +513,7 @@ window.OMEGA_GPU_MARKET = {
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 2
+          "count": 1
         },
         {
           "key": "on_demand_listed",
@@ -522,8 +526,8 @@ window.OMEGA_GPU_MARKET = {
           "count": 10
         }
       ],
-      "supply_source_count": 13,
-      "live_or_listed_supply_sources": 3,
+      "supply_source_count": 12,
+      "live_or_listed_supply_sources": 2,
       "reserved_supply_sources": 0,
       "channel_summary": "Live or listed on-demand supply sources",
       "confidence": "High"
@@ -602,11 +606,6 @@ window.OMEGA_GPU_MARKET = {
       ],
       "availability_mix": [
         {
-          "key": "on_demand_live",
-          "label": "Live",
-          "count": 1
-        },
-        {
           "key": "on_demand_listed",
           "label": "Listed",
           "count": 1
@@ -617,8 +616,8 @@ window.OMEGA_GPU_MARKET = {
           "count": 9
         }
       ],
-      "supply_source_count": 11,
-      "live_or_listed_supply_sources": 2,
+      "supply_source_count": 10,
+      "live_or_listed_supply_sources": 1,
       "reserved_supply_sources": 0,
       "channel_summary": "Live or listed on-demand supply sources",
       "confidence": "High"
@@ -761,25 +760,19 @@ window.OMEGA_GPU_MARKET = {
       "id": "japan",
       "label": "Japan",
       "gpus": [
-        "H200",
         "A100"
       ],
       "availability_mix": [
-        {
-          "key": "on_demand_live",
-          "label": "Live",
-          "count": 2
-        },
         {
           "key": "mentioned_only",
           "label": "Mentioned",
           "count": 1
         }
       ],
-      "supply_source_count": 3,
-      "live_or_listed_supply_sources": 2,
+      "supply_source_count": 1,
+      "live_or_listed_supply_sources": 0,
       "reserved_supply_sources": 0,
-      "channel_summary": "Live or listed on-demand supply sources",
+      "channel_summary": "Mentioned supply sources under review",
       "confidence": "Forming"
     },
     {
@@ -805,25 +798,19 @@ window.OMEGA_GPU_MARKET = {
       "id": "taiwan",
       "label": "Taiwan",
       "gpus": [
-        "A100",
-        "RTX 5090"
+        "A100"
       ],
       "availability_mix": [
-        {
-          "key": "on_demand_live",
-          "label": "Live",
-          "count": 1
-        },
         {
           "key": "mentioned_only",
           "label": "Mentioned",
           "count": 1
         }
       ],
-      "supply_source_count": 2,
-      "live_or_listed_supply_sources": 1,
+      "supply_source_count": 1,
+      "live_or_listed_supply_sources": 0,
       "reserved_supply_sources": 0,
-      "channel_summary": "Live or listed on-demand supply sources",
+      "channel_summary": "Mentioned supply sources under review",
       "confidence": "Forming"
     },
     {
