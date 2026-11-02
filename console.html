@@ -227,6 +227,8 @@
           (i.status === "terminated"
             ? '<span class="inst-price muted">' + money(i.priceCentsHr) + "/hr</span><span class=\"inst-accrued\">total " + money(i.accruedCents || 0) + "</span>"
             : '<span class="inst-price">' + money(i.priceCentsHr) + "/hr</span><span class=\"inst-accrued\">accrued " + money(i.accruedCents || 0) + "</span>") +
+          (i.meteredExtras ? '<span style="font-size:11px;color:var(--muted)">Network and other metered usage: cost + ' + Number(i.extraMarkupPercent || 0) + '%</span>' : "") +
+          (i.pricingEffectiveAt ? '<span style="font-size:11px;color:var(--muted)">Rate effective ' + esc(new Date(i.pricingEffectiveAt).toLocaleString()) + '</span>' : "") +
           '<div class="inst-actions">' + actions + "</div>" +
           "</div></div>"
         );

@@ -675,6 +675,10 @@
     <h2>Launch instance</h2>
     <p class="modal-sub">Provisioned on Omega Gradient’s network. Billed per hour from your prepaid credits — only while it exists.</p>
     <div class="summary-box" id="deploy-summary"></div>
+    <div id="dep-metered" hidden style="font-size:12px;line-height:1.6;margin:12px 0">
+      <p id="dep-metered-rates"></p>
+      <label style="display:flex;gap:8px;align-items:flex-start"><input id="dep-metered-consent" type="checkbox" style="width:auto;margin-top:4px">I accept separately metered network usage and other provider charges at cost plus the stated markup, deducted from my credits.</label>
+    </div>
     <div class="row">
       <div class="field">
         <label>Instance name</label>
@@ -868,6 +872,14 @@
       '<div class="srow"><span class="k">Specs</span><span class="v">' + (l.vcpus || "—") + " vCPU / " + (l.memoryGb || "—") + " GB / " + (l.storageGb || "—") + " GB</span></div>" +
       eta +
       '<div class="srow total"><span class="k">Price</span><span class="v">' + money(l.priceCentsHr) + "/hr · ~" + money(l.priceCentsHr * 24) + "/day</span></div>";
+    const metered = Boolean(l.meteredExtras);
+    document.getElementById("dep-metered").hidden = !metered;
+    document.getElementById("dep-metered-consent").checked = false;
+    const rate = (value) => "$" + Number(value).toFixed(6).replace(/0+$/, "").replace(/\.$/, "");
+    const network = [];
+    if (Number.isFinite(l.uploadUsdGb)) network.push("Uploads: " + rate(l.uploadUsdGb) + "/GB");
+    if (Number.isFinite(l.downloadUsdGb)) network.push("Downloads: " + rate(l.downloadUsdGb) + "/GB");
+    document.getElementById("dep-metered-rates").textContent = "The hourly price includes GPU and allocated storage. Network usage and other metered provider charges are billed separately at cost plus " + Number(l.extraMarkupPercent || 0) + "%. " + network.join(". ");
     const templates = (l.templates && l.templates.length ? l.templates : ["ubuntu-cuda"]);
     document.getElementById("dep-template").innerHTML = templates
       .map((t) => '<option value="' + esc(t) + '">' + esc(TEMPLATE_LABELS[t] || t) + "</option>")
@@ -929,6 +941,10 @@
     const errEl = document.getElementById("dep-error");
     errEl.textContent = "";
     altsEl.innerHTML = "";
+    if (selected.meteredExtras && !document.getElementById("dep-metered-consent").checked) {
+      errEl.textContent = "Please review and accept the metered usage charges.";
+      return;
+    }
     btn.disabled = true;
     btn.textContent = "Deploying…";
     try {
@@ -936,6 +952,7 @@
       localStorage.setItem("og_ssh_key", sshKey);
       const payload = {
         listingId: selected.id,
+        acceptMeteredCharges: Boolean(selected.meteredExtras && document.getElementById("dep-metered-consent").checked),
         name: document.getElementById("dep-name").value.trim().toLowerCase(),
         template: document.getElementById("dep-template").value,
         sshPublicKey: sshKey,
