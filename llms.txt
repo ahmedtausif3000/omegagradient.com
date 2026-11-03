@@ -1,6 +1,6 @@
 # Omega Gradient — Reserved GPU Cluster Sourcing & Intelligence
 
-Omega Gradient is a sourcing and intelligence desk for reserved GPU clusters, with an on-demand GPU marketplace and a daily cross-provider price index. For reserved H100, H200, B200, B300, GB200, and GB300 requirements, it structures the buyer brief, scans supply, normalizes technical and commercial quotes, qualifies the path to delivery, and plans acceptance. For flexible workloads, it aggregates live on-demand GPU supply across a monitored registry of 224 providers.
+Omega Gradient is a sourcing and intelligence desk for reserved GPU clusters, with an on-demand GPU marketplace and a cross-provider price index. For reserved H100, H200, B200, B300, GB200, and GB300 requirements, it structures the buyer brief, scans supply, normalizes technical and commercial quotes, qualifies the path to delivery, and plans acceptance. For flexible workloads, it aggregates live on-demand GPU supply across a monitored registry of 224 providers.
 
 Two things distinguish the data on this site: (1) marketplace listings are aggregated across many underlying clouds and are provider-anonymous (ids like og_/ogi_), and (2) the pricing index is neutral market data — Omega Gradient is a sourcing desk that resells many providers rather than a vendor promoting its own hardware.
 
@@ -14,9 +14,9 @@ Two things distinguish the data on this site: (1) marketplace listings are aggre
 - [Vera Rubin buyer guide](https://omegagradient.com/clusters/vera-rubin-guide.html): Rubin architecture, preliminary specifications, availability evidence, and procurement readiness.
 - [Reserved GPU cluster procurement checklist](https://omegagradient.com/clusters/gpu-cluster-procurement-checklist.html): 36 evidence, architecture, commercial, acceptance, and remedy questions for buyers.
 - [Reserved GPU Market Report — Q3 2026 early read](https://omegagradient.com/research/reserved-gpu-market-report-2026-q3.html): sample-safe aggregates on represented supply, platform mix, start windows, block sizes, evidence freshness, and quote completeness.
-- [Home](https://omegagradient.com/): sourcing desk overview and live GPU market feed.
-- [Cloud GPU Price Index](https://omegagradient.com/gpus/): min/median/max $/GPU-hr for 14 GPU families, updated daily (last: 2026-08-29).
-- [GPUs available right now](https://omegagradient.com/gpus/availability.html): 98 live deployable listings from $0.06/GPU-hr.
+- [Home](https://omegagradient.com/): sourcing desk overview and GPU market snapshot.
+- [Cloud GPU Price Index](https://omegagradient.com/gpus/): min/median/max $/GPU-hr for 14 GPU families (as of 2026-08-29).
+- [GPU availability snapshot](https://omegagradient.com/gpus/availability.html): 98 deployable listings from $0.06/GPU-hr (as of 2026-08-29).
 - [On-demand marketplace](https://omegagradient.com/compute.html): deploy GPU instances in seconds; one console, one bill.
 - [Provider pricing report](https://omegagradient.com/gpu-supplier-pricing.html): named-provider public list prices with evidence links.
 - [Sell capacity](https://omegagradient.com/supply.html): onboard data-center / neocloud GPU supply.
@@ -37,7 +37,7 @@ Two things distinguish the data on this site: (1) marketplace listings are aggre
 
 ## Public Data
 
-- Public GPU market feed (JSON): https://omegagradient.com/data/public_gpu_market.json — per-family average/median/min/max $/GPU-hr, availability mix, regions, refreshed daily.
+- Public GPU market feed (JSON): https://omegagradient.com/data/public_gpu_market.json — per-family average/median/min/max $/GPU-hr, availability mix, regions; the generated_at field gives the snapshot time.
 - Reserved GPU Market Report aggregate (JSON): https://omegagradient.com/data/reserved_gpu_market_report_2026_q3.json — fixed-edition denominators, methodology, and sample-safe findings; no provider or buyer identities.
 - Live marketplace catalog (JSON API): https://omegagradient.com/api/market/catalog — current deployable listings with GPU model, count, vRAM, region, and price in cents/hour. Listings are provider-anonymous.
 - Root sitemap: https://omegagradient.com/sitemap.xml

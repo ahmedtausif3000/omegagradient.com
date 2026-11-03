@@ -134,11 +134,14 @@
     }
     setStatus("Submitting your cluster brief...", "neutral");
 
+    var controller = ("AbortController" in window) ? new AbortController() : null;
+    var timer = controller ? setTimeout(function () { controller.abort(); }, 15000) : null;
     try {
       var response = await fetch(form.dataset.endpoint || "/api/capacity-request", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        signal: controller ? controller.signal : undefined
       });
       var result = await response.json().catch(function () { return {}; });
       if (!response.ok || !result.ok) throw new Error(result.error || "Submission failed");
@@ -146,12 +149,39 @@
       form.reset();
       setStatus(result.message || "Requirements received. Omega Gradient will follow up directly.", "success");
     } catch (error) {
-      setStatus("The form could not be submitted. Email tausif@omegagradient.com instead.", "error");
+      trackEvent("cluster_brief_submit_failed");
+      showEmailFallback(payload);
     } finally {
+      if (timer) clearTimeout(timer);
       if (submit) {
         submit.disabled = false;
         submit.textContent = defaultText;
       }
     }
   });
+
+  // If the request endpoint fails, keep the lead: the form stays filled in and the
+  // buyer gets a pre-filled email containing the full brief.
+  function showEmailFallback(payload) {
+    if (!status) return;
+    var address = "tausif@omegagradient.com";
+    var body = [
+      "Name: " + payload.full_name,
+      "Company: " + payload.company,
+      "Email: " + payload.email,
+      "Phone: " + (payload.phone || "Not specified"),
+      "",
+      payload.requirements
+    ].join("\n").slice(0, 1800);
+    var link = document.createElement("a");
+    link.href = "mailto:" + address +
+      "?subject=" + encodeURIComponent("Reserved cluster brief: " + (payload.company || payload.full_name)) +
+      "&body=" + encodeURIComponent(body);
+    link.textContent = "Email the brief to " + address;
+    link.style.textDecoration = "underline";
+    link.style.color = "inherit";
+    setStatus("The form could not be sent just now, but your brief is still filled in. ", "error");
+    status.appendChild(link);
+    status.appendChild(document.createTextNode(" and we'll follow up directly."));
+  }
 })();

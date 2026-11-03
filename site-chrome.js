@@ -49,6 +49,17 @@
     node.textContent = String(new Date().getFullYear());
   });
 
+  // Market-data freshness stamps are styled as "live" (green). Once the stamped
+  // date is more than three days old, mark them stale so the page stops
+  // signalling live data it no longer has.
+  var STALE_AFTER_MS = 3 * 24 * 60 * 60 * 1000;
+  document.querySelectorAll(".updated-stamp, .updated-line").forEach(function (node) {
+    var time = node.querySelector("time[datetime]");
+    var match = node.textContent.match(/\d{4}-\d{2}-\d{2}(?:T[\d:.]+Z)?/);
+    var stamp = Date.parse(time ? time.getAttribute("datetime") : (match ? match[0] : ""));
+    if (!isNaN(stamp) && Date.now() - stamp > STALE_AFTER_MS) node.classList.add("og-stale");
+  });
+
   var footerWordmarks = Array.from(document.querySelectorAll("[data-og-footer-wordmark]"));
   if (footerWordmarks.length) {
     var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;

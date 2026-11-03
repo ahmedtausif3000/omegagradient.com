@@ -105,7 +105,9 @@
   min-width: 250px;
   padding: 10px;
   border: 1px solid var(--og-chrome-line-strong);
-  background: rgba(5, 5, 4, 0.99);
+  /* Opaque on purpose: translucent fills inside the backdrop-filtered header
+     let page content bleed through in Chromium. */
+  background: #050504;
 }
 
 .og-nav-panel::before {
@@ -138,8 +140,28 @@
 }
 .og-global-nav .og-nav-cta:hover { background: var(--og-chrome-gold-bright); color: #000; }
 
+/* Compact CTA shown beside the menu toggle when the full nav collapses. */
+.og-header-cta {
+  display: none;
+  flex: none;
+  align-items: center;
+  min-height: 42px;
+  padding: 0 14px;
+  border: 1px solid var(--og-chrome-gold);
+  background: var(--og-chrome-gold);
+  color: #080704;
+  font: 500 10px/1 var(--og-chrome-mono);
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.og-header-cta:hover { background: var(--og-chrome-gold-bright); color: #000; }
+.og-header-cta .og-cta-short { display: none; }
+
 .og-nav-toggle {
   display: none;
+  flex: none;
   width: 42px;
   height: 42px;
   margin-left: auto;
@@ -292,6 +314,10 @@
 .og-context-links a:hover { color: var(--og-chrome-gold-bright); }
 .og-context-links a b { color: var(--og-chrome-gold); font-weight: 400; }
 
+/* Freshness stamps lose the "live" green once their date is old (see site-chrome.js). */
+.updated-stamp.og-stale,
+.updated-line.og-stale { color: var(--og-chrome-muted); }
+
 .og-site-header a:focus-visible,
 .og-site-header summary:focus-visible,
 .og-site-header button:focus-visible,
@@ -302,8 +328,10 @@
 }
 
 @media (max-width: 1120px) {
-  .og-site-shell { min-height: 60px; }
+  .og-site-shell { min-height: 60px; gap: 10px; }
   .og-nav-toggle { display: block; }
+  .og-header-cta { display: inline-flex; margin-left: auto; }
+  .og-header-cta + .og-nav-toggle { margin-left: 0; }
   .og-global-nav {
     position: absolute;
     top: 100%;
@@ -315,7 +343,7 @@
     padding: 8px 40px 18px;
     overflow-y: auto;
     border-bottom: 1px solid var(--og-chrome-line-strong);
-    background: rgba(0, 0, 0, 0.99);
+    background: #000; /* must stay opaque, see .og-nav-panel */
   }
   .og-global-nav.is-open { display: block; }
   .og-global-nav > a,
@@ -339,8 +367,24 @@
   .og-product-nav a { font-size: 9px; white-space: nowrap; }
   .og-product-account { padding-left: 6px; }
   .og-footer-grid { grid-template-columns: 1fr 1fr; gap: 34px 26px; }
-  .og-footer-wordmark { font-size: 15vw; }
+  /* The wordmark renders ~7.3em wide; size it to the padded shell so it never clips. */
+  .og-footer-wordmark { font-size: calc((100vw - 56px) / 7.8); }
   .og-context-links { grid-template-columns: 1fr; gap: 14px; }
+}
+
+@media (max-width: 400px) {
+  .og-header-cta { padding: 0 10px; letter-spacing: 0.06em; }
+}
+
+@media (max-width: 385px) {
+  .og-header-cta .og-cta-long { display: none; }
+  .og-header-cta .og-cta-short { display: inline; }
+}
+
+@media (max-width: 359px) {
+  .og-site-shell { gap: 8px; }
+  .og-header-cta { padding: 0 10px; }
+  .og-nav-toggle { width: 38px; }
 }
 
 @media (max-width: 480px) {
