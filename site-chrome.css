@@ -11,6 +11,10 @@
   --og-chrome-display: "Space Grotesk", sans-serif;
 }
 
+.og-company-links { display:flex; flex-wrap:wrap; gap:14px 26px; padding:24px 0; border-top:1px solid var(--og-chrome-line); font-size:13px; line-height:1.7; color:var(--og-chrome-muted); }
+.og-company-links a { color:var(--og-chrome-gold); text-underline-offset:3px; }
+.og-company-links a:focus-visible { outline:2px solid var(--og-chrome-gold-bright); outline-offset:4px; }
+
 .og-site-header,
 .og-site-footer,
 .og-site-header *,

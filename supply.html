@@ -112,7 +112,7 @@
   .machine-list { display: flex; flex-direction: column; gap: 12px; }
   .install-box { background: var(--bg); border: 1px solid var(--line-strong); padding: 12px 14px; font-family: var(--mono); font-size: 11px; color: var(--teal); overflow-x: auto; white-space: nowrap; }
 </style>
-  <link rel="stylesheet" href="/site-chrome.css?v=20260821-3">
+  <link rel="stylesheet" href="/site-chrome.css?v=20261026-1">
 </head>
 <body>
 
@@ -144,7 +144,7 @@
           <div class="og-nav-panel">
             <a href="/research/reserved-gpu-market-report-2026-q3.html" data-og-area="header" data-og-link="reserved_market_report">Reserved market report</a>
             <a href="/gpus/" data-og-area="header" data-og-link="gpu_price_index">GPU price index</a>
-            <a href="/gpus/availability.html" data-og-area="header" data-og-link="live_availability">Live availability</a>
+            <a href="/gpus/availability.html" data-og-area="header" data-og-link="marketplace_snapshot">Marketplace snapshot</a>
             <a href="/gpu-supplier-pricing.html" data-og-area="header" data-og-link="supplier_pricing_report">Supplier pricing report</a>
           </div>
         </details>
@@ -254,7 +254,7 @@
         <h2>Market data</h2>
         <a href="/research/reserved-gpu-market-report-2026-q3.html" data-og-area="footer" data-og-link="data_reserved_market_report">Reserved market report</a>
         <a href="/gpus/" data-og-area="footer" data-og-link="data_gpu_price_index">GPU price index</a>
-        <a href="/gpus/availability.html" data-og-area="footer" data-og-link="data_live_availability">Live availability</a>
+        <a href="/gpus/availability.html" data-og-area="footer" data-og-link="data_marketplace_snapshot">Marketplace snapshot</a>
         <a href="/gpu-supplier-pricing.html" data-og-area="footer" data-og-link="data_supplier_pricing_report">Supplier pricing report</a>
         <a href="/#market" data-og-area="footer" data-og-link="data_public_market_feed">Public market feed</a>
       </div>
@@ -266,6 +266,11 @@
         <a href="mailto:hello@omegagradient.com" data-og-area="footer" data-og-link="deploy_hello_omegagradient_com">hello@omegagradient.com</a>
       </div>
     </div>
+    <nav class="og-company-links" aria-label="Company and support">
+      <a href="/about.html" data-og-area="footer" data-og-link="about">About Omega Gradient</a>
+      <a href="/support.html" data-og-area="footer" data-og-link="support">Support &amp; billing questions</a>
+      <span>Omega Gradient LLC · Founded by Tausif Ahmed</span>
+    </nav>
     <div class="og-footer-wordmark" data-og-footer-wordmark aria-hidden="true">
       <span class="og-footer-wordmark-outline"><b>OMEGA</b> <em>GRADIENT</em></span>
       <span class="og-footer-wordmark-fill" data-og-footer-wordmark-fill><b>OMEGA</b> <em>GRADIENT</em></span>
@@ -278,7 +283,7 @@
 <script src="./market.js"></script>
 <script>
 (function () {
-  const { api, money, toast, requireSignIn, me, signOut } = window.OG;
+  const { api, money, toast, createDialog, requireSignIn, me, signOut } = window.OG;
   const REGIONS = { "us-east": "US · East", "us-central": "US · Central", "us-west": "US · West", "canada": "Canada", "europe-west": "Europe · West", "europe-north": "Europe · North", "europe-south": "Europe · South", "europe-east": "Europe · East", "middle-east": "Middle East", "india": "India", "asia-ne": "Asia · Northeast", "asia-se": "Asia · Southeast", "oceania": "Oceania", "latam": "Latin America", "africa": "Africa" };
 
   function esc(s) {
@@ -291,15 +296,15 @@
   function renderRegister() {
     formArea.innerHTML =
       "<h3>Become a supplier</h3>" +
-      '<div class="field"><label>Display name</label><input id="s-name" placeholder="Your name or company"></div>' +
-      '<div class="field"><label>You are a…</label><select id="s-type"><option value="individual">Individual</option><option value="prosumer">Prosumer / homelab</option><option value="datacenter">Datacenter / cloud</option></select></div>' +
-      '<div class="form-error" id="s-err"></div>' +
+      '<div class="field"><label for="s-name">Display name</label><input id="s-name" placeholder="Your name or company"></div>' +
+      '<div class="field"><label for="s-type">You are a…</label><select id="s-type"><option value="individual">Individual</option><option value="prosumer">Prosumer / homelab</option><option value="datacenter">Datacenter / cloud</option></select></div>' +
+      '<div class="form-error" id="s-err" role="alert"></div>' +
       '<button class="btn primary" id="s-register">Register</button>';
     document.getElementById("s-register").onclick = async () => {
       try {
         const r = await api("/supply/register", { method: "POST", body: JSON.stringify({ displayName: document.getElementById("s-name").value, supplierType: document.getElementById("s-type").value }) });
         if (r.error) throw new Error(r.error);
-        toast("Supplier account created");
+        toast(r.pendingReview ? "Application received — verification is pending" : "Supplier account loaded");
         load();
       } catch (e) { document.getElementById("s-err").textContent = e.message; }
     };
@@ -308,16 +313,16 @@
   function renderAddMachine() {
     formArea.innerHTML =
       "<h3>Add a machine</h3>" +
-      '<div class="field"><label>Machine name (private)</label><input id="m-name" placeholder="rack-3-node-1"></div>' +
-      '<div class="row2"><div class="field"><label>GPU model</label><input id="m-gpu" placeholder="RTX 4090"></div>' +
-      '<div class="field"><label>GPU count</label><input id="m-count" type="number" value="1" min="1" max="16"></div></div>' +
-      '<div class="row2"><div class="field"><label>VRAM / GPU (GB)</label><input id="m-vram" type="number" placeholder="24"></div>' +
-      '<div class="field"><label>vCPUs</label><input id="m-vcpus" type="number" placeholder="16"></div></div>' +
-      '<div class="row2"><div class="field"><label>RAM (GB)</label><input id="m-ram" type="number" placeholder="64"></div>' +
-      '<div class="field"><label>Storage (GB)</label><input id="m-disk" type="number" placeholder="500"></div></div>' +
-      '<div class="field"><label>Region</label><select id="m-region">' + Object.entries(REGIONS).map(([c, l]) => '<option value="' + c + '">' + l + "</option>").join("") + "</select></div>" +
-      '<div class="field"><label>Your ask ($/hr for the whole machine)</label><input id="m-ask" type="number" step="0.01" placeholder="0.40"><div class="earn-hint" id="m-hint"></div></div>' +
-      '<div class="form-error" id="m-err"></div>' +
+      '<div class="field"><label for="m-name">Machine name (private)</label><input id="m-name" placeholder="rack-3-node-1"></div>' +
+      '<div class="row2"><div class="field"><label for="m-gpu">GPU model</label><input id="m-gpu" placeholder="RTX 4090"></div>' +
+      '<div class="field"><label for="m-count">GPU count</label><input id="m-count" type="number" value="1" min="1" max="16"></div></div>' +
+      '<div class="row2"><div class="field"><label for="m-vram">VRAM / GPU (GB)</label><input id="m-vram" type="number" placeholder="24"></div>' +
+      '<div class="field"><label for="m-vcpus">vCPUs</label><input id="m-vcpus" type="number" placeholder="16"></div></div>' +
+      '<div class="row2"><div class="field"><label for="m-ram">RAM (GB)</label><input id="m-ram" type="number" placeholder="64"></div>' +
+      '<div class="field"><label for="m-disk">Storage (GB)</label><input id="m-disk" type="number" placeholder="500"></div></div>' +
+      '<div class="field"><label for="m-region">Region</label><select id="m-region">' + Object.entries(REGIONS).map(([c, l]) => '<option value="' + c + '">' + l + "</option>").join("") + "</select></div>" +
+      '<div class="field"><label for="m-ask">Your ask ($/hr for the whole machine)</label><input id="m-ask" type="number" step="0.01" placeholder="0.40"><div class="earn-hint" id="m-hint"></div></div>' +
+      '<div class="form-error" id="m-err" role="alert"></div>' +
       '<button class="btn primary" id="m-add">Add machine</button>';
     document.getElementById("m-ask").addEventListener("input", (e) => {
       const v = Number(e.target.value);
@@ -345,17 +350,25 @@
     };
   }
 
+  function renderPendingReview(supplier) {
+    formArea.innerHTML =
+      "<h3>Verification pending</h3>" +
+      '<p class="modal-sub">Thanks, ' + esc(supplier.name || "") + '. We review supplier identity, payout ownership, facility access, network reachability, and hardware before any machine can be listed. We’ll email you when the account is approved.</p>';
+  }
+
   function showInstall(r) {
-    const overlay = document.createElement("div");
-    overlay.className = "overlay open";
+    const overlay = document.createElement("dialog");
+    overlay.className = "overlay";
     overlay.innerHTML =
       '<div class="modal panel"><h2>Install the agent</h2>' +
       '<p class="modal-sub">Run this on the machine as root. <b>This command is shown only once</b> — it contains the machine\'s secret token. The machine appears online within a minute of the agent starting.</p>' +
       '<div class="install-box" id="inst-cmd">' + esc(r.installCommand) + "</div>" +
       '<div class="actions"><button class="btn" id="inst-copy">Copy command</button><button class="btn primary" id="inst-done">Done</button></div></div>';
     document.body.appendChild(overlay);
+    const installDialog = createDialog(overlay, { initialFocus: "#inst-copy", onClose: () => overlay.remove() });
+    installDialog.open();
     overlay.querySelector("#inst-copy").onclick = () => navigator.clipboard.writeText(r.installCommand).then(() => toast("Copied"));
-    overlay.querySelector("#inst-done").onclick = () => overlay.remove();
+    overlay.querySelector("#inst-done").onclick = () => installDialog.close();
   }
 
   function heartbeatAge(ts) {
@@ -421,7 +434,8 @@
     }
     portal.classList.remove("solo");
     document.getElementById("machines-col").style.display = "";
-    renderAddMachine();
+    if (d.supplier && d.supplier.status !== "approved") renderPendingReview(d.supplier);
+    else renderAddMachine();
     renderMachines(d);
   }
 
@@ -431,6 +445,6 @@
   setInterval(() => { me().then((p) => { if (p.signedIn) api("/supply/me").then((d) => { if (d.registered) renderMachines(d); }).catch(() => {}); }); }, 15000);
 })();
 </script>
-  <script src="/site-chrome.js?v=20260821-3" defer></script>
+  <script src="/site-chrome.js?v=20261026-1" defer></script>
 </body>
 </html>

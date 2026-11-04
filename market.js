@@ -27,6 +27,8 @@
   }
 
   const money = (cents) => "$" + (cents / 100).toFixed(2);
+  const idempotencyKey = () =>
+    (crypto.randomUUID ? crypto.randomUUID() : "og-" + Date.now() + "-" + Array.from(crypto.getRandomValues(new Uint32Array(4))).join("-"));
 
   let toastTimer;
   function toast(message, isError) {
@@ -34,8 +36,12 @@
     if (!el) {
       el = document.createElement("div");
       el.className = "toast";
+      el.setAttribute("role", "status");
+      el.setAttribute("aria-live", "polite");
       document.body.appendChild(el);
     }
+    const toastHost = document.querySelector("dialog.overlay[open]") || document.body;
+    if (el.parentNode !== toastHost) toastHost.appendChild(el);
     el.textContent = message;
     el.classList.toggle("err", Boolean(isError));
     el.classList.add("show");
@@ -43,55 +49,115 @@
     toastTimer = setTimeout(() => el.classList.remove("show"), 4200);
   }
 
+  /* Native dialogs provide top-layer rendering, inert backgrounds, and Tab containment. */
+  let dialogSequence = 0;
+  function createDialog(dialog, options = {}) {
+    const heading = dialog.querySelector("h2");
+    if (heading) {
+      if (!heading.id) heading.id = "og-dialog-title-" + (++dialogSequence);
+      dialog.setAttribute("aria-labelledby", heading.id);
+    }
+    dialog.setAttribute("aria-modal", "true");
+    const description = dialog.querySelector(".modal-sub");
+    if (description) {
+      if (!description.id) description.id = "og-dialog-description-" + (++dialogSequence);
+      dialog.setAttribute("aria-describedby", description.id);
+    }
+    let returnFocus = null;
+    let previousOverflow = "";
+    let active = false;
+    function finish() {
+      if (!active) return;
+      active = false;
+      document.body.style.overflow = previousOverflow;
+      if (returnFocus && returnFocus.isConnected && !returnFocus.closest("[inert]")) returnFocus.focus();
+      if (options.onClose) options.onClose();
+    }
+    function close() {
+      if (!dialog.open) return;
+      dialog.close();
+      finish();
+    }
+    dialog.addEventListener("close", () => { if (!dialog.open) finish(); });
+    dialog.addEventListener("cancel", (event) => {
+      event.preventDefault();
+      close();
+    });
+    return {
+      open() {
+        if (dialog.open) return;
+        returnFocus = document.activeElement;
+        previousOverflow = document.body.style.overflow;
+        dialog.showModal();
+        active = true;
+        document.body.style.overflow = "hidden";
+        const target = options.initialFocus && dialog.querySelector(options.initialFocus);
+        if (target) target.focus();
+      },
+      close,
+    };
+  }
+
   /* ---- sign-in modal (email → 6-digit code) ---- */
   function buildSignInModal() {
-    const overlay = document.createElement("div");
+    const overlay = document.createElement("dialog");
     overlay.className = "overlay";
     overlay.id = "signin-overlay";
     overlay.innerHTML =
-      '<div class="modal panel">' +
+      '<form class="modal panel" id="signin-form">' +
       "<h2>Sign in to Omega Gradient</h2>" +
       '<p class="modal-sub" id="si-sub">Enter your email and we’ll send a one-time code. No password needed.</p>' +
-      '<div class="field" id="si-email-field"><label>Email</label><input type="email" id="si-email" placeholder="you@company.com" autocomplete="email"></div>' +
-      '<div class="field" id="si-code-field" style="display:none"><label>6-digit code</label><div class="code-inputs"><input type="text" id="si-code" inputmode="numeric" maxlength="6" placeholder="••••••"></div></div>' +
-      '<div class="form-error" id="si-error"></div>' +
-      '<div class="actions"><button class="btn" id="si-cancel">Cancel</button><button class="btn primary" id="si-submit">Send code</button></div>' +
-      "</div>";
+      '<div class="field" id="si-email-field"><label for="si-email">Email</label><input type="email" id="si-email" required placeholder="you@company.com" autocomplete="email"></div>' +
+      '<div class="field" id="si-code-field" style="display:none"><label for="si-code">6-digit code</label><div class="code-inputs"><input type="text" id="si-code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" required disabled maxlength="6" placeholder="••••••"></div></div>' +
+      '<div class="form-error" id="si-error" role="alert"></div>' +
+      '<div class="actions"><button type="button" class="btn" id="si-cancel">Cancel</button><button type="submit" class="btn primary" id="si-submit">Send code</button></div>' +
+      "</form>";
     document.body.appendChild(overlay);
 
     let stage = "email";
     let email = "";
     let onSuccess = null;
+    let attempt = 0;
 
     const err = overlay.querySelector("#si-error");
     const submit = overlay.querySelector("#si-submit");
 
     const sub = overlay.querySelector("#si-sub");
     const EMAIL_SUB = "Enter your email and we’ll send a one-time code. No password needed.";
+    const dialog = createDialog(overlay, { initialFocus: "#si-email", onClose: reset });
 
     function reset() {
+      attempt++;
       stage = "email";
       overlay.querySelector("#si-email-field").style.display = "";
       overlay.querySelector("#si-code-field").style.display = "none";
+      overlay.querySelector("#si-email").disabled = false;
+      overlay.querySelector("#si-code").disabled = true;
+      overlay.querySelector("#si-code").value = "";
       submit.textContent = "Send code";
       sub.textContent = EMAIL_SUB;
       err.textContent = "";
     }
 
     overlay.querySelector("#si-cancel").addEventListener("click", () => {
-      overlay.classList.remove("open");
-      reset();
+      dialog.close();
     });
 
-    submit.addEventListener("click", async () => {
+    overlay.querySelector("#signin-form").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (submit.disabled) return;
+      const currentAttempt = attempt;
       err.textContent = "";
       submit.disabled = true;
       try {
         if (stage === "email") {
           email = overlay.querySelector("#si-email").value.trim();
           const result = await api("/auth/request", { method: "POST", body: JSON.stringify({ email }) });
+          if (currentAttempt !== attempt) return;
           if (!result.ok) throw new Error(result.error || "Could not send code.");
           stage = "code";
+          overlay.querySelector("#si-email").disabled = true;
+          overlay.querySelector("#si-code").disabled = false;
           overlay.querySelector("#si-email-field").style.display = "none";
           overlay.querySelector("#si-code-field").style.display = "";
           submit.textContent = "Verify";
@@ -104,9 +170,9 @@
         } else {
           const code = overlay.querySelector("#si-code").value.trim();
           const result = await api("/auth/verify", { method: "POST", body: JSON.stringify({ email, code }) });
+          if (currentAttempt !== attempt) return;
           localStorage.setItem(TOKEN_KEY, result.token);
-          overlay.classList.remove("open");
-          reset();
+          dialog.close();
           toast("Signed in as " + result.email);
           if (onSuccess) onSuccess();
           document.dispatchEvent(new CustomEvent("og:signed-in"));
@@ -121,8 +187,7 @@
     return {
       open(callback) {
         onSuccess = callback || null;
-        overlay.classList.add("open");
-        overlay.querySelector(stage === "email" ? "#si-email" : "#si-code").focus();
+        dialog.open();
       },
     };
   }
@@ -142,6 +207,89 @@
     }
   }
 
+  /* ---- required buyer profile + versioned policy acceptance ------------ */
+  function buildOnboardingModal() {
+    const overlay = document.createElement("dialog");
+    overlay.className = "overlay";
+    overlay.id = "onboarding-overlay";
+    overlay.innerHTML =
+      '<form class="modal panel onboarding-modal" id="onboarding-form">' +
+      '<h2>Complete account setup</h2>' +
+      '<p class="modal-sub">We need a minimal identity and workload profile before accepting funds or deploying compute.</p>' +
+      '<div class="onboarding-grid">' +
+      '<div class="field"><label for="ob-name">Legal name</label><input id="ob-name" maxlength="100" autocomplete="name"></div>' +
+      '<div class="field"><label for="ob-org">Organization <span>(optional)</span></label><input id="ob-org" maxlength="120" autocomplete="organization"></div>' +
+      '<div class="field"><label for="ob-country">Country code</label><input id="ob-country" maxlength="2" placeholder="US" autocomplete="country"></div>' +
+      '<div class="field"><label for="ob-phone">Phone <span>(optional)</span></label><input id="ob-phone" maxlength="30" autocomplete="tel"></div>' +
+      '</div>' +
+      '<div class="field"><label for="ob-use">Intended workload</label><textarea id="ob-use" maxlength="500" rows="3" placeholder="Training, inference, fine-tuning, development…"></textarea></div>' +
+      '<div id="ob-policies" class="onboarding-policies"></div>' +
+      '<div class="form-error" id="ob-error" role="alert"></div>' +
+      '<div class="actions"><button type="button" class="btn" id="ob-signout">Sign out</button><button type="submit" class="btn primary" id="ob-submit">Accept and continue</button></div>' +
+      '</form>';
+    document.body.appendChild(overlay);
+    const dialog = createDialog(overlay, { initialFocus: "#ob-name" });
+    let onSuccess = null;
+    const policyNames = { terms: "Terms of Service", aup: "Acceptable Use Policy", privacy: "Privacy Notice", refund: "Refund Policy" };
+
+    overlay.querySelector("#ob-signout").addEventListener("click", signOut);
+    overlay.querySelector("#onboarding-form").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const submit = overlay.querySelector("#ob-submit");
+      const error = overlay.querySelector("#ob-error");
+      if (submit.disabled) return;
+      error.textContent = "";
+      submit.disabled = true;
+      try {
+        const accepted = {};
+        overlay.querySelectorAll("[data-policy]").forEach((input) => { accepted[input.dataset.policy + "Accepted"] = input.checked; });
+        await api("/onboarding", {
+          method: "POST",
+          body: JSON.stringify({
+            legalName: overlay.querySelector("#ob-name").value,
+            organizationName: overlay.querySelector("#ob-org").value,
+            countryCode: overlay.querySelector("#ob-country").value,
+            phone: overlay.querySelector("#ob-phone").value,
+            intendedUse: overlay.querySelector("#ob-use").value,
+            ...accepted,
+          }),
+        });
+        dialog.close();
+        toast("Account setup complete");
+        document.dispatchEvent(new CustomEvent("og:onboarding-complete"));
+        if (onSuccess) onSuccess();
+      } catch (e) {
+        error.textContent = e.message;
+      } finally {
+        submit.disabled = false;
+      }
+    });
+
+    return {
+      async open(callback, currentProfile) {
+        onSuccess = callback || null;
+        const profile = currentProfile || (await me());
+        const urls = profile.policyUrls || {};
+        const versions = profile.policyVersions || {};
+        overlay.querySelector("#ob-policies").innerHTML = Object.keys(policyNames).map((policy) =>
+          '<label class="check-row"><input type="checkbox" data-policy="' + policy + '"> I accept the ' +
+          (urls[policy] ? '<a href="' + urls[policy] + '" target="_blank" rel="noopener">' + policyNames[policy] + '</a>' : policyNames[policy]) +
+          ' <span>(' + (versions[policy] || "current") + ')</span></label>'
+        ).join("");
+        dialog.open();
+      },
+    };
+  }
+
+  let onboardingModal = null;
+  async function ensureOnboarding(callback) {
+    const profile = await me();
+    if (!profile.signedIn) return requireSignIn(() => ensureOnboarding(callback));
+    if (profile.onboardingComplete) return callback();
+    if (!onboardingModal) onboardingModal = buildOnboardingModal();
+    onboardingModal.open(callback, profile);
+  }
+
   function signOut() {
     api("/auth/logout", { method: "POST" }).catch(() => {});
     localStorage.removeItem(TOKEN_KEY);
@@ -152,42 +300,50 @@
   const CREDIT_OPTIONS = [2500, 5000, 10000, 25000];
 
   function buildCreditsModal() {
-    const overlay = document.createElement("div");
+    const overlay = document.createElement("dialog");
     overlay.className = "overlay";
     overlay.innerHTML =
-      '<div class="modal panel">' +
+      '<form class="modal panel" id="credits-form">' +
       "<h2>Add credits</h2>" +
       '<p class="modal-sub">Compute is prepaid: usage draws down your balance hourly, and we auto-top-up from your card when it runs low, so instances never stop unexpectedly. Unused credits stay on your account.</p>' +
-      '<div class="field"><label>Amount</label><div class="gpu-count-row" id="cr-options">' +
-      CREDIT_OPTIONS.map((c, i) => '<button data-cents="' + c + '"' + (i === 0 ? ' class="on"' : "") + ">$" + c / 100 + "</button>").join("") +
-      "</div></div>" +
-      '<div class="form-error" id="cr-error"></div>' +
-      '<div class="actions"><button class="btn" id="cr-cancel">Cancel</button><button class="btn primary" id="cr-buy">Continue to payment</button></div>' +
-      "</div>";
+      '<fieldset class="field"><legend>Amount</legend><div class="gpu-count-row" id="cr-options">' +
+      CREDIT_OPTIONS.map((c, i) => '<button type="button" data-cents="' + c + '" aria-pressed="' + (i === 0) + '"' + (i === 0 ? ' class="on"' : "") + ">$" + c / 100 + "</button>").join("") +
+      "</div></fieldset>" +
+      '<div class="form-error" id="cr-error" role="alert"></div>' +
+      '<div class="actions"><button type="button" class="btn" id="cr-cancel">Cancel</button><button type="submit" class="btn primary" id="cr-buy">Continue to payment</button></div>' +
+      "</form>";
     document.body.appendChild(overlay);
+    const dialog = createDialog(overlay, { initialFocus: "#cr-options button.on" });
 
     let cents = CREDIT_OPTIONS[0];
     let onSuccess = null;
     overlay.querySelector("#cr-options").addEventListener("click", (e) => {
       const btn = e.target.closest("button");
       if (!btn) return;
-      overlay.querySelectorAll("#cr-options button").forEach((b) => b.classList.remove("on"));
+      overlay.querySelectorAll("#cr-options button").forEach((b) => { b.classList.remove("on"); b.setAttribute("aria-pressed", "false"); });
       btn.classList.add("on");
+      btn.setAttribute("aria-pressed", "true");
       cents = Number(btn.dataset.cents);
     });
-    overlay.querySelector("#cr-cancel").addEventListener("click", () => overlay.classList.remove("open"));
-    overlay.querySelector("#cr-buy").addEventListener("click", async () => {
+    overlay.querySelector("#cr-cancel").addEventListener("click", () => dialog.close());
+    overlay.querySelector("#credits-form").addEventListener("submit", async (event) => {
+      event.preventDefault();
       const err = overlay.querySelector("#cr-error");
       const buy = overlay.querySelector("#cr-buy");
+      if (buy.disabled) return;
       err.textContent = "";
       buy.disabled = true;
       try {
-        const result = await api("/billing/credits", { method: "POST", body: JSON.stringify({ amountCents: cents }) });
+        const result = await api("/billing/credits", {
+          method: "POST",
+          headers: { "Idempotency-Key": idempotencyKey() },
+          body: JSON.stringify({ amountCents: cents }),
+        });
         if (result.checkoutUrl) {
           location.href = result.checkoutUrl; // hosted Stripe Checkout, returns to console
           return;
         }
-        overlay.classList.remove("open");
+        dialog.close();
         toast((result.mock ? "Dev mode: " : "") + "Credits added — $" + (result.creditedCents / 100).toFixed(2));
         if (onSuccess) onSuccess();
         document.dispatchEvent(new CustomEvent("og:credits-changed"));
@@ -200,15 +356,17 @@
     return {
       open(callback) {
         onSuccess = callback || null;
-        overlay.classList.add("open");
+        dialog.open();
       },
     };
   }
 
   let creditsModal = null;
   function openCredits(callback) {
-    if (!creditsModal) creditsModal = buildCreditsModal();
-    creditsModal.open(callback);
+    ensureOnboarding(() => {
+      if (!creditsModal) creditsModal = buildCreditsModal();
+      creditsModal.open(callback);
+    });
   }
 
   /* ---- time formatting ---- */
@@ -305,8 +463,8 @@
   }
 
   window.OG = {
-    api, money, toast, requireSignIn, me, signOut, openCredits,
-    timeAgo, fmtDuration, sshKeygenSupported, generateSshKey, downloadText,
+    api, money, toast, createDialog, requireSignIn, ensureOnboarding, me, signOut, openCredits,
+    timeAgo, fmtDuration, sshKeygenSupported, generateSshKey, downloadText, idempotencyKey,
     hasToken: () => Boolean(token()),
   };
 })();

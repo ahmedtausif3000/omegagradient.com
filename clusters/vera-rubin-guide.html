@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#000000">
-  <meta name="description" content="NVIDIA Vera Rubin is arriving. Learn what its NVL72 architecture, HBM4 memory, Vera CPUs, NVLink 6, networking, availability, and procurement risks mean for GPU buyers.">
-  <title>Vera Rubin Is Arriving: What GPU Buyers Need to Know | Omega Gradient</title>
+  <meta name="description" content="A buyer guide to NVIDIA Vera Rubin NVL72 architecture, current published specifications, availability, and GPU procurement risks. Reviewed October 26, 2026.">
+  <title>Vera Rubin: What GPU Buyers Need to Know | Omega Gradient</title>
   <link rel="canonical" href="https://omegagradient.com/clusters/vera-rubin-guide.html">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Vera Rubin Is Arriving: What GPU Buyers Need to Know">
-  <meta property="og:description" content="A buyer-side guide to Vera Rubin NVL72 architecture, expected availability, infrastructure requirements, and the questions to resolve before reserving capacity.">
+  <meta property="og:title" content="Vera Rubin: What GPU Buyers Need to Know">
+  <meta property="og:description" content="A buyer-side guide to Vera Rubin NVL72 architecture, published availability, infrastructure requirements, and the questions to resolve before reserving capacity.">
   <meta property="og:url" content="https://omegagradient.com/clusters/vera-rubin-guide.html">
   <meta property="og:image" content="https://omegagradient.com/og-image-omega-logo-globe-centered-20260628.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -32,10 +32,10 @@
       {
         "@type": "Article",
         "@id": "https://omegagradient.com/clusters/vera-rubin-guide.html#article",
-        "headline": "Vera Rubin Is Arriving: What GPU Buyers Need to Know",
+        "headline": "Vera Rubin: What GPU Buyers Need to Know",
         "description": "A buyer-side guide to NVIDIA Vera Rubin NVL72 architecture, availability, infrastructure requirements, and procurement risk.",
         "datePublished": "2026-08-18",
-        "dateModified": "2026-08-18",
+        "dateModified": "2026-10-26",
         "author": { "@id": "https://omegagradient.com/#organization" },
         "publisher": { "@id": "https://omegagradient.com/#organization" },
         "mainEntityOfPage": "https://omegagradient.com/clusters/vera-rubin-guide.html"
@@ -51,7 +51,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="/site-chrome.css?v=20260821-3">
+  <link rel="stylesheet" href="/site-chrome.css?v=20261026-1">
 </head>
 <body>
   <!-- SITE_HEADER_START -->
@@ -82,7 +82,7 @@
           <div class="og-nav-panel">
             <a href="/research/reserved-gpu-market-report-2026-q3.html" data-og-area="header" data-og-link="reserved_market_report">Reserved market report</a>
             <a href="/gpus/" data-og-area="header" data-og-link="gpu_price_index">GPU price index</a>
-            <a href="/gpus/availability.html" data-og-area="header" data-og-link="live_availability">Live availability</a>
+            <a href="/gpus/availability.html" data-og-area="header" data-og-link="marketplace_snapshot">Marketplace snapshot</a>
             <a href="/gpu-supplier-pricing.html" data-og-area="header" data-og-link="supplier_pricing_report">Supplier pricing report</a>
           </div>
         </details>
@@ -98,9 +98,9 @@
     <article class="article-shell">
       <header class="reading article-header" data-reveal>
         <span class="eyebrow">Next-generation infrastructure · buyer guide</span>
-        <h1>Vera Rubin is arriving. Here is what GPU buyers need to know.</h1>
-        <p class="article-lede">NVIDIA says Vera Rubin NVL72 production is ramping and early racks are running at launch partners. That does not mean capacity is broadly available on demand. Buyers should understand the system architecture, facility requirements, performance claims, delivery evidence, and contracting dependencies before treating a Vera Rubin quote as executable supply.</p>
-        <div class="article-meta"><span>Published August 18, 2026</span><span>Omega Gradient Intelligence</span><span>Specifications remain preliminary</span></div>
+        <h1>Vera Rubin: what GPU buyers need to know.</h1>
+        <p class="article-lede">NVIDIA now lists Vera Rubin NVL72 as available and describes the platform as in full production. That does not establish unallocated capacity at a particular provider or region. Buyers should understand the system architecture, facility requirements, performance claims, delivery evidence, and contracting dependencies before treating a Vera Rubin quote as executable supply.</p>
+        <div class="article-meta"><span>Published August 18, 2026</span><span>Reviewed October 26, 2026</span><span>NVIDIA product specifications checked</span></div>
       </header>
 
       <div class="reading article-body">
@@ -108,14 +108,14 @@
 
         <div class="prose">
           <h2 id="answer">Direct answer</h2>
-          <p><strong>Vera Rubin is NVIDIA’s next rack-scale AI platform after Grace Blackwell.</strong> The flagship Vera Rubin NVL72 combines 72 Rubin GPUs, 36 Vera CPUs, sixth-generation NVLink, ConnectX-9 networking, BlueField-4 DPUs, and HBM4 memory in one liquid-cooled system. NVIDIA’s July 2026 update says production is ramping and early systems are running at CoreWeave, Google Cloud, Microsoft Azure, Oracle Cloud Infrastructure, and Nebius.</p>
-          <p>For a buyer, the important distinction is between <strong>a platform entering production, a provider announcing deployment, a dated allocation, and capacity that can be contracted with a defined start date and acceptance plan.</strong> Those are four different evidence states.</p>
+          <p><strong>Vera Rubin is NVIDIA’s next rack-scale AI platform after Grace Blackwell.</strong> The flagship Vera Rubin NVL72 combines 72 Rubin GPUs, 36 Vera CPUs, sixth-generation NVLink, ConnectX-9 networking, BlueField-4 DPUs, and HBM4 memory in one liquid-cooled system. The current NVIDIA product page lists the system as available; its platform page describes full production. Provider allocation, service readiness, and the terms of a specific offer still need confirmation.</p>
+          <p>For a buyer, the important distinction is between <strong>a product being available, a provider announcing deployment, a dated allocation, and capacity that can be contracted with a defined start date and acceptance plan.</strong> Those are four different evidence states.</p>
 
           <h2 id="platform">Vera Rubin is a platform, not just a new GPU</h2>
           <p>The name combines the NVIDIA Vera CPU and NVIDIA Rubin GPU, but the commercial unit is a tightly codesigned rack-scale system. NVIDIA describes Vera Rubin as a set of compute, scale-up, scale-out, networking, storage, security, and management components engineered together rather than assembled from independent parts.</p>
           <p>The core platform includes:</p>
           <ul>
-            <li><strong>Rubin GPU:</strong> the accelerator, with 288 GB of HBM4 and up to 22 TB/s of memory bandwidth in NVIDIA’s preliminary specification;</li>
+            <li><strong>Rubin GPU:</strong> the accelerator, with 288 GB of HBM4 and 19.2 TB/s of memory bandwidth in NVIDIA’s current published NVL72 specification;</li>
             <li><strong>Vera CPU:</strong> NVIDIA’s custom Arm-compatible CPU with 88 Olympus cores per superchip configuration;</li>
             <li><strong>NVLink 6:</strong> the scale-up fabric connecting the 72-GPU rack-scale domain;</li>
             <li><strong>ConnectX-9:</strong> high-bandwidth scale-out network interfaces;</li>
@@ -126,29 +126,30 @@
           <p>This matters because a quote for “Rubin GPUs” is not enough. The buyer needs to know whether the offer is Vera Rubin NVL72, Vera Rubin NVL4, another Rubin system configuration, or future cloud instances abstracting the underlying hardware.</p>
 
           <h2 id="specs">The headline Vera Rubin NVL72 specifications</h2>
-          <p>NVIDIA labels the public specifications as preliminary and subject to change. They should be used to understand the architecture, not copied into a contract without confirming the provider’s final bill of materials.</p>
+          <p>The table follows NVIDIA’s product page and linked datasheet as reviewed on October 26, 2026. These values describe the published NVL72 configuration; confirm the provider’s exact bill of materials, bandwidth definitions, and operating conditions before contracting. Performance projections have their own assumptions and qualifications.</p>
           <div class="table-wrap">
             <table>
-              <thead><tr><th>System area</th><th>Vera Rubin NVL72 preliminary specification</th><th>Buyer implication</th></tr></thead>
+              <thead><tr><th>System area</th><th>Vera Rubin NVL72 published specification</th><th>Buyer implication</th></tr></thead>
               <tbody>
                 <tr><td><strong>Compute</strong></td><td>72 Rubin GPUs and 36 Vera CPUs</td><td>The procurement unit is an integrated rack-scale system, not a loose pool of cards.</td></tr>
                 <tr><td><strong>GPU memory</strong></td><td>20.7 TB HBM4 total; 288 GB per Rubin GPU</td><td>Larger models, longer contexts, and memory-heavy inference may require less partitioning.</td></tr>
-                <tr><td><strong>Memory bandwidth</strong></td><td>Up to 1,580 TB/s across the rack; 22 TB/s per GPU</td><td>Potentially material for memory-bound training and inference, but workload measurement still matters.</td></tr>
-                <tr><td><strong>Scale-up</strong></td><td>260 TB/s NVLink 6 switch bandwidth across the NVL72 system</td><td>Parallelism strategy should be designed around the 72-GPU scale-up domain.</td></tr>
-                <tr><td><strong>CPU</strong></td><td>3,168 Olympus cores and 54 TB LPDDR5X across 36 Vera CPUs</td><td>Agent orchestration, data preparation, simulation, and CPU-heavy control paths are first-order parts of the system.</td></tr>
-                <tr><td><strong>Scale-out</strong></td><td>28.8 TB/s system bandwidth; ConnectX-9 and BlueField-4 interfaces</td><td>Multi-rack design still requires a specified fabric, topology, congestion plan, and acceptance test.</td></tr>
+                <tr><td><strong>Memory bandwidth</strong></td><td>1,400 TB/s across the rack; 19.2 TB/s per GPU</td><td>Potentially material for memory-bound training and inference, but workload measurement still matters.</td></tr>
+                <tr><td><strong>Scale-up</strong></td><td>216 TB/s NVLink 6 bandwidth across the NVL72 system</td><td>Parallelism strategy should be designed around the 72-GPU scale-up domain.</td></tr>
+                <tr><td><strong>CPU</strong></td><td>3,168 Olympus cores and up to 54 TB LPDDR5X across 36 Vera CPUs</td><td>Agent orchestration, data preparation, simulation, and CPU-heavy control paths are first-order parts of the system.</td></tr>
+                <tr><td><strong>Scale-out</strong></td><td>32.4 TB/s system networking bandwidth, bidirectional; ConnectX-9 and BlueField-4 interfaces</td><td>Multi-rack design still requires a specified fabric, topology, congestion plan, and acceptance test.</td></tr>
                 <tr><td><strong>Operations</strong></td><td>Mission Control, NVIDIA AI Enterprise, and DGX OS in the DGX configuration</td><td>The provider’s actual software and managed-service boundary must match the buyer’s operating model.</td></tr>
               </tbody>
             </table>
           </div>
+          <p class="source-note"><strong>Specification review · October 26, 2026.</strong> The current <a href="https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/" rel="noopener">NVIDIA product specification</a> and <a href="https://dam-cdn.nvd.orangelogic.com/AssetLink/56p68o47y6f1yucpubl0ump1c0aif422.pdf" rel="noopener">linked Vera Rubin datasheet, page 8</a> are the source version for this table. This review replaces the earlier memory-bandwidth figures of 1,580 TB/s per rack and 22 TB/s per GPU, 260 TB/s NVLink, and 28.8 TB/s scale-out bandwidth. NVIDIA’s older launch material may retain different figures.</p>
 
           <h2 id="difference">What changes from Grace Blackwell NVL72</h2>
           <p>The clearest architectural changes are HBM4 memory, the Vera CPU, sixth-generation NVLink, new network interfaces, and a platform designed around agentic AI, mixture-of-experts models, long-context reasoning, and more CPU-intensive orchestration. NVIDIA and CoreWeave report that an early DeepSeek-R1 benchmark delivered ten times more throughput per megawatt than Grace Blackwell NVL72.</p>
           <p>That is an important launch benchmark, but it is not a universal workload guarantee. It was produced on a specific model, software stack, configuration, and early provider system. A buyer should ask what portion of the improvement comes from accelerator throughput, memory, precision, CPU orchestration, software maturity, batching, or power-envelope differences—and then benchmark the intended workload.</p>
           <p>Vera Rubin does not make Blackwell obsolete on arrival. An available and accepted B200, B300, GB200, or GB300 cluster can be commercially superior to a future Rubin system if it starts earlier, fits the workload, has a proven operating stack, or avoids the risk and premium of a launch-generation deployment.</p>
 
-          <h2 id="availability">“Ramping” is not the same as broadly available</h2>
-          <p>NVIDIA’s July update names early cloud partners and says production is ramping across a large supply chain. It also says racks are running at several partners. Those facts establish that Vera Rubin has moved beyond a paper roadmap. They do not establish that a specific provider has unallocated capacity in a buyer’s preferred region, count, date, term, or service model.</p>
+          <h2 id="availability">Product availability is not a buyer allocation</h2>
+          <p>NVIDIA’s current availability statement concerns its product and supply ecosystem. It does not establish that a specific provider has unallocated capacity in a buyer’s preferred region, count, date, term, or service model. Confirm the actual block and delivery state rather than treating a product announcement as a reservation.</p>
           <p>Omega Gradient would classify a Vera Rubin opportunity using the same evidence ladder applied to other reserved clusters:</p>
           <ol>
             <li><strong>Live and testable:</strong> the provider can identify the system, site, available block, and a scoped validation path.</li>
@@ -202,7 +203,7 @@
           <blockquote>The procurement question is not “Is Vera Rubin faster?” It is “Will this specific Vera Rubin system deliver more useful work per dollar, megawatt, and month of deployment risk for our workload?”</blockquote>
           <p>Omega Gradient can structure a Vera Rubin market scan while keeping Hopper, Blackwell, and scheduled or on-demand alternatives in the same decision frame.</p>
 
-          <div class="source-note"><strong>Primary references</strong><br>NVIDIA, <a href="https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/" rel="noopener">Vera Rubin NVL72 architecture and preliminary specifications</a>; NVIDIA, <a href="https://www.nvidia.com/en-us/data-center/dgx-vera-rubin-nvl72/" rel="noopener">DGX Vera Rubin NVL72</a>; NVIDIA, <a href="https://blogs.nvidia.com/blog/vera-rubin/" rel="noopener">July 2026 production-ramp and partner update</a>; NVIDIA, <a href="https://blogs.nvidia.com/blog/dgx-superpod-rubin/" rel="noopener">DGX SuperPOD and Rubin platform announcement</a>; NVIDIA Newsroom, <a href="https://nvidianews.nvidia.com/news/nvidia-vera-rubin-delivers-world-class-supercomputers-for-science" rel="noopener">Vera Rubin for scientific computing</a>. NVIDIA marks specifications as preliminary and subject to change; confirm the final provider configuration before procurement.</div>
+          <div class="source-note"><strong>Primary references</strong><br>NVIDIA, <a href="https://www.nvidia.com/en-us/data-center/vera-rubin-nvl72/" rel="noopener">Vera Rubin NVL72 architecture and published specifications</a>; NVIDIA, <a href="https://www.nvidia.com/en-us/data-center/dgx-vera-rubin-nvl72/" rel="noopener">DGX Vera Rubin NVL72</a>; NVIDIA, <a href="https://www.nvidia.com/en-us/data-center/technologies/rubin/" rel="noopener">current Vera Rubin platform and production status</a>; NVIDIA, <a href="https://blogs.nvidia.com/blog/vera-rubin/" rel="noopener">July 2026 production-ramp and partner update</a>; NVIDIA, <a href="https://blogs.nvidia.com/blog/dgx-superpod-rubin/" rel="noopener">DGX SuperPOD and Rubin platform announcement</a>; NVIDIA Newsroom, <a href="https://nvidianews.nvidia.com/news/nvidia-vera-rubin-delivers-world-class-supercomputers-for-science" rel="noopener">Vera Rubin for scientific computing</a>. Source review: October 26, 2026. The current NVL72 product page and its linked datasheet supersede the earlier bandwidth figures in this guide. Confirm the provider configuration and preserve any benchmark-specific qualifications before procurement.</div>
         </div>
       </div>
     </article>
@@ -233,7 +234,7 @@
         <h2>Market data</h2>
         <a href="/research/reserved-gpu-market-report-2026-q3.html" data-og-area="footer" data-og-link="data_reserved_market_report">Reserved market report</a>
         <a href="/gpus/" data-og-area="footer" data-og-link="data_gpu_price_index">GPU price index</a>
-        <a href="/gpus/availability.html" data-og-area="footer" data-og-link="data_live_availability">Live availability</a>
+        <a href="/gpus/availability.html" data-og-area="footer" data-og-link="data_marketplace_snapshot">Marketplace snapshot</a>
         <a href="/gpu-supplier-pricing.html" data-og-area="footer" data-og-link="data_supplier_pricing_report">Supplier pricing report</a>
         <a href="/#market" data-og-area="footer" data-og-link="data_public_market_feed">Public market feed</a>
       </div>
@@ -245,6 +246,11 @@
         <a href="mailto:hello@omegagradient.com" data-og-area="footer" data-og-link="deploy_hello_omegagradient_com">hello@omegagradient.com</a>
       </div>
     </div>
+    <nav class="og-company-links" aria-label="Company and support">
+      <a href="/about.html" data-og-area="footer" data-og-link="about">About Omega Gradient</a>
+      <a href="/support.html" data-og-area="footer" data-og-link="support">Support &amp; billing questions</a>
+      <span>Omega Gradient LLC · Founded by Tausif Ahmed</span>
+    </nav>
     <div class="og-footer-wordmark" data-og-footer-wordmark aria-hidden="true">
       <span class="og-footer-wordmark-outline"><b>OMEGA</b> <em>GRADIENT</em></span>
       <span class="og-footer-wordmark-fill" data-og-footer-wordmark-fill><b>OMEGA</b> <em>GRADIENT</em></span>
@@ -254,6 +260,6 @@
 </footer>
 <!-- SITE_FOOTER_END -->
   <script src="/clusters/reserved-clusters.js" defer></script>
-  <script src="/site-chrome.js?v=20260821-3" defer></script>
+  <script src="/site-chrome.js?v=20261026-1" defer></script>
 </body>
 </html>

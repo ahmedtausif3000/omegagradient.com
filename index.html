@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#000000">
-<meta name="description" content="Omega Gradient sources and qualifies reserved H100, H200, B200, B300, GB200, and GB300 GPU clusters, with an on-demand marketplace and daily cross-provider price intelligence.">
+<meta name="description" content="Omega Gradient sources and qualifies reserved H100, H200, B200, B300, GB200, and GB300 GPU clusters, with an on-demand marketplace and dated cross-provider price research.">
 <title>Reserved GPU Clusters & On-Demand Compute | Omega Gradient</title>
 <link rel="canonical" href="https://omegagradient.com/">
 
@@ -270,7 +270,7 @@
   .market .section-head{ margin-bottom:48px; }
   .market h2{ max-width:18ch; }
   .market-table{ border:1px solid var(--line); background:var(--panel); }
-  .mt-head, .mrow{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr 110px; gap:16px; align-items:center; padding:0 28px; font-family:var(--mono); font-variant-numeric:tabular-nums; }
+  .mt-head, .mrow{ display:grid; grid-template-columns:1.1fr 1fr 1fr 1.3fr; gap:16px; align-items:center; padding:0 28px; font-family:var(--mono); font-variant-numeric:tabular-nums; }
   .mt-head{ padding:14px 28px; border-bottom:1px solid var(--line); font-size:9px; font-weight:500; letter-spacing:0.22em; color:var(--muted); text-transform:uppercase; }
   .mrow{ padding:19px 28px; border-bottom:1px solid var(--line); font-size:13px; font-weight:500; letter-spacing:0.06em; position:relative; overflow:hidden; will-change:transform, opacity; }
   .mrow:last-child{ border-bottom:none; }
@@ -280,13 +280,13 @@
   .mrow .m-gpu{ color:var(--text); letter-spacing:0.1em; }
   .mrow .m-price{ color:var(--gold); }
   .mrow .m-src{ color:var(--muted); font-size:11px; }
-  .mrow .m-reg{ color:var(--muted); font-size:11px; letter-spacing:0.14em; }
-  .spark{ display:block; }
-  .spark path{ fill:none; stroke:var(--gold); stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+  .mrow .m-date{ color:var(--muted); font-size:11px; letter-spacing:0; }
+  .market-status{ color:var(--muted); margin-top:18px; font-size:14px; line-height:1.6; }
+  .market-status[data-stale="true"]{ color:var(--gold); }
   .market-note{ margin-top:20px; font-family:var(--mono); font-size:10px; letter-spacing:0.18em; color:var(--muted); text-transform:uppercase; }
   @media (max-width:768px){
-    .mt-head, .mrow{ grid-template-columns:1.2fr 1fr 64px; padding:14px 16px; gap:10px; }
-    .mt-head .h-src, .mt-head .h-reg, .mrow .m-src, .mrow .m-reg{ display:none; }
+    .mt-head, .mrow{ grid-template-columns:1fr 1fr 1.2fr; padding:14px 16px; gap:10px; }
+    .mt-head .h-src, .mrow .m-src{ display:none; }
     .mrow{ font-size:12px; }
   }
 
@@ -438,33 +438,14 @@
     *{ scroll-behavior:auto !important; }
   }
 </style>
-  <link rel="stylesheet" href="/site-chrome.css?v=20260821-3">
+  <link rel="stylesheet" href="/site-chrome.css?v=20261026-1">
 </head>
 <body>
 
 <!-- ============ TOP TICKER (concept 9) ============ -->
-<div class="ticker" aria-label="Live GPU market ticker">
+<div class="ticker" aria-label="Dated GPU price snapshot">
   <div class="ticker-track" id="tickerTrack">
-    <div class="ticker-group">
-      <span class="ti"><b>H100 SXM</b> $2.15/HR <span class="dn">▾0.04</span></span><span class="sep">·</span>
-      <span class="ti"><b>H200</b> $2.85/HR <span class="up">▴0.02</span></span><span class="sep">·</span>
-      <span class="ti"><b>B200</b> $4.20/HR <span class="fl">—</span></span><span class="sep">·</span>
-      <span class="ti"><b>A100 80GB</b> $1.10/HR <span class="dn">▾0.01</span></span><span class="sep">·</span>
-      <span class="ti"><b>L40S</b> $0.79/HR <span class="dn">▾0.02</span></span><span class="sep">·</span>
-      <span class="ti"><b>B300</b> $4.99/HR</span><span class="sep">·</span>
-      <span class="ti">300+ SUPPLIERS MONITORED</span><span class="sep">·</span>
-      <span class="ti">19 REGIONS TRACKED</span><span class="sep">·</span>
-    </div>
-    <div class="ticker-group" aria-hidden="true">
-      <span class="ti"><b>H100 SXM</b> $2.15/HR <span class="dn">▾0.04</span></span><span class="sep">·</span>
-      <span class="ti"><b>H200</b> $2.85/HR <span class="up">▴0.02</span></span><span class="sep">·</span>
-      <span class="ti"><b>B200</b> $4.20/HR <span class="fl">—</span></span><span class="sep">·</span>
-      <span class="ti"><b>A100 80GB</b> $1.10/HR <span class="dn">▾0.01</span></span><span class="sep">·</span>
-      <span class="ti"><b>L40S</b> $0.79/HR <span class="dn">▾0.02</span></span><span class="sep">·</span>
-      <span class="ti"><b>B300</b> $4.99/HR</span><span class="sep">·</span>
-      <span class="ti">300+ SUPPLIERS MONITORED</span><span class="sep">·</span>
-      <span class="ti">19 REGIONS TRACKED</span><span class="sep">·</span>
-    </div>
+    <!-- HOME_TICKER_START --><div class="ticker-group"><span class="ti"><b>H100</b> $3.77/hr</span><span class="sep">·</span><span class="ti"><b>H200</b> $4.36/hr</span><span class="sep">·</span><span class="ti"><b>B200</b> $7.50/hr</span><span class="sep">·</span><span class="ti"><b>A100</b> $2.18/hr</span><span class="sep">·</span><span class="ti"><b>L40S</b> $1.73/hr</span><span class="sep">·</span><span class="ti">224 PROVIDERS IN REGISTRY</span><span class="sep">·</span></div><div class="ticker-group" aria-hidden="true"><span class="ti"><b>H100</b> $3.77/hr</span><span class="sep">·</span><span class="ti"><b>H200</b> $4.36/hr</span><span class="sep">·</span><span class="ti"><b>B200</b> $7.50/hr</span><span class="sep">·</span><span class="ti"><b>A100</b> $2.18/hr</span><span class="sep">·</span><span class="ti"><b>L40S</b> $1.73/hr</span><span class="sep">·</span><span class="ti">224 PROVIDERS IN REGISTRY</span><span class="sep">·</span></div><!-- HOME_TICKER_END -->
   </div>
 </div>
 
@@ -497,7 +478,7 @@
           <div class="og-nav-panel">
             <a href="/research/reserved-gpu-market-report-2026-q3.html" data-og-area="header" data-og-link="reserved_market_report">Reserved market report</a>
             <a href="/gpus/" data-og-area="header" data-og-link="gpu_price_index">GPU price index</a>
-            <a href="/gpus/availability.html" data-og-area="header" data-og-link="live_availability">Live availability</a>
+            <a href="/gpus/availability.html" data-og-area="header" data-og-link="marketplace_snapshot">Marketplace snapshot</a>
             <a href="/gpu-supplier-pricing.html" data-og-area="header" data-og-link="supplier_pricing_report">Supplier pricing report</a>
           </div>
         </details>
@@ -598,48 +579,28 @@
   <div class="market-stage">
     <div class="wrap">
       <div class="section-head">
-        <div class="eyebrow">LIVE MARKET FEED</div>
-        <h2>Current GPU pricing and availability.</h2>
+        <div class="eyebrow">PUBLIC MARKET DATA</div>
+        <h2>Compare observed GPU prices.</h2>
+        <p class="market-status" id="homeMarketStatus">Public price snapshot · source observations 2026-11-04 · assembled 2026-11-04</p>
       </div>
       <div class="market-table">
         <div class="mt-head">
-          <span>SKU</span><span>PRICE</span><span class="h-src">SOURCES</span><span class="h-reg">REGION</span><span>30D</span>
+          <span>GPU family</span><span>Median / GPU-hr</span><span class="h-src">Providers</span><span>Observed</span>
         </div>
-        <div class="mrow">
-          <span class="m-gpu">H100 SXM</span><span class="m-price">$2.15/hr</span><span class="m-src">12 SOURCES</span><span class="m-reg">US/EU</span>
-          <svg class="spark" width="80" height="24" viewBox="0 0 80 24" aria-hidden="true"><path d="M2,9 L11,12 L20,10 L29,14 L38,12 L47,16 L56,14 L65,17 L78,16" pathLength="100"/></svg>
-        </div>
-        <div class="mrow">
-          <span class="m-gpu">H200</span><span class="m-price">$2.85/hr</span><span class="m-src">9 SOURCES</span><span class="m-reg">US/APAC</span>
-          <svg class="spark" width="80" height="24" viewBox="0 0 80 24" aria-hidden="true"><path d="M2,16 L11,13 L20,15 L29,11 L38,13 L47,9 L56,11 L65,8 L78,9" pathLength="100"/></svg>
-        </div>
-        <div class="mrow">
-          <span class="m-gpu">B200</span><span class="m-price">$4.20/hr</span><span class="m-src">5 SOURCES</span><span class="m-reg">US</span>
-          <svg class="spark" width="80" height="24" viewBox="0 0 80 24" aria-hidden="true"><path d="M2,12 L11,12 L20,11 L29,13 L38,12 L47,12 L56,13 L65,11 L78,12" pathLength="100"/></svg>
-        </div>
-        <div class="mrow">
-          <span class="m-gpu">A100 80GB</span><span class="m-price">$1.10/hr</span><span class="m-src">18 SOURCES</span><span class="m-reg">GLOBAL</span>
-          <svg class="spark" width="80" height="24" viewBox="0 0 80 24" aria-hidden="true"><path d="M2,8 L11,10 L20,9 L29,13 L38,11 L47,14 L56,16 L65,15 L78,17" pathLength="100"/></svg>
-        </div>
-        <div class="mrow">
-          <span class="m-gpu">L40S</span><span class="m-price">$0.79/hr</span><span class="m-src">14 SOURCES</span><span class="m-reg">GLOBAL</span>
-          <svg class="spark" width="80" height="24" viewBox="0 0 80 24" aria-hidden="true"><path d="M2,7 L11,9 L20,12 L29,10 L38,14 L47,13 L56,16 L65,18 L78,17" pathLength="100"/></svg>
-        </div>
-        <div class="mrow">
-          <span class="m-gpu">B300</span><span class="m-price">$4.99/hr</span><span class="m-src">5 SOURCES</span><span class="m-reg">US/EU</span>
-          <svg class="spark" width="80" height="24" viewBox="0 0 80 24" aria-hidden="true"><path d="M2,14 L11,14 L20,13 L29,14 L38,13 L47,13 L56,12 L65,13 L78,12" pathLength="100"/></svg>
-        </div>
-        <div class="mrow">
-          <span class="m-gpu">GB300</span><span class="m-price">RFQ</span><span class="m-src">2 RESERVED</span><span class="m-reg">US/EU</span>
-          <svg class="spark" width="80" height="24" viewBox="0 0 80 24" aria-hidden="true"><path d="M2,16 L11,15 L20,15 L29,14 L38,14 L47,13 L56,13 L65,12 L78,11" pathLength="100"/></svg>
-        </div>
+        <div id="homeMarketRows"><!-- HOME_ROWS_START --><div class="mrow"><span class="m-gpu">H100</span><span class="m-price">$3.77/hr</span><span class="m-src">9 providers</span><span class="m-date">2026-11-04</span></div>
+<div class="mrow"><span class="m-gpu">H200</span><span class="m-price">$4.36/hr</span><span class="m-src">4 providers</span><span class="m-date">2026-11-04</span></div>
+<div class="mrow"><span class="m-gpu">B200</span><span class="m-price">$7.50/hr</span><span class="m-src">1 provider</span><span class="m-date">2026-11-04</span></div>
+<div class="mrow"><span class="m-gpu">B300</span><span class="m-price">On request</span><span class="m-src">No public rate</span><span class="m-date">Not recorded</span></div>
+<div class="mrow"><span class="m-gpu">GB300</span><span class="m-price">On request</span><span class="m-src">No public rate</span><span class="m-date">Not recorded</span></div>
+<div class="mrow"><span class="m-gpu">A100</span><span class="m-price">$2.18/hr</span><span class="m-src">8 providers</span><span class="m-date">2026-11-04</span></div>
+<div class="mrow"><span class="m-gpu">L40S</span><span class="m-price">$1.73/hr</span><span class="m-src">4 providers</span><span class="m-date">2026-11-04</span></div><!-- HOME_ROWS_END --></div>
       </div>
-      <div class="market-note">Indicative spot rates · provider identities withheld until qualification</div>
-      <aside class="og-context-links panel" aria-label="Continue with live market data">
-        <span>Continue with live data</span>
+      <div class="market-note">Public provider-rate sample · median of provider averages · not a reserved quote or allocation</div>
+      <aside class="og-context-links panel" aria-label="Compare dated market data">
+        <span>Compare dated market data</span>
         <div>
           <a href="/gpus/" data-og-area="context" data-og-link="gpu_price_index">GPU price index <b aria-hidden="true">↗</b></a>
-          <a href="/gpus/availability.html" data-og-area="context" data-og-link="live_availability">Live availability <b aria-hidden="true">↗</b></a>
+          <a href="/gpus/availability.html" data-og-area="context" data-og-link="live_availability">Marketplace snapshot <b aria-hidden="true">↗</b></a>
           <a href="/gpu-supplier-pricing.html" data-og-area="context" data-og-link="supplier_pricing_report">Supplier pricing report <b aria-hidden="true">↗</b></a>
         </div>
       </aside>
@@ -652,43 +613,43 @@
   <div class="wrap">
     <div class="section-head" data-fade>
       <span class="eyebrow">GLOBAL COVERAGE</span>
-      <h2>Explore our compute supply network.</h2>
-      <p class="network-sub">Nineteen regions tracked for GPU availability, deployment models, and supply depth — now with expanded B200, B300, and GB300 signals. <span class="netv-d">Hover</span><span class="netv-m">Tap</span> any node to review the coverage.</p>
+      <h2>Explore regional market observations.</h2>
+      <p class="network-sub">Public records grouped by explicit region. Coverage shows research observations, not a confirmed allocation. Broad regional records are not assigned to individual countries. <span class="netv-d">Hover</span><span class="netv-m">Tap</span> any node to review the coverage.</p>
     </div>
     <div class="netmap">
       <div class="map-stage" data-netmap>
         <img class="world-map-base" src="world-map-gold.svg" alt="Regional GPU availability map" loading="lazy">
         <svg class="map-routes" id="mapRoutes" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true"></svg>
-        <button class="map-pin active" type="button" aria-label="US East GPU coverage including B200, B300 and GB300" style="--x: 28.6%; --y: 28.3%;" data-region-id="us-east" data-region="US East" data-gpus="H200 · B200 · B300 · GB300" data-model="Reserved GB300 systems, high-density clusters, private cloud" data-sources="14 sources" data-conf="High"><span></span></button>
-        <button class="map-pin" type="button" aria-label="US Central GPU coverage including B200, B300 and GB300" style="--x: 23.1%; --y: 28.3%;" data-region-id="us-central" data-region="US Central" data-gpus="H100 · B200 · B300 · GB300" data-model="Reserved clusters, private cloud, bare metal" data-sources="11 sources" data-conf="High"><span></span></button>
-        <button class="map-pin" type="button" aria-label="US West GPU coverage including B200 and GB300" style="--x: 16.1%; --y: 29.4%;" data-region-id="us-west" data-region="US West" data-gpus="H100 · H200 · B200 · GB300" data-model="Reserved capacity, on-demand VMs, inference fleets" data-sources="12 sources" data-conf="High"><span></span></button>
-        <button class="map-pin" type="button" aria-label="Canada GPU coverage including B200 and B300" style="--x: 20.6%; --y: 18.9%;" data-region-id="canada" data-region="Canada" data-gpus="H200 · B200 · B300" data-model="High-density deployments, private cloud, reserved capacity" data-sources="7 sources" data-conf="Medium"><span></span></button>
-        <button class="map-pin" type="button" aria-label="Brazil GPU availability" style="--x: 36.9%; --y: 58.3%;" data-region-id="brazil" data-region="Brazil" data-gpus="H100s, A100s, L40S" data-model="Regional deployment, private cloud, data center capacity" data-sources="4 sources" data-conf="Medium"><span></span></button>
-        <button class="map-pin" type="button" aria-label="UK GPU coverage including B200, B300 and GB300" style="--x: 49.6%; --y: 21.1%;" data-region-id="uk" data-region="UK" data-gpus="H200 · B200 · B300 · GB300" data-model="Bare metal, managed clusters, enterprise reservations" data-sources="10 sources" data-conf="High"><span></span></button>
-        <button class="map-pin" type="button" aria-label="Germany GPU coverage including B200, B300 and GB300" style="--x: 52.8%; --y: 21.7%;" data-region-id="germany" data-region="Germany" data-gpus="H200 · B200 · B300 · GB300" data-model="Colocation, managed clusters, bare metal" data-sources="9 sources" data-conf="High"><span></span></button>
-        <button class="map-pin" type="button" aria-label="France GPU coverage including B200 and B300" style="--x: 50.6%; --y: 23.9%;" data-region-id="france" data-region="France" data-gpus="H100 · H200 · B200 · B300" data-model="Private cloud, reserved blocks, inference capacity" data-sources="6 sources" data-conf="Medium"><span></span></button>
-        <button class="map-pin" type="button" aria-label="Nordics GPU coverage including B200 and B300" style="--x: 54.2%; --y: 16.1%;" data-region-id="nordics" data-region="Nordics" data-gpus="H200 · B200 · B300" data-model="Power-rich data centers, high-density deployments" data-sources="8 sources" data-conf="High"><span></span></button>
-        <button class="map-pin" type="button" aria-label="Spain GPU coverage including B200 and B300" style="--x: 49%; --y: 27.8%;" data-region-id="spain" data-region="Spain" data-gpus="H100 · B200 · B300" data-model="Regional inference, colocation, bare metal" data-sources="5 sources" data-conf="Medium"><span></span></button>
-        <button class="map-pin" type="button" aria-label="Hong Kong GPU coverage including B200 and GB300" style="--x: 81.7%; --y: 37.6%;" data-region-id="hong-kong" data-region="Hong Kong" data-gpus="H100 · H200 · B200 · GB300" data-model="Low-latency regional access, private cloud" data-sources="7 sources" data-conf="Medium"><span></span></button>
-        <button class="map-pin" type="button" aria-label="Singapore GPU coverage including B200, B300 and GB300" style="--x: 78.8%; --y: 49.3%;" data-region-id="singapore" data-region="Singapore" data-gpus="H200 · B200 · B300 · GB300" data-model="Managed clusters, enterprise reservations, bare metal" data-sources="11 sources" data-conf="High"><span></span></button>
-        <button class="map-pin" type="button" aria-label="India GPU coverage including B200 and B300" style="--x: 71.9%; --y: 37.8%;" data-region-id="india" data-region="India" data-gpus="H100 · H200 · B200 · B300" data-model="Regional inference, private cloud, data center capacity" data-sources="6 sources" data-conf="Medium"><span></span></button>
-        <button class="map-pin" type="button" aria-label="Malaysia GPU coverage including B200, B300 and GB300" style="--x: 78.3%; --y: 47.8%;" data-region-id="malaysia" data-region="Malaysia" data-gpus="H200 · B200 · B300 · GB300" data-model="Private cloud, inference capacity, managed deployments" data-sources="4 sources" data-conf="Low"><span></span></button>
-        <button class="map-pin" type="button" aria-label="Indonesia GPU coverage including B300 and GB300" style="--x: 82.5%; --y: 51.1%;" data-region-id="indonesia" data-region="Indonesia" data-gpus="H100 · B300 · GB300" data-model="Regional deployment, data center capacity" data-sources="3 sources" data-conf="Low"><span></span></button>
-        <button class="map-pin" type="button" aria-label="Japan GPU coverage including B300 and GB300" style="--x: 88.8%; --y: 30%;" data-region-id="japan" data-region="Japan" data-gpus="H200 · B300 · GB300" data-model="Enterprise reservations, AI infrastructure partners" data-sources="9 sources" data-conf="High"><span></span></button>
-        <button class="map-pin" type="button" aria-label="Philippines GPU availability" style="--x: 83.9%; --y: 42.8%;" data-region-id="philippines" data-region="Philippines" data-gpus="H100s, A100s, L40S" data-model="Regional inference, on-demand capacity" data-sources="3 sources" data-conf="Low"><span></span></button>
-        <button class="map-pin" type="button" aria-label="Taiwan GPU coverage including B200, B300 and GB300" style="--x: 83.6%; --y: 36.7%;" data-region-id="taiwan" data-region="Taiwan" data-gpus="H200 · B200 · B300 · GB300" data-model="Private cloud, reserved blocks, low-latency access" data-sources="8 sources" data-conf="High"><span></span></button>
-        <button class="map-pin" type="button" aria-label="Australia GPU coverage including B200 and B300" style="--x: 87.2%; --y: 63.9%;" data-region-id="australia" data-region="Australia" data-gpus="H100 · B200 · B300" data-model="Reserved clusters, regional deployment, inference capacity" data-sources="5 sources" data-conf="Medium"><span></span></button>
+        <button class="map-pin active" type="button" aria-label="US East: 1 provider, observations 2026-11-04" style="--x: 28.6%; --y: 28.3%;" data-region-id="us-east" data-region="US East" data-gpus="H100" data-model="Publicly observed GPU offerings. Confirm location, allocation and terms before committing." data-sources="1 provider" data-observed="2026-11-04"><span></span></button>
+        <button class="map-pin" type="button" aria-label="US Central: 1 provider, observations 2026-11-04" style="--x: 23.1%; --y: 28.3%;" data-region-id="us-central" data-region="US Central" data-gpus="H200" data-model="Publicly observed GPU offerings. Confirm location, allocation and terms before committing." data-sources="1 provider" data-observed="2026-11-04"><span></span></button>
+        <button class="map-pin" type="button" aria-label="US West: 1 provider, observations 2026-11-04" style="--x: 16.1%; --y: 29.4%;" data-region-id="us-west" data-region="US West" data-gpus="B200 · A100" data-model="Publicly observed GPU offerings. Confirm location, allocation and terms before committing." data-sources="1 provider" data-observed="2026-11-04"><span></span></button>
+        <button class="map-pin" type="button" aria-label="Canada: 0 providers, observations Not recorded" style="--x: 20.6%; --y: 18.9%;" data-region-id="canada" data-region="Canada" data-gpus="No located records" data-model="No explicitly located public record in this snapshot. Ask us about your requirement." data-sources="0 providers" data-observed="Not recorded"><span></span></button>
+        <button class="map-pin" type="button" aria-label="Brazil: 2 providers, observations 2026-11-04" style="--x: 36.9%; --y: 58.3%;" data-region-id="brazil" data-region="Brazil" data-gpus="A100" data-model="Publicly observed GPU offerings. Confirm location, allocation and terms before committing." data-sources="2 providers" data-observed="2026-11-04"><span></span></button>
+        <button class="map-pin" type="button" aria-label="UK: 2 providers, observations 2026-11-04" style="--x: 49.6%; --y: 21.1%;" data-region-id="uk" data-region="UK" data-gpus="A100" data-model="Publicly observed GPU offerings. Confirm location, allocation and terms before committing." data-sources="2 providers" data-observed="2026-11-04"><span></span></button>
+        <button class="map-pin" type="button" aria-label="Germany: 0 providers, observations Not recorded" style="--x: 52.8%; --y: 21.7%;" data-region-id="germany" data-region="Germany" data-gpus="No located records" data-model="No explicitly located public record in this snapshot. Ask us about your requirement." data-sources="0 providers" data-observed="Not recorded"><span></span></button>
+        <button class="map-pin" type="button" aria-label="France: 0 providers, observations Not recorded" style="--x: 50.6%; --y: 23.9%;" data-region-id="france" data-region="France" data-gpus="No located records" data-model="No explicitly located public record in this snapshot. Ask us about your requirement." data-sources="0 providers" data-observed="Not recorded"><span></span></button>
+        <button class="map-pin" type="button" aria-label="Nordics: 1 provider, observations 2026-11-04" style="--x: 54.2%; --y: 16.1%;" data-region-id="nordics" data-region="Nordics" data-gpus="A100" data-model="Publicly observed GPU offerings. Confirm location, allocation and terms before committing." data-sources="1 provider" data-observed="2026-11-04"><span></span></button>
+        <button class="map-pin" type="button" aria-label="Spain: 2 providers, observations 2026-11-04" style="--x: 49%; --y: 27.8%;" data-region-id="spain" data-region="Spain" data-gpus="H100" data-model="Publicly observed GPU offerings. Confirm location, allocation and terms before committing." data-sources="2 providers" data-observed="2026-11-04"><span></span></button>
+        <button class="map-pin" type="button" aria-label="Hong Kong: 0 providers, observations Not recorded" style="--x: 81.7%; --y: 37.6%;" data-region-id="hong-kong" data-region="Hong Kong" data-gpus="No located records" data-model="No explicitly located public record in this snapshot. Ask us about your requirement." data-sources="0 providers" data-observed="Not recorded"><span></span></button>
+        <button class="map-pin" type="button" aria-label="Singapore: 0 providers, observations Not recorded" style="--x: 78.8%; --y: 49.3%;" data-region-id="singapore" data-region="Singapore" data-gpus="No located records" data-model="No explicitly located public record in this snapshot. Ask us about your requirement." data-sources="0 providers" data-observed="Not recorded"><span></span></button>
+        <button class="map-pin" type="button" aria-label="India: 3 providers, observations 2026-11-04" style="--x: 71.9%; --y: 37.8%;" data-region-id="india" data-region="India" data-gpus="H100 · H200 · B200 · A100 · L40S" data-model="Publicly observed GPU offerings. Confirm location, allocation and terms before committing." data-sources="3 providers" data-observed="2026-11-04"><span></span></button>
+        <button class="map-pin" type="button" aria-label="Malaysia: 0 providers, observations Not recorded" style="--x: 78.3%; --y: 47.8%;" data-region-id="malaysia" data-region="Malaysia" data-gpus="No located records" data-model="No explicitly located public record in this snapshot. Ask us about your requirement." data-sources="0 providers" data-observed="Not recorded"><span></span></button>
+        <button class="map-pin" type="button" aria-label="Indonesia: 0 providers, observations Not recorded" style="--x: 82.5%; --y: 51.1%;" data-region-id="indonesia" data-region="Indonesia" data-gpus="No located records" data-model="No explicitly located public record in this snapshot. Ask us about your requirement." data-sources="0 providers" data-observed="Not recorded"><span></span></button>
+        <button class="map-pin" type="button" aria-label="Japan: 1 provider, observations 2026-11-04" style="--x: 88.8%; --y: 30%;" data-region-id="japan" data-region="Japan" data-gpus="H200" data-model="Publicly observed GPU offerings. Confirm location, allocation and terms before committing." data-sources="1 provider" data-observed="2026-11-04"><span></span></button>
+        <button class="map-pin" type="button" aria-label="Philippines: 0 providers, observations Not recorded" style="--x: 83.9%; --y: 42.8%;" data-region-id="philippines" data-region="Philippines" data-gpus="No located records" data-model="No explicitly located public record in this snapshot. Ask us about your requirement." data-sources="0 providers" data-observed="Not recorded"><span></span></button>
+        <button class="map-pin" type="button" aria-label="Taiwan: 1 provider, observations 2026-11-04" style="--x: 83.6%; --y: 36.7%;" data-region-id="taiwan" data-region="Taiwan" data-gpus="RTX 5090" data-model="Publicly observed GPU offerings. Confirm location, allocation and terms before committing." data-sources="1 provider" data-observed="2026-11-04"><span></span></button>
+        <button class="map-pin" type="button" aria-label="Australia: 0 providers, observations Not recorded" style="--x: 87.2%; --y: 63.9%;" data-region-id="australia" data-region="Australia" data-gpus="No located records" data-model="No explicitly located public record in this snapshot. Ask us about your requirement." data-sources="0 providers" data-observed="Not recorded"><span></span></button>
       </div>
 
       <aside class="panel map-card" aria-live="polite"><i class="tk" aria-hidden="true"></i>
         <span class="mc-region" id="mapRegion">US East</span>
-        <span class="mc-gpus" id="mapGpus">H200 · B200 · B300 · GB300</span>
-        <p class="mc-model" id="mapModel">Reserved GB300 systems, high-density clusters, private cloud</p>
+        <span class="mc-gpus" id="mapGpus">H100</span>
+        <p class="mc-model" id="mapModel">Publicly observed GPU offerings. Confirm location, allocation and terms before committing.</p>
         <dl class="mc-market">
-          <div><dt>Sources</dt><dd id="mapSignal">14 sources</dd></div>
-          <div><dt>Confidence</dt><dd id="mapConfidence">High</dd></div>
+          <div><dt>Sources</dt><dd id="mapSignal">1 provider</dd></div>
+          <div><dt>Observed</dt><dd id="mapObserved">2026-11-04</dd></div>
         </dl>
-        <p class="mc-note">Signals may include reserved pipeline; capacity is qualified before commitment.</p>
+        <p class="mc-note">Counts are distinct providers with explicitly located records. Confirm current capacity, start date and terms with the provider.</p>
       </aside>
     </div>
     <aside class="og-context-links panel" aria-label="Use the supply network">
@@ -750,7 +711,7 @@
           <h3>How does Omega Gradient pricing work?</h3>
         </summary>
         <div class="faq-answer">
-        <p>The sourcing desk resells capacity from many suppliers instead of promoting its own datacenters. Marketplace listings show one all-in hourly price up front — no egress surprises, billed only while the instance exists. Reserved cluster quotes are benchmarked against our continuously refreshed <a href="/gpus/" style="color:var(--gold)">GPU price index</a>, so you can see how any quote compares to the market before committing.</p>
+        <p>We source capacity through operators and infrastructure partners. The contracting, billing and support structure depends on the provider and deployment and is set out in the proposal. Marketplace listings show hourly pricing and use prepaid credits. Our <a href="/gpus/" style="color:var(--gold)">dated price index</a> provides public-rate context; reserved quotes depend on the system, term and delivery conditions.</p>
         </div>
       </details>
       <details class="panel faq-item">
@@ -759,7 +720,7 @@
           <h3>Which GPUs can Omega Gradient source?</h3>
         </summary>
         <div class="faq-answer">
-        <p>Our public price index tracks H100, H200, B200, B300, GB300, A100, L40S, and RTX 5090, and the on-demand marketplace lists dozens more models. As of July 2026, market-median rates include <b>H100 at ~$2.50/GPU-hr</b> and <b>H200 at ~$3.07/GPU-hr</b> — see the <a href="/gpu-supplier-pricing.html" style="color:var(--gold)">full supplier pricing report</a> for provider-level rates.</p>
+        <p>We help source Hopper and Blackwell capacity, including H100, H200, B200, B300, GB200 and GB300 systems. The right option depends on your region, start date, term and workload. The <a href="/gpu-supplier-pricing.html" style="color:var(--gold)">supplier pricing report</a> shows dated public rates; the <a href="/compute.html" style="color:var(--gold)">marketplace</a> shows its current catalog.</p>
         </div>
       </details>
     </div>
@@ -792,7 +753,7 @@
       "name": "How does Omega Gradient pricing work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The sourcing desk resells capacity from many suppliers instead of promoting its own datacenters. Marketplace listings show one all-in hourly price up front, billed only while the instance exists. Reserved cluster quotes are benchmarked against a continuously refreshed market index covering 8 GPU families, so buyers can see how any quote compares to the market before committing."
+        "text": "Omega Gradient sources capacity through operators and infrastructure partners. Contracting, billing and support depend on the provider and deployment. Marketplace billing uses prepaid credits; dated public rates provide context for a separate reserved quote."
       }
     },
     {
@@ -800,7 +761,7 @@
       "name": "Which GPUs can Omega Gradient source?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Omega Gradient's public price index tracks H100, H200, B200, B300, GB300, A100, L40S, and RTX 5090, and the on-demand marketplace lists dozens more models. As of July 2026, market-median rates include H100 at about $2.50 per GPU-hour and H200 at about $3.07 per GPU-hour."
+        "text": "Omega Gradient's public price index tracks H100, H200, B200, B300, GB300, A100, L40S, and RTX 5090, and the on-demand marketplace lists dozens more models. Dated public rates are available in the supplier pricing report; current marketplace inventory is shown separately."
       }
     }
   ]
@@ -882,7 +843,7 @@
         <h2>Market data</h2>
         <a href="/research/reserved-gpu-market-report-2026-q3.html" data-og-area="footer" data-og-link="data_reserved_market_report">Reserved market report</a>
         <a href="/gpus/" data-og-area="footer" data-og-link="data_gpu_price_index">GPU price index</a>
-        <a href="/gpus/availability.html" data-og-area="footer" data-og-link="data_live_availability">Live availability</a>
+        <a href="/gpus/availability.html" data-og-area="footer" data-og-link="data_marketplace_snapshot">Marketplace snapshot</a>
         <a href="/gpu-supplier-pricing.html" data-og-area="footer" data-og-link="data_supplier_pricing_report">Supplier pricing report</a>
         <a href="/#market" data-og-area="footer" data-og-link="data_public_market_feed">Public market feed</a>
       </div>
@@ -894,6 +855,11 @@
         <a href="mailto:hello@omegagradient.com" data-og-area="footer" data-og-link="deploy_hello_omegagradient_com">hello@omegagradient.com</a>
       </div>
     </div>
+    <nav class="og-company-links" aria-label="Company and support">
+      <a href="/about.html" data-og-area="footer" data-og-link="about">About Omega Gradient</a>
+      <a href="/support.html" data-og-area="footer" data-og-link="support">Support &amp; billing questions</a>
+      <span>Omega Gradient LLC · Founded by Tausif Ahmed</span>
+    </nav>
     <div class="og-footer-wordmark" data-og-footer-wordmark aria-hidden="true">
       <span class="og-footer-wordmark-outline"><b>OMEGA</b> <em>GRADIENT</em></span>
       <span class="og-footer-wordmark-fill" data-og-footer-wordmark-fill><b>OMEGA</b> <em>GRADIENT</em></span>
@@ -907,6 +873,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="./data/public_gpu_market.js"></script>
+<script src="./home-market.js"></script>
 <script>
 (function(){
   "use strict";
@@ -961,48 +928,8 @@
     });
   });
 
-  /* ============ LIVE MARKET FEED DATA ============ */
-  (function(){
-    var feed = window.OMEGA_GPU_MARKET;
-    if (!feed || !feed.gpu_market) return;
-    var byFam = {};
-    feed.gpu_market.forEach(function(g){ byFam[String(g.gpu_family).toUpperCase()] = g; });
-    var BUCKET = { "US":"US","USA":"US","UNITED STATES":"US","CANADA":"US","EUROPE":"EU","EU":"EU","SPAIN":"EU","GERMANY":"EU","UK":"EU","FRANCE":"EU","NORDICS":"EU","SINGAPORE":"APAC","INDIA":"APAC","JAPAN":"APAC","TAIWAN":"APAC","HONG KONG":"APAC","AUSTRALIA":"APAC","INDONESIA":"APAC","MALAYSIA":"APAC","PHILIPPINES":"APAC","BRAZIL":"LATAM" };
-    function fam(label){ return String(label || "").trim().split(/\s+/)[0].toUpperCase(); }
-    function price(v, unit){ return (v == null) ? "RFQ" : "$" + Number(v).toFixed(2) + unit; }
-    function regionLabel(regions){
-      if (!regions || !regions.length) return "—";
-      var b = [];
-      regions.forEach(function(r){
-        var key = BUCKET[String(r).toUpperCase()] || String(r).slice(0, 3).toUpperCase();
-        if (b.indexOf(key) < 0) b.push(key);
-      });
-      if (b.indexOf("US") >= 0 && b.indexOf("EU") >= 0 && b.indexOf("APAC") >= 0) return "GLOBAL";
-      return b.slice(0, 2).join("/");
-    }
-    /* market table rows */
-    document.querySelectorAll(".mrow").forEach(function(row){
-      var labelEl = row.querySelector(".m-gpu"); if (!labelEl) return;
-      var g = byFam[fam(labelEl.textContent)]; if (!g) return;
-      var p = row.querySelector(".m-price"); if (p) p.textContent = price(g.median_price_per_gpu_hour, "/hr");
-      var s = row.querySelector(".m-src"); if (s) {
-        var n = g.supply_source_count || g.price_source_count || 0;
-        var reserved = (g.availability_mix || []).find(function(item){ return item.key === "reserved_capacity"; });
-        s.textContent = n
-          ? n + (n === 1 ? " SOURCE" : " SOURCES")
-          : reserved && reserved.count
-            ? reserved.count + " RESERVED"
-            : "FORMING";
-      }
-      var rg = row.querySelector(".m-reg"); if (rg) rg.textContent = regionLabel(g.regions);
-    });
-    /* ticker GPU price items */
-    document.querySelectorAll(".ticker-group .ti").forEach(function(item){
-      var b = item.querySelector("b"); if (!b) return;
-      var g = byFam[fam(b.textContent)]; if (!g) return;
-      item.innerHTML = "<b>" + b.textContent + "</b> " + price(g.median_price_per_gpu_hour, "/HR");
-    });
-  })();
+  /* Render the same dated snapshot model used by the public build. */
+  if (window.OmegaPublicMarket) window.OmegaPublicMarket.apply(document, window.OMEGA_GPU_MARKET);
 
   /* ============ START SOURCING → inline form ============ */
   (function(){
@@ -1108,7 +1035,7 @@
     var elGpus = document.getElementById("mapGpus");
     var elModel = document.getElementById("mapModel");
     var elSignal = document.getElementById("mapSignal");
-    var elConf = document.getElementById("mapConfidence");
+    var elObserved = document.getElementById("mapObserved");
     function activate(pin){
       pins.forEach(function(p){ p.classList.remove("active"); });
       pin.classList.add("active");
@@ -1116,13 +1043,15 @@
       if (elGpus) elGpus.textContent = pin.dataset.gpus;
       if (elModel) elModel.textContent = pin.dataset.model;
       if (elSignal) elSignal.textContent = pin.dataset.sources;
-      if (elConf) elConf.textContent = pin.dataset.conf;
+      if (elObserved) elObserved.textContent = pin.dataset.observed;
     }
     pins.forEach(function(p){
       p.addEventListener("mouseenter", function(){ activate(p); });
       p.addEventListener("focus", function(){ activate(p); });
       p.addEventListener("click", function(){ activate(p); });
     });
+
+    if (pins.length) activate(pins[0]);
 
     /* entrance: routes draw in, pins fade/stagger (guarded) */
     if (HAS_GSAP && HAS_ST && !REDUCED) {
@@ -1419,55 +1348,7 @@
       .to(geoms, { strokeDashoffset: 0, duration: 1.2, ease: EASE_LINE, stagger: 0.1 }, 0);
   });
 
-  /* ---- PINNED MARKET FEED (scrub, concept 9) ---- */
-  (function(){
-    var rows = document.querySelectorAll(".mrow");
-    var paths = document.querySelectorAll(".spark path");
-    if (!rows.length) return;
-
-    if (MOBILE) {
-      /* mobile: no pin/scrub — simple staggered reveal on scroll (smooth on touch) */
-      gsap.set(rows, { opacity: 0, x: -20 });
-      gsap.set(paths, { strokeDasharray: 100, strokeDashoffset: 100 });
-      gsap.set([".market .eyebrow", ".market h2", ".market-note"], { opacity: 0, y: 16 });
-      gsap.to([".market .eyebrow", ".market h2"], { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", stagger: 0.1,
-        scrollTrigger: { trigger: ".market", start: "top 82%", once: true } });
-      gsap.to(rows, { opacity: 1, x: 0, duration: 0.5, ease: "power3.out", stagger: 0.08,
-        scrollTrigger: { trigger: ".market-table", start: "top 88%", once: true } });
-      gsap.to(paths, { strokeDashoffset: 0, duration: 0.7, ease: "none", stagger: 0.08,
-        scrollTrigger: { trigger: ".market-table", start: "top 88%", once: true } });
-      gsap.to(".market-note", { opacity: 1, y: 0, duration: 0.4,
-        scrollTrigger: { trigger: ".market-note", start: "top 92%", once: true } });
-      return;
-    }
-
-    gsap.set(rows, { opacity: 0, x: -44 });
-    gsap.set(paths, { strokeDasharray: 100, strokeDashoffset: 100 });
-    gsap.set([".market .eyebrow", ".market h2", ".market-note"], { opacity: 0, y: 16 });
-    var mtl = gsap.timeline({
-      scrollTrigger: { trigger: ".market", start: "top top", end: "+=120%", pin: true, scrub: 0.4, anticipatePin: 1, invalidateOnRefresh: true }
-    });
-    mtl.to(".market .eyebrow", { opacity: 1, y: 0, duration: 0.4 }, 0)
-       .to(".market h2", { opacity: 1, y: 0, duration: 0.5 }, 0.1);
-    rows.forEach(function(row, i){
-      var at = 0.5 + i * 0.75;
-      mtl.to(row, { opacity: 1, x: 0, duration: 0.55, ease: "power3.out" }, at);
-      mtl.to(paths[i], { strokeDashoffset: 0, duration: 0.6, ease: "none" }, at + 0.12);
-    });
-    mtl.to(".market-note", { opacity: 1, y: 0, duration: 0.4 }, 0.5 + rows.length * 0.75);
-
-    /* scrolling UP through the pinned feed collapses ~2x faster */
-    var marketST = mtl.scrollTrigger;
-    if (lenis) {
-      window.addEventListener("wheel", function(e){
-        if (!marketST || !marketST.isActive || e.deltaY >= 0) return;
-        var cur = (typeof lenis.targetScroll === "number") ? lenis.targetScroll
-                : (typeof lenis.animatedScroll === "number") ? lenis.animatedScroll : window.scrollY;
-        if (!isFinite(cur)) return;
-        lenis.scrollTo(cur + e.deltaY, { duration: 0.25 }); /* extra deltaY on top of Lenis ≈ 2x up */
-      }, { passive: true });
-    }
-  })();
+  /* Show the dated price rows together, without scroll pinning. */
 
   /* ---- CTA reveal (concept 9) ---- */
   gsap.set([".cta .eyebrow", ".cta h2", "#startSourcingBtn"], { opacity: 0, y: 18 });
@@ -1489,6 +1370,6 @@
   window.addEventListener("load", function(){ ScrollTrigger.refresh(); });
 })();
 </script>
-  <script src="/site-chrome.js?v=20260821-3" defer></script>
+  <script src="/site-chrome.js?v=20261026-1" defer></script>
 </body>
 </html>
