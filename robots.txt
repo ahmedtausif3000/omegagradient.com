@@ -1,40 +1,12 @@
 # omegagradient.com — reserved GPU cluster sourcing, diligence, and on-demand compute.
 # Reserved cluster intelligence: https://omegagradient.com/clusters/
 # Dated pricing snapshots: https://omegagradient.com/gpus/ and https://omegagradient.com/data/public_gpu_market.json
-# Machine-readable overview: https://omegagradient.com/llms.txt
+# Machine-readable overview: https://omegagradient.com/llms.txt (index) and https://omegagradient.com/llms-full.txt (full text)
+# Update feed: https://omegagradient.com/feed.xml
+# Every crawler, including AI search and answer-engine bots, may fetch every public page.
 
 User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=no
-Allow: /
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-User-agent: Bytespider
 Allow: /
 
 Sitemap: https://omegagradient.com/sitemap.xml

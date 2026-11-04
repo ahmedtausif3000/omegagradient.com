@@ -23,6 +23,7 @@
     return {
       stale: stale,
       status: (stale ? "Historical snapshot" : "Public price snapshot") + " · source observations " + dateRange(observed),
+      observedRange: dateRange(observed),
       assembled: day(feed.generated_at) || "Unavailable",
       providers: count(feed.source_count_summary && feed.source_count_summary.registry_supplier_count),
       regions: Array.isArray(feed.region_market) ? feed.region_market : [],
@@ -41,6 +42,17 @@
       var n = count(row.supply_source_count);
       return '<div class="mrow"><span class="m-gpu">' + escape(row.gpu_family) + '</span><span class="m-price">' + escape(money(row.median_price_per_gpu_hour)) + '</span><span class="m-src">' + (n ? n + (n === 1 ? " provider" : " providers") : "No public rate") + '</span><span class="m-date">' + escape(dateRange(row.observation_window)) + '</span></div>';
     }).join("\n");
+  }
+  /* Dated, quotable sentence for the homepage FAQ (visible text and FAQPage schema). */
+  function faqPricesText(view) {
+    var priced = view.rows.filter(function (row) { return money(row.median_price_per_gpu_hour) !== "On request"; });
+    var unpriced = view.rows.filter(function (row) { return money(row.median_price_per_gpu_hour) === "On request"; });
+    if (!priced.length) return "No included public rate was available in the " + view.assembled + " price snapshot.";
+    var parts = priced.map(function (row) { return row.gpu_family + " " + money(row.median_price_per_gpu_hour).replace("/hr", ""); });
+    var list = parts.length > 1 ? parts.slice(0, -1).join(", ") + " and " + parts[parts.length - 1] : parts[0];
+    var text = "In the public price snapshot assembled " + view.assembled + " (source observations " + view.observedRange + "), median provider-average rates were " + list + " per GPU-hour";
+    if (unpriced.length) text += "; " + unpriced.map(function (row) { return row.gpu_family; }).join(" and ") + " had no included public rate";
+    return text + ". These are dated public list-price observations across the monitored registry, not quotes or allocations.";
   }
   function regionView(region) {
     region = region || {};
@@ -63,5 +75,5 @@
     });
     return view;
   }
-  return {model:model, tickerMarkup:tickerMarkup, rowsMarkup:rowsMarkup, regionView:regionView, apply:apply, escape:escape};
+  return {model:model, tickerMarkup:tickerMarkup, rowsMarkup:rowsMarkup, faqPricesText:faqPricesText, regionView:regionView, apply:apply, escape:escape};
 });

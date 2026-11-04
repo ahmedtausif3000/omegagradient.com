@@ -7,6 +7,8 @@
 <meta name="description" content="Omega Gradient sources and qualifies reserved H100, H200, B200, B300, GB200, and GB300 GPU clusters, with an on-demand marketplace and dated cross-provider price research.">
 <title>Reserved GPU Clusters & On-Demand Compute | Omega Gradient</title>
 <link rel="canonical" href="https://omegagradient.com/">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="alternate" type="application/atom+xml" title="Omega Gradient market data and guide updates" href="/feed.xml">
 
 <!-- Social / Open Graph -->
 <meta property="og:type" content="website">
@@ -25,7 +27,7 @@
 <meta name="twitter:image" content="https://omegagradient.com/og-image-omega-logo-globe-centered-20260628.png">
 <meta name="twitter:image:alt" content="Omega Gradient GPU capacity sourcing preview">
 
-<!-- Structured data: Organization + WebSite. TODO: populate sameAs with real LinkedIn / X / Crunchbase profile URLs once live. -->
+<!-- Structured data: Organization + WebSite. Add LinkedIn company page, Crunchbase, Wikidata and G2 URLs to sameAs as each profile goes live. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -34,6 +36,8 @@
       "@type": "Organization",
       "@id": "https://omegagradient.com/#organization",
       "name": "Omega Gradient",
+      "legalName": "Omega Gradient LLC",
+      "alternateName": "Omega Gradient GPU sourcing desk",
       "url": "https://omegagradient.com/",
       "logo": {
         "@type": "ImageObject",
@@ -41,9 +45,45 @@
         "width": 400,
         "height": 400
       },
-      "description": "Omega Gradient is a GPU supply sourcing and intelligence desk and compute marketplace. It sources, benchmarks, and secures GPU capacity for AI teams across bare metal, private cloud, colocation, and on-demand providers worldwide.",
+      "image": "https://omegagradient.com/og-image-omega-logo-globe-centered-20260628.png",
+      "description": "Omega Gradient is a GPU supply sourcing and intelligence desk and compute marketplace. It sources, qualifies, and secures reserved GPU clusters (H100, H200, B200, B300, GB200 and GB300 systems) for AI teams across neoclouds, bare metal, private cloud and colocation providers worldwide, runs a provider-anonymous on-demand GPU marketplace, and publishes a dated cross-provider GPU price index.",
+      "slogan": "Find the right GPU capacity before the market does.",
       "email": "hello@omegagradient.com",
-      "sameAs": ["https://www.trustpilot.com/review/omegagradient.com", "https://computeprices.com/providers/omegagradient"]
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "hello@omegagradient.com",
+          "url": "https://omegagradient.com/clusters/#request",
+          "availableLanguage": "en",
+          "areaServed": "Worldwide"
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "hello@omegagradient.com",
+          "url": "https://omegagradient.com/support.html",
+          "availableLanguage": "en"
+        }
+      ],
+      "founder": { "@id": "https://omegagradient.com/about.html#founder" },
+      "knowsAbout": ["Reserved GPU clusters", "GPU cluster procurement", "NVIDIA H100", "NVIDIA H200", "NVIDIA B200", "NVIDIA B300", "NVIDIA GB200", "NVIDIA GB300", "On-demand GPU marketplace", "Cloud GPU pricing"],
+      "areaServed": "Worldwide",
+      "sameAs": [
+        "https://www.trustpilot.com/review/omegagradient.com",
+        "https://computeprices.com/providers/omegagradient",
+        "https://gpus.io/en/providers/omega-gradient",
+        "https://github.com/ahmedtausif3000/omegagradient.com"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://omegagradient.com/about.html#founder",
+      "name": "Tausif Ahmed",
+      "jobTitle": "Founder & CEO",
+      "worksFor": { "@id": "https://omegagradient.com/#organization" },
+      "url": "https://omegagradient.com/about.html",
+      "sameAs": ["https://www.linkedin.com/in/ahmedtausif/", "https://x.com/protaucol"]
     },
     {
       "@type": "WebSite",
@@ -488,6 +528,7 @@
   </div>
 </header>
 <!-- SITE_HEADER_END -->
+<main id="main">
 
 <!-- ============ HERO (wireframe globe) ============ -->
 <section class="hero" id="top">
@@ -723,6 +764,15 @@
         <p>We help source Hopper and Blackwell capacity, including H100, H200, B200, B300, GB200 and GB300 systems. The right option depends on your region, start date, term and workload. The <a href="/gpu-supplier-pricing.html" style="color:var(--gold)">supplier pricing report</a> shows dated public rates; the <a href="/compute.html" style="color:var(--gold)">marketplace</a> shows its current catalog.</p>
         </div>
       </details>
+      <details class="panel faq-item">
+        <summary><i class="tk" aria-hidden="true"></i>
+          <span class="num">Q.05</span>
+          <h3>What do H100, H200 and B200 GPUs cost per hour?</h3>
+        </summary>
+        <div class="faq-answer">
+        <p><!-- HOME_FAQ_PRICES_START -->In the public price snapshot assembled 2026-11-04 (source observations 2026-11-04), median provider-average rates were H100 $3.77, H200 $4.36, B200 $7.50, A100 $2.18 and L40S $1.73 per GPU-hour; B300 and GB300 had no included public rate. These are dated public list-price observations across the monitored registry, not quotes or allocations.<!-- HOME_FAQ_PRICES_END --> Min, median and max by GPU family, with source observation dates, are on the <a href="/gpus/" style="color:var(--gold)">dated price index</a>; reserved cluster pricing is quoted per system, term and delivery condition.</p>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -761,7 +811,15 @@
       "name": "Which GPUs can Omega Gradient source?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Omega Gradient's public price index tracks H100, H200, B200, B300, GB300, A100, L40S, and RTX 5090, and the on-demand marketplace lists dozens more models. Dated public rates are available in the supplier pricing report; current marketplace inventory is shown separately."
+        "text": "Omega Gradient helps source Hopper and Blackwell capacity, including H100, H200, B200, B300, GB200 and GB300 systems. The right option depends on region, start date, term and workload. The supplier pricing report shows dated public rates; the on-demand marketplace shows its current catalog."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What do H100, H200 and B200 GPUs cost per hour?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In the public price snapshot assembled 2026-11-04 (source observations 2026-11-04), median provider-average rates were H100 $3.77, H200 $4.36, B200 $7.50, A100 $2.18 and L40S $1.73 per GPU-hour; B300 and GB300 had no included public rate. These are dated public list-price observations across the monitored registry, not quotes or allocations. Min, median and max by GPU family, with source observation dates, are on the dated price index at omegagradient.com/gpus/; reserved cluster pricing is quoted per system, term and delivery condition."
       }
     }
   ]
@@ -821,6 +879,7 @@
 </section>
 
 <!-- ============ FOOTER (concept 9) ============ -->
+</main>
 <!-- SITE_FOOTER_START -->
 <footer class="og-site-footer">
   <div class="og-footer-shell">

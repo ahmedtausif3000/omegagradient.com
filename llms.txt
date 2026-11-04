@@ -16,7 +16,7 @@ Two things distinguish the data on this site: (1) marketplace listings are aggre
 - [Reserved GPU Market Report — Q3 2026 early read](https://omegagradient.com/research/reserved-gpu-market-report-2026-q3.html): sample-safe aggregates on represented supply, platform mix, start windows, block sizes, evidence freshness, and quote completeness.
 - [Home](https://omegagradient.com/): sourcing overview and dated GPU market summary.
 - [Cloud GPU Price Index](https://omegagradient.com/gpus/): min/median/max $/GPU-hr for 12 GPU families, report assembled 2026-11-04.
-- [GPU availability snapshot](https://omegagradient.com/gpus/availability.html): 68 listings observed in the 2026-11-04 catalog sample from $0.07/GPU-hr.
+- [GPU availability snapshot](https://omegagradient.com/gpus/availability.html): 83 listings observed in the 2026-11-04 catalog sample from $0.07/GPU-hr.
 - [On-demand marketplace](https://omegagradient.com/compute.html): browse current GPU listings and check deployment requirements.
 - [Provider pricing report](https://omegagradient.com/gpu-supplier-pricing.html): named-provider public list prices with evidence links.
 - [Sell capacity](https://omegagradient.com/supply.html): onboard data-center / neocloud GPU supply.
@@ -37,16 +37,20 @@ Two things distinguish the data on this site: (1) marketplace listings are aggre
 - [NVIDIA RTX A4000 cloud pricing](https://omegagradient.com/gpus/a4000.html): $0.76–$0.76/GPU-hr across 1 provider(s), median $0.76.
 - [NVIDIA T4 cloud pricing](https://omegagradient.com/gpus/t4.html): $0.81–$0.81/GPU-hr across 1 provider(s), median $0.81.
 - [NVIDIA GB200 NVL72 pricing data status](https://omegagradient.com/gpus/gb200.html): no included public rate in this report; check the marketplace or request capacity.
+- [NVIDIA GB300 NVL72 pricing data status](https://omegagradient.com/gpus/gb300.html): no included public rate in this report; check the marketplace or request capacity.
 - [AMD MI300X pricing data status](https://omegagradient.com/gpus/mi300x.html): no included public rate in this report; check the marketplace or request capacity.
 
 Source observations: 2026-11-04T16:04:41.775Z.
-Catalog snapshot: 2026-11-04T18:30:11.244Z. These are observation timestamps, not a promise of current price or availability.
+Catalog snapshot: 2026-11-04T19:40:37.248Z. These are observation timestamps, not a promise of current price or availability.
 
 ## Public Data
 
 - Public GPU market feed (JSON): https://omegagradient.com/data/public_gpu_market.json — per-family average/median/min/max $/GPU-hr, availability mix, regions, dated snapshots.
 - Reserved GPU Market Report aggregate (JSON): https://omegagradient.com/data/reserved_gpu_market_report_2026_q3.json — fixed-edition denominators, methodology, and sample-safe findings; no provider or buyer identities.
 - Live marketplace catalog (JSON API): https://omegagradient.com/api/market/catalog — latest catalog response with GPU model, count, vRAM, region, price in cents/hour, and a refreshedAt observation timestamp; confirm availability before deployment. Listings are provider-anonymous.
+- Full-text bundle for retrieval: https://omegagradient.com/llms-full.txt — plain text of every guide, report, and dated price page listed above.
+- Update feed (Atom): https://omegagradient.com/feed.xml — dated entries for price index assemblies, availability snapshots, guide revisions, and research editions.
+- Research index: https://omegagradient.com/research/ — published reports and their downloadable aggregates.
 - Root sitemap: https://omegagradient.com/sitemap.xml
 
 ## Interpretation Notes for AI Agents
