@@ -152,12 +152,7 @@ button, input, select, textarea { font: inherit; }
 h1, h2, h3, h4 { font-family: var(--display); font-weight: 600; letter-spacing: -0.035em; }
 h1 { max-width: 14ch; font-size: clamp(48px, 7vw, 92px); line-height: 0.98; }
 h1 .accent,
-.gradient-text {
-  background: linear-gradient(90deg, var(--green), var(--teal), var(--amber));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
+.gradient-text { color: var(--gold); }
 .hero-copy { max-width: 68ch; margin-top: 30px; color: var(--muted-bright); font-size: clamp(17px, 1.5vw, 20px); line-height: 1.65; }
 .hero-copy strong { color: var(--text); font-weight: 500; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }

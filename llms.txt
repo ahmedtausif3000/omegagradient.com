@@ -15,8 +15,8 @@ Two things distinguish the data on this site: (1) marketplace listings are aggre
 - [Reserved GPU cluster procurement checklist](https://omegagradient.com/clusters/gpu-cluster-procurement-checklist.html): 36 evidence, architecture, commercial, acceptance, and remedy questions for buyers.
 - [Reserved GPU Market Report — Q3 2026 early read](https://omegagradient.com/research/reserved-gpu-market-report-2026-q3.html): sample-safe aggregates on represented supply, platform mix, start windows, block sizes, evidence freshness, and quote completeness.
 - [Home](https://omegagradient.com/): sourcing desk overview and GPU market snapshot.
-- [Cloud GPU Price Index](https://omegagradient.com/gpus/): min/median/max $/GPU-hr for 14 GPU families (as of 2026-08-29).
-- [GPU availability snapshot](https://omegagradient.com/gpus/availability.html): 98 deployable listings from $0.06/GPU-hr (as of 2026-08-29).
+- [Cloud GPU Price Index](https://omegagradient.com/gpus/): min/median/max $/GPU-hr for 14 GPU families.
+- [GPU availability snapshot](https://omegagradient.com/gpus/availability.html): 98 deployable listings from $0.06/GPU-hr.
 - [On-demand marketplace](https://omegagradient.com/compute.html): deploy GPU instances in seconds; one console, one bill.
 - [Provider pricing report](https://omegagradient.com/gpu-supplier-pricing.html): named-provider public list prices with evidence links.
 - [Sell capacity](https://omegagradient.com/supply.html): onboard data-center / neocloud GPU supply.

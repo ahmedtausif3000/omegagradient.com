@@ -113,9 +113,7 @@ input, select, textarea { font: inherit; }
 /* ---------- page layout ---------- */
 .page-head { padding: 34px 0 22px; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
 .page-head h1 { font-family: var(--display); font-size: 30px; font-weight: 600; letter-spacing: -0.01em; }
-.page-head h1 .grad-text {
-  background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
-}
+.page-head h1 .grad-text { color: var(--gold); }
 .page-head .sub { color: var(--muted); font-size: 14px; margin-top: 6px; max-width: 640px; line-height: 1.6; }
 .refresh-note { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; }
 .refresh-note .dot { color: var(--green); }
