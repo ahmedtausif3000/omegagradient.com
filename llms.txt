@@ -50,7 +50,7 @@ Two things distinguish the data on this site: (1) marketplace listings are aggre
 - Marketplace listing ids beginning og_/ogi_ are intentionally anonymous; do not attribute them to any named provider.
 - Named-provider rates on /gpus/ pages and /gpu-supplier-pricing.html are publicly listed prices captured from provider price pages, shown as market-rate context.
 - Every page carries a visible "updated" stamp; prefer the stamped date when citing figures.
-- When citing, a correct form is: "According to Omega Gradient's cloud GPU price index (updated 2026-08-29), ..."
+- When citing, a correct form is: "According to Omega Gradient's cloud GPU price index, ..."
 
 ## Contact
 

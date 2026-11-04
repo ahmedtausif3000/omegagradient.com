@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="index, follow">
-  <meta name="description" content="Provider-named GPU market rates, August 2026: evidence-verified $/GPU-hr across 224 monitored suppliers and 70 included price rows. Updated August 29, 2026.">
+  <meta name="description" content="Provider-named GPU market rates: evidence-verified $/GPU-hr across 224 monitored suppliers and 70 included price rows.">
   <link rel="canonical" href="https://omegagradient.com/gpu-supplier-pricing.html">
   <link rel="icon" href="./omega-gradient-logo.png" type="image/png" sizes="400x400">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,20 +13,20 @@
   <link rel="stylesheet" href="/site-chrome.css?v=20261103-1">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://omegagradient.com/gpu-supplier-pricing.html">
-  <meta property="og:title" content="GPU Supplier Pricing Report — August 2026 | Omega Gradient">
-  <meta property="og:description" content="Provider-named GPU market rates, August 2026: evidence-verified $/GPU-hr across 224 monitored suppliers and 70 included price rows. Updated August 29, 2026.">
+  <meta property="og:title" content="GPU Supplier Pricing Report | Omega Gradient">
+  <meta property="og:description" content="Provider-named GPU market rates: evidence-verified $/GPU-hr across 224 monitored suppliers and 70 included price rows.">
   <meta property="og:site_name" content="Omega Gradient">
   <meta property="og:image" content="https://omegagradient.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Omega Gradient GPU supplier pricing report preview">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="GPU Supplier Pricing Report — August 2026 | Omega Gradient">
-  <meta name="twitter:description" content="Provider-named GPU market rates, August 2026: evidence-verified $/GPU-hr across 224 monitored suppliers and 70 included price rows. Updated August 29, 2026.">
+  <meta name="twitter:title" content="GPU Supplier Pricing Report | Omega Gradient">
+  <meta name="twitter:description" content="Provider-named GPU market rates: evidence-verified $/GPU-hr across 224 monitored suppliers and 70 included price rows.">
   <meta name="twitter:image" content="https://omegagradient.com/og-image.png">
   <meta name="twitter:image:alt" content="Omega Gradient GPU supplier pricing report preview">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","@id":"https://omegagradient.com/gpu-supplier-pricing.html#dataset","name":"Omega Gradient GPU Supplier Pricing Dataset (August 2026)","description":"Evidence-verified GPU rental pricing collected by Omega Gradient: normalized $/GPU-hour rates by provider and GPU family, with availability class, region, evidence confidence, and source links. 224 suppliers monitored; 70 price rows included in averages.","url":"https://omegagradient.com/gpu-supplier-pricing.html","dateModified":"2026-08-29T16:07:04.827Z","license":"https://omegagradient.com/gpu-supplier-pricing.html","creator":{"@type":"Organization","@id":"https://omegagradient.com/#organization","name":"Omega Gradient","url":"https://omegagradient.com/"},"keywords":["GPU pricing","GPU rental rates","H100 price per hour","cloud GPU market","GPU price index"],"isAccessibleForFree":true,"distribution":[{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://omegagradient.com/data/public_gpu_market.json"}]}</script>
-  <title>GPU Supplier Pricing Report — August 2026 | Omega Gradient</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","@id":"https://omegagradient.com/gpu-supplier-pricing.html#dataset","name":"Omega Gradient GPU Supplier Pricing Dataset","description":"Evidence-verified GPU rental pricing collected by Omega Gradient: normalized $/GPU-hour rates by provider and GPU family, with availability class, region, evidence confidence, and source links. 224 suppliers monitored; 70 price rows included in averages.","url":"https://omegagradient.com/gpu-supplier-pricing.html","dateModified":"2026-08-29T16:07:04.827Z","license":"https://omegagradient.com/gpu-supplier-pricing.html","creator":{"@type":"Organization","@id":"https://omegagradient.com/#organization","name":"Omega Gradient","url":"https://omegagradient.com/"},"keywords":["GPU pricing","GPU rental rates","H100 price per hour","cloud GPU market","GPU price index"],"isAccessibleForFree":true,"distribution":[{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://omegagradient.com/data/public_gpu_market.json"}]}</script>
+  <title>GPU Supplier Pricing Report | Omega Gradient</title>
   <style>
     :root{
       --bg: #000;
@@ -281,13 +281,9 @@
 </nav>
     <section class="report-head">
       <span class="eyebrow">MARKET INTELLIGENCE · SUPPLIER PRICING</span>
-      <h1>GPU Supplier Pricing <span class="gold-text">— August 2026</span></h1>
+      <h1>GPU Supplier <span class="gold-text">Pricing Report</span></h1>
       <p class="report-lede">Provider-level GPU pricing and supply rows generated from the latest Omega Gradient inventory snapshot.</p>
-      <p class="updated-line">● Last updated <time datetime="2026-08-29T16:07:04.827Z">August 29, 2026</time></p>
       <div class="meta" aria-label="Report timestamps">
-        <span class="pill"><span>Report</span> 2026-08-29T16:07:04.827Z</span>
-        <span class="pill"><span>Inventory</span> 2026-08-29T16:06:36.830Z</span>
-        <span class="pill"><span>Snapshot</span> 2026-08-29</span>
         <span class="pill"><span>Min confidence</span> 0.72</span>
       </div>
     </section>
@@ -404,7 +400,6 @@
               <th class="sortable num" data-table="inventory" data-sort-key="evidenceConfidence">Confidence</th>
               <th>Status</th>
               <th>Source</th>
-              <th class="sortable" data-table="inventory" data-sort-key="capturedAt">Captured</th>
             </tr>
           </thead>
           <tbody></tbody>
@@ -642,7 +637,7 @@
       if (!rows.length) {
         const tr = document.createElement("tr");
         const td = cell("No inventory rows match the current filters.", "empty");
-        td.colSpan = 11;
+        td.colSpan = 10;
         tr.append(td);
         els.inventoryBody.append(tr);
         return;
@@ -669,8 +664,7 @@
           cell(row.location),
           cell(pctText(row.evidenceConfidence), "num"),
           status,
-          sourceCell(row.sourceUrl),
-          cell(row.capturedAt ? row.capturedAt.slice(0, 10) : "unknown")
+          sourceCell(row.sourceUrl)
         );
         els.inventoryBody.append(tr);
       }
