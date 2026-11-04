@@ -226,12 +226,21 @@
     <h2>Dated catalog snapshot</h2>
     <!-- generated compute snapshot fragment: inject into compute.html #live-snapshot -->
 <section class="aeo-snapshot" id="live-snapshot-content">
-  <p class="snapshot-meta mono">83 listings · from $0.07/GPU/hr · snapshot 2026-11-04</p>
-  <p>Top 40 of 83 sampled listings (flagship GPUs first). Full sortable board above requires JavaScript; this table is the dated static snapshot. Complete list: <a href="/gpus/availability.html">GPU availability snapshot</a>.</p>
+  <p class="snapshot-meta mono">89 listings · from $0.07/GPU/hr · snapshot 2026-11-04</p>
+  <p>Top 40 of 89 sampled listings (flagship GPUs first). Full sortable board above requires JavaScript; this table is the dated static snapshot. Complete list: <a href="/gpus/availability.html">GPU availability snapshot</a>.</p>
   <div class="snapshot-table-scroll panel">
   <table>
     <thead><tr><th>GPU</th><th>Count</th><th>vRAM</th><th>Region</th><th>Fabric</th><th>$/GPU/hr</th><th>Instance $/hr</th></tr></thead>
     <tbody>
+<tr>
+  <td>B300</td>
+  <td>1×</td>
+  <td>288 GB</td>
+  <td>Global · flexible</td>
+  <td>SXM</td>
+  <td>$8.31/GPU/hr</td>
+  <td>$8.31/hr</td>
+</tr>
 <tr>
   <td>B200</td>
   <td>2×</td>
@@ -264,7 +273,7 @@
   <td>1×</td>
   <td>140 GB</td>
   <td>Europe · South</td>
-  <td>NVLink</td>
+  <td>PCIe</td>
   <td>$3.83/GPU/hr</td>
   <td>$3.83/hr</td>
 </tr>
@@ -279,39 +288,21 @@
 </tr>
 <tr>
   <td>H200</td>
+  <td>8×</td>
+  <td>141 GB</td>
+  <td>Global · flexible</td>
+  <td>SXM</td>
+  <td>$4.42/GPU/hr</td>
+  <td>$35.33/hr</td>
+</tr>
+<tr>
+  <td>H200</td>
   <td>4×</td>
   <td>140 GB</td>
   <td>US · East</td>
   <td>NVLink</td>
   <td>$6.30/GPU/hr</td>
   <td>$25.22/hr</td>
-</tr>
-<tr>
-  <td>H200</td>
-  <td>8×</td>
-  <td>140 GB</td>
-  <td>Middle East</td>
-  <td>NVLink</td>
-  <td>$7.17/GPU/hr</td>
-  <td>$57.36/hr</td>
-</tr>
-<tr>
-  <td>H100</td>
-  <td>2×</td>
-  <td>80 GB</td>
-  <td>Canada</td>
-  <td>PCIe</td>
-  <td>$2.63/GPU/hr</td>
-  <td>$5.25/hr</td>
-</tr>
-<tr>
-  <td>H100</td>
-  <td>1×</td>
-  <td>80 GB</td>
-  <td>Canada</td>
-  <td>PCIe</td>
-  <td>$2.63/GPU/hr</td>
-  <td>$2.63/hr</td>
 </tr>
 <tr>
   <td>H100</td>
@@ -333,6 +324,15 @@
 </tr>
 <tr>
   <td>H100</td>
+  <td>2×</td>
+  <td>80 GB</td>
+  <td>Europe · West</td>
+  <td>PCIe</td>
+  <td>$3.46/GPU/hr</td>
+  <td>$6.93/hr</td>
+</tr>
+<tr>
+  <td>H100</td>
   <td>1×</td>
   <td>80 GB</td>
   <td>Europe · West</td>
@@ -342,12 +342,12 @@
 </tr>
 <tr>
   <td>H100</td>
-  <td>2×</td>
+  <td>1×</td>
   <td>80 GB</td>
-  <td>US · East</td>
-  <td>SXM</td>
-  <td>$4.40/GPU/hr</td>
-  <td>$8.80/hr</td>
+  <td>Oceania</td>
+  <td>NVLink</td>
+  <td>$4.39/GPU/hr</td>
+  <td>$4.39/hr</td>
 </tr>
 <tr>
   <td>H100</td>
@@ -369,6 +369,24 @@
 </tr>
 <tr>
   <td>A100-80G</td>
+  <td>1×</td>
+  <td>80 GB</td>
+  <td>US · Central</td>
+  <td>PCIe</td>
+  <td>$1.42/GPU/hr</td>
+  <td>$1.42/hr</td>
+</tr>
+<tr>
+  <td>A100-80G</td>
+  <td>1×</td>
+  <td>80 GB</td>
+  <td>Canada</td>
+  <td>PCIe</td>
+  <td>$1.42/GPU/hr</td>
+  <td>$1.42/hr</td>
+</tr>
+<tr>
+  <td>A100-80G</td>
   <td>2×</td>
   <td>80 GB</td>
   <td>US · Central</td>
@@ -378,12 +396,12 @@
 </tr>
 <tr>
   <td>A100-80G</td>
-  <td>1×</td>
+  <td>8×</td>
   <td>80 GB</td>
-  <td>US · Central</td>
+  <td>US · East</td>
   <td>SXM</td>
-  <td>$1.45/GPU/hr</td>
-  <td>$1.45/hr</td>
+  <td>$2.93/GPU/hr</td>
+  <td>$23.44/hr</td>
 </tr>
 <tr>
   <td>A100-80G</td>
@@ -396,12 +414,39 @@
 </tr>
 <tr>
   <td>A100</td>
-  <td>1×</td>
+  <td>2×</td>
   <td>40 GB</td>
-  <td>US · West</td>
+  <td>Global · flexible</td>
   <td>PCIe</td>
-  <td>$0.72/GPU/hr</td>
-  <td>$0.72/hr</td>
+  <td>$0.71/GPU/hr</td>
+  <td>$1.42/hr</td>
+</tr>
+<tr>
+  <td>A100</td>
+  <td>2×</td>
+  <td>40 GB</td>
+  <td>US · Central</td>
+  <td>NVLink</td>
+  <td>$0.91/GPU/hr</td>
+  <td>$1.81/hr</td>
+</tr>
+<tr>
+  <td>A100</td>
+  <td>4×</td>
+  <td>80 GB</td>
+  <td>Europe · West</td>
+  <td>PCIe</td>
+  <td>$0.92/GPU/hr</td>
+  <td>$3.66/hr</td>
+</tr>
+<tr>
+  <td>A100</td>
+  <td>2×</td>
+  <td>80 GB</td>
+  <td>Europe · West</td>
+  <td>PCIe</td>
+  <td>$0.92/GPU/hr</td>
+  <td>$1.84/hr</td>
 </tr>
 <tr>
   <td>A100</td>
@@ -414,48 +459,12 @@
 </tr>
 <tr>
   <td>A100</td>
-  <td>2×</td>
-  <td>80 GB</td>
-  <td>Europe · West</td>
-  <td>PCIe</td>
-  <td>$1.06/GPU/hr</td>
-  <td>$2.12/hr</td>
-</tr>
-<tr>
-  <td>A100</td>
-  <td>1×</td>
-  <td>80 GB</td>
-  <td>Europe · East</td>
-  <td>NVLink</td>
-  <td>$1.13/GPU/hr</td>
-  <td>$1.13/hr</td>
-</tr>
-<tr>
-  <td>A100</td>
-  <td>2×</td>
-  <td>80 GB</td>
-  <td>US · West</td>
-  <td>NVLink</td>
-  <td>$1.31/GPU/hr</td>
-  <td>$2.62/hr</td>
-</tr>
-<tr>
-  <td>A100</td>
   <td>1×</td>
   <td>80 GB</td>
   <td>US · East</td>
   <td>NVLink</td>
   <td>$1.68/GPU/hr</td>
   <td>$1.68/hr</td>
-</tr>
-<tr>
-  <td>A100</td>
-  <td>8×</td>
-  <td>40 GB</td>
-  <td>US · West</td>
-  <td>PCIe</td>
-  <td>$2.09/GPU/hr</td>
-  <td>$16.72/hr</td>
 </tr>
 <tr>
   <td>A100</td>
@@ -468,21 +477,39 @@
 </tr>
 <tr>
   <td>RTX PRO 6000</td>
-  <td>1×</td>
-  <td>96 GB</td>
-  <td>Europe · East</td>
-  <td>PCIe</td>
-  <td>$1.34/GPU/hr</td>
-  <td>$1.34/hr</td>
-</tr>
-<tr>
-  <td>RTX PRO 6000</td>
   <td>2×</td>
   <td>96 GB</td>
   <td>Europe · East</td>
   <td>PCIe</td>
-  <td>$1.44/GPU/hr</td>
-  <td>$2.88/hr</td>
+  <td>$1.45/GPU/hr</td>
+  <td>$2.90/hr</td>
+</tr>
+<tr>
+  <td>RTX PRO 6000</td>
+  <td>1×</td>
+  <td>96 GB</td>
+  <td>Europe · East</td>
+  <td>PCIe</td>
+  <td>$1.48/GPU/hr</td>
+  <td>$1.48/hr</td>
+</tr>
+<tr>
+  <td>RTX PRO 6000</td>
+  <td>1×</td>
+  <td>96 GB</td>
+  <td>US · West</td>
+  <td>PCIe</td>
+  <td>$1.58/GPU/hr</td>
+  <td>$1.58/hr</td>
+</tr>
+<tr>
+  <td>RTX PRO 6000</td>
+  <td>1×</td>
+  <td>96 GB</td>
+  <td>US · Central</td>
+  <td>PCIe</td>
+  <td>$1.70/GPU/hr</td>
+  <td>$1.70/hr</td>
 </tr>
 <tr>
   <td>RTX PRO 6000</td>
@@ -499,17 +526,8 @@
   <td>96 GB</td>
   <td>US · East</td>
   <td>PCIe</td>
-  <td>$1.71/GPU/hr</td>
-  <td>$1.71/hr</td>
-</tr>
-<tr>
-  <td>RTX PRO 6000</td>
-  <td>1×</td>
-  <td>96 GB</td>
-  <td>US · Central</td>
-  <td>PCIe</td>
-  <td>$1.81/GPU/hr</td>
-  <td>$1.81/hr</td>
+  <td>$1.73/GPU/hr</td>
+  <td>$1.73/hr</td>
 </tr>
 <tr>
   <td>RTX PRO 6000</td>
@@ -549,15 +567,6 @@
 </tr>
 <tr>
   <td>RTX PRO 6000</td>
-  <td>1×</td>
-  <td>96 GB</td>
-  <td>Europe · North</td>
-  <td>PCIe</td>
-  <td>$2.19/GPU/hr</td>
-  <td>$2.19/hr</td>
-</tr>
-<tr>
-  <td>RTX PRO 6000</td>
   <td>2×</td>
   <td>96 GB</td>
   <td>US · Central</td>
@@ -582,15 +591,6 @@
   <td>PCIe</td>
   <td>$1.02/GPU/hr</td>
   <td>$1.02/hr</td>
-</tr>
-<tr>
-  <td>L40S</td>
-  <td>2×</td>
-  <td>48 GB</td>
-  <td>US · Central</td>
-  <td>PCIe</td>
-  <td>$0.93/GPU/hr</td>
-  <td>$1.85/hr</td>
 </tr>
     </tbody>
   </table>

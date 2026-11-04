@@ -5,14 +5,14 @@
   <subtitle>Updates to the cloud GPU price index, availability snapshots, reserved-cluster buyer guides and research reports. All prices are dated observations, not quotes.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://omegagradient.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://omegagradient.com/"/>
-  <updated>2026-11-04T19:40:37.248Z</updated>
+  <updated>2026-11-04T19:50:40.468Z</updated>
   <author><name>Omega Gradient</name><email>hello@omegagradient.com</email><uri>https://omegagradient.com/</uri></author>
   <entry>
     <id>https://omegagradient.com/gpus/availability.html</id>
-    <title>GPU availability snapshot — 83 listings observed 2026-11-04</title>
+    <title>GPU availability snapshot — 89 listings observed 2026-11-04</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/availability.html"/>
-    <updated>2026-11-04T19:40:37.248Z</updated>
-    <published>2026-11-04T19:40:37.248Z</published>
+    <updated>2026-11-04T19:50:40.468Z</updated>
+    <published>2026-11-04T19:50:40.468Z</published>
     <summary>Provider-anonymous marketplace listings observed in the dated catalog sample.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
