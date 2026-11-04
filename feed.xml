@@ -5,41 +5,32 @@
   <subtitle>Updates to the cloud GPU price index, availability snapshots, reserved-cluster buyer guides and research reports. All prices are dated observations, not quotes.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://omegagradient.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://omegagradient.com/"/>
-  <updated>2026-11-04T19:50:40.468Z</updated>
+  <updated>2026-11-04T22:14:39.560Z</updated>
   <author><name>Omega Gradient</name><email>hello@omegagradient.com</email><uri>https://omegagradient.com/</uri></author>
-  <entry>
-    <id>https://omegagradient.com/gpus/availability.html</id>
-    <title>GPU availability snapshot — 89 listings observed 2026-11-04</title>
-    <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/availability.html"/>
-    <updated>2026-11-04T19:50:40.468Z</updated>
-    <published>2026-11-04T19:50:40.468Z</published>
-    <summary>Provider-anonymous marketplace listings observed in the dated catalog sample.</summary>
-    <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
-  </entry>
   <entry>
     <id>https://omegagradient.com/gpu-supplier-pricing.html</id>
     <title>GPU Supplier Pricing Report — Dated Source Observations | Omega Gradient</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpu-supplier-pricing.html"/>
-    <updated>2026-11-04T16:05:04.492Z</updated>
-    <published>2026-11-04T16:05:04.492Z</published>
-    <summary>Provider-named GPU market-rate observations: included $/GPU-hr across 224 monitored suppliers and 63 included price rows. Report assembled November 4, 2026; source observation dates vary.</summary>
+    <updated>2026-11-04T22:14:39.560Z</updated>
+    <published>2026-11-04T22:14:39.560Z</published>
+    <summary>Provider-named GPU rates: included $/GPU-hr across 224 monitored suppliers and 74 included price rows. Assembled November 4, 2026; source dates vary.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
     <id>https://omegagradient.com/gpus/</id>
     <title>Cloud GPU Price Index — report assembled 2026-11-04</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/"/>
-    <updated>2026-11-04T16:05:04.492Z</updated>
-    <published>2026-11-04T16:05:04.492Z</published>
-    <summary>Min/median/max USD per GPU-hour for 12 GPU families from 63 evidence-verified public rate rows. Source observations: 2026-11-04T16:04:41.775Z.</summary>
+    <updated>2026-11-04T22:14:39.560Z</updated>
+    <published>2026-11-04T22:14:39.560Z</published>
+    <summary>Min/median/max USD per GPU-hour for 14 GPU families from 74 evidence-verified public rate rows. Source observations: 2026-11-02T00:00:00.000Z to 2026-11-04T16:04:41.775Z.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
     <id>https://omegagradient.com/gpus/h100.html</id>
     <title>NVIDIA H100 cloud pricing — $1.68–$11.12/GPU-hr across 9 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/h100.html"/>
-    <updated>2026-11-04T16:05:04.492Z</updated>
-    <published>2026-11-04T16:05:04.492Z</published>
+    <updated>2026-11-04T22:14:39.560Z</updated>
+    <published>2026-11-04T22:14:39.560Z</published>
     <summary>Median provider-average rate $3.77 per GPU-hour. Report assembled 2026-11-04.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
@@ -47,8 +38,8 @@
     <id>https://omegagradient.com/gpus/h200.html</id>
     <title>NVIDIA H200 cloud pricing — $2.60–$6.30/GPU-hr across 4 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/h200.html"/>
-    <updated>2026-11-04T16:05:04.492Z</updated>
-    <published>2026-11-04T16:05:04.492Z</published>
+    <updated>2026-11-04T22:14:39.560Z</updated>
+    <published>2026-11-04T22:14:39.560Z</published>
     <summary>Median provider-average rate $4.36 per GPU-hour. Report assembled 2026-11-04.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
@@ -56,17 +47,26 @@
     <id>https://omegagradient.com/gpus/b200.html</id>
     <title>NVIDIA B200 cloud pricing — $7.50–$7.50/GPU-hr across 1 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/b200.html"/>
-    <updated>2026-11-04T16:05:04.492Z</updated>
-    <published>2026-11-04T16:05:04.492Z</published>
+    <updated>2026-11-04T22:14:39.560Z</updated>
+    <published>2026-11-04T22:14:39.560Z</published>
     <summary>Median provider-average rate $7.50 per GPU-hour. Report assembled 2026-11-04.</summary>
+    <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
+  </entry>
+  <entry>
+    <id>https://omegagradient.com/gpus/b300.html</id>
+    <title>NVIDIA B300 cloud pricing — $6.64–$17.80/GPU-hr across 9 provider(s)</title>
+    <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/b300.html"/>
+    <updated>2026-11-04T22:14:39.560Z</updated>
+    <published>2026-11-04T22:14:39.560Z</published>
+    <summary>Median provider-average rate $9.50 per GPU-hour. Report assembled 2026-11-04.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
     <id>https://omegagradient.com/gpus/a100-80gb.html</id>
     <title>NVIDIA A100 (80GB) cloud pricing — $0.59–$7.12/GPU-hr across 8 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/a100-80gb.html"/>
-    <updated>2026-11-04T16:05:04.492Z</updated>
-    <published>2026-11-04T16:05:04.492Z</published>
+    <updated>2026-11-04T22:14:39.560Z</updated>
+    <published>2026-11-04T22:14:39.560Z</published>
     <summary>Median provider-average rate $2.18 per GPU-hour. Report assembled 2026-11-04.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
@@ -74,8 +74,8 @@
     <id>https://omegagradient.com/gpus/l40s.html</id>
     <title>NVIDIA L40S cloud pricing — $0.70–$3.51/GPU-hr across 4 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/l40s.html"/>
-    <updated>2026-11-04T16:05:04.492Z</updated>
-    <published>2026-11-04T16:05:04.492Z</published>
+    <updated>2026-11-04T22:14:39.560Z</updated>
+    <published>2026-11-04T22:14:39.560Z</published>
     <summary>Median provider-average rate $1.73 per GPU-hour. Report assembled 2026-11-04.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
@@ -83,8 +83,8 @@
     <id>https://omegagradient.com/gpus/l40.html</id>
     <title>NVIDIA L40 cloud pricing — $0.70–$1.25/GPU-hr across 4 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/l40.html"/>
-    <updated>2026-11-04T16:05:04.492Z</updated>
-    <published>2026-11-04T16:05:04.492Z</published>
+    <updated>2026-11-04T22:14:39.560Z</updated>
+    <published>2026-11-04T22:14:39.560Z</published>
     <summary>Median provider-average rate $0.87 per GPU-hour. Report assembled 2026-11-04.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
@@ -92,8 +92,8 @@
     <id>https://omegagradient.com/gpus/rtx-4090.html</id>
     <title>NVIDIA RTX 4090 cloud pricing — $0.35–$0.74/GPU-hr across 4 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/rtx-4090.html"/>
-    <updated>2026-11-04T16:05:04.492Z</updated>
-    <published>2026-11-04T16:05:04.492Z</published>
+    <updated>2026-11-04T22:14:39.560Z</updated>
+    <published>2026-11-04T22:14:39.560Z</published>
     <summary>Median provider-average rate $0.46 per GPU-hour. Report assembled 2026-11-04.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
@@ -101,8 +101,8 @@
     <id>https://omegagradient.com/gpus/rtx-5090.html</id>
     <title>NVIDIA RTX 5090 cloud pricing — $0.50–$1.20/GPU-hr across 2 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/rtx-5090.html"/>
-    <updated>2026-11-04T16:05:04.492Z</updated>
-    <published>2026-11-04T16:05:04.492Z</published>
+    <updated>2026-11-04T22:14:39.560Z</updated>
+    <published>2026-11-04T22:14:39.560Z</published>
     <summary>Median provider-average rate $0.71 per GPU-hour. Report assembled 2026-11-04.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
@@ -110,8 +110,8 @@
     <id>https://omegagradient.com/gpus/a6000.html</id>
     <title>NVIDIA RTX A6000 cloud pricing — $0.44–$0.75/GPU-hr across 3 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/a6000.html"/>
-    <updated>2026-11-04T16:05:04.492Z</updated>
-    <published>2026-11-04T16:05:04.492Z</published>
+    <updated>2026-11-04T22:14:39.560Z</updated>
+    <published>2026-11-04T22:14:39.560Z</published>
     <summary>Median provider-average rate $0.70 per GPU-hour. Report assembled 2026-11-04.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
@@ -119,8 +119,8 @@
     <id>https://omegagradient.com/gpus/a4000.html</id>
     <title>NVIDIA RTX A4000 cloud pricing — $0.76–$0.76/GPU-hr across 1 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/a4000.html"/>
-    <updated>2026-11-04T16:05:04.492Z</updated>
-    <published>2026-11-04T16:05:04.492Z</published>
+    <updated>2026-11-04T22:14:39.560Z</updated>
+    <published>2026-11-04T22:14:39.560Z</published>
     <summary>Median provider-average rate $0.76 per GPU-hour. Report assembled 2026-11-04.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
@@ -128,9 +128,27 @@
     <id>https://omegagradient.com/gpus/t4.html</id>
     <title>NVIDIA T4 cloud pricing — $0.81–$0.81/GPU-hr across 1 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/t4.html"/>
-    <updated>2026-11-04T16:05:04.492Z</updated>
-    <published>2026-11-04T16:05:04.492Z</published>
+    <updated>2026-11-04T22:14:39.560Z</updated>
+    <published>2026-11-04T22:14:39.560Z</published>
     <summary>Median provider-average rate $0.81 per GPU-hour. Report assembled 2026-11-04.</summary>
+    <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
+  </entry>
+  <entry>
+    <id>https://omegagradient.com/gpus/gb300.html</id>
+    <title>NVIDIA GB300 NVL72 cloud pricing — $13.31–$18.00/GPU-hr across 2 provider(s)</title>
+    <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/gb300.html"/>
+    <updated>2026-11-04T22:14:39.560Z</updated>
+    <published>2026-11-04T22:14:39.560Z</published>
+    <summary>Median provider-average rate $15.65 per GPU-hour. Report assembled 2026-11-04.</summary>
+    <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
+  </entry>
+  <entry>
+    <id>https://omegagradient.com/gpus/availability.html</id>
+    <title>GPU availability snapshot — 101 listings observed 2026-11-04</title>
+    <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/availability.html"/>
+    <updated>2026-11-04T22:10:38.666Z</updated>
+    <published>2026-11-04T22:10:38.666Z</published>
+    <summary>Provider-anonymous marketplace listings observed in the dated catalog sample.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
@@ -139,7 +157,7 @@
     <link rel="alternate" type="text/html" href="https://omegagradient.com/clusters/"/>
     <updated>2026-11-04T00:00:00Z</updated>
     <published>2026-11-04T00:00:00Z</published>
-    <summary>Source and qualify reserved H100, H200, B200, B300, GB200, and GB300 GPU clusters. Omega Gradient normalizes quotes and validates infrastructure across providers.</summary>
+    <summary>Source and qualify reserved H100, H200, B200, B300, GB200 and GB300 GPU clusters. Omega Gradient normalizes quotes and validates provider infrastructure.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
@@ -148,7 +166,7 @@
     <link rel="alternate" type="text/html" href="https://omegagradient.com/clusters/how-we-qualify.html"/>
     <updated>2026-11-04T00:00:00Z</updated>
     <published>2026-08-17T00:00:00Z</published>
-    <summary>Omega Gradient&apos;s reserved GPU cluster diligence framework: capacity provenance, infrastructure readiness, topology, acceptance testing, commercial normalization, and counterparty risk.</summary>
+    <summary>Omega Gradient&apos;s reserved GPU cluster diligence framework: capacity provenance, infrastructure readiness, topology, acceptance tests and counterparty risk.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
@@ -166,7 +184,7 @@
     <link rel="alternate" type="text/html" href="https://omegagradient.com/clusters/hopper-h100-h200.html"/>
     <updated>2026-11-04T00:00:00Z</updated>
     <published>2026-08-17T00:00:00Z</published>
-    <summary>A buyer&apos;s guide to reserved H100 and H200 GPU clusters: SXM vs PCIe/NVL, memory, NVLink and InfiniBand topology, storage, sourcing diligence, quote normalization, and acceptance.</summary>
+    <summary>A buyer&apos;s guide to reserved H100 and H200 GPU clusters: SXM vs PCIe/NVL, memory, NVLink and InfiniBand topology, sourcing diligence, quotes and acceptance.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
@@ -175,7 +193,7 @@
     <link rel="alternate" type="text/html" href="https://omegagradient.com/clusters/blackwell-b200-b300.html"/>
     <updated>2026-11-04T00:00:00Z</updated>
     <published>2026-08-17T00:00:00Z</published>
-    <summary>A buyer&apos;s guide to reserved NVIDIA Blackwell GPU clusters: B200, B300, GB200 NVL72, and GB300 NVL72 architecture, facility readiness, sourcing, diligence, and acceptance.</summary>
+    <summary>A buyer&apos;s guide to reserved Blackwell clusters: B200, B300, GB200 NVL72 and GB300 NVL72 architecture, facility readiness, sourcing, diligence and acceptance.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
@@ -211,7 +229,7 @@
     <link rel="alternate" type="text/html" href="https://omegagradient.com/research/reserved-gpu-market-report-2026-q3.html"/>
     <updated>2026-08-21T00:00:00Z</updated>
     <published>2026-08-21T00:00:00Z</published>
-    <summary>An anonymized early read of represented reserved GPU supply, covering platform mix, start windows, block-size bands, evidence freshness, and quote-field completeness through August 21, 2026.</summary>
+    <summary>Anonymized read of represented reserved GPU supply: platform mix, start windows, block sizes, evidence freshness and quote completeness to August 21, 2026.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
 </feed>
