@@ -5,158 +5,158 @@
   <subtitle>Updates to the cloud GPU price index, availability snapshots, reserved-cluster buyer guides and research reports. All prices are dated observations, not quotes.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://omegagradient.com/feed.xml"/>
   <link rel="alternate" type="text/html" href="https://omegagradient.com/"/>
-  <updated>2026-11-09T17:02:37.076Z</updated>
+  <updated>2026-11-10T17:02:34.605Z</updated>
   <author><name>Omega Gradient</name><email>hello@omegagradient.com</email><uri>https://omegagradient.com/</uri></author>
   <entry>
     <id>https://omegagradient.com/gpu-supplier-pricing.html</id>
     <title>GPU Supplier Pricing Report — Dated Source Observations | Omega Gradient</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpu-supplier-pricing.html"/>
-    <updated>2026-11-09T17:02:37.076Z</updated>
-    <published>2026-11-09T17:02:37.076Z</published>
-    <summary>Provider-named GPU rates: included $/GPU-hr across 224 monitored suppliers and 74 included price rows. Assembled November 9, 2026; source dates vary.</summary>
+    <updated>2026-11-10T17:02:34.605Z</updated>
+    <published>2026-11-10T17:02:34.605Z</published>
+    <summary>Provider-named GPU rates: included $/GPU-hr across 224 monitored suppliers and 70 included price rows. Assembled November 10, 2026; source dates vary.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
     <id>https://omegagradient.com/gpus/</id>
-    <title>Cloud GPU Price Index — report assembled 2026-11-09</title>
+    <title>Cloud GPU Price Index — report assembled 2026-11-10</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/"/>
-    <updated>2026-11-09T17:02:37.076Z</updated>
-    <published>2026-11-09T17:02:37.076Z</published>
-    <summary>Min/median/max USD per GPU-hour for 16 GPU families from 74 evidence-verified public rate rows. Source observations: 2026-11-02T00:00:00.000Z to 2026-11-09T17:02:07.787Z.</summary>
+    <updated>2026-11-10T17:02:34.605Z</updated>
+    <published>2026-11-10T17:02:34.605Z</published>
+    <summary>Min/median/max USD per GPU-hour for 16 GPU families from 70 evidence-verified public rate rows. Source observations: 2026-11-02T00:00:00.000Z to 2026-11-10T17:02:08.325Z.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
     <id>https://omegagradient.com/gpus/h100.html</id>
     <title>NVIDIA H100 cloud pricing — $1.68–$11.12/GPU-hr across 9 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/h100.html"/>
-    <updated>2026-11-09T17:02:37.076Z</updated>
-    <published>2026-11-09T17:02:37.076Z</published>
-    <summary>Median provider-average rate $3.09 per GPU-hour. Report assembled 2026-11-09.</summary>
+    <updated>2026-11-10T17:02:34.605Z</updated>
+    <published>2026-11-10T17:02:34.605Z</published>
+    <summary>Median provider-average rate $3.09 per GPU-hour. Report assembled 2026-11-10.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
     <id>https://omegagradient.com/gpus/h200.html</id>
-    <title>NVIDIA H200 cloud pricing — $2.60–$6.83/GPU-hr across 4 provider(s)</title>
+    <title>NVIDIA H200 cloud pricing — $2.60–$6.30/GPU-hr across 4 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/h200.html"/>
-    <updated>2026-11-09T17:02:37.076Z</updated>
-    <published>2026-11-09T17:02:37.076Z</published>
-    <summary>Median provider-average rate $4.38 per GPU-hour. Report assembled 2026-11-09.</summary>
+    <updated>2026-11-10T17:02:34.605Z</updated>
+    <published>2026-11-10T17:02:34.605Z</published>
+    <summary>Median provider-average rate $4.51 per GPU-hour. Report assembled 2026-11-10.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
     <id>https://omegagradient.com/gpus/b200.html</id>
-    <title>NVIDIA B200 cloud pricing — $11.25–$11.25/GPU-hr across 1 provider(s)</title>
+    <title>NVIDIA B200 cloud pricing — $6.25–$6.25/GPU-hr across 1 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/b200.html"/>
-    <updated>2026-11-09T17:02:37.076Z</updated>
-    <published>2026-11-09T17:02:37.076Z</published>
-    <summary>Median provider-average rate $11.25 per GPU-hour. Report assembled 2026-11-09.</summary>
+    <updated>2026-11-10T17:02:34.605Z</updated>
+    <published>2026-11-10T17:02:34.605Z</published>
+    <summary>Median provider-average rate $6.25 per GPU-hour. Report assembled 2026-11-10.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
     <id>https://omegagradient.com/gpus/b300.html</id>
     <title>NVIDIA B300 cloud pricing — $6.64–$17.80/GPU-hr across 9 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/b300.html"/>
-    <updated>2026-11-09T17:02:37.076Z</updated>
-    <published>2026-11-09T17:02:37.076Z</published>
-    <summary>Median provider-average rate $9.50 per GPU-hour. Report assembled 2026-11-09.</summary>
+    <updated>2026-11-10T17:02:34.605Z</updated>
+    <published>2026-11-10T17:02:34.605Z</published>
+    <summary>Median provider-average rate $9.50 per GPU-hour. Report assembled 2026-11-10.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
     <id>https://omegagradient.com/gpus/a100-80gb.html</id>
-    <title>NVIDIA A100 (80GB) cloud pricing — $0.81–$7.12/GPU-hr across 8 provider(s)</title>
+    <title>NVIDIA A100 (80GB) cloud pricing — $1.15–$7.12/GPU-hr across 7 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/a100-80gb.html"/>
-    <updated>2026-11-09T17:02:37.076Z</updated>
-    <published>2026-11-09T17:02:37.076Z</published>
-    <summary>Median provider-average rate $2.18 per GPU-hour. Report assembled 2026-11-09.</summary>
+    <updated>2026-11-10T17:02:34.605Z</updated>
+    <published>2026-11-10T17:02:34.605Z</published>
+    <summary>Median provider-average rate $2.56 per GPU-hour. Report assembled 2026-11-10.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
     <id>https://omegagradient.com/gpus/l40s.html</id>
     <title>NVIDIA L40S cloud pricing — $0.70–$3.51/GPU-hr across 4 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/l40s.html"/>
-    <updated>2026-11-09T17:02:37.076Z</updated>
-    <published>2026-11-09T17:02:37.076Z</published>
-    <summary>Median provider-average rate $1.73 per GPU-hour. Report assembled 2026-11-09.</summary>
+    <updated>2026-11-10T17:02:34.605Z</updated>
+    <published>2026-11-10T17:02:34.605Z</published>
+    <summary>Median provider-average rate $1.73 per GPU-hour. Report assembled 2026-11-10.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
     <id>https://omegagradient.com/gpus/l40.html</id>
     <title>NVIDIA L40 cloud pricing — $0.70–$1.25/GPU-hr across 3 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/l40.html"/>
-    <updated>2026-11-09T17:02:37.076Z</updated>
-    <published>2026-11-09T17:02:37.076Z</published>
-    <summary>Median provider-average rate $0.95 per GPU-hour. Report assembled 2026-11-09.</summary>
+    <updated>2026-11-10T17:02:34.605Z</updated>
+    <published>2026-11-10T17:02:34.605Z</published>
+    <summary>Median provider-average rate $0.95 per GPU-hour. Report assembled 2026-11-10.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
     <id>https://omegagradient.com/gpus/rtx-4090.html</id>
     <title>NVIDIA RTX 4090 cloud pricing — $0.35–$0.74/GPU-hr across 4 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/rtx-4090.html"/>
-    <updated>2026-11-09T17:02:37.076Z</updated>
-    <published>2026-11-09T17:02:37.076Z</published>
-    <summary>Median provider-average rate $0.44 per GPU-hour. Report assembled 2026-11-09.</summary>
+    <updated>2026-11-10T17:02:34.605Z</updated>
+    <published>2026-11-10T17:02:34.605Z</published>
+    <summary>Median provider-average rate $0.43 per GPU-hour. Report assembled 2026-11-10.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
     <id>https://omegagradient.com/gpus/rtx-5090.html</id>
-    <title>NVIDIA RTX 5090 cloud pricing — $0.50–$0.93/GPU-hr across 2 provider(s)</title>
+    <title>NVIDIA RTX 5090 cloud pricing — $0.50–$1.45/GPU-hr across 2 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/rtx-5090.html"/>
-    <updated>2026-11-09T17:02:37.076Z</updated>
-    <published>2026-11-09T17:02:37.076Z</published>
-    <summary>Median provider-average rate $0.65 per GPU-hour. Report assembled 2026-11-09.</summary>
+    <updated>2026-11-10T17:02:34.605Z</updated>
+    <published>2026-11-10T17:02:34.605Z</published>
+    <summary>Median provider-average rate $0.77 per GPU-hour. Report assembled 2026-11-10.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
     <id>https://omegagradient.com/gpus/a6000.html</id>
     <title>NVIDIA RTX A6000 cloud pricing — $0.44–$0.75/GPU-hr across 3 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/a6000.html"/>
-    <updated>2026-11-09T17:02:37.076Z</updated>
-    <published>2026-11-09T17:02:37.076Z</published>
-    <summary>Median provider-average rate $0.70 per GPU-hour. Report assembled 2026-11-09.</summary>
+    <updated>2026-11-10T17:02:34.605Z</updated>
+    <published>2026-11-10T17:02:34.605Z</published>
+    <summary>Median provider-average rate $0.70 per GPU-hour. Report assembled 2026-11-10.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
     <id>https://omegagradient.com/gpus/a4000.html</id>
     <title>NVIDIA RTX A4000 cloud pricing — $0.76–$0.76/GPU-hr across 1 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/a4000.html"/>
-    <updated>2026-11-09T17:02:37.076Z</updated>
-    <published>2026-11-09T17:02:37.076Z</published>
-    <summary>Median provider-average rate $0.76 per GPU-hour. Report assembled 2026-11-09.</summary>
+    <updated>2026-11-10T17:02:34.605Z</updated>
+    <published>2026-11-10T17:02:34.605Z</published>
+    <summary>Median provider-average rate $0.76 per GPU-hour. Report assembled 2026-11-10.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
     <id>https://omegagradient.com/gpus/t4.html</id>
     <title>NVIDIA T4 cloud pricing — $0.81–$0.81/GPU-hr across 1 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/t4.html"/>
-    <updated>2026-11-09T17:02:37.076Z</updated>
-    <published>2026-11-09T17:02:37.076Z</published>
-    <summary>Median provider-average rate $0.81 per GPU-hour. Report assembled 2026-11-09.</summary>
+    <updated>2026-11-10T17:02:34.605Z</updated>
+    <published>2026-11-10T17:02:34.605Z</published>
+    <summary>Median provider-average rate $0.81 per GPU-hour. Report assembled 2026-11-10.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
     <id>https://omegagradient.com/gpus/gb200.html</id>
     <title>NVIDIA GB200 NVL72 cloud pricing — $8.14–$8.14/GPU-hr across 1 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/gb200.html"/>
-    <updated>2026-11-09T17:02:37.076Z</updated>
-    <published>2026-11-09T17:02:37.076Z</published>
-    <summary>Median provider-average rate $8.14 per GPU-hour. Report assembled 2026-11-09.</summary>
+    <updated>2026-11-10T17:02:34.605Z</updated>
+    <published>2026-11-10T17:02:34.605Z</published>
+    <summary>Median provider-average rate $8.14 per GPU-hour. Report assembled 2026-11-10.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
     <id>https://omegagradient.com/gpus/gb300.html</id>
-    <title>NVIDIA GB300 NVL72 cloud pricing — $13.58–$18.00/GPU-hr across 2 provider(s)</title>
+    <title>NVIDIA GB300 NVL72 cloud pricing — $13.72–$18.00/GPU-hr across 2 provider(s)</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/gb300.html"/>
-    <updated>2026-11-09T17:02:37.076Z</updated>
-    <published>2026-11-09T17:02:37.076Z</published>
-    <summary>Median provider-average rate $15.79 per GPU-hour. Report assembled 2026-11-09.</summary>
+    <updated>2026-11-10T17:02:34.605Z</updated>
+    <published>2026-11-10T17:02:34.605Z</published>
+    <summary>Median provider-average rate $15.86 per GPU-hour. Report assembled 2026-11-10.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
   <entry>
     <id>https://omegagradient.com/gpus/availability.html</id>
-    <title>GPU availability snapshot — 86 listings observed 2026-11-09</title>
+    <title>GPU availability snapshot — 78 listings observed 2026-11-10</title>
     <link rel="alternate" type="text/html" href="https://omegagradient.com/gpus/availability.html"/>
-    <updated>2026-11-09T17:00:37.348Z</updated>
-    <published>2026-11-09T17:00:37.348Z</published>
+    <updated>2026-11-10T17:00:37.473Z</updated>
+    <published>2026-11-10T17:00:37.473Z</published>
     <summary>Provider-anonymous marketplace listings observed in the dated catalog sample.</summary>
     <author><name>Omega Gradient</name><uri>https://omegagradient.com/</uri></author>
   </entry>
