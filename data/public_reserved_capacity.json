@@ -1,0 +1,399 @@
+{
+  "schema_version": "1.1.0",
+  "edition": "2026-11-12",
+  "title": "Omega Gradient Public Reserved GPU Capacity Index",
+  "description": "Publicly documented sourcing routes; no row verifies free allocation or represents an Omega Gradient inventory commitment.",
+  "review_owner": "Omega Gradient Intelligence",
+  "checked_at": "2026-11-12",
+  "review_due": "2026-12-12",
+  "coverage": "11 provider × SKU routes across 5 providers; selected public documentation, not an exhaustive market census.",
+  "allocation_policy": "Every pilot record is unverified for free allocation. No quantities are additive. Public support for a product is not a confirmed reservation.",
+  "sources": [
+    {
+      "id": "lambda",
+      "title": "Lambda 1-Click Clusters",
+      "url": "https://lambda.com/1-click-clusters",
+      "checked_at": "2026-11-12",
+      "published_at": null
+    },
+    {
+      "id": "lambda-docs",
+      "title": "Lambda cluster reservation documentation",
+      "url": "https://docs.lambda.com/public-cloud/1-click-clusters/",
+      "checked_at": "2026-11-12",
+      "published_at": null
+    },
+    {
+      "id": "nebius-fabric",
+      "title": "Nebius GPU cluster and fabric documentation",
+      "url": "https://docs.nebius.com/compute/clusters/gpu",
+      "checked_at": "2026-11-12",
+      "published_at": null
+    },
+    {
+      "id": "nebius-reserve",
+      "title": "Nebius capacity reservations",
+      "url": "https://docs.nebius.com/compute/virtual-machines/reservations",
+      "checked_at": "2026-11-12",
+      "published_at": null
+    },
+    {
+      "id": "nebius-region",
+      "title": "Nebius region and GPU platform matrix",
+      "url": "https://docs.nebius.com/overview/regions",
+      "checked_at": "2026-11-12",
+      "published_at": null
+    },
+    {
+      "id": "crusoe-vm",
+      "title": "Crusoe GPU instance specifications and zones",
+      "url": "https://docs.crusoe.ai/compute/virtual-machines/overview/",
+      "checked_at": "2026-11-12",
+      "published_at": null
+    },
+    {
+      "id": "crusoe-reserve",
+      "title": "Crusoe reservations overview",
+      "url": "https://docs.crusoe.ai/usage-billing/reservations/overview/",
+      "checked_at": "2026-11-12",
+      "published_at": null
+    },
+    {
+      "id": "coreweave",
+      "title": "CoreWeave GPU catalog and regions",
+      "url": "https://www.coreweave.com/pricing",
+      "checked_at": "2026-11-12",
+      "published_at": null
+    },
+    {
+      "id": "coreweave-reserve",
+      "title": "CoreWeave reservations and Flex preview explainer",
+      "url": "https://www.coreweave.com/blog/how-coreweave-spot-and-flex-reservations-work-and-when-to-use-each",
+      "checked_at": "2026-11-12",
+      "published_at": "2026-03-10"
+    },
+    {
+      "id": "voltage",
+      "title": "Voltage Park Dedicated Reserve documentation",
+      "url": "https://support.voltagepark.com/article/long-term-compute",
+      "checked_at": "2026-11-12",
+      "published_at": null
+    }
+  ],
+  "records": [
+    {
+      "id": "lambda-h100-1cc",
+      "provider": "Lambda",
+      "provider_role": "Cloud service provider",
+      "gpu_model": "H100",
+      "platform": "HGX H100 SXM",
+      "platform_unit": "GPU cluster",
+      "published_scale": "16–512 GPUs in technical documentation",
+      "location": "Selected in reservation console; locations not enumerated on cited page",
+      "regions": [
+        "Not specified"
+      ],
+      "fabric": "Quantum-2 InfiniBand; 400 Gb/s links",
+      "term": "2 weeks–1 year; longer terms by sales",
+      "delivery_window": "Buyer-specific start date requires confirmation",
+      "evidence_type": "Public provider documentation",
+      "allocation_status": "not_verified",
+      "free_gpu_count": null,
+      "checked_at": "2026-11-12",
+      "review_due": "2026-12-12",
+      "source_published_at": null,
+      "notes": "Marketing describes larger configurations; pilot uses the technical-documentation range. Reservation approval and start date are separate checks.",
+      "source_ids": [
+        "lambda",
+        "lambda-docs"
+      ]
+    },
+    {
+      "id": "lambda-b200-1cc",
+      "provider": "Lambda",
+      "provider_role": "Cloud service provider",
+      "gpu_model": "B200",
+      "platform": "HGX B200 SXM",
+      "platform_unit": "GPU cluster",
+      "published_scale": "16–512 GPUs in technical documentation",
+      "location": "Selected in reservation console; locations not enumerated on cited page",
+      "regions": [
+        "Not specified"
+      ],
+      "fabric": "Quantum-2 InfiniBand; 400 Gb/s links",
+      "term": "2 weeks–1 year; longer terms by sales",
+      "delivery_window": "Buyer-specific start date requires confirmation",
+      "evidence_type": "Public provider documentation",
+      "allocation_status": "not_verified",
+      "free_gpu_count": null,
+      "checked_at": "2026-11-12",
+      "review_due": "2026-12-12",
+      "source_published_at": null,
+      "notes": "Marketing describes larger configurations; pilot uses the technical-documentation range. Reservation approval and start date are separate checks.",
+      "source_ids": [
+        "lambda",
+        "lambda-docs"
+      ]
+    },
+    {
+      "id": "nebius-h100-reserved",
+      "provider": "Nebius",
+      "provider_role": "Cloud service provider",
+      "gpu_model": "H100",
+      "platform": "H100 NVLink",
+      "platform_unit": "8-GPU VM",
+      "published_scale": "Cluster size not specified",
+      "location": "Public-region platform matrix: Finland (eu-north1)",
+      "regions": [
+        "Europe"
+      ],
+      "fabric": "InfiniBand; 400 Gb/s per GPU NIC, 3.2 Tb/s per 8-GPU node",
+      "term": "Quantity and period agreed with Nebius manager",
+      "delivery_window": "Buyer-specific start date requires confirmation",
+      "evidence_type": "Public provider documentation",
+      "allocation_status": "not_verified",
+      "free_gpu_count": null,
+      "checked_at": "2026-11-12",
+      "review_due": "2026-12-12",
+      "source_published_at": null,
+      "notes": "Regions describe supported platforms, not free capacity. An assigned capacity block and compatible fabric must be confirmed.",
+      "source_ids": [
+        "nebius-fabric",
+        "nebius-region",
+        "nebius-reserve"
+      ]
+    },
+    {
+      "id": "nebius-h200-reserved",
+      "provider": "Nebius",
+      "provider_role": "Cloud service provider",
+      "gpu_model": "H200",
+      "platform": "H200 NVLink",
+      "platform_unit": "8-GPU VM",
+      "published_scale": "Cluster size not specified",
+      "location": "Public-region platform matrix: Finland, France and US (eu-north1, eu-west1, us-central1)",
+      "regions": [
+        "Europe",
+        "North America"
+      ],
+      "fabric": "InfiniBand; 400 Gb/s per GPU NIC, 3.2 Tb/s per 8-GPU node",
+      "term": "Quantity and period agreed with Nebius manager",
+      "delivery_window": "Buyer-specific start date requires confirmation",
+      "evidence_type": "Public provider documentation",
+      "allocation_status": "not_verified",
+      "free_gpu_count": null,
+      "checked_at": "2026-11-12",
+      "review_due": "2026-12-12",
+      "source_published_at": null,
+      "notes": "Regions describe supported platforms, not free capacity. An assigned capacity block and compatible fabric must be confirmed.",
+      "source_ids": [
+        "nebius-fabric",
+        "nebius-region",
+        "nebius-reserve"
+      ]
+    },
+    {
+      "id": "nebius-b200-reserved",
+      "provider": "Nebius",
+      "provider_role": "Cloud service provider",
+      "gpu_model": "B200",
+      "platform": "B200 NVLink",
+      "platform_unit": "8-GPU VM",
+      "published_scale": "Cluster size not specified",
+      "location": "Public-region platform matrix: Israel and US (me-west1, us-central1)",
+      "regions": [
+        "Middle East",
+        "North America"
+      ],
+      "fabric": "InfiniBand; 400 Gb/s per GPU NIC, 3.2 Tb/s per 8-GPU node",
+      "term": "Quantity and period agreed with Nebius manager",
+      "delivery_window": "Buyer-specific start date requires confirmation",
+      "evidence_type": "Public provider documentation",
+      "allocation_status": "not_verified",
+      "free_gpu_count": null,
+      "checked_at": "2026-11-12",
+      "review_due": "2026-12-12",
+      "source_published_at": null,
+      "notes": "Regions describe supported platforms, not free capacity. An assigned capacity block and compatible fabric must be confirmed.",
+      "source_ids": [
+        "nebius-fabric",
+        "nebius-region",
+        "nebius-reserve"
+      ]
+    },
+    {
+      "id": "crusoe-h100-reserved",
+      "provider": "Crusoe",
+      "provider_role": "Cloud service provider",
+      "gpu_model": "H100",
+      "platform": "h100-80gb-sxm-ib.8x",
+      "platform_unit": "8-GPU instance",
+      "published_scale": "Cluster size not specified",
+      "location": "us-east1-a, us-southcentral1-a, eu-iceland1-a",
+      "regions": [
+        "North America",
+        "Europe"
+      ],
+      "fabric": "InfiniBand; 3.2 Tb/s per instance",
+      "term": "Sales-negotiated reserved-instance agreement",
+      "delivery_window": "Buyer-specific start date requires confirmation",
+      "evidence_type": "Public provider documentation",
+      "allocation_status": "not_verified",
+      "free_gpu_count": null,
+      "checked_at": "2026-11-12",
+      "review_due": "2026-12-12",
+      "source_published_at": null,
+      "notes": "Instance and zone support is public. Contiguous allocation, fabric isolation and contract scope require a specific reservation.",
+      "source_ids": [
+        "crusoe-vm",
+        "crusoe-reserve"
+      ]
+    },
+    {
+      "id": "crusoe-h200-reserved",
+      "provider": "Crusoe",
+      "provider_role": "Cloud service provider",
+      "gpu_model": "H200",
+      "platform": "h200-141gb-sxm-ib.8x",
+      "platform_unit": "8-GPU instance",
+      "published_scale": "Cluster size not specified",
+      "location": "eu-iceland1-a",
+      "regions": [
+        "Europe"
+      ],
+      "fabric": "InfiniBand; 3.2 Tb/s per instance",
+      "term": "Sales-negotiated reserved-instance agreement",
+      "delivery_window": "Buyer-specific start date requires confirmation",
+      "evidence_type": "Public provider documentation",
+      "allocation_status": "not_verified",
+      "free_gpu_count": null,
+      "checked_at": "2026-11-12",
+      "review_due": "2026-12-12",
+      "source_published_at": null,
+      "notes": "Instance and zone support is public. Contiguous allocation, fabric isolation and contract scope require a specific reservation.",
+      "source_ids": [
+        "crusoe-vm",
+        "crusoe-reserve"
+      ]
+    },
+    {
+      "id": "crusoe-b200-reserved",
+      "provider": "Crusoe",
+      "provider_role": "Cloud service provider",
+      "gpu_model": "B200",
+      "platform": "b200-180gb-sxm-ib-8x",
+      "platform_unit": "8-GPU instance",
+      "published_scale": "Cluster size not specified",
+      "location": "eu-iceland1-a, eu-norway1-a, us-west1-a",
+      "regions": [
+        "Europe",
+        "North America"
+      ],
+      "fabric": "InfiniBand; 3.2 Tb/s per instance",
+      "term": "Sales-negotiated reserved-instance agreement",
+      "delivery_window": "Buyer-specific start date requires confirmation",
+      "evidence_type": "Public provider documentation",
+      "allocation_status": "not_verified",
+      "free_gpu_count": null,
+      "checked_at": "2026-11-12",
+      "review_due": "2026-12-12",
+      "source_published_at": null,
+      "notes": "Instance and zone support is public. Contiguous allocation, fabric isolation and contract scope require a specific reservation.",
+      "source_ids": [
+        "crusoe-vm",
+        "crusoe-reserve"
+      ]
+    },
+    {
+      "id": "crusoe-b300-reserved",
+      "provider": "Crusoe",
+      "provider_role": "Cloud service provider",
+      "gpu_model": "B300",
+      "platform": "b300-288gb-sxm-ib.8x",
+      "platform_unit": "8-GPU instance",
+      "published_scale": "Cluster size not specified",
+      "location": "eu-iceland1-a",
+      "regions": [
+        "Europe"
+      ],
+      "fabric": "InfiniBand; 6.4 Tb/s per instance",
+      "term": "Sales-negotiated reserved-instance agreement",
+      "delivery_window": "Buyer-specific start date requires confirmation",
+      "evidence_type": "Public provider documentation",
+      "allocation_status": "not_verified",
+      "free_gpu_count": null,
+      "checked_at": "2026-11-12",
+      "review_due": "2026-12-12",
+      "source_published_at": null,
+      "notes": "Instance and zone support is public. Contiguous allocation, fabric isolation and contract scope require a specific reservation.",
+      "source_ids": [
+        "crusoe-vm",
+        "crusoe-reserve"
+      ]
+    },
+    {
+      "id": "coreweave-gb300-reservation",
+      "provider": "CoreWeave",
+      "provider_role": "Cloud service provider",
+      "gpu_model": "GB300",
+      "platform": "GB300 NVL72",
+      "platform_unit": "4-GPU catalog instance",
+      "published_scale": "Full-rack or cluster allocation not specified",
+      "location": "North America and Europe in catalog; exact site not specified",
+      "regions": [
+        "North America",
+        "Europe"
+      ],
+      "fabric": "NVL72 platform; scale-out fabric not specified in cited catalog",
+      "term": "Reservation; Flex Reservations described generally as preview. GB300 eligibility, commercial terms and delivery require confirmation.",
+      "delivery_window": "Buyer-specific start date requires confirmation",
+      "evidence_type": "Public provider documentation",
+      "allocation_status": "not_verified",
+      "free_gpu_count": null,
+      "checked_at": "2026-11-12",
+      "review_due": "2026-12-12",
+      "source_published_at": null,
+      "notes": "The catalog lists a 4-GPU instance on an NVL72 platform. Do not read this as a freely available 72-GPU rack or a confirmed reserved offer.",
+      "source_ids": [
+        "coreweave",
+        "coreweave-reserve"
+      ]
+    },
+    {
+      "id": "voltage-park-h100-dedicated",
+      "provider": "Voltage Park",
+      "provider_role": "Cloud service provider",
+      "gpu_model": "H100",
+      "platform": "NVIDIA HGX H100",
+      "platform_unit": "Bare-metal platform; node count not stated",
+      "published_scale": "Cluster size not specified",
+      "location": "Not specified in cited product documentation",
+      "regions": [
+        "Not specified"
+      ],
+      "fabric": "Not specified in cited product documentation",
+      "term": "12+ month Dedicated Reserve contract",
+      "delivery_window": "Buyer-specific start date requires confirmation",
+      "evidence_type": "Public provider documentation",
+      "allocation_status": "not_verified",
+      "free_gpu_count": null,
+      "checked_at": "2026-11-12",
+      "review_due": "2026-12-12",
+      "source_published_at": null,
+      "notes": "This documentation is hosted in the Lightning AI help center. Confirm current contracting entity, site, fabric and allocation.",
+      "source_ids": [
+        "voltage"
+      ]
+    }
+  ],
+  "review_date_range": {
+    "start": "2026-11-12",
+    "end": "2026-11-12"
+  },
+  "date_semantics": {
+    "checked_at": "Earliest record source-review date. This does not mean all records were reviewed on that day.",
+    "review_due": "Earliest record review deadline. Individual record dates are authoritative.",
+    "review_date_range": "Earliest and latest record source-review dates, not a capacity-availability interval.",
+    "sources_checked_at": "Source-page review date only; it does not renew every referencing record. Lambda pages moved from lambda.ai to lambda.com (301) and are cited at their current address."
+  }
+}

@@ -1,0 +1,101 @@
+.quote-comparator-page { --muted: #aaa592; }
+.qc-skip { position: fixed; top: -100px; left: 20px; z-index: 100; background: var(--gold); color: #000; padding: 14px; }
+.qc-skip:focus { top: 10px; }
+.qc-hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: end; padding-block: 64px 38px; }
+.qc-hero h1 { font-size: clamp(38px, 5vw, 70px); line-height: 1.08; max-width: 20ch; }
+.qc-hero h1 span { color: var(--gold); }
+.qc-hero p { color: var(--muted-bright); max-width: 54ch; font-size: 18px; }
+.qc-note { padding: 20px 24px; border: 1px solid var(--line); background: var(--panel); color: var(--muted-bright); font-size: 14px; }
+.qc-note strong { color: var(--text); }
+.qc-workspace, .qc-results, .qc-method { padding-block: 56px; border-bottom: 1px solid var(--line); }
+.qc-toolbar { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 24px; }
+.qc-toolbar h2, .qc-method h2, .qc-cta h2 { font-size: clamp(27px, 3vw, 38px); line-height: 1.2; }
+.qc-toolbar .eyebrow, .qc-cta .eyebrow, .qc-method .eyebrow { margin-bottom: 12px; }
+#results-title, #validation-errors, #quote-form { scroll-margin-top: 100px; }
+.qc-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.qc-help { color: var(--muted-bright); font-size: 14px; line-height: 1.6; margin-block: 16px 24px; }
+.qc-editors { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.qc-editor { border: 1px solid var(--line-strong); background: var(--panel); min-width: 0; }
+.qc-editor-head { padding: 20px 24px; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; }
+.qc-editor h3 { font-size: 25px; }
+.qc-editor-head span { color: var(--gold); font: 11px var(--mono); letter-spacing: .12em; }
+.qc-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 20px; padding: 24px; }
+.qc-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.qc-field-wide { grid-column: 1/-1; }
+.qc-field label, .qc-fee-title { font-size: 13px; color: var(--muted-bright); line-height: 1.45; }
+.qc-field input, .qc-field select { width: 100%; min-height: 46px; border: 1px solid var(--line-strong); background: #060604; color: var(--text); padding: 10px 12px; font-size: 14px; border-radius: 0; }
+.qc-field select { padding-right: 22px; }
+.qc-field input:disabled { opacity: .4; background: #111; }
+.qc-field small { color: var(--muted); font-size: 11px; line-height: 1.5; }
+.qc-editor details { border-top: 1px solid var(--line); }
+.qc-editor summary { padding: 16px 24px; cursor: pointer; font-size: 14px; color: var(--gold-bright); }
+.qc-editor summary::marker { color: var(--gold); }
+.qc-editor details .qc-fields { padding-top: 4px; }
+.qc-fee { grid-column: 1/-1; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 10px 16px; }
+.qc-fee-title { grid-column: 1/-1; color: var(--text); }
+.qc-compare-bar { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin-top: 22px; padding: 22px 24px; background: var(--panel-2); border: 1px solid var(--line); }
+.qc-compare-bar p { color: var(--muted-bright); font-size: 13px; max-width: 66ch; }
+.qc-compare-bar button { flex-shrink: 0; }
+.qc-warning, .qc-example { background: #171309; border: 1px solid #8b7845; color: #eee2b2; padding: 18px 22px; font-size: 14px; margin-block: 20px; }
+.qc-warning h3 { margin-bottom: 8px; font-size: 18px; }
+.qc-warning ul { margin-left: 20px; }
+.qc-warning li + li { margin-top: 5px; }
+.qc-example strong { color: #fff; }
+.qc-sheet-header { padding: 24px 0; border-bottom: 1px solid var(--line); }
+.qc-sheet-header h3 { font-size: 24px; }
+.qc-sheet-header p { font-size: 13px; color: var(--muted-bright); margin-top: 6px; }
+.qc-summary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-block: 24px; }
+.qc-summary article { border: 1px solid var(--line-strong); padding: 24px; background: var(--panel); }
+.qc-summary h4 { font-size: 22px; margin-bottom: 20px; }
+.qc-metric { margin-block: 16px; }
+.qc-metric span { display: block; font-size: 12px; color: var(--muted-bright); }
+.qc-metric strong { display: block; font: 500 clamp(23px, 3vw, 36px)/1.35 var(--display); color: var(--gold-bright); overflow-wrap: anywhere; }
+.qc-metric small { display: block; color: var(--muted-bright); margin-top: 4px; line-height: 1.5; }
+.qc-table-wrap { overflow-x: auto; margin-block: 26px; }
+.qc-table { width: 100%; border-collapse: collapse; font-size: 13px; table-layout: fixed; }
+.qc-table caption { text-align: left; margin-bottom: 12px; color: var(--gold-bright); font-size: 17px; font-weight: 600; }
+.qc-table th, .qc-table td { border: 1px solid var(--line); padding: 13px 16px; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.qc-table th { font-weight: 500; color: var(--muted-bright); }
+.qc-table thead { background: var(--panel-2); }
+.qc-table tbody tr:nth-child(even) { background: rgba(15, 14, 10, .7); }
+.qc-sheet-notes { color: var(--muted-bright); font-size: 13px; }
+.qc-sheet-notes p { margin-block: 10px; }
+.qc-sheet-notes strong { color: var(--text); }
+.qc-method-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 30px; margin-top: 30px; }
+.qc-method-grid h3 { font-size: 19px; margin-bottom: 10px; }
+.qc-method-grid p, .qc-cta p { color: var(--muted-bright); font-size: 14px; }
+.qc-cta { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; padding-block: 56px; align-items: center; }
+.qc-cta p { margin-top: 16px; max-width: 62ch; }
+.qc-cta .qc-actions { justify-content: end; }
+.quote-comparator-page :focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 4px; }
+.quote-comparator-page [hidden] { display: none !important; }
+.quote-comparator-page button:disabled { opacity: .4; cursor: not-allowed; }
+@media(max-width: 900px) { .qc-hero { gap: 28px; } .qc-toolbar { align-items: start; flex-direction: column; } .qc-fields { padding: 20px; gap: 14px; } .qc-method-grid { grid-template-columns: 1fr; gap: 24px; } .qc-cta { grid-template-columns: 1fr; } .qc-cta .qc-actions { justify-content: start; } }
+@media(max-width: 680px) { .quote-comparator-page .wrap { width: calc(100% - 32px); } .qc-hero, .qc-editors, .qc-summary { grid-template-columns: 1fr; } .qc-hero { padding-top: 40px; } .qc-hero p { font-size: 16px; } .qc-compare-bar { align-items: stretch; flex-direction: column; gap: 18px; } .qc-workspace, .qc-results, .qc-method { padding-block: 36px; } .qc-table th, .qc-table td { padding: 10px 8px; font-size: 12px; } .qc-table { min-width: 510px; } }
+@media print {
+  @page { size: A4; margin: 15mm 13mm; }
+  html, body.quote-comparator-page { background: #fff !important; color: #111 !important; font-size: 10pt; }
+  .og-site-header, .og-site-footer, .qc-skip, .breadcrumbs, .qc-hero, .qc-note, .qc-workspace, .qc-method, .qc-cta, .qc-results > .qc-toolbar, #result-status { display: none !important; }
+  .quote-comparator-page .wrap { width: 100%; max-width: none; }
+.qc-results { padding: 0; border: 0; }
+  .qc-results * { color: #111 !important; }
+  .qc-sheet-header { padding: 0 0 12px; }
+  .qc-summary { gap: 14px; margin: 16px 0; }
+  .qc-summary article, .qc-warning, .qc-example, .qc-table thead, .qc-table tbody tr:nth-child(even) { background: #fff !important; }
+  .qc-summary article { padding: 14px; }
+  .qc-summary h4 { margin-bottom: 8px; }
+  .qc-metric { margin-block: 9px; }
+  .qc-metric strong { font-size: 20pt; }
+  .qc-sheet-header p, .qc-summary *, .qc-sheet-notes *, .qc-table *, .qc-warning, .qc-warning *, .qc-example, .qc-example *, .qc-ok, .qc-metric strong { color: #111 !important; }
+  .qc-summary article, .qc-warning, .qc-example, .qc-table th, .qc-table td, .qc-sheet-header { border-color: #bbb; }
+  .qc-table-wrap { overflow: visible; margin-block: 18px; }
+  .qc-table { min-width: 0; font-size: 9pt; }
+  .qc-table th, .qc-table td { padding: 7px 9px; font-size: 9pt; }
+  .qc-table th, .qc-table td { border: 1px solid #bbb !important; }
+  .qc-example { break-inside: avoid; }
+  .qc-table tr, .qc-summary article, .qc-sheet-header, .qc-warning { break-inside: avoid; }
+  .qc-sheet-notes { font-size: 9pt; }
+  .qc-warning { padding: 10px 14px; font-size: 9pt; }
+  h3, h4, caption { break-after: avoid; }
+  a { color: #111; }
+}

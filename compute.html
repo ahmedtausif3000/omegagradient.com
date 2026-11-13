@@ -72,7 +72,7 @@
       "name": "Which GPUs are available right now?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Inventory spans consumer and datacenter silicon — budget cards, RTX-class workstations, and H100-class accelerators — as containers, VMs, and bare metal across regions worldwide. The catalog refreshes every few minutes; the live list above is the source of truth. For market-rate context, see the GPU supplier pricing report."
+        "text": "Inventory spans consumer and datacenter silicon — budget cards, RTX-class workstations, and H100-class accelerators — as containers, VMs, and bare metal across regions worldwide. The catalog reports its last successful observation time. Recheck before ordering; a stale or unavailable catalog does not confirm capacity. For market-rate context, see the GPU supplier pricing report."
       }
     },
     {
@@ -92,7 +92,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./market.css">
-  <link rel="stylesheet" href="/site-chrome.css?v=20261026-1">
+  <link rel="stylesheet" href="/site-chrome.css?v=20261112-growth-2">
 </head>
 <body>
 
@@ -112,6 +112,7 @@
       <details class="og-nav-menu">
           <summary>Guides<span aria-hidden="true">+</span></summary>
           <div class="og-nav-panel">
+            <a href="/clusters/quote-comparator.html" data-og-area="header" data-og-link="compare_reserved_quotes">Compare reserved quotes</a>
             <a href="/clusters/reserved-vs-on-demand.html" data-og-area="header" data-og-link="reserved_vs_on_demand">Reserved vs. on-demand</a>
             <a href="/clusters/hopper-h100-h200.html" data-og-area="header" data-og-link="h100_h200">H100 &amp; H200</a>
             <a href="/clusters/blackwell-b200-b300.html" data-og-area="header" data-og-link="b200_b300_gb300">B200, B300 &amp; GB300</a>
@@ -122,6 +123,7 @@
       <details class="og-nav-menu">
           <summary>Market data<span aria-hidden="true">+</span></summary>
           <div class="og-nav-panel">
+            <a href="/clusters/capacity-index.html" data-og-area="header" data-og-link="capacity_evidence_index">Capacity evidence index</a>
             <a href="/research/reserved-gpu-market-report-2026-q3.html" data-og-area="header" data-og-link="reserved_market_report">Reserved market report</a>
             <a href="/gpus/" data-og-area="header" data-og-link="gpu_price_index">GPU price index</a>
             <a href="/gpus/availability.html" data-og-area="header" data-og-link="marketplace_snapshot">Marketplace snapshot</a>
@@ -226,8 +228,8 @@
     <h2>Dated catalog snapshot</h2>
     <!-- generated compute snapshot fragment: inject into compute.html #live-snapshot -->
 <section class="aeo-snapshot" id="live-snapshot-content">
-  <p class="snapshot-meta mono">99 listings · from $0.08/GPU/hr · snapshot 2026-11-12</p>
-  <p>Top 40 of 99 sampled listings (flagship GPUs first). Full sortable board above requires JavaScript; this table is the dated static snapshot. Complete list: <a href="/gpus/availability.html">GPU availability snapshot</a>.</p>
+  <p class="snapshot-meta mono">93 listings · from $0.07/GPU/hr · snapshot 2026-11-13</p>
+  <p>Top 40 of 93 sampled listings (flagship GPUs first). Full sortable board above requires JavaScript; this table is the dated static snapshot. Complete list: <a href="/gpus/availability.html">GPU availability snapshot</a>.</p>
   <div class="snapshot-table-scroll panel">
   <table>
     <thead><tr><th>GPU</th><th>Count</th><th>vRAM</th><th>Region</th><th>Fabric</th><th>$/GPU/hr</th><th>Instance $/hr</th></tr></thead>
@@ -245,37 +247,19 @@
   <td>B200</td>
   <td>1×</td>
   <td>179 GB</td>
-  <td>US · West</td>
+  <td>US · East</td>
   <td>NVLink</td>
-  <td>$6.59/GPU/hr</td>
-  <td>$6.59/hr</td>
-</tr>
-<tr>
-  <td>B200</td>
-  <td>2×</td>
-  <td>179 GB</td>
-  <td>US · West</td>
-  <td>PCIe</td>
-  <td>$7.88/GPU/hr</td>
-  <td>$15.77/hr</td>
+  <td>$7.07/GPU/hr</td>
+  <td>$7.07/hr</td>
 </tr>
 <tr>
   <td>B200</td>
   <td>1×</td>
   <td>179 GB</td>
-  <td>US · East</td>
+  <td>US · West</td>
   <td>NVLink</td>
-  <td>$8.46/GPU/hr</td>
-  <td>$8.46/hr</td>
-</tr>
-<tr>
-  <td>B200</td>
-  <td>8×</td>
-  <td>179 GB</td>
-  <td>US · Central</td>
-  <td>NVLink</td>
-  <td>$9.19/GPU/hr</td>
-  <td>$73.52/hr</td>
+  <td>$7.90/GPU/hr</td>
+  <td>$7.90/hr</td>
 </tr>
 <tr>
   <td>B200</td>
@@ -296,13 +280,22 @@
   <td>$18.40/hr</td>
 </tr>
 <tr>
+  <td>B200</td>
+  <td>8×</td>
+  <td>179 GB</td>
+  <td>US · West</td>
+  <td>NVLink</td>
+  <td>$11.82/GPU/hr</td>
+  <td>$94.59/hr</td>
+</tr>
+<tr>
   <td>GB200</td>
-  <td>2×</td>
+  <td>4×</td>
   <td>185 GB</td>
   <td>Asia · Southeast</td>
   <td>NVLink</td>
-  <td>$9.23/GPU/hr</td>
-  <td>$18.47/hr</td>
+  <td>$9.87/GPU/hr</td>
+  <td>$39.47/hr</td>
 </tr>
 <tr>
   <td>GB200</td>
@@ -315,39 +308,48 @@
 </tr>
 <tr>
   <td>H200</td>
+  <td>1×</td>
+  <td>140 GB</td>
+  <td>US · Central</td>
+  <td>NVLink</td>
+  <td>$3.51/GPU/hr</td>
+  <td>$3.51/hr</td>
+</tr>
+<tr>
+  <td>H200</td>
   <td>2×</td>
   <td>140 GB</td>
-  <td>Europe · East</td>
+  <td>Europe · South</td>
   <td>NVLink</td>
-  <td>$3.90/GPU/hr</td>
-  <td>$7.80/hr</td>
+  <td>$3.81/GPU/hr</td>
+  <td>$7.61/hr</td>
 </tr>
 <tr>
   <td>H200</td>
   <td>1×</td>
   <td>140 GB</td>
-  <td>Europe · East</td>
+  <td>Europe · South</td>
   <td>NVLink</td>
-  <td>$3.93/GPU/hr</td>
-  <td>$3.93/hr</td>
+  <td>$3.83/GPU/hr</td>
+  <td>$3.83/hr</td>
 </tr>
 <tr>
   <td>H200</td>
-  <td>2×</td>
+  <td>1×</td>
   <td>140 GB</td>
-  <td>US · Central</td>
+  <td>US · East</td>
   <td>PCIe</td>
-  <td>$5.47/GPU/hr</td>
-  <td>$10.94/hr</td>
+  <td>$4.10/GPU/hr</td>
+  <td>$4.10/hr</td>
 </tr>
 <tr>
   <td>H200</td>
-  <td>1×</td>
+  <td>4×</td>
   <td>140 GB</td>
   <td>US · Central</td>
   <td>NVLink</td>
-  <td>$5.54/GPU/hr</td>
-  <td>$5.54/hr</td>
+  <td>$6.48/GPU/hr</td>
+  <td>$25.92/hr</td>
 </tr>
 <tr>
   <td>H200</td>
@@ -361,29 +363,20 @@
 <tr>
   <td>H100</td>
   <td>1×</td>
-  <td>94 GB</td>
-  <td>US · Central</td>
-  <td>PCIe</td>
-  <td>$3.16/GPU/hr</td>
-  <td>$3.16/hr</td>
-</tr>
-<tr>
-  <td>H100</td>
-  <td>1×</td>
   <td>80 GB</td>
-  <td>Africa</td>
-  <td>PCIe</td>
-  <td>$3.18/GPU/hr</td>
-  <td>$3.18/hr</td>
-</tr>
-<tr>
-  <td>H100</td>
-  <td>1×</td>
-  <td>80 GB</td>
-  <td>Oceania</td>
+  <td>Europe · West</td>
   <td>NVLink</td>
-  <td>$4.22/GPU/hr</td>
-  <td>$4.22/hr</td>
+  <td>$2.33/GPU/hr</td>
+  <td>$2.33/hr</td>
+</tr>
+<tr>
+  <td>H100</td>
+  <td>8×</td>
+  <td>80 GB</td>
+  <td>Canada</td>
+  <td>NVLink</td>
+  <td>$2.73/GPU/hr</td>
+  <td>$21.84/hr</td>
 </tr>
 <tr>
   <td>H100</td>
@@ -391,17 +384,17 @@
   <td>80 GB</td>
   <td>Europe · East</td>
   <td>NVLink</td>
-  <td>$4.39/GPU/hr</td>
-  <td>$4.39/hr</td>
+  <td>$3.01/GPU/hr</td>
+  <td>$3.01/hr</td>
 </tr>
 <tr>
   <td>H100</td>
-  <td>2×</td>
+  <td>4×</td>
   <td>80 GB</td>
   <td>US · East</td>
   <td>SXM</td>
-  <td>$4.40/GPU/hr</td>
-  <td>$8.80/hr</td>
+  <td>$4.29/GPU/hr</td>
+  <td>$17.18/hr</td>
 </tr>
 <tr>
   <td>H100</td>
@@ -409,8 +402,17 @@
   <td>80 GB</td>
   <td>Europe · East</td>
   <td>NVLink</td>
-  <td>$5.50/GPU/hr</td>
-  <td>$10.99/hr</td>
+  <td>$4.65/GPU/hr</td>
+  <td>$9.30/hr</td>
+</tr>
+<tr>
+  <td>H100</td>
+  <td>1×</td>
+  <td>80 GB</td>
+  <td>US · Central</td>
+  <td>NVLink</td>
+  <td>$4.71/GPU/hr</td>
+  <td>$4.71/hr</td>
 </tr>
 <tr>
   <td>H100</td>
@@ -432,12 +434,12 @@
 </tr>
 <tr>
   <td>A100-80G</td>
-  <td>1×</td>
+  <td>8×</td>
   <td>80 GB</td>
-  <td>Canada</td>
-  <td>PCIe</td>
+  <td>Global · flexible</td>
+  <td>SXM</td>
   <td>$1.42/GPU/hr</td>
-  <td>$1.42/hr</td>
+  <td>$11.34/hr</td>
 </tr>
 <tr>
   <td>A100-80G</td>
@@ -452,42 +454,6 @@
   <td>A100-80G</td>
   <td>1×</td>
   <td>80 GB</td>
-  <td>Global · flexible</td>
-  <td>SXM</td>
-  <td>$1.95/GPU/hr</td>
-  <td>$1.95/hr</td>
-</tr>
-<tr>
-  <td>A100-80G</td>
-  <td>2×</td>
-  <td>80 GB</td>
-  <td>Global · flexible</td>
-  <td>SXM</td>
-  <td>$1.95/GPU/hr</td>
-  <td>$3.90/hr</td>
-</tr>
-<tr>
-  <td>A100-80G</td>
-  <td>2×</td>
-  <td>80 GB</td>
-  <td>US · Central</td>
-  <td>PCIe</td>
-  <td>$2.10/GPU/hr</td>
-  <td>$4.20/hr</td>
-</tr>
-<tr>
-  <td>A100-80G</td>
-  <td>4×</td>
-  <td>80 GB</td>
-  <td>US · Central</td>
-  <td>PCIe</td>
-  <td>$2.10/GPU/hr</td>
-  <td>$8.40/hr</td>
-</tr>
-<tr>
-  <td>A100-80G</td>
-  <td>1×</td>
-  <td>80 GB</td>
   <td>US · East</td>
   <td>SXM</td>
   <td>$3.45/GPU/hr</td>
@@ -497,28 +463,28 @@
   <td>A100</td>
   <td>2×</td>
   <td>40 GB</td>
-  <td>US · West</td>
+  <td>Asia · Northeast</td>
   <td>PCIe</td>
-  <td>$0.71/GPU/hr</td>
-  <td>$1.42/hr</td>
+  <td>$0.44/GPU/hr</td>
+  <td>$0.88/hr</td>
 </tr>
 <tr>
   <td>A100</td>
-  <td>1×</td>
-  <td>40 GB</td>
-  <td>US · West</td>
-  <td>PCIe</td>
-  <td>$0.72/GPU/hr</td>
-  <td>$0.72/hr</td>
-</tr>
-<tr>
-  <td>A100</td>
-  <td>1×</td>
+  <td>2×</td>
   <td>40 GB</td>
   <td>US · Central</td>
   <td>NVLink</td>
-  <td>$0.72/GPU/hr</td>
-  <td>$0.72/hr</td>
+  <td>$0.99/GPU/hr</td>
+  <td>$1.98/hr</td>
+</tr>
+<tr>
+  <td>A100</td>
+  <td>1×</td>
+  <td>80 GB</td>
+  <td>Europe · East</td>
+  <td>NVLink</td>
+  <td>$1.18/GPU/hr</td>
+  <td>$1.18/hr</td>
 </tr>
 <tr>
   <td>A100</td>
@@ -526,17 +492,8 @@
   <td>40 GB</td>
   <td>Global · flexible</td>
   <td>SXM</td>
-  <td>$1.43/GPU/hr</td>
-  <td>$1.43/hr</td>
-</tr>
-<tr>
-  <td>A100</td>
-  <td>2×</td>
-  <td>80 GB</td>
-  <td>US · Central</td>
-  <td>NVLink</td>
-  <td>$1.45/GPU/hr</td>
-  <td>$2.90/hr</td>
+  <td>$1.47/GPU/hr</td>
+  <td>$1.47/hr</td>
 </tr>
 <tr>
   <td>A100</td>
@@ -549,21 +506,39 @@
 </tr>
 <tr>
   <td>A100</td>
+  <td>2×</td>
+  <td>80 GB</td>
+  <td>US · East</td>
+  <td>NVLink</td>
+  <td>$1.49/GPU/hr</td>
+  <td>$2.98/hr</td>
+</tr>
+<tr>
+  <td>A100</td>
+  <td>1×</td>
+  <td>80 GB</td>
+  <td>US · East</td>
+  <td>NVLink</td>
+  <td>$1.52/GPU/hr</td>
+  <td>$1.52/hr</td>
+</tr>
+<tr>
+  <td>A100</td>
   <td>1×</td>
   <td>40 GB</td>
-  <td>US · East</td>
+  <td>India</td>
   <td>SXM</td>
   <td>$2.09/GPU/hr</td>
   <td>$2.09/hr</td>
 </tr>
 <tr>
   <td>A100</td>
-  <td>8×</td>
+  <td>1×</td>
   <td>40 GB</td>
-  <td>US · East</td>
-  <td>PCIe</td>
+  <td>US · West</td>
+  <td>SXM</td>
   <td>$2.09/GPU/hr</td>
-  <td>$16.72/hr</td>
+  <td>$2.09/hr</td>
 </tr>
 <tr>
   <td>A100</td>
@@ -575,22 +550,49 @@
   <td>$16.72/hr</td>
 </tr>
 <tr>
-  <td>A100</td>
-  <td>8×</td>
-  <td>40 GB</td>
+  <td>RTX PRO 6000</td>
+  <td>1×</td>
+  <td>96 GB</td>
+  <td>Europe · East</td>
+  <td>PCIe</td>
+  <td>$1.34/GPU/hr</td>
+  <td>$1.34/hr</td>
+</tr>
+<tr>
+  <td>RTX PRO 6000</td>
+  <td>1×</td>
+  <td>96 GB</td>
   <td>US · Central</td>
   <td>PCIe</td>
-  <td>$2.09/GPU/hr</td>
-  <td>$16.72/hr</td>
+  <td>$1.43/GPU/hr</td>
+  <td>$1.43/hr</td>
+</tr>
+<tr>
+  <td>RTX PRO 6000</td>
+  <td>1×</td>
+  <td>96 GB</td>
+  <td>Global · flexible</td>
+  <td>PCIe</td>
+  <td>$1.47/GPU/hr</td>
+  <td>$1.47/hr</td>
+</tr>
+<tr>
+  <td>RTX PRO 6000</td>
+  <td>1×</td>
+  <td>96 GB</td>
+  <td>US · East</td>
+  <td>PCIe</td>
+  <td>$1.53/GPU/hr</td>
+  <td>$1.53/hr</td>
 </tr>
 <tr>
   <td>RTX PRO 6000</td>
   <td>2×</td>
   <td>96 GB</td>
-  <td>US · Central</td>
+  <td>Europe · East</td>
   <td>PCIe</td>
-  <td>$1.42/GPU/hr</td>
-  <td>$2.83/hr</td>
+  <td>$1.64/GPU/hr</td>
+  <td>$3.27/hr</td>
 </tr>
     </tbody>
   </table>
@@ -617,7 +619,7 @@
       <details class="faq-item panel">
         <summary><h3>Which GPUs are available right now?</h3></summary>
         <div class="faq-answer">
-          <p>Inventory spans consumer and datacenter silicon — budget cards, RTX-class workstations, and H100-class accelerators — as containers, VMs, and bare metal across regions worldwide. The catalog refreshes every few minutes; the live list above is the source of truth. For market-rate context, see the <a href="./gpu-supplier-pricing.html">GPU supplier pricing report</a>.</p>
+          <p>Inventory spans consumer and datacenter silicon — budget cards, RTX-class workstations, and H100-class accelerators — as containers, VMs, and bare metal across regions worldwide. The catalog reports its last successful observation time. Recheck before ordering; a stale or unavailable catalog does not confirm capacity. For market-rate context, see the <a href="./gpu-supplier-pricing.html">GPU supplier pricing report</a>.</p>
         </div>
       </details>
       <details class="faq-item panel">
@@ -636,6 +638,8 @@
     <div class="og-footer-grid">
       <div class="og-footer-col">
         <h2>Reserved</h2>
+        <a href="/clusters/capacity-index.html" data-og-area="footer" data-og-link="reserved_capacity_evidence_index">Capacity evidence index</a>
+        <a href="/clusters/quote-comparator.html" data-og-area="footer" data-og-link="reserved_compare_reserved_quotes">Compare reserved quotes</a>
         <a href="/clusters/" data-og-area="footer" data-og-link="reserved_reserved_clusters">Reserved clusters</a>
         <a href="/clusters/how-we-qualify.html" data-og-area="footer" data-og-link="reserved_how_we_qualify">How we qualify</a>
         <a href="/clusters/reserved-vs-on-demand.html" data-og-area="footer" data-og-link="reserved_reserved_vs_on_demand">Reserved vs. on-demand</a>
@@ -768,10 +772,11 @@
   }
 
   function render() {
+    if (!catalogIsFresh()) { showCatalogUnavailable(); return; }
     const list = sortListings(applyFilters());
     countEl.textContent = list.length === all.length ? all.length + " configurations" : list.length + " of " + all.length;
     if (!list.length) {
-      rowsEl.innerHTML = '<div class="empty-state">No configurations match these filters right now.<br>Inventory refreshes every few minutes — try widening the search.</div>';
+      rowsEl.innerHTML = '<div class="empty-state">No configurations match these filters right now.<br>Recheck current inventory before ordering — try widening the search.</div>';
       return;
     }
     rowsEl.innerHTML = list
@@ -795,10 +800,28 @@
       .join("");
   }
 
+  // Fail closed: inventory older than one hour, a future/invalid timestamp or a
+  // failed reload is not shown as deployable. A static page must never imply
+  // capacity the catalog has not confirmed recently.
+  function catalogIsFresh() {
+    const ageMs = Date.now() - Date.parse(refreshedAt || "");
+    return !catalogUnavailable && Number.isFinite(ageMs) && ageMs >= -300000 && ageMs <= 3600000;
+  }
+
+  function showCatalogUnavailable() {
+    all = [];
+    const stamp = Number.isFinite(Date.parse(refreshedAt)) ? new Date(refreshedAt).toISOString() : "unavailable";
+    rowsEl.innerHTML = '<div class="empty-state">Current inventory is not verified. The latest catalog observation is ' + stamp + '. Please check again later or <a href="/clusters/#request">request capacity</a>.</div>';
+    countEl.textContent = '0 verified configurations';
+    document.getElementById("refresh-note").textContent = 'Catalog stale or unavailable — allocation must be rechecked';
+    if (selected) { selected = null; overlay.classList.remove("open"); }
+  }
+
   function paintRefreshNote() {
+    if (!catalogIsFresh()) { showCatalogUnavailable(); return; }
     const note = document.getElementById("refresh-note");
     const ago = refreshedAt ? " · updated " + timeAgo(refreshedAt) : "";
-    note.innerHTML = '<span class="dot">●</span> ' + all.length + " live configurations" + ago;
+    note.innerHTML = '<span class="dot">●</span> ' + all.length + " observed configurations" + ago;
   }
 
   function buildFilters() {
@@ -885,6 +908,7 @@
   });
 
   function openDeploy() {
+    if (!selected || !catalogIsFresh()) { showCatalogUnavailable(); return; }
     const l = selected;
     const eta = l.etaSeconds ? '<div class="srow"><span class="k">Typical boot</span><span class="v">~' + fmtDuration(l.etaSeconds) + "</span></div>" : "";
     document.getElementById("deploy-summary").innerHTML =
@@ -961,6 +985,7 @@
     event.preventDefault();
     const btn = document.getElementById("dep-launch");
     if (btn.disabled) return;
+    if (!selected || !catalogIsFresh()) { showCatalogUnavailable(); return; }
     const errEl = document.getElementById("dep-error");
     errEl.textContent = "";
     altsEl.innerHTML = "";
@@ -1041,18 +1066,22 @@
   }
 
   let loadedOnce = false;
+  let catalogUnavailable = true;
   async function load() {
     if (!loadedOnce) showSkeleton();
     try {
       const data = await api("/catalog");
-      all = data.listings || [];
       refreshedAt = data.refreshedAt;
+      catalogUnavailable = !Array.isArray(data.listings);
+      if (!catalogIsFresh()) { showCatalogUnavailable(); return; }
+      all = data.listings || [];
       if (!loadedOnce) buildFilters();
       loadedOnce = true;
       render();
       paintRefreshNote();
     } catch (e) {
-      if (!loadedOnce) rowsEl.innerHTML = '<div class="empty-state">Could not load inventory — please retry in a moment.</div>';
+      catalogUnavailable = true;
+      showCatalogUnavailable();
     }
   }
 
@@ -1063,6 +1092,6 @@
   setInterval(paintRefreshNote, 30000);
 })();
 </script>
-  <script src="/site-chrome.js?v=20261026-1" defer></script>
+  <script src="/site-chrome.js?v=20261112-growth-2" defer></script>
 </body>
 </html>

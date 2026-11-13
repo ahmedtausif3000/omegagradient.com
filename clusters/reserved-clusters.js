@@ -21,40 +21,9 @@
     node.textContent = String(new Date().getFullYear());
   });
 
-  var trackingEndpoint = "https://track.omegagradient.com/g/events";
-  var canonicalNode = document.querySelector('link[rel="canonical"]');
-  var canonicalUrl = canonicalNode ? canonicalNode.href : window.location.href.split("#")[0];
-  var sourcePath = "/";
-  var referrerOrigin = "";
-  try { sourcePath = new URL(canonicalUrl, window.location.origin).pathname; } catch (_) {}
-  try { referrerOrigin = document.referrer ? new URL(document.referrer).origin : ""; } catch (_) {}
-
   function trackEvent(eventType) {
-    var params = new URLSearchParams(window.location.search);
-    var payload = JSON.stringify({
-      event_type: eventType,
-      source_url: canonicalUrl,
-      referrer: referrerOrigin,
-      utm_source: params.get("utm_source") || "",
-      utm_medium: params.get("utm_medium") || "",
-      utm_campaign: params.get("utm_campaign") || "",
-      utm_content: params.get("utm_content") || "",
-      content_asset_id: sourcePath
-    });
-
-    if (navigator.sendBeacon) {
-      var queued = navigator.sendBeacon(trackingEndpoint, new Blob([payload], { type: "text/plain;charset=UTF-8" }));
-      if (queued) return;
-    }
-    fetch(trackingEndpoint, {
-      method: "POST",
-      body: payload,
-      keepalive: true,
-      credentials: "omit"
-    }).catch(function () {});
+    if (window.OmegaAcquisition) window.OmegaAcquisition.track(eventType, { form_type: "reserved_cluster" });
   }
-
-  trackEvent("reserved_page_view");
 
   document.querySelectorAll("[data-print-checklist]").forEach(function (button) {
     button.addEventListener("click", function () {
@@ -80,6 +49,16 @@
 
   var form = document.querySelector("#clusterRequestForm");
   if (!form) return;
+  var requestedModel = new URLSearchParams(window.location.search).get("gpu_model");
+  // Both this file and site-chrome.js are deferred in document order, so the shared
+  // module may not exist yet; normalize locally with the same rule when it is absent.
+  requestedModel = window.OmegaAcquisition ? window.OmegaAcquisition.normalizeGpuModel(requestedModel) : (function (value) {
+    var model = String(value || "").trim().toUpperCase();
+    if (model === "GB200" || model === "GB300") model += " NVL72";
+    return ["H100", "H200", "B200", "B300", "GB200 NVL72", "GB300 NVL72", "A100", "MI300X", "MI355X"].indexOf(model) >= 0 ? model : "";
+  })(requestedModel);
+  var gpuSelect = form.querySelector('select[name="gpu"]');
+  if (gpuSelect && requestedModel && Array.from(gpuSelect.options).some(function (option) { return option.value === requestedModel; })) gpuSelect.value = requestedModel;
   var status = document.querySelector("#clusterRequestStatus");
   var submit = form.querySelector('button[type="submit"]');
   var defaultText = submit ? submit.textContent : "Send requirements";
@@ -125,7 +104,8 @@
       need: "Reserved GPU cluster",
       requirements: details,
       website: data.get("website") || "",
-      page_url: window.location.href
+      page_url: window.location.href,
+      discovery_source: data.get("discovery-source") || ""
     };
 
     if (submit) {
@@ -135,18 +115,12 @@
     setStatus("Submitting your cluster brief...", "neutral");
 
     try {
-      var response = await fetch(form.dataset.endpoint || "/api/capacity-request", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(payload)
-      });
-      var result = await response.json().catch(function () { return {}; });
-      if (!response.ok || !result.ok) throw new Error(result.error || "Submission failed");
-      trackEvent("cluster_brief_submit");
+      if (!window.OmegaAcquisition) throw new Error("Acquisition module unavailable");
+      var result = await window.OmegaAcquisition.submitCapacity(payload, "reserved_cluster", form.dataset.endpoint);
       form.reset();
       setStatus(result.message || "Requirements received. Omega Gradient will follow up directly.", "success");
     } catch (error) {
-      setStatus("The form could not be submitted. Email tausif@omegagradient.com instead.", "error");
+      setStatus(window.OmegaAcquisition && !window.OmegaAcquisition.isProduction ? "Preview mode: no request was sent." : "The form could not be submitted. Email tausif@omegagradient.com instead.", "error");
     } finally {
       if (submit) {
         submit.disabled = false;

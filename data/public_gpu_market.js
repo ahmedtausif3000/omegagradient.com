@@ -1,6 +1,6 @@
 window.OMEGA_GPU_MARKET = {
   "schema_version": "1.1.0",
-  "generated_at": "2026-11-12T17:02:26.711Z",
+  "generated_at": "2026-11-13T04:05:10.695Z",
   "inventory_generated_at": "2026-11-12T17:02:00.576Z",
   "pricing_generated_at": "2026-11-12T17:02:26.276Z",
   "observation_window": {

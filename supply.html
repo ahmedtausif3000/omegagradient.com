@@ -114,7 +114,7 @@
   .machine-list { display: flex; flex-direction: column; gap: 12px; }
   .install-box { background: var(--bg); border: 1px solid var(--line-strong); padding: 12px 14px; font-family: var(--mono); font-size: 11px; color: var(--teal); overflow-x: auto; white-space: nowrap; }
 </style>
-  <link rel="stylesheet" href="/site-chrome.css?v=20261026-1">
+  <link rel="stylesheet" href="/site-chrome.css?v=20261112-growth-2">
 </head>
 <body>
 
@@ -134,6 +134,7 @@
       <details class="og-nav-menu">
           <summary>Guides<span aria-hidden="true">+</span></summary>
           <div class="og-nav-panel">
+            <a href="/clusters/quote-comparator.html" data-og-area="header" data-og-link="compare_reserved_quotes">Compare reserved quotes</a>
             <a href="/clusters/reserved-vs-on-demand.html" data-og-area="header" data-og-link="reserved_vs_on_demand">Reserved vs. on-demand</a>
             <a href="/clusters/hopper-h100-h200.html" data-og-area="header" data-og-link="h100_h200">H100 &amp; H200</a>
             <a href="/clusters/blackwell-b200-b300.html" data-og-area="header" data-og-link="b200_b300_gb300">B200, B300 &amp; GB300</a>
@@ -144,6 +145,7 @@
       <details class="og-nav-menu">
           <summary>Market data<span aria-hidden="true">+</span></summary>
           <div class="og-nav-panel">
+            <a href="/clusters/capacity-index.html" data-og-area="header" data-og-link="capacity_evidence_index">Capacity evidence index</a>
             <a href="/research/reserved-gpu-market-report-2026-q3.html" data-og-area="header" data-og-link="reserved_market_report">Reserved market report</a>
             <a href="/gpus/" data-og-area="header" data-og-link="gpu_price_index">GPU price index</a>
             <a href="/gpus/availability.html" data-og-area="header" data-og-link="marketplace_snapshot">Marketplace snapshot</a>
@@ -240,6 +242,8 @@
     <div class="og-footer-grid">
       <div class="og-footer-col">
         <h2>Reserved</h2>
+        <a href="/clusters/capacity-index.html" data-og-area="footer" data-og-link="reserved_capacity_evidence_index">Capacity evidence index</a>
+        <a href="/clusters/quote-comparator.html" data-og-area="footer" data-og-link="reserved_compare_reserved_quotes">Compare reserved quotes</a>
         <a href="/clusters/" data-og-area="footer" data-og-link="reserved_reserved_clusters">Reserved clusters</a>
         <a href="/clusters/how-we-qualify.html" data-og-area="footer" data-og-link="reserved_how_we_qualify">How we qualify</a>
         <a href="/clusters/reserved-vs-on-demand.html" data-og-area="footer" data-og-link="reserved_reserved_vs_on_demand">Reserved vs. on-demand</a>
@@ -447,6 +451,6 @@
   setInterval(() => { me().then((p) => { if (p.signedIn) api("/supply/me").then((d) => { if (d.registered) renderMachines(d); }).catch(() => {}); }); }, 15000);
 })();
 </script>
-  <script src="/site-chrome.js?v=20261026-1" defer></script>
+  <script src="/site-chrome.js?v=20261112-growth-2" defer></script>
 </body>
 </html>

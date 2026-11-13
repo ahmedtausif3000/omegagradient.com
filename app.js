@@ -225,10 +225,24 @@ function renderGpuCards(feed) {
   }
 }
 
+function marketFeedFreshness(feed, now = Date.now()) {
+  const observed = Date.parse(feed?.generated_at || "");
+  if (!Number.isFinite(observed)) return { status: "unavailable", label: "Observation date unavailable" };
+  const date = new Date(observed).toISOString().replace("T", " ").replace(/\.\d{3}Z$/, " UTC");
+  const age = now - observed;
+  if (age < -300000) return { status: "unavailable", label: `Observation date unverified: ${date}` };
+  if (age > 36 * 3600000) return { status: "stale", label: `Stale snapshot · Observed ${date}` };
+  return { status: "within_window", label: `Observed ${date} · Within 36-hour review window` };
+}
+
 function renderFeedStatus(feed) {
   if (!feed) return;
-  if (feedFreshness) feedFreshness.innerHTML = liveLabel(feed.freshness_label);
-  if (heroFeedFreshness) heroFeedFreshness.innerHTML = liveLabel(feed.freshness_label);
+  const freshness = marketFeedFreshness(feed);
+  for (const node of [feedFreshness, heroFeedFreshness]) {
+    if (!node) continue;
+    node.textContent = freshness.label;
+    node.dataset.freshness = freshness.status;
+  }
   if (feedSignalCount) {
     feedSignalCount.textContent =
       `${feed.source_count_summary.registry_supplier_count} suppliers monitored with ` +
@@ -241,6 +255,9 @@ function renderFeedStatus(feed) {
     supplierStat.dataset.count = feed.source_count_summary.registry_supplier_count;
   }
 }
+
+// A cached or already-open page must age out without waiting for a new build.
+window.setInterval(() => { if (publicMarketFeed) renderFeedStatus(publicMarketFeed); }, 30000);
 
 /* ---- gpu drawer ----------------------------------------------------- */
 function metric(label, value) {
@@ -434,7 +451,8 @@ function initCapacityForm() {
       need: data.get("need") || "",
       requirements: data.get("requirements") || "",
       website: data.get("website") || "",
-      page_url: window.location.href
+      page_url: window.location.href,
+      discovery_source: data.get("discovery-source") || ""
     };
 
     if (submitButton) {
@@ -444,16 +462,8 @@ function initCapacityForm() {
     setFormStatus(statusEl, "Submitting your request...", "neutral");
 
     try {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(payload)
-      });
-      const result = await response.json().catch(() => ({}));
-
-      if (!response.ok || !result.ok) {
-        throw new Error(result.error || "Submission failed");
-      }
+      if (!window.OmegaAcquisition) throw new Error("Acquisition module unavailable");
+      const result = await window.OmegaAcquisition.submitCapacity(payload, "homepage_capacity", endpoint);
 
       form.reset();
       setFormStatus(statusEl, result.message || THANK_YOU_MESSAGE, "success");
