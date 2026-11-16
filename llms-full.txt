@@ -2,7 +2,7 @@
 
 This file concatenates the public reserved-cluster guides, research, and the dated GPU price pages of https://omegagradient.com/ in plain text. The short index is at https://omegagradient.com/llms.txt. Omega Gradient is a sourcing and intelligence desk for reserved GPU clusters (H100, H200, B200, B300, GB200 NVL72, GB300 NVL72) with an on-demand GPU marketplace and a dated cross-provider price index covering a registry of 224 monitored providers.
 
-Interpretation: all prices are USD per GPU-hour unless marked as instance prices; figures are dated observations (report assembled 2026-11-15T17:02:22.958Z), not quotes or allocations. Marketplace listings are provider-anonymous. Named-provider rates are public list prices captured from provider price pages. When citing, name the page URL and its observation or assembly date.
+Interpretation: all prices are USD per GPU-hour unless marked as instance prices; figures are dated observations (report assembled 2026-11-16T17:02:34.840Z), not quotes or allocations. Marketplace listings are provider-anonymous. Named-provider rates are public list prices captured from provider price pages. When citing, name the page URL and its observation or assembly date.
 
 ----------------------------------------------------------------------
 # Reserved GPU Clusters | Omega Gradient
@@ -1545,25 +1545,25 @@ Start a reserved cluster brief
 ----------------------------------------------------------------------
 # Cloud GPU Price Index 2026: Sampled Public Rates | Omega Gradient
 URL: https://omegagradient.com/gpus/
-Report assembled: 2026-11-15T17:02:22.958Z
+Report assembled: 2026-11-16T17:02:34.840Z
 
 Omega Gradient · Market Data
 
 # Cloud GPU Price Index (2026): sampled public rates
 
-Normalized USD per GPU-hour pricing across 15 GPU families, computed from 76 evidence-verified public rate rows spanning a registry of 224 monitored providers . Flagship sample: H100 has a min included rate of $1.68 to a max of $11.12 per GPU-hour, median provider average $3.09 across 9 providers. 122 listings were listed in the dated catalog sample, from $0.07/GPU-hr.
+Normalized USD per GPU-hour pricing across 14 GPU families, computed from 77 evidence-verified public rate rows spanning a registry of 224 monitored providers . Flagship sample: H100 has a min included rate of $1.68 to a max of $11.12 per GPU-hour, median provider average $2.60 across 9 providers. 113 listings were listed in the dated catalog sample, from $0.07/GPU-hr.
 
-Report assembled 2026-11-15T17:02:22.958Z
+Report assembled 2026-11-16T17:02:34.840Z
 
-Source observations: 2026-11-02T00:00:00.000Z to 2026-11-15T17:01:57.722Z. Report assembled 2026-11-15T17:02:22.958Z; assembly does not refresh source evidence.
+Source observations: 2026-11-02T00:00:00.000Z to 2026-11-16T17:02:07.118Z. Report assembled 2026-11-16T17:02:34.840Z; assembly does not refresh source evidence.
 
-Catalog snapshot 2026-11-15T17:00:37.355Z
+Catalog snapshot 2026-11-16T17:00:37.771Z
 
 Dated catalog sample. Availability and prices may have changed. Check the current marketplace before relying on a listing.
 
 GPU families tracked
 
-15
+14
 
 with verified public rates
 
@@ -1575,13 +1575,13 @@ in the provider registry
 
 Verified price rows
 
-76
+77
 
 53 provider-GPU pairs
 
 Snapshot listings
 
-122
+113
 
 sampled from $0.07/GPU-hr
 
@@ -1589,37 +1589,35 @@ sampled from $0.07/GPU-hr
 
 | GPU | Min | Median provider avg | Max | Median $/mo | Providers | Price rows | Snapshot listings |
 
-| A100 | $0.52 | $2.18 | $7.12 | $1570 | 8 | 11 | 23 |
+| A100 | $0.62 | $2.18 | $7.12 | $1570 | 8 | 14 | 20 |
 
-| A4000 | $0.76 | $0.76 | $0.76 | $547 | 1 | 1 | 6 |
+| A4000 | $0.76 | $0.76 | $0.76 | $547 | 1 | 1 | 3 |
 
-| A6000 | $0.44 | $0.70 | $0.75 | $504 | 3 | 3 | 6 |
+| A6000 | $0.44 | $0.70 | $0.75 | $504 | 3 | 3 | 9 |
 
-| B300 | $6.64 | $9.50 | $17.80 | $6840 | 9 | 9 | 1 |
+| B300 | $6.64 | $9.74 | $17.80 | $7016 | 10 | 10 | 1 |
 
-| GB200 | $8.13 | $8.55 | $8.76 | $6154 | 1 | 3 | 2 |
+| GB200 | $8.13 | $8.76 | $9.39 | $6306 | 1 | 2 | 2 |
 
-| GB300 | $14.27 | $16.14 | $18.00 | $11617 | 2 | 2 | 0 |
+| GB300 | $14.41 | $16.20 | $18.00 | $11668 | 2 | 2 | 0 |
 
-| H100 | $1.68 | $3.09 | $11.12 | $2225 | 9 | 10 | 10 |
+| H100 | $1.68 | $2.60 | $11.12 | $1872 | 9 | 10 | 4 |
 
-| H200 | $2.60 | $4.05 | $6.30 | $2918 | 4 | 6 | 12 |
+| H200 | $2.60 | $4.28 | $6.30 | $3079 | 4 | 9 | 14 |
 
-| L40 | $0.70 | $0.95 | $1.25 | $684 | 3 | 3 | 2 |
+| L40 | $0.70 | $0.95 | $1.25 | $684 | 3 | 3 | 5 |
 
-| L40S | $0.70 | $1.73 | $3.51 | $1242 | 4 | 5 | 2 |
+| L40S | $0.70 | $1.73 | $3.51 | $1242 | 4 | 5 | 5 |
 
-| RTX 4090 | $0.35 | $0.57 | $0.92 | $410 | 4 | 8 | 3 |
+| RTX 4090 | $0.35 | $0.53 | $0.79 | $384 | 4 | 6 | 1 |
 
-| RTX 5090 | $0.43 | $0.70 | $1.05 | $505 | 2 | 8 | 4 |
+| RTX 5090 | $0.44 | $0.74 | $1.32 | $534 | 2 | 7 | 2 |
 
-| RTX 6000 | $0.87 | $1.04 | $1.47 | $748 | 1 | 4 | — |
+| RTX 6000 | $0.64 | $1.08 | $1.47 | $777 | 1 | 4 | — |
 
 | T4 | $0.81 | $0.81 | $0.81 | $583 | 1 | 1 | 0 |
 
-| V100 | $0.07 | $0.07 | $0.07 | $49 | 1 | 2 | — |
-
-Min and max are the lowest and highest individual included rates. The median is the median of provider averages per GPU family. Median $/mo is the monthly cost math for one GPU running a full 720-hour month at the median rate (multiply by GPU count for multi-GPU nodes). Catalog counts are anonymous listings observed in the snapshot; confirm current availability on /compute.html . Snapshot 2026-11-15.
+Min and max are the lowest and highest individual included rates. The median is the median of provider averages per GPU family. Median $/mo is the monthly cost math for one GPU running a full 720-hour month at the median rate (multiply by GPU count for multi-GPU nodes). Catalog counts are anonymous listings observed in the snapshot; confirm current availability on /compute.html . Snapshot 2026-11-16.
 
 ## Methodology
 
@@ -1648,15 +1646,15 @@ On-demand marketplace ↗
 
 ### How often is the Omega Gradient GPU price index updated?
 
-Collection is scheduled daily, but publication and individual source observations can differ. This report was assembled 2026-11-15. Use the source observation dates and check the marketplace for current listings.
+Collection is scheduled daily, but publication and individual source observations can differ. This report was assembled 2026-11-16. Use the source observation dates and check the marketplace for current listings.
 
 ### How many GPU providers does Omega Gradient monitor?
 
-224 providers are in the monitored registry. This index shows the 76 price rows across 53 provider-GPU pairs that passed evidence verification and sanity checks on 2026-11-15.
+224 providers are in the monitored registry. This index shows the 77 price rows across 53 provider-GPU pairs that passed evidence verification and sanity checks on 2026-11-16.
 
 ### What was the cheapest GPU in this catalog snapshot?
 
-In the 2026-11-15 catalog snapshot, the lowest-priced listing is a RTX 2070S at $0.07/GPU-hour, out of 122 sampled listings.
+In the 2026-11-16 catalog snapshot, the lowest-priced listing is a RTX 2070S at $0.07/GPU-hour, out of 113 sampled listings.
 
 ### How are GPU prices normalized?
 
@@ -1665,19 +1663,19 @@ USD per GPU-hour; instance-hour prices are divided by gpu_count when gpu_count i
 ----------------------------------------------------------------------
 # H100 Cloud Pricing 2026: $1.68–$11.12/hr Across 9 Providers | Omega Gradient
 URL: https://omegagradient.com/gpus/h100.html
-Report assembled: 2026-11-15T17:02:22.958Z
+Report assembled: 2026-11-16T17:02:34.840Z
 
 Cloud GPU Price Index · H100
 
 # H100 Cloud Pricing 2026: $1.68–$11.12/hr Across 9 Providers
 
-The sampled NVIDIA H100 rates have a minimum included rate of $1.68 , a median provider-average rate of $3.09 , and a maximum included rate of $11.12 per GPU-hour across 9 cloud providers with verified public rates (10 price rows, report assembled 2026-11-15). 10 H100 listings observed in the catalog from $1.88/GPU-hr, updated 2026-11-15.
+The sampled NVIDIA H100 rates have a minimum included rate of $1.68 , a median provider-average rate of $2.60 , and a maximum included rate of $11.12 per GPU-hour across 9 cloud providers with verified public rates (10 price rows, report assembled 2026-11-16). 4 H100 listings observed in the catalog from $2.28/GPU-hr, updated 2026-11-16.
 
-Report assembled 2026-11-15T17:02:22.958Z
+Report assembled 2026-11-16T17:02:34.840Z
 
-Source observations: 2026-11-15T17:01:57.722Z. Report assembled 2026-11-15T17:02:22.958Z; assembly does not refresh source evidence.
+Source observations: 2026-11-16T17:02:07.118Z. Report assembled 2026-11-16T17:02:34.840Z; assembly does not refresh source evidence.
 
-Catalog snapshot 2026-11-15T17:00:37.355Z
+Catalog snapshot 2026-11-16T17:00:37.771Z
 
 Dated catalog sample. Availability and prices may have changed. Check the current marketplace before relying on a listing.
 
@@ -1689,7 +1687,7 @@ per GPU-hour
 
 Median provider average
 
-$3.09
+$2.60
 
 per GPU-hour
 
@@ -1701,9 +1699,9 @@ per GPU-hour
 
 Snapshot listings
 
-10
+4
 
-from $1.88/GPU-hr
+from $2.28/GPU-hr
 
 ## Named-provider market rates — H100
 
@@ -1711,53 +1709,41 @@ Publicly listed on-demand rates, normalized to USD per GPU-hour. These are marke
 
 | Provider | Listed SKU | Min $/GPU-hr | Avg $/GPU-hr | Max $/GPU-hr | Source / observation dates |
 
-| Latitude.sh | 1 x NVIDIA H100 80GB | $1.68 | $1.68 | $1.68 | latitude.sh Source observations: 2026-11-15T17:01:57.722Z |
+| Latitude.sh | 1 x NVIDIA H100 80GB | $1.68 | $1.68 | $1.68 | latitude.sh Source observations: 2026-11-16T17:02:07.118Z |
 
-| Vast.ai | H100 SXM | $1.79 | $1.79 | $1.79 | console.vast.ai Source observations: 2026-11-15T17:01:57.722Z |
+| Vast.ai | H100 SXM | $1.79 | $1.79 | $1.79 | console.vast.ai Source observations: 2026-11-16T17:02:07.118Z |
 
-| TensorDock | H100 SXM5 | $2.25 | $2.25 | $2.25 | tensordock.com Source observations: 2026-11-15T17:01:57.722Z |
+| Polaris Cloud | H100 | $2.22 | $2.22 | $2.22 | polaris.computer Source observations: 2026-11-16T17:02:07.118Z |
 
-| GMI Cloud | H100 | $2.60 | $2.60 | $2.60 | gmicloud.ai Source observations: 2026-11-15T17:01:57.722Z |
+| TensorDock | H100 SXM5 | $2.25 | $2.25 | $2.25 | tensordock.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| Paperspace | NVIDIA H100 | $3.09 | $3.09 | $3.09 | paperspace.com Source observations: 2026-11-15T17:01:57.722Z |
+| GMI Cloud | H100 | $2.60 | $2.60 | $2.60 | gmicloud.ai Source observations: 2026-11-16T17:02:07.118Z |
 
-| Polaris Cloud | H100 | $4.44 | $4.44 | $4.44 | polaris.computer Source observations: 2026-11-15T17:01:57.722Z |
+| Paperspace | NVIDIA H100 | $3.09 | $3.09 | $3.09 | paperspace.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| Replicate | Nvidia H100 | $5.49 | $5.49 | $5.49 | replicate.com Source observations: 2026-11-15T17:01:57.722Z |
+| Replicate | Nvidia H100 | $5.49 | $5.49 | $5.49 | replicate.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| CoreWeave | NVIDIA HGX H100 | $6.16 | $6.16 | $6.16 | coreweave.com Source observations: 2026-11-15T17:01:57.722Z |
+| CoreWeave | NVIDIA HGX H100 | $6.16 | $6.16 | $6.16 | coreweave.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| CivoCloud | H100 | $11.12 | $11.12 | $11.12 | civo.com Source observations: 2026-11-15T17:01:57.722Z |
+| CivoCloud | H100 | $11.12 | $11.12 | $11.12 | civo.com Source observations: 2026-11-16T17:02:07.118Z |
 
 Public list prices reflect the source observation dates above; full report at /gpu-supplier-pricing.html .
 
 ## Marketplace catalog snapshot
 
-10 H100 listings observed in the catalog from $1.88/GPU-hr, updated 2026-11-15. Marketplace listings are provider-anonymous by design.
+4 H100 listings observed in the catalog from $2.28/GPU-hr, updated 2026-11-16. Marketplace listings are provider-anonymous by design.
 
 | GPU | Count | vRAM | Region | $/GPU/hr | Instance $/hr | |
 
-| H100 | 4× | 80 GB | Asia · Southeast | $1.88 | $7.53 | Check availability |
+| H100 | 1× | 80 GB | Oceania | $2.28 | $2.28 | Check availability |
 
-| H100 | 1× | 80 GB | US · Central | $2.55 | $2.55 | Check availability |
+| H100 | 1× | 80 GB | Africa | $2.61 | $2.61 | Check availability |
 
-| H100 | 1× | 80 GB | Canada | $2.63 | $2.63 | Check availability |
+| H100 | 1× | 80 GB | US · Central | $2.68 | $2.68 | Check availability |
 
-| H100 | 2× | 80 GB | Europe · East | $3.00 | $5.99 | Check availability |
+| H100 | 1× | 80 GB | US · East | $6.29 | $6.29 | Check availability |
 
-| H100 | 1× | 80 GB | Europe · East | $3.01 | $3.01 | Check availability |
-
-| H100 | 1× | 80 GB | Europe · West | $3.47 | $3.47 | Check availability |
-
-| H100 | 4× | 80 GB | US · East | $4.29 | $17.18 | Check availability |
-
-| H100 | 2× | 80 GB | US · Central | $4.40 | $8.80 | Check availability |
-
-| H100 | 2× | 80 GB | US · East | $4.40 | $8.80 | Check availability |
-
-| H100 | 1× | 80 GB | US · East | $4.58 | $4.58 | Check availability |
-
-Snapshot 2026-11-15; current view on /compute.html .
+Snapshot 2026-11-16; current view on /compute.html .
 
 ## Monthly cost math (720 hours)
 
@@ -1765,11 +1751,11 @@ Snapshot 2026-11-15; current view on /compute.html .
 
 | Lowest tracked public rate | $1.68 | $1210 |
 
-| Median provider-average rate | $3.09 | $2225 |
+| Median provider-average rate | $2.60 | $1872 |
 
 | Highest tracked public rate | $11.12 | $8006 |
 
-| Cheapest sampled marketplace listing | $1.88 | $1355 |
+| Cheapest sampled marketplace listing | $2.28 | $1642 |
 
 720 hours ≈ one month of continuous single-GPU runtime. Multiply by GPU count for multi-GPU nodes.
 
@@ -1782,15 +1768,15 @@ On-demand marketplace ↗
 
 ### How much does a H100 cost per hour in 2026?
 
-Public on-demand rates tracked by Omega Gradient range from $1.68 to $11.12 per GPU-hour across 9 providers, with a median provider-average rate of $3.09 (report assembled 2026-11-15).
+Public on-demand rates tracked by Omega Gradient range from $1.68 to $11.12 per GPU-hour across 9 providers, with a median provider-average rate of $2.60 (report assembled 2026-11-16).
 
 ### Was a H100 listed in the catalog snapshot?
 
-10 H100 listings observed in the catalog from $1.88/GPU-hr, updated 2026-11-15. Check current availability at omegagradient.com/compute.html.
+4 H100 listings observed in the catalog from $2.28/GPU-hr, updated 2026-11-16. Check current availability at omegagradient.com/compute.html.
 
 ### What does a H100 cost per month?
 
-At the median tracked rate of $3.09/GPU-hr, one GPU running a full 720-hour month costs about $2225. At the lowest tracked rate of $1.68/GPU-hr, about $1210.
+At the median tracked rate of $2.60/GPU-hr, one GPU running a full 720-hour month costs about $1872. At the lowest tracked rate of $1.68/GPU-hr, about $1210.
 
 ### Where do these prices come from?
 
@@ -1799,19 +1785,19 @@ Included public rate observations collected by Omega Gradient; dates can vary by
 ----------------------------------------------------------------------
 # H200 Cloud Pricing 2026: $2.60–$6.30/hr Across 4 Providers | Omega Gradient
 URL: https://omegagradient.com/gpus/h200.html
-Report assembled: 2026-11-15T17:02:22.958Z
+Report assembled: 2026-11-16T17:02:34.840Z
 
 Cloud GPU Price Index · H200
 
 # H200 Cloud Pricing 2026: $2.60–$6.30/hr Across 4 Providers
 
-The sampled NVIDIA H200 rates have a minimum included rate of $2.60 , a median provider-average rate of $4.05 , and a maximum included rate of $6.30 per GPU-hour across 4 cloud providers with verified public rates (6 price rows, report assembled 2026-11-15). 12 H200 listings observed in the catalog from $3.79/GPU-hr, updated 2026-11-15.
+The sampled NVIDIA H200 rates have a minimum included rate of $2.60 , a median provider-average rate of $4.28 , and a maximum included rate of $6.30 per GPU-hour across 4 cloud providers with verified public rates (9 price rows, report assembled 2026-11-16). 14 H200 listings observed in the catalog from $3.83/GPU-hr, updated 2026-11-16.
 
-Report assembled 2026-11-15T17:02:22.958Z
+Report assembled 2026-11-16T17:02:34.840Z
 
-Source observations: 2026-11-15T17:01:57.722Z. Report assembled 2026-11-15T17:02:22.958Z; assembly does not refresh source evidence.
+Source observations: 2026-11-16T17:02:07.118Z. Report assembled 2026-11-16T17:02:34.840Z; assembly does not refresh source evidence.
 
-Catalog snapshot 2026-11-15T17:00:37.355Z
+Catalog snapshot 2026-11-16T17:00:37.771Z
 
 Dated catalog sample. Availability and prices may have changed. Check the current marketplace before relying on a listing.
 
@@ -1823,7 +1809,7 @@ per GPU-hour
 
 Median provider average
 
-$4.05
+$4.28
 
 per GPU-hour
 
@@ -1835,9 +1821,9 @@ per GPU-hour
 
 Snapshot listings
 
-12
+14
 
-from $3.79/GPU-hr
+from $3.83/GPU-hr
 
 ## Named-provider market rates — H200
 
@@ -1845,47 +1831,51 @@ Publicly listed on-demand rates, normalized to USD per GPU-hour. These are marke
 
 | Provider | Listed SKU | Min $/GPU-hr | Avg $/GPU-hr | Max $/GPU-hr | Source / observation dates |
 
-| GMI Cloud | H200 | $2.60 | $2.60 | $2.60 | gmicloud.ai Source observations: 2026-11-15T17:01:57.722Z |
+| GMI Cloud | H200 | $2.60 | $2.60 | $2.60 | gmicloud.ai Source observations: 2026-11-16T17:02:07.118Z |
 
-| Oblivus Cloud | H200 | $3.99 | $3.99 | $3.99 | oblivus.com Source observations: 2026-11-15T17:01:57.722Z |
+| Oblivus Cloud | H200 | $3.99 | $3.99 | $3.99 | oblivus.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| Vast.ai | H200 NVL, H200 | $4.00 | $4.12 | $4.34 | console.vast.ai Source observations: 2026-11-15T17:01:57.722Z |
+| Vast.ai | H200, H200 NVL | $3.69 | $4.56 | $5.20 | console.vast.ai Source observations: 2026-11-16T17:02:07.118Z |
 
-| CoreWeave | NVIDIA HGX H200 | $6.30 | $6.30 | $6.30 | coreweave.com Source observations: 2026-11-15T17:01:57.722Z |
+| CoreWeave | NVIDIA HGX H200 | $6.30 | $6.30 | $6.30 | coreweave.com Source observations: 2026-11-16T17:02:07.118Z |
 
 Public list prices reflect the source observation dates above; full report at /gpu-supplier-pricing.html .
 
 ## Marketplace catalog snapshot
 
-12 H200 listings observed in the catalog from $3.79/GPU-hr, updated 2026-11-15. Marketplace listings are provider-anonymous by design.
+14 H200 listings observed in the catalog from $3.83/GPU-hr, updated 2026-11-16. Marketplace listings are provider-anonymous by design.
 
 | GPU | Count | vRAM | Region | $/GPU/hr | Instance $/hr | |
 
-| H200 | 4× | 140 GB | US · Central | $3.79 | $15.14 | Check availability |
-
-| H200 | 2× | 140 GB | US · Central | $3.79 | $7.58 | Check availability |
-
-| H200 | 1× | 140 GB | US · Central | $3.80 | $3.80 | Check availability |
-
 | H200 | 1× | 140 GB | Europe · South | $3.83 | $3.83 | Check availability |
 
-| H200 | 1× | 140 GB | Europe · East | $4.07 | $4.07 | Check availability |
+| H200 | 2× | 140 GB | US · Central | $3.88 | $7.76 | Check availability |
 
-| H200 | 1× | 140 GB | US · East | $4.10 | $4.10 | Check availability |
+| H200 | 4× | 140 GB | Europe · East | $3.88 | $15.54 | Check availability |
 
-| H200 | 2× | 140 GB | Canada | $4.57 | $9.14 | Check availability |
+| H200 | 2× | 140 GB | Europe · East | $3.90 | $7.80 | Check availability |
+
+| H200 | 1× | 140 GB | Europe · East | $3.93 | $3.93 | Check availability |
+
+| H200 | 2× | 140 GB | Asia · Northeast | $4.21 | $8.42 | Check availability |
+
+| H200 | 1× | 140 GB | Asia · Northeast | $4.22 | $4.22 | Check availability |
+
+| H200 | 1× | 140 GB | US · Central | $4.23 | $4.23 | Check availability |
 
 | H200 | 1× | 140 GB | Global · flexible | $4.58 | $4.58 | Check availability |
 
 | H200 | 1× | 140 GB | Canada | $4.58 | $4.58 | Check availability |
 
-| H200 | 2× | 140 GB | Europe · West | $5.61 | $11.22 | Check availability |
+| H200 | 4× | 140 GB | US · West | $5.17 | $20.69 | Check availability |
 
-| H200 | 1× | 140 GB | Europe · West | $5.62 | $5.62 | Check availability |
+| H200 | 2× | 140 GB | US · West | $5.18 | $10.36 | Check availability |
 
-| H200 | 8× | 140 GB | Middle East | $7.17 | $57.36 | Check availability |
+| H200 | 8× | 140 GB | US · Central | $5.33 | $42.66 | Check availability |
 
-Snapshot 2026-11-15; current view on /compute.html .
+| H200 | 4× | 140 GB | US · Central | $5.34 | $21.38 | Check availability |
+
+Snapshot 2026-11-16; current view on /compute.html .
 
 ## Monthly cost math (720 hours)
 
@@ -1893,11 +1883,11 @@ Snapshot 2026-11-15; current view on /compute.html .
 
 | Lowest tracked public rate | $2.60 | $1872 |
 
-| Median provider-average rate | $4.05 | $2918 |
+| Median provider-average rate | $4.28 | $3079 |
 
 | Highest tracked public rate | $6.30 | $4540 |
 
-| Cheapest sampled marketplace listing | $3.79 | $2725 |
+| Cheapest sampled marketplace listing | $3.83 | $2758 |
 
 720 hours ≈ one month of continuous single-GPU runtime. Multiply by GPU count for multi-GPU nodes.
 
@@ -1910,36 +1900,36 @@ On-demand marketplace ↗
 
 ### How much does a H200 cost per hour in 2026?
 
-Public on-demand rates tracked by Omega Gradient range from $2.60 to $6.30 per GPU-hour across 4 providers, with a median provider-average rate of $4.05 (report assembled 2026-11-15).
+Public on-demand rates tracked by Omega Gradient range from $2.60 to $6.30 per GPU-hour across 4 providers, with a median provider-average rate of $4.28 (report assembled 2026-11-16).
 
 ### Was a H200 listed in the catalog snapshot?
 
-12 H200 listings observed in the catalog from $3.79/GPU-hr, updated 2026-11-15. Check current availability at omegagradient.com/compute.html.
+14 H200 listings observed in the catalog from $3.83/GPU-hr, updated 2026-11-16. Check current availability at omegagradient.com/compute.html.
 
 ### What does a H200 cost per month?
 
-At the median tracked rate of $4.05/GPU-hr, one GPU running a full 720-hour month costs about $2918. At the lowest tracked rate of $2.60/GPU-hr, about $1872.
+At the median tracked rate of $4.28/GPU-hr, one GPU running a full 720-hour month costs about $3079. At the lowest tracked rate of $2.60/GPU-hr, about $1872.
 
 ### Where do these prices come from?
 
 Included public rate observations collected by Omega Gradient; dates can vary by source. Provider-normalized average: average SKUs/offers within each provider and GPU family first, then average provider means so one marketplace does not dominate.
 
 ----------------------------------------------------------------------
-# B300 Cloud Pricing 2026: $6.64–$17.80/hr Across 9 Providers | Omega Gradient
+# B300 Cloud Pricing 2026: $6.64–$17.80/hr Across 10 Providers | Omega Gradient
 URL: https://omegagradient.com/gpus/b300.html
-Report assembled: 2026-11-15T17:02:22.958Z
+Report assembled: 2026-11-16T17:02:34.840Z
 
 Cloud GPU Price Index · B300
 
-# B300 Cloud Pricing 2026: $6.64–$17.80/hr Across 9 Providers
+# B300 Cloud Pricing 2026: $6.64–$17.80/hr Across 10 Providers
 
-The sampled NVIDIA B300 rates have a minimum included rate of $6.64 , a median provider-average rate of $9.50 , and a maximum included rate of $17.80 per GPU-hour across 9 cloud providers with verified public rates (9 price rows, report assembled 2026-11-15). 1 B300 listing observed in the catalog from $10.45/GPU-hr, updated 2026-11-15.
+The sampled NVIDIA B300 rates have a minimum included rate of $6.64 , a median provider-average rate of $9.74 , and a maximum included rate of $17.80 per GPU-hour across 10 cloud providers with verified public rates (10 price rows, report assembled 2026-11-16). 1 B300 listing observed in the catalog from $10.45/GPU-hr, updated 2026-11-16.
 
-Report assembled 2026-11-15T17:02:22.958Z
+Report assembled 2026-11-16T17:02:34.840Z
 
-Source observations: 2026-11-02T00:00:00.000Z to 2026-11-14T00:00:00.000Z. Report assembled 2026-11-15T17:02:22.958Z; assembly does not refresh source evidence.
+Source observations: 2026-11-02T00:00:00.000Z to 2026-11-16T17:02:07.118Z. Report assembled 2026-11-16T17:02:34.840Z; assembly does not refresh source evidence.
 
-Catalog snapshot 2026-11-15T17:00:37.355Z
+Catalog snapshot 2026-11-16T17:00:37.771Z
 
 Dated catalog sample. Availability and prices may have changed. Check the current marketplace before relying on a listing.
 
@@ -1951,7 +1941,7 @@ per GPU-hour
 
 Median provider average
 
-$9.50
+$9.74
 
 per GPU-hour
 
@@ -1985,7 +1975,9 @@ Publicly listed on-demand rates, normalized to USD per GPU-hour. These are marke
 
 | Together AI | HGX B300 | $9.99 | $9.99 | $9.99 | together.ai Source observations: 2026-11-04T00:00:00.000Z |
 
-| Verda/DataCrunch | 1x B300 SXM6 268GB | $12.41 | $12.41 | $12.41 | verda.com Source observations: 2026-11-14T00:00:00.000Z |
+| Vast.ai | B300 | $10.63 | $10.63 | $10.63 | console.vast.ai Source observations: 2026-11-16T17:02:07.118Z |
+
+| Verda/DataCrunch | 1x B300 SXM6 268GB | $12.53 | $12.53 | $12.53 | verda.com Source observations: 2026-11-16T00:00:00.000Z |
 
 | Oracle Cloud Infrastructure | B300 | $15.00 | $15.00 | $15.00 | oracle.com Source observations: 2026-11-02T00:00:00.000Z |
 
@@ -1995,13 +1987,13 @@ Public list prices reflect the source observation dates above; full report at /g
 
 ## Marketplace catalog snapshot
 
-1 B300 listing observed in the catalog from $10.45/GPU-hr, updated 2026-11-15. Marketplace listings are provider-anonymous by design.
+1 B300 listing observed in the catalog from $10.45/GPU-hr, updated 2026-11-16. Marketplace listings are provider-anonymous by design.
 
 | GPU | Count | vRAM | Region | $/GPU/hr | Instance $/hr | |
 
 | B300 | 2× | 269 GB | Global · flexible | $10.45 | $20.89 | Check availability |
 
-Snapshot 2026-11-15; current view on /compute.html .
+Snapshot 2026-11-16; current view on /compute.html .
 
 ## Monthly cost math (720 hours)
 
@@ -2009,7 +2001,7 @@ Snapshot 2026-11-15; current view on /compute.html .
 
 | Lowest tracked public rate | $6.64 | $4781 |
 
-| Median provider-average rate | $9.50 | $6840 |
+| Median provider-average rate | $9.74 | $7016 |
 
 | Highest tracked public rate | $17.80 | $12817 |
 
@@ -2026,42 +2018,42 @@ On-demand marketplace ↗
 
 ### How much does a B300 cost per hour in 2026?
 
-Public on-demand rates tracked by Omega Gradient range from $6.64 to $17.80 per GPU-hour across 9 providers, with a median provider-average rate of $9.50 (report assembled 2026-11-15).
+Public on-demand rates tracked by Omega Gradient range from $6.64 to $17.80 per GPU-hour across 10 providers, with a median provider-average rate of $9.74 (report assembled 2026-11-16).
 
 ### Was a B300 listed in the catalog snapshot?
 
-1 B300 listing observed in the catalog from $10.45/GPU-hr, updated 2026-11-15. Check current availability at omegagradient.com/compute.html.
+1 B300 listing observed in the catalog from $10.45/GPU-hr, updated 2026-11-16. Check current availability at omegagradient.com/compute.html.
 
 ### What does a B300 cost per month?
 
-At the median tracked rate of $9.50/GPU-hr, one GPU running a full 720-hour month costs about $6840. At the lowest tracked rate of $6.64/GPU-hr, about $4781.
+At the median tracked rate of $9.74/GPU-hr, one GPU running a full 720-hour month costs about $7016. At the lowest tracked rate of $6.64/GPU-hr, about $4781.
 
 ### Where do these prices come from?
 
 Included public rate observations collected by Omega Gradient; dates can vary by source. Provider-normalized average: average SKUs/offers within each provider and GPU family first, then average provider means so one marketplace does not dominate.
 
 ----------------------------------------------------------------------
-# A100 (80GB) Cloud Pricing 2026: $0.52–$7.12/hr Across 8 Providers | Omega Gradient
+# A100 (80GB) Cloud Pricing 2026: $0.62–$7.12/hr Across 8 Providers | Omega Gradient
 URL: https://omegagradient.com/gpus/a100-80gb.html
-Report assembled: 2026-11-15T17:02:22.958Z
+Report assembled: 2026-11-16T17:02:34.840Z
 
 Cloud GPU Price Index · A100
 
-# A100 (80GB) Cloud Pricing 2026: $0.52–$7.12/hr Across 8 Providers
+# A100 (80GB) Cloud Pricing 2026: $0.62–$7.12/hr Across 8 Providers
 
-The sampled NVIDIA A100 (80GB) rates have a minimum included rate of $0.52 , a median provider-average rate of $2.18 , and a maximum included rate of $7.12 per GPU-hour across 8 cloud providers with verified public rates (11 price rows, report assembled 2026-11-15). 23 A100 listings observed in the catalog from $0.44/GPU-hr, updated 2026-11-15.
+The sampled NVIDIA A100 (80GB) rates have a minimum included rate of $0.62 , a median provider-average rate of $2.18 , and a maximum included rate of $7.12 per GPU-hour across 8 cloud providers with verified public rates (14 price rows, report assembled 2026-11-16). 20 A100 listings observed in the catalog from $0.47/GPU-hr, updated 2026-11-16.
 
-Report assembled 2026-11-15T17:02:22.958Z
+Report assembled 2026-11-16T17:02:34.840Z
 
-Source observations: 2026-11-15T17:01:57.722Z. Report assembled 2026-11-15T17:02:22.958Z; assembly does not refresh source evidence.
+Source observations: 2026-11-16T17:02:07.118Z. Report assembled 2026-11-16T17:02:34.840Z; assembly does not refresh source evidence.
 
-Catalog snapshot 2026-11-15T17:00:37.355Z
+Catalog snapshot 2026-11-16T17:00:37.771Z
 
 Dated catalog sample. Availability and prices may have changed. Check the current marketplace before relying on a listing.
 
 Min included rate
 
-$0.52
+$0.62
 
 per GPU-hour
 
@@ -2079,9 +2071,9 @@ per GPU-hour
 
 Snapshot listings
 
-23
+20
 
-from $0.44/GPU-hr
+from $0.47/GPU-hr
 
 ## Named-provider market rates — A100
 
@@ -2093,69 +2085,63 @@ Explicit 80GB SKUs in the dataset: 3 public rate row(s) from $1.15 to $5.04 per 
 
 | Provider | Listed SKU | Min $/GPU-hr | Avg $/GPU-hr | Max $/GPU-hr | Source / observation dates |
 
-| Vast.ai | A100 SXM4, A100 PCIE | $0.52 | $0.57 | $0.62 | console.vast.ai Source observations: 2026-11-15T17:01:57.722Z |
+| Vast.ai | A100 PCIE, A100 SXM4 | $0.62 | $0.82 | $1.09 | console.vast.ai Source observations: 2026-11-16T17:02:07.118Z |
 
-| Koyeb | A100 | $1.60 | $1.60 | $1.60 | koyeb.com Source observations: 2026-11-15T17:01:57.722Z |
+| Koyeb | A100 | $1.60 | $1.60 | $1.60 | koyeb.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| Paperspace | NVIDIA A100-80G, NVIDIA A100 | $1.15 | $1.70 | $2.24 | paperspace.com Source observations: 2026-11-15T17:01:57.722Z |
+| Paperspace | NVIDIA A100-80G, NVIDIA A100 | $1.15 | $1.70 | $2.24 | paperspace.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| TensorDock | A100 SXM4 | $1.80 | $1.80 | $1.80 | tensordock.com Source observations: 2026-11-15T17:01:57.722Z |
+| TensorDock | A100 SXM4 | $1.80 | $1.80 | $1.80 | tensordock.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| Oblivus Cloud | A100 | $2.56 | $2.56 | $2.56 | oblivus.com Source observations: 2026-11-15T17:01:57.722Z |
+| Oblivus Cloud | A100 | $2.56 | $2.56 | $2.56 | oblivus.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| CoreWeave | NVIDIA A100 | $2.70 | $2.70 | $2.70 | coreweave.com Source observations: 2026-11-15T17:01:57.722Z |
+| CoreWeave | NVIDIA A100 | $2.70 | $2.70 | $2.70 | coreweave.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| Replicate | Nvidia A100 80GB, 2x Nvidia A100 80GB | $5.04 | $5.04 | $5.04 | replicate.com Source observations: 2026-11-15T17:01:57.722Z |
+| Replicate | Nvidia A100 80GB, 2x Nvidia A100 80GB | $5.04 | $5.04 | $5.04 | replicate.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| CivoCloud | A100 | $7.12 | $7.12 | $7.12 | civo.com Source observations: 2026-11-15T17:01:57.722Z |
+| CivoCloud | A100 | $7.12 | $7.12 | $7.12 | civo.com Source observations: 2026-11-16T17:02:07.118Z |
 
 Public list prices reflect the source observation dates above; full report at /gpu-supplier-pricing.html .
 
 ## Marketplace catalog snapshot
 
-23 A100 listings observed in the catalog from $0.44/GPU-hr, updated 2026-11-15. Marketplace listings are provider-anonymous by design.
+20 A100 listings observed in the catalog from $0.47/GPU-hr, updated 2026-11-16. Marketplace listings are provider-anonymous by design.
 
 | GPU | Count | vRAM | Region | $/GPU/hr | Instance $/hr | |
 
-| A100 | 1× | 40 GB | Europe · North | $0.44 | $0.44 | Check availability |
+| A100 | 1× | 40 GB | Europe · West | $0.47 | $0.47 | Check availability |
 
 | A100 | 1× | 40 GB | US · East | $0.54 | $0.54 | Check availability |
 
-| A100 | 2× | 40 GB | US · West | $0.64 | $1.28 | Check availability |
+| A100 | 8× | 40 GB | US · West | $0.57 | $4.53 | Check availability |
+
+| A100 | 2× | 40 GB | Asia · Northeast | $0.63 | $1.25 | Check availability |
+
+| A100 | 1× | 40 GB | Asia · Northeast | $0.64 | $0.64 | Check availability |
+
+| A100 | 2× | 40 GB | US · Central | $0.71 | $1.42 | Check availability |
 
 | A100 | 1× | 40 GB | US · Central | $0.72 | $0.72 | Check availability |
 
-| A100 | 4× | 40 GB | Asia · Northeast | $0.81 | $3.23 | Check availability |
+| A100 | 2× | 80 GB | Europe · West | $0.92 | $1.84 | Check availability |
 
-| A100 | 1× | 80 GB | Europe · West | $0.93 | $0.93 | Check availability |
+| A100 | 1× | 80 GB | Europe · East | $1.15 | $1.15 | Check availability |
 
-| A100 | 2× | 40 GB | US · Central | $0.99 | $1.98 | Check availability |
-
-| A100 | 1× | 80 GB | Asia · Northeast | $1.37 | $1.37 | Check availability |
+| A100 | 8× | 80 GB | US · Central | $1.41 | $11.30 | Check availability |
 
 | A100-80G | 8× | 80 GB | US · Central | $1.42 | $11.34 | Check availability |
 
-| A100-80G | 1× | 80 GB | Canada | $1.42 | $1.42 | Check availability |
+| A100 | 4× | 80 GB | US · Central | $1.43 | $5.70 | Check availability |
 
 | A100-80G | 1× | 80 GB | US · Central | $1.45 | $1.45 | Check availability |
 
-| A100 | 8× | 40 GB | Global · flexible | $1.47 | $11.76 | Check availability |
+| A100 | 1× | 40 GB | Global · flexible | $1.47 | $1.47 | Check availability |
 
-| A100 | 4× | 80 GB | US · Central | $1.54 | $6.18 | Check availability |
+| A100 | 8× | 40 GB | Global · flexible | $1.47 | $11.76 | Check availability |
 
 | A100-80G | 8× | 80 GB | Global · flexible | $1.57 | $12.60 | Check availability |
 
-| A100 | 1× | 40 GB | India | $2.09 | $2.09 | Check availability |
-
 | A100 | 1× | 40 GB | US · West | $2.09 | $2.09 | Check availability |
-
-| A100 | 8× | 40 GB | US · East | $2.09 | $16.72 | Check availability |
-
-| A100 | 8× | 40 GB | US · West | $2.09 | $16.72 | Check availability |
-
-| A100 | 8× | 40 GB | Europe · West | $2.09 | $16.72 | Check availability |
-
-| A100 | 8× | 40 GB | US · Central | $2.09 | $16.72 | Check availability |
 
 | A100-80G | 2× | 80 GB | US · Central | $2.10 | $4.20 | Check availability |
 
@@ -2163,19 +2149,19 @@ Public list prices reflect the source observation dates above; full report at /g
 
 | A100-80G | 1× | 80 GB | US · East | $3.45 | $3.45 | Check availability |
 
-Snapshot 2026-11-15; current view on /compute.html .
+Snapshot 2026-11-16; current view on /compute.html .
 
 ## Monthly cost math (720 hours)
 
 | Scenario | $/GPU-hr | × 720 hrs |
 
-| Lowest tracked public rate | $0.52 | $376 |
+| Lowest tracked public rate | $0.62 | $445 |
 
 | Median provider-average rate | $2.18 | $1570 |
 
 | Highest tracked public rate | $7.12 | $5126 |
 
-| Cheapest sampled marketplace listing | $0.44 | $317 |
+| Cheapest sampled marketplace listing | $0.47 | $338 |
 
 720 hours ≈ one month of continuous single-GPU runtime. Multiply by GPU count for multi-GPU nodes.
 
@@ -2188,15 +2174,15 @@ On-demand marketplace ↗
 
 ### How much does a A100 (80GB) cost per hour in 2026?
 
-Public on-demand rates tracked by Omega Gradient range from $0.52 to $7.12 per GPU-hour across 8 providers, with a median provider-average rate of $2.18 (report assembled 2026-11-15).
+Public on-demand rates tracked by Omega Gradient range from $0.62 to $7.12 per GPU-hour across 8 providers, with a median provider-average rate of $2.18 (report assembled 2026-11-16).
 
 ### Was a A100 (80GB) listed in the catalog snapshot?
 
-23 A100 listings observed in the catalog from $0.44/GPU-hr, updated 2026-11-15. Check current availability at omegagradient.com/compute.html.
+20 A100 listings observed in the catalog from $0.47/GPU-hr, updated 2026-11-16. Check current availability at omegagradient.com/compute.html.
 
 ### What does a A100 (80GB) cost per month?
 
-At the median tracked rate of $2.18/GPU-hr, one GPU running a full 720-hour month costs about $1570. At the lowest tracked rate of $0.52/GPU-hr, about $376.
+At the median tracked rate of $2.18/GPU-hr, one GPU running a full 720-hour month costs about $1570. At the lowest tracked rate of $0.62/GPU-hr, about $445.
 
 ### Where do these prices come from?
 
@@ -2205,19 +2191,19 @@ Included public rate observations collected by Omega Gradient; dates can vary by
 ----------------------------------------------------------------------
 # L40S Cloud Pricing 2026: $0.70–$3.51/hr Across 4 Providers | Omega Gradient
 URL: https://omegagradient.com/gpus/l40s.html
-Report assembled: 2026-11-15T17:02:22.958Z
+Report assembled: 2026-11-16T17:02:34.840Z
 
 Cloud GPU Price Index · L40S
 
 # L40S Cloud Pricing 2026: $0.70–$3.51/hr Across 4 Providers
 
-The sampled NVIDIA L40S rates have a minimum included rate of $0.70 , a median provider-average rate of $1.73 , and a maximum included rate of $3.51 per GPU-hour across 4 cloud providers with verified public rates (5 price rows, report assembled 2026-11-15). 2 L40S listings observed in the catalog from $0.93/GPU-hr, updated 2026-11-15.
+The sampled NVIDIA L40S rates have a minimum included rate of $0.70 , a median provider-average rate of $1.73 , and a maximum included rate of $3.51 per GPU-hour across 4 cloud providers with verified public rates (5 price rows, report assembled 2026-11-16). 5 L40S listings observed in the catalog from $0.72/GPU-hr, updated 2026-11-16.
 
-Report assembled 2026-11-15T17:02:22.958Z
+Report assembled 2026-11-16T17:02:34.840Z
 
-Source observations: 2026-11-15T17:01:57.722Z. Report assembled 2026-11-15T17:02:22.958Z; assembly does not refresh source evidence.
+Source observations: 2026-11-16T17:02:07.118Z. Report assembled 2026-11-16T17:02:34.840Z; assembly does not refresh source evidence.
 
-Catalog snapshot 2026-11-15T17:00:37.355Z
+Catalog snapshot 2026-11-16T17:00:37.771Z
 
 Dated catalog sample. Availability and prices may have changed. Check the current marketplace before relying on a listing.
 
@@ -2241,9 +2227,9 @@ per GPU-hour
 
 Snapshot listings
 
-2
+5
 
-from $0.93/GPU-hr
+from $0.72/GPU-hr
 
 ## Named-provider market rates — L40S
 
@@ -2251,27 +2237,33 @@ Publicly listed on-demand rates, normalized to USD per GPU-hour. These are marke
 
 | Provider | Listed SKU | Min $/GPU-hr | Avg $/GPU-hr | Max $/GPU-hr | Source / observation dates |
 
-| HydraHost | L40S | $0.70 | $0.70 | $0.70 | hydrahost.com Source observations: 2026-11-15T17:01:57.722Z |
+| HydraHost | L40S | $0.70 | $0.70 | $0.70 | hydrahost.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| Koyeb | L40S | $1.20 | $1.20 | $1.20 | koyeb.com Source observations: 2026-11-15T17:01:57.722Z |
+| Koyeb | L40S | $1.20 | $1.20 | $1.20 | koyeb.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| CoreWeave | NVIDIA L40S | $2.25 | $2.25 | $2.25 | coreweave.com Source observations: 2026-11-15T17:01:57.722Z |
+| CoreWeave | NVIDIA L40S | $2.25 | $2.25 | $2.25 | coreweave.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| Replicate | Nvidia L40S, 2x Nvidia L40S | $3.51 | $3.51 | $3.51 | replicate.com Source observations: 2026-11-15T17:01:57.722Z |
+| Replicate | Nvidia L40S, 2x Nvidia L40S | $3.51 | $3.51 | $3.51 | replicate.com Source observations: 2026-11-16T17:02:07.118Z |
 
 Public list prices reflect the source observation dates above; full report at /gpu-supplier-pricing.html .
 
 ## Marketplace catalog snapshot
 
-2 L40S listings observed in the catalog from $0.93/GPU-hr, updated 2026-11-15. Marketplace listings are provider-anonymous by design.
+5 L40S listings observed in the catalog from $0.72/GPU-hr, updated 2026-11-16. Marketplace listings are provider-anonymous by design.
 
 | GPU | Count | vRAM | Region | $/GPU/hr | Instance $/hr | |
 
+| L40S | 1× | 45 GB | Asia · Southeast | $0.72 | $0.72 | Check availability |
+
+| L40S | 2× | 48 GB | US · Central | $0.93 | $1.85 | Check availability |
+
+| L40S | 4× | 48 GB | US · Central | $0.93 | $3.70 | Check availability |
+
 | L40S | 1× | 48 GB | US · Central | $0.93 | $0.93 | Check availability |
 
-| L40S | 2× | 48 GB | US · Central | $1.57 | $3.15 | Check availability |
+| L40S | 1× | 48 GB | Europe · East | $1.79 | $1.79 | Check availability |
 
-Snapshot 2026-11-15; current view on /compute.html .
+Snapshot 2026-11-16; current view on /compute.html .
 
 ## Monthly cost math (720 hours)
 
@@ -2283,7 +2275,7 @@ Snapshot 2026-11-15; current view on /compute.html .
 
 | Highest tracked public rate | $3.51 | $2527 |
 
-| Cheapest sampled marketplace listing | $0.93 | $670 |
+| Cheapest sampled marketplace listing | $0.72 | $518 |
 
 720 hours ≈ one month of continuous single-GPU runtime. Multiply by GPU count for multi-GPU nodes.
 
@@ -2296,11 +2288,11 @@ On-demand marketplace ↗
 
 ### How much does a L40S cost per hour in 2026?
 
-Public on-demand rates tracked by Omega Gradient range from $0.70 to $3.51 per GPU-hour across 4 providers, with a median provider-average rate of $1.73 (report assembled 2026-11-15).
+Public on-demand rates tracked by Omega Gradient range from $0.70 to $3.51 per GPU-hour across 4 providers, with a median provider-average rate of $1.73 (report assembled 2026-11-16).
 
 ### Was a L40S listed in the catalog snapshot?
 
-2 L40S listings observed in the catalog from $0.93/GPU-hr, updated 2026-11-15. Check current availability at omegagradient.com/compute.html.
+5 L40S listings observed in the catalog from $0.72/GPU-hr, updated 2026-11-16. Check current availability at omegagradient.com/compute.html.
 
 ### What does a L40S cost per month?
 
@@ -2313,19 +2305,19 @@ Included public rate observations collected by Omega Gradient; dates can vary by
 ----------------------------------------------------------------------
 # L40 Cloud Pricing 2026: $0.70–$1.25/hr Across 3 Providers | Omega Gradient
 URL: https://omegagradient.com/gpus/l40.html
-Report assembled: 2026-11-15T17:02:22.958Z
+Report assembled: 2026-11-16T17:02:34.840Z
 
 Cloud GPU Price Index · L40
 
 # L40 Cloud Pricing 2026: $0.70–$1.25/hr Across 3 Providers
 
-The sampled NVIDIA L40 rates have a minimum included rate of $0.70 , a median provider-average rate of $0.95 , and a maximum included rate of $1.25 per GPU-hour across 3 cloud providers with verified public rates (3 price rows, report assembled 2026-11-15). 2 L40 listings observed in the catalog from $0.93/GPU-hr, updated 2026-11-15.
+The sampled NVIDIA L40 rates have a minimum included rate of $0.70 , a median provider-average rate of $0.95 , and a maximum included rate of $1.25 per GPU-hour across 3 cloud providers with verified public rates (3 price rows, report assembled 2026-11-16). 5 L40 listings observed in the catalog from $0.93/GPU-hr, updated 2026-11-16.
 
-Report assembled 2026-11-15T17:02:22.958Z
+Report assembled 2026-11-16T17:02:34.840Z
 
-Source observations: 2026-11-15T17:01:57.722Z. Report assembled 2026-11-15T17:02:22.958Z; assembly does not refresh source evidence.
+Source observations: 2026-11-16T17:02:07.118Z. Report assembled 2026-11-16T17:02:34.840Z; assembly does not refresh source evidence.
 
-Catalog snapshot 2026-11-15T17:00:37.355Z
+Catalog snapshot 2026-11-16T17:00:37.771Z
 
 Dated catalog sample. Availability and prices may have changed. Check the current marketplace before relying on a listing.
 
@@ -2349,7 +2341,7 @@ per GPU-hour
 
 Snapshot listings
 
-2
+5
 
 from $0.93/GPU-hr
 
@@ -2359,17 +2351,17 @@ Publicly listed on-demand rates, normalized to USD per GPU-hour. These are marke
 
 | Provider | Listed SKU | Min $/GPU-hr | Avg $/GPU-hr | Max $/GPU-hr | Source / observation dates |
 
-| HydraHost | L40 | $0.70 | $0.70 | $0.70 | hydrahost.com Source observations: 2026-11-15T17:01:57.722Z |
+| HydraHost | L40 | $0.70 | $0.70 | $0.70 | hydrahost.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| Oblivus Cloud | L40 | $0.95 | $0.95 | $0.95 | oblivus.com Source observations: 2026-11-15T17:01:57.722Z |
+| Oblivus Cloud | L40 | $0.95 | $0.95 | $0.95 | oblivus.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| CoreWeave | NVIDIA L40 | $1.25 | $1.25 | $1.25 | coreweave.com Source observations: 2026-11-15T17:01:57.722Z |
+| CoreWeave | NVIDIA L40 | $1.25 | $1.25 | $1.25 | coreweave.com Source observations: 2026-11-16T17:02:07.118Z |
 
 Public list prices reflect the source observation dates above; full report at /gpu-supplier-pricing.html .
 
 ## Marketplace catalog snapshot
 
-2 L40 listings observed in the catalog from $0.93/GPU-hr, updated 2026-11-15. Marketplace listings are provider-anonymous by design.
+5 L40 listings observed in the catalog from $0.93/GPU-hr, updated 2026-11-16. Marketplace listings are provider-anonymous by design.
 
 | GPU | Count | vRAM | Region | $/GPU/hr | Instance $/hr | |
 
@@ -2377,7 +2369,13 @@ Public list prices reflect the source observation dates above; full report at /g
 
 | L40 | 2× | 48 GB | US · Central | $1.04 | $2.08 | Check availability |
 
-Snapshot 2026-11-15; current view on /compute.html .
+| L40 | 1× | 48 GB | Canada | $1.05 | $1.05 | Check availability |
+
+| L40 | 2× | 48 GB | Canada | $1.05 | $2.10 | Check availability |
+
+| L40 | 4× | 48 GB | US · Central | $1.56 | $6.26 | Check availability |
+
+Snapshot 2026-11-16; current view on /compute.html .
 
 ## Monthly cost math (720 hours)
 
@@ -2402,11 +2400,11 @@ On-demand marketplace ↗
 
 ### How much does a L40 cost per hour in 2026?
 
-Public on-demand rates tracked by Omega Gradient range from $0.70 to $1.25 per GPU-hour across 3 providers, with a median provider-average rate of $0.95 (report assembled 2026-11-15).
+Public on-demand rates tracked by Omega Gradient range from $0.70 to $1.25 per GPU-hour across 3 providers, with a median provider-average rate of $0.95 (report assembled 2026-11-16).
 
 ### Was a L40 listed in the catalog snapshot?
 
-2 L40 listings observed in the catalog from $0.93/GPU-hr, updated 2026-11-15. Check current availability at omegagradient.com/compute.html.
+5 L40 listings observed in the catalog from $0.93/GPU-hr, updated 2026-11-16. Check current availability at omegagradient.com/compute.html.
 
 ### What does a L40 cost per month?
 
@@ -2417,21 +2415,21 @@ At the median tracked rate of $0.95/GPU-hr, one GPU running a full 720-hour mont
 Included public rate observations collected by Omega Gradient; dates can vary by source. Provider-normalized average: average SKUs/offers within each provider and GPU family first, then average provider means so one marketplace does not dominate.
 
 ----------------------------------------------------------------------
-# RTX 4090 Cloud Pricing 2026: $0.35–$0.92/hr Across 4 Providers | Omega Gradient
+# RTX 4090 Cloud Pricing 2026: $0.35–$0.79/hr Across 4 Providers | Omega Gradient
 URL: https://omegagradient.com/gpus/rtx-4090.html
-Report assembled: 2026-11-15T17:02:22.958Z
+Report assembled: 2026-11-16T17:02:34.840Z
 
 Cloud GPU Price Index · RTX 4090
 
-# RTX 4090 Cloud Pricing 2026: $0.35–$0.92/hr Across 4 Providers
+# RTX 4090 Cloud Pricing 2026: $0.35–$0.79/hr Across 4 Providers
 
-The sampled NVIDIA RTX 4090 rates have a minimum included rate of $0.35 , a median provider-average rate of $0.57 , and a maximum included rate of $0.92 per GPU-hour across 4 cloud providers with verified public rates (8 price rows, report assembled 2026-11-15). 3 RTX 4090 listings observed in the catalog from $0.42/GPU-hr, updated 2026-11-15.
+The sampled NVIDIA RTX 4090 rates have a minimum included rate of $0.35 , a median provider-average rate of $0.53 , and a maximum included rate of $0.79 per GPU-hour across 4 cloud providers with verified public rates (6 price rows, report assembled 2026-11-16). 1 RTX 4090 listing observed in the catalog from $0.52/GPU-hr, updated 2026-11-16.
 
-Report assembled 2026-11-15T17:02:22.958Z
+Report assembled 2026-11-16T17:02:34.840Z
 
-Source observations: 2026-11-15T17:01:57.722Z. Report assembled 2026-11-15T17:02:22.958Z; assembly does not refresh source evidence.
+Source observations: 2026-11-16T17:02:07.118Z. Report assembled 2026-11-16T17:02:34.840Z; assembly does not refresh source evidence.
 
-Catalog snapshot 2026-11-15T17:00:37.355Z
+Catalog snapshot 2026-11-16T17:00:37.771Z
 
 Dated catalog sample. Availability and prices may have changed. Check the current marketplace before relying on a listing.
 
@@ -2443,21 +2441,21 @@ per GPU-hour
 
 Median provider average
 
-$0.57
+$0.53
 
 per GPU-hour
 
 Max included rate
 
-$0.92
+$0.79
 
 per GPU-hour
 
 Snapshot listings
 
-3
+1
 
-from $0.42/GPU-hr
+from $0.52/GPU-hr
 
 ## Named-provider market rates — RTX 4090
 
@@ -2465,29 +2463,25 @@ Publicly listed on-demand rates, normalized to USD per GPU-hour. These are marke
 
 | Provider | Listed SKU | Min $/GPU-hr | Avg $/GPU-hr | Max $/GPU-hr | Source / observation dates |
 
-| TensorDock | RTX 4090 | $0.35 | $0.35 | $0.35 | tensordock.com Source observations: 2026-11-15T17:01:57.722Z |
+| TensorDock | RTX 4090 | $0.35 | $0.35 | $0.35 | tensordock.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| HydraHost | RTX 4090 | $0.40 | $0.40 | $0.40 | hydrahost.com Source observations: 2026-11-15T17:01:57.722Z |
+| HydraHost | RTX 4090 | $0.40 | $0.40 | $0.40 | hydrahost.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| Vast.ai | RTX 4090, RTX 4090D | $0.44 | $0.74 | $0.92 | console.vast.ai Source observations: 2026-11-15T17:01:57.722Z |
+| Vast.ai | RTX 4090, RTX 4090D | $0.60 | $0.67 | $0.79 | console.vast.ai Source observations: 2026-11-16T17:02:07.118Z |
 
-| Oblivus Cloud | RTX 4090 | $0.74 | $0.74 | $0.74 | oblivus.com Source observations: 2026-11-15T17:01:57.722Z |
+| Oblivus Cloud | RTX 4090 | $0.74 | $0.74 | $0.74 | oblivus.com Source observations: 2026-11-16T17:02:07.118Z |
 
 Public list prices reflect the source observation dates above; full report at /gpu-supplier-pricing.html .
 
 ## Marketplace catalog snapshot
 
-3 RTX 4090 listings observed in the catalog from $0.42/GPU-hr, updated 2026-11-15. Marketplace listings are provider-anonymous by design.
+1 RTX 4090 listing observed in the catalog from $0.52/GPU-hr, updated 2026-11-16. Marketplace listings are provider-anonymous by design.
 
 | GPU | Count | vRAM | Region | $/GPU/hr | Instance $/hr | |
 
-| RTX 4090 | 8× | 24 GB | US · Central | $0.42 | $3.36 | Check availability |
+| RTX 4090 | 8× | 24 GB | US · Central | $0.52 | $4.12 | Check availability |
 
-| RTX 4090 | 1× | 24 GB | Global · flexible | $0.63 | $0.63 | Check availability |
-
-| RTX 4090 | 4× | 24 GB | Global · flexible | $0.63 | $2.52 | Check availability |
-
-Snapshot 2026-11-15; current view on /compute.html .
+Snapshot 2026-11-16; current view on /compute.html .
 
 ## Monthly cost math (720 hours)
 
@@ -2495,11 +2489,11 @@ Snapshot 2026-11-15; current view on /compute.html .
 
 | Lowest tracked public rate | $0.35 | $252 |
 
-| Median provider-average rate | $0.57 | $410 |
+| Median provider-average rate | $0.53 | $384 |
 
-| Highest tracked public rate | $0.92 | $665 |
+| Highest tracked public rate | $0.79 | $569 |
 
-| Cheapest sampled marketplace listing | $0.42 | $302 |
+| Cheapest sampled marketplace listing | $0.52 | $371 |
 
 720 hours ≈ one month of continuous single-GPU runtime. Multiply by GPU count for multi-GPU nodes.
 
@@ -2512,62 +2506,62 @@ On-demand marketplace ↗
 
 ### How much does a RTX 4090 cost per hour in 2026?
 
-Public on-demand rates tracked by Omega Gradient range from $0.35 to $0.92 per GPU-hour across 4 providers, with a median provider-average rate of $0.57 (report assembled 2026-11-15).
+Public on-demand rates tracked by Omega Gradient range from $0.35 to $0.79 per GPU-hour across 4 providers, with a median provider-average rate of $0.53 (report assembled 2026-11-16).
 
 ### Was a RTX 4090 listed in the catalog snapshot?
 
-3 RTX 4090 listings observed in the catalog from $0.42/GPU-hr, updated 2026-11-15. Check current availability at omegagradient.com/compute.html.
+1 RTX 4090 listing observed in the catalog from $0.52/GPU-hr, updated 2026-11-16. Check current availability at omegagradient.com/compute.html.
 
 ### What does a RTX 4090 cost per month?
 
-At the median tracked rate of $0.57/GPU-hr, one GPU running a full 720-hour month costs about $410. At the lowest tracked rate of $0.35/GPU-hr, about $252.
+At the median tracked rate of $0.53/GPU-hr, one GPU running a full 720-hour month costs about $384. At the lowest tracked rate of $0.35/GPU-hr, about $252.
 
 ### Where do these prices come from?
 
 Included public rate observations collected by Omega Gradient; dates can vary by source. Provider-normalized average: average SKUs/offers within each provider and GPU family first, then average provider means so one marketplace does not dominate.
 
 ----------------------------------------------------------------------
-# RTX 5090 Cloud Pricing 2026: $0.43–$1.05/hr Across 2 Providers | Omega Gradient
+# RTX 5090 Cloud Pricing 2026: $0.44–$1.32/hr Across 2 Providers | Omega Gradient
 URL: https://omegagradient.com/gpus/rtx-5090.html
-Report assembled: 2026-11-15T17:02:22.958Z
+Report assembled: 2026-11-16T17:02:34.840Z
 
 Cloud GPU Price Index · RTX 5090
 
-# RTX 5090 Cloud Pricing 2026: $0.43–$1.05/hr Across 2 Providers
+# RTX 5090 Cloud Pricing 2026: $0.44–$1.32/hr Across 2 Providers
 
-The sampled NVIDIA RTX 5090 rates have a minimum included rate of $0.43 , a median provider-average rate of $0.70 , and a maximum included rate of $1.05 per GPU-hour across 2 cloud providers with verified public rates (8 price rows, report assembled 2026-11-15). 4 RTX 5090 listings observed in the catalog from $0.68/GPU-hr, updated 2026-11-15.
+The sampled NVIDIA RTX 5090 rates have a minimum included rate of $0.44 , a median provider-average rate of $0.74 , and a maximum included rate of $1.32 per GPU-hour across 2 cloud providers with verified public rates (7 price rows, report assembled 2026-11-16). 2 RTX 5090 listings observed in the catalog from $0.69/GPU-hr, updated 2026-11-16.
 
-Report assembled 2026-11-15T17:02:22.958Z
+Report assembled 2026-11-16T17:02:34.840Z
 
-Source observations: 2026-11-15T17:01:57.722Z. Report assembled 2026-11-15T17:02:22.958Z; assembly does not refresh source evidence.
+Source observations: 2026-11-16T17:02:07.118Z. Report assembled 2026-11-16T17:02:34.840Z; assembly does not refresh source evidence.
 
-Catalog snapshot 2026-11-15T17:00:37.355Z
+Catalog snapshot 2026-11-16T17:00:37.771Z
 
 Dated catalog sample. Availability and prices may have changed. Check the current marketplace before relying on a listing.
 
 Min included rate
 
-$0.43
+$0.44
 
 per GPU-hour
 
 Median provider average
 
-$0.70
+$0.74
 
 per GPU-hour
 
 Max included rate
 
-$1.05
+$1.32
 
 per GPU-hour
 
 Snapshot listings
 
-4
+2
 
-from $0.68/GPU-hr
+from $0.69/GPU-hr
 
 ## Named-provider market rates — RTX 5090
 
@@ -2575,39 +2569,35 @@ Publicly listed on-demand rates, normalized to USD per GPU-hour. These are marke
 
 | Provider | Listed SKU | Min $/GPU-hr | Avg $/GPU-hr | Max $/GPU-hr | Source / observation dates |
 
-| HydraHost | RTX 5090 | $0.70 | $0.70 | $0.70 | hydrahost.com Source observations: 2026-11-15T17:01:57.722Z |
+| HydraHost | RTX 5090 | $0.70 | $0.70 | $0.70 | hydrahost.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| Vast.ai | RTX 5090 | $0.43 | $0.70 | $1.05 | console.vast.ai Source observations: 2026-11-15T17:01:57.722Z |
+| Vast.ai | RTX 5090 | $0.44 | $0.78 | $1.32 | console.vast.ai Source observations: 2026-11-16T17:02:07.118Z |
 
 Public list prices reflect the source observation dates above; full report at /gpu-supplier-pricing.html .
 
 ## Marketplace catalog snapshot
 
-4 RTX 5090 listings observed in the catalog from $0.68/GPU-hr, updated 2026-11-15. Marketplace listings are provider-anonymous by design.
+2 RTX 5090 listings observed in the catalog from $0.69/GPU-hr, updated 2026-11-16. Marketplace listings are provider-anonymous by design.
 
 | GPU | Count | vRAM | Region | $/GPU/hr | Instance $/hr | |
-
-| RTX 5090 | 4× | 32 GB | Global · flexible | $0.68 | $2.73 | Check availability |
-
-| RTX 5090 | 8× | 32 GB | Global · flexible | $0.68 | $5.46 | Check availability |
 
 | RTX 5090 | 2× | 32 GB | Global · flexible | $0.69 | $1.37 | Check availability |
 
 | RTX 5090 | 1× | 32 GB | Global · flexible | $0.69 | $0.69 | Check availability |
 
-Snapshot 2026-11-15; current view on /compute.html .
+Snapshot 2026-11-16; current view on /compute.html .
 
 ## Monthly cost math (720 hours)
 
 | Scenario | $/GPU-hr | × 720 hrs |
 
-| Lowest tracked public rate | $0.43 | $309 |
+| Lowest tracked public rate | $0.44 | $314 |
 
-| Median provider-average rate | $0.70 | $505 |
+| Median provider-average rate | $0.74 | $534 |
 
-| Highest tracked public rate | $1.05 | $759 |
+| Highest tracked public rate | $1.32 | $951 |
 
-| Cheapest sampled marketplace listing | $0.68 | $491 |
+| Cheapest sampled marketplace listing | $0.69 | $493 |
 
 720 hours ≈ one month of continuous single-GPU runtime. Multiply by GPU count for multi-GPU nodes.
 
@@ -2620,15 +2610,15 @@ On-demand marketplace ↗
 
 ### How much does a RTX 5090 cost per hour in 2026?
 
-Public on-demand rates tracked by Omega Gradient range from $0.43 to $1.05 per GPU-hour across 2 providers, with a median provider-average rate of $0.70 (report assembled 2026-11-15).
+Public on-demand rates tracked by Omega Gradient range from $0.44 to $1.32 per GPU-hour across 2 providers, with a median provider-average rate of $0.74 (report assembled 2026-11-16).
 
 ### Was a RTX 5090 listed in the catalog snapshot?
 
-4 RTX 5090 listings observed in the catalog from $0.68/GPU-hr, updated 2026-11-15. Check current availability at omegagradient.com/compute.html.
+2 RTX 5090 listings observed in the catalog from $0.69/GPU-hr, updated 2026-11-16. Check current availability at omegagradient.com/compute.html.
 
 ### What does a RTX 5090 cost per month?
 
-At the median tracked rate of $0.70/GPU-hr, one GPU running a full 720-hour month costs about $505. At the lowest tracked rate of $0.43/GPU-hr, about $309.
+At the median tracked rate of $0.74/GPU-hr, one GPU running a full 720-hour month costs about $534. At the lowest tracked rate of $0.44/GPU-hr, about $314.
 
 ### Where do these prices come from?
 
@@ -2637,19 +2627,19 @@ Included public rate observations collected by Omega Gradient; dates can vary by
 ----------------------------------------------------------------------
 # RTX A6000 Cloud Pricing 2026: $0.44–$0.75/hr Across 3 Providers | Omega Gradient
 URL: https://omegagradient.com/gpus/a6000.html
-Report assembled: 2026-11-15T17:02:22.958Z
+Report assembled: 2026-11-16T17:02:34.840Z
 
 Cloud GPU Price Index · A6000
 
 # RTX A6000 Cloud Pricing 2026: $0.44–$0.75/hr Across 3 Providers
 
-The sampled NVIDIA RTX A6000 rates have a minimum included rate of $0.44 , a median provider-average rate of $0.70 , and a maximum included rate of $0.75 per GPU-hour across 3 cloud providers with verified public rates (3 price rows, report assembled 2026-11-15). 6 A6000 listings observed in the catalog from $0.60/GPU-hr, updated 2026-11-15.
+The sampled NVIDIA RTX A6000 rates have a minimum included rate of $0.44 , a median provider-average rate of $0.70 , and a maximum included rate of $0.75 per GPU-hour across 3 cloud providers with verified public rates (3 price rows, report assembled 2026-11-16). 9 A6000 listings observed in the catalog from $0.53/GPU-hr, updated 2026-11-16.
 
-Report assembled 2026-11-15T17:02:22.958Z
+Report assembled 2026-11-16T17:02:34.840Z
 
-Source observations: 2026-11-15T17:01:57.722Z. Report assembled 2026-11-15T17:02:22.958Z; assembly does not refresh source evidence.
+Source observations: 2026-11-16T17:02:07.118Z. Report assembled 2026-11-16T17:02:34.840Z; assembly does not refresh source evidence.
 
-Catalog snapshot 2026-11-15T17:00:37.355Z
+Catalog snapshot 2026-11-16T17:00:37.771Z
 
 Dated catalog sample. Availability and prices may have changed. Check the current marketplace before relying on a listing.
 
@@ -2673,9 +2663,9 @@ per GPU-hour
 
 Snapshot listings
 
-6
+9
 
-from $0.60/GPU-hr
+from $0.53/GPU-hr
 
 ## Named-provider market rates — A6000
 
@@ -2683,19 +2673,23 @@ Publicly listed on-demand rates, normalized to USD per GPU-hour. These are marke
 
 | Provider | Listed SKU | Min $/GPU-hr | Avg $/GPU-hr | Max $/GPU-hr | Source / observation dates |
 
-| Oblivus Cloud | RTX A6000 | $0.44 | $0.44 | $0.44 | oblivus.com Source observations: 2026-11-15T17:01:57.722Z |
+| Oblivus Cloud | RTX A6000 | $0.44 | $0.44 | $0.44 | oblivus.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| HydraHost | RTX A6000 | $0.70 | $0.70 | $0.70 | hydrahost.com Source observations: 2026-11-15T17:01:57.722Z |
+| HydraHost | RTX A6000 | $0.70 | $0.70 | $0.70 | hydrahost.com Source observations: 2026-11-16T17:02:07.118Z |
 
-| Koyeb | RTX-A6000 | $0.75 | $0.75 | $0.75 | koyeb.com Source observations: 2026-11-15T17:01:57.722Z |
+| Koyeb | RTX-A6000 | $0.75 | $0.75 | $0.75 | koyeb.com Source observations: 2026-11-16T17:02:07.118Z |
 
 Public list prices reflect the source observation dates above; full report at /gpu-supplier-pricing.html .
 
 ## Marketplace catalog snapshot
 
-6 A6000 listings observed in the catalog from $0.60/GPU-hr, updated 2026-11-15. Marketplace listings are provider-anonymous by design.
+9 A6000 listings observed in the catalog from $0.53/GPU-hr, updated 2026-11-16. Marketplace listings are provider-anonymous by design.
 
 | GPU | Count | vRAM | Region | $/GPU/hr | Instance $/hr | |
+
+| RTX A6000 | 2× | 48 GB | Canada | $0.53 | $1.05 | Check availability |
+
+| RTX A6000 | 1× | 48 GB | Canada | $0.53 | $0.53 | Check availability |
 
 | RTX A6000 | 1× | 48 GB | US · Central | $0.60 | $0.60 | Check availability |
 
@@ -2703,13 +2697,15 @@ Public list prices reflect the source observation dates above; full report at /g
 
 | RTX A6000 | 4× | 48 GB | US · Central | $0.60 | $2.40 | Check availability |
 
+| RTX A6000 | 1× | 48 GB | Global · flexible | $1.14 | $1.14 | Check availability |
+
 | RTX A6000 | 4× | 48 GB | US · East | $2.03 | $8.11 | Check availability |
 
 | RTX A6000 | 1× | 48 GB | US · East | $2.03 | $2.03 | Check availability |
 
 | RTX A6000 | 2× | 48 GB | US · East | $2.03 | $4.06 | Check availability |
 
-Snapshot 2026-11-15; current view on /compute.html .
+Snapshot 2026-11-16; current view on /compute.html .
 
 ## Monthly cost math (720 hours)
 
@@ -2721,7 +2717,7 @@ Snapshot 2026-11-15; current view on /compute.html .
 
 | Highest tracked public rate | $0.75 | $540 |
 
-| Cheapest sampled marketplace listing | $0.60 | $432 |
+| Cheapest sampled marketplace listing | $0.53 | $378 |
 
 720 hours ≈ one month of continuous single-GPU runtime. Multiply by GPU count for multi-GPU nodes.
 
@@ -2734,11 +2730,11 @@ On-demand marketplace ↗
 
 ### How much does a RTX A6000 cost per hour in 2026?
 
-Public on-demand rates tracked by Omega Gradient range from $0.44 to $0.75 per GPU-hour across 3 providers, with a median provider-average rate of $0.70 (report assembled 2026-11-15).
+Public on-demand rates tracked by Omega Gradient range from $0.44 to $0.75 per GPU-hour across 3 providers, with a median provider-average rate of $0.70 (report assembled 2026-11-16).
 
 ### Was a RTX A6000 listed in the catalog snapshot?
 
-6 A6000 listings observed in the catalog from $0.60/GPU-hr, updated 2026-11-15. Check current availability at omegagradient.com/compute.html.
+9 A6000 listings observed in the catalog from $0.53/GPU-hr, updated 2026-11-16. Check current availability at omegagradient.com/compute.html.
 
 ### What does a RTX A6000 cost per month?
 
@@ -2751,19 +2747,19 @@ Included public rate observations collected by Omega Gradient; dates can vary by
 ----------------------------------------------------------------------
 # RTX A4000 Cloud Pricing 2026: $0.76/hr Across 1 Provider | Omega Gradient
 URL: https://omegagradient.com/gpus/a4000.html
-Report assembled: 2026-11-15T17:02:22.958Z
+Report assembled: 2026-11-16T17:02:34.840Z
 
 Cloud GPU Price Index · A4000
 
 # RTX A4000 Cloud Pricing 2026: $0.76/hr Across 1 Provider
 
-The sampled NVIDIA RTX A4000 rates have a minimum included rate of $0.76 , a median provider-average rate of $0.76 , and a maximum included rate of $0.76 per GPU-hour across 1 cloud provider with verified public rates (1 price rows, report assembled 2026-11-15). 6 A4000 listings observed in the catalog from $0.13/GPU-hr, updated 2026-11-15.
+The sampled NVIDIA RTX A4000 rates have a minimum included rate of $0.76 , a median provider-average rate of $0.76 , and a maximum included rate of $0.76 per GPU-hour across 1 cloud provider with verified public rates (1 price rows, report assembled 2026-11-16). 3 A4000 listings observed in the catalog from $0.84/GPU-hr, updated 2026-11-16.
 
-Report assembled 2026-11-15T17:02:22.958Z
+Report assembled 2026-11-16T17:02:34.840Z
 
-Source observations: 2026-11-15T17:01:57.722Z. Report assembled 2026-11-15T17:02:22.958Z; assembly does not refresh source evidence.
+Source observations: 2026-11-16T17:02:07.118Z. Report assembled 2026-11-16T17:02:34.840Z; assembly does not refresh source evidence.
 
-Catalog snapshot 2026-11-15T17:00:37.355Z
+Catalog snapshot 2026-11-16T17:00:37.771Z
 
 Dated catalog sample. Availability and prices may have changed. Check the current marketplace before relying on a listing.
 
@@ -2787,9 +2783,9 @@ per GPU-hour
 
 Snapshot listings
 
-6
+3
 
-from $0.13/GPU-hr
+from $0.84/GPU-hr
 
 ## Named-provider market rates — A4000
 
@@ -2797,21 +2793,15 @@ Publicly listed on-demand rates, normalized to USD per GPU-hour. These are marke
 
 | Provider | Listed SKU | Min $/GPU-hr | Avg $/GPU-hr | Max $/GPU-hr | Source / observation dates |
 
-| Paperspace | NVIDIA A4000 | $0.76 | $0.76 | $0.76 | paperspace.com Source observations: 2026-11-15T17:01:57.722Z |
+| Paperspace | NVIDIA A4000 | $0.76 | $0.76 | $0.76 | paperspace.com Source observations: 2026-11-16T17:02:07.118Z |
 
 Public list prices reflect the source observation dates above; full report at /gpu-supplier-pricing.html .
 
 ## Marketplace catalog snapshot
 
-6 A4000 listings observed in the catalog from $0.13/GPU-hr, updated 2026-11-15. Marketplace listings are provider-anonymous by design.
+3 A4000 listings observed in the catalog from $0.84/GPU-hr, updated 2026-11-16. Marketplace listings are provider-anonymous by design.
 
 | GPU | Count | vRAM | Region | $/GPU/hr | Instance $/hr | |
-
-| RTX A4000 | 2× | 16 GB | US · West | $0.13 | $0.25 | Check availability |
-
-| RTX A4000 | 1× | 16 GB | Europe · East | $0.15 | $0.15 | Check availability |
-
-| RTX A4000 | 1× | 16 GB | Europe · North | $0.16 | $0.16 | Check availability |
 
 | RTX A4000 | 1× | 16 GB | US · East | $0.84 | $0.84 | Check availability |
 
@@ -2819,7 +2809,7 @@ Public list prices reflect the source observation dates above; full report at /g
 
 | RTX A4000 | 4× | 16 GB | US · East | $0.84 | $3.36 | Check availability |
 
-Snapshot 2026-11-15; current view on /compute.html .
+Snapshot 2026-11-16; current view on /compute.html .
 
 ## Monthly cost math (720 hours)
 
@@ -2831,7 +2821,7 @@ Snapshot 2026-11-15; current view on /compute.html .
 
 | Highest tracked public rate | $0.76 | $547 |
 
-| Cheapest sampled marketplace listing | $0.13 | $90 |
+| Cheapest sampled marketplace listing | $0.84 | $605 |
 
 720 hours ≈ one month of continuous single-GPU runtime. Multiply by GPU count for multi-GPU nodes.
 
@@ -2844,11 +2834,11 @@ On-demand marketplace ↗
 
 ### How much does a RTX A4000 cost per hour in 2026?
 
-Omega Gradient's dated report includes one public on-demand rate for this GPU: $0.76 per GPU-hour from 1 provider (report assembled 2026-11-15). A single observation is a point of reference, not a market range.
+Omega Gradient's dated report includes one public on-demand rate for this GPU: $0.76 per GPU-hour from 1 provider (report assembled 2026-11-16). A single observation is a point of reference, not a market range.
 
 ### Was a RTX A4000 listed in the catalog snapshot?
 
-6 A4000 listings observed in the catalog from $0.13/GPU-hr, updated 2026-11-15. Check current availability at omegagradient.com/compute.html.
+3 A4000 listings observed in the catalog from $0.84/GPU-hr, updated 2026-11-16. Check current availability at omegagradient.com/compute.html.
 
 ### What does a RTX A4000 cost per month?
 
@@ -2861,19 +2851,19 @@ Included public rate observations collected by Omega Gradient; dates can vary by
 ----------------------------------------------------------------------
 # T4 Cloud Pricing 2026: $0.81/hr Across 1 Provider | Omega Gradient
 URL: https://omegagradient.com/gpus/t4.html
-Report assembled: 2026-11-15T17:02:22.958Z
+Report assembled: 2026-11-16T17:02:34.840Z
 
 Cloud GPU Price Index · T4
 
 # T4 Cloud Pricing 2026: $0.81/hr Across 1 Provider
 
-The sampled NVIDIA T4 rates have a minimum included rate of $0.81 , a median provider-average rate of $0.81 , and a maximum included rate of $0.81 per GPU-hour across 1 cloud provider with verified public rates (1 price rows, report assembled 2026-11-15). No anonymous T4 marketplace listings in the dated snapshot (2026-11-15); the sourcing desk secures T4 capacity on request via /clusters/#request.
+The sampled NVIDIA T4 rates have a minimum included rate of $0.81 , a median provider-average rate of $0.81 , and a maximum included rate of $0.81 per GPU-hour across 1 cloud provider with verified public rates (1 price rows, report assembled 2026-11-16). No anonymous T4 marketplace listings in the dated snapshot (2026-11-16); the sourcing desk secures T4 capacity on request via /clusters/#request.
 
-Report assembled 2026-11-15T17:02:22.958Z
+Report assembled 2026-11-16T17:02:34.840Z
 
-Source observations: 2026-11-15T17:01:57.722Z. Report assembled 2026-11-15T17:02:22.958Z; assembly does not refresh source evidence.
+Source observations: 2026-11-16T17:02:07.118Z. Report assembled 2026-11-16T17:02:34.840Z; assembly does not refresh source evidence.
 
-Catalog snapshot 2026-11-15T17:00:37.355Z
+Catalog snapshot 2026-11-16T17:00:37.771Z
 
 Dated catalog sample. Availability and prices may have changed. Check the current marketplace before relying on a listing.
 
@@ -2907,13 +2897,13 @@ Publicly listed on-demand rates, normalized to USD per GPU-hour. These are marke
 
 | Provider | Listed SKU | Min $/GPU-hr | Avg $/GPU-hr | Max $/GPU-hr | Source / observation dates |
 
-| Replicate | Nvidia T4 | $0.81 | $0.81 | $0.81 | replicate.com Source observations: 2026-11-15T17:01:57.722Z |
+| Replicate | Nvidia T4 | $0.81 | $0.81 | $0.81 | replicate.com Source observations: 2026-11-16T17:02:07.118Z |
 
 Public list prices reflect the source observation dates above; full report at /gpu-supplier-pricing.html .
 
 ## Marketplace catalog snapshot
 
-No anonymous T4 marketplace listings in the dated snapshot (2026-11-15); the sourcing desk secures T4 capacity on request via /clusters/#request. Marketplace listings are provider-anonymous by design.
+No anonymous T4 marketplace listings in the dated snapshot (2026-11-16); the sourcing desk secures T4 capacity on request via /clusters/#request. Marketplace listings are provider-anonymous by design.
 
 Request reserved T4 capacity through the cluster sourcing desk or hello@omegagradient.com .
 
@@ -2938,11 +2928,11 @@ On-demand marketplace ↗
 
 ### How much does a T4 cost per hour in 2026?
 
-Omega Gradient's dated report includes one public on-demand rate for this GPU: $0.81 per GPU-hour from 1 provider (report assembled 2026-11-15). A single observation is a point of reference, not a market range.
+Omega Gradient's dated report includes one public on-demand rate for this GPU: $0.81 per GPU-hour from 1 provider (report assembled 2026-11-16). A single observation is a point of reference, not a market range.
 
 ### Was a T4 listed in the catalog snapshot?
 
-No anonymous T4 marketplace listings in the dated snapshot (2026-11-15); the sourcing desk secures T4 capacity on request via /clusters/#request.
+No anonymous T4 marketplace listings in the dated snapshot (2026-11-16); the sourcing desk secures T4 capacity on request via /clusters/#request.
 
 ### What does a T4 cost per month?
 
@@ -2953,21 +2943,21 @@ At the median tracked rate of $0.81/GPU-hr, one GPU running a full 720-hour mont
 Included public rate observations collected by Omega Gradient; dates can vary by source. Provider-normalized average: average SKUs/offers within each provider and GPU family first, then average provider means so one marketplace does not dominate.
 
 ----------------------------------------------------------------------
-# GB200 NVL72 Cloud Pricing 2026: $8.13–$8.76/hr Across 1 Provider | Omega Gradient
+# GB200 NVL72 Cloud Pricing 2026: $8.13–$9.39/hr Across 1 Provider | Omega Gradient
 URL: https://omegagradient.com/gpus/gb200.html
-Report assembled: 2026-11-15T17:02:22.958Z
+Report assembled: 2026-11-16T17:02:34.840Z
 
 Cloud GPU Price Index · GB200
 
-# GB200 NVL72 Cloud Pricing 2026: $8.13–$8.76/hr Across 1 Provider
+# GB200 NVL72 Cloud Pricing 2026: $8.13–$9.39/hr Across 1 Provider
 
-The sampled NVIDIA GB200 NVL72 rates have a minimum included rate of $8.13 , a median provider-average rate of $8.55 , and a maximum included rate of $8.76 per GPU-hour across 1 cloud provider with verified public rates (3 price rows, report assembled 2026-11-15). 2 GB200 listings observed in the catalog from $9.89/GPU-hr, updated 2026-11-15.
+The sampled NVIDIA GB200 NVL72 rates have a minimum included rate of $8.13 , a median provider-average rate of $8.76 , and a maximum included rate of $9.39 per GPU-hour across 1 cloud provider with verified public rates (2 price rows, report assembled 2026-11-16). 2 GB200 listings observed in the catalog from $9.89/GPU-hr, updated 2026-11-16.
 
-Report assembled 2026-11-15T17:02:22.958Z
+Report assembled 2026-11-16T17:02:34.840Z
 
-Source observations: 2026-11-15T17:01:57.722Z. Report assembled 2026-11-15T17:02:22.958Z; assembly does not refresh source evidence.
+Source observations: 2026-11-16T17:02:07.118Z. Report assembled 2026-11-16T17:02:34.840Z; assembly does not refresh source evidence.
 
-Catalog snapshot 2026-11-15T17:00:37.355Z
+Catalog snapshot 2026-11-16T17:00:37.771Z
 
 Dated catalog sample. Availability and prices may have changed. Check the current marketplace before relying on a listing.
 
@@ -2979,13 +2969,13 @@ per GPU-hour
 
 Median provider average
 
-$8.55
+$8.76
 
 per GPU-hour
 
 Max included rate
 
-$8.76
+$9.39
 
 per GPU-hour
 
@@ -3001,13 +2991,13 @@ Publicly listed on-demand rates, normalized to USD per GPU-hour. These are marke
 
 | Provider | Listed SKU | Min $/GPU-hr | Avg $/GPU-hr | Max $/GPU-hr | Source / observation dates |
 
-| Vast.ai | GB200 | $8.13 | $8.55 | $8.76 | console.vast.ai Source observations: 2026-11-15T17:01:57.722Z |
+| Vast.ai | GB200 | $8.13 | $8.76 | $9.39 | console.vast.ai Source observations: 2026-11-16T17:02:07.118Z |
 
 Public list prices reflect the source observation dates above; full report at /gpu-supplier-pricing.html .
 
 ## Marketplace catalog snapshot
 
-2 GB200 listings observed in the catalog from $9.89/GPU-hr, updated 2026-11-15. Marketplace listings are provider-anonymous by design.
+2 GB200 listings observed in the catalog from $9.89/GPU-hr, updated 2026-11-16. Marketplace listings are provider-anonymous by design.
 
 | GPU | Count | vRAM | Region | $/GPU/hr | Instance $/hr | |
 
@@ -3015,7 +3005,7 @@ Public list prices reflect the source observation dates above; full report at /g
 
 | GB200 | 1× | 185 GB | Asia · Southeast | $9.94 | $9.94 | Check availability |
 
-Snapshot 2026-11-15; current view on /compute.html .
+Snapshot 2026-11-16; current view on /compute.html .
 
 ## Monthly cost math (720 hours)
 
@@ -3023,9 +3013,9 @@ Snapshot 2026-11-15; current view on /compute.html .
 
 | Lowest tracked public rate | $8.13 | $5854 |
 
-| Median provider-average rate | $8.55 | $6154 |
+| Median provider-average rate | $8.76 | $6306 |
 
-| Highest tracked public rate | $8.76 | $6307 |
+| Highest tracked public rate | $9.39 | $6757 |
 
 | Cheapest sampled marketplace listing | $9.89 | $7121 |
 
@@ -3040,48 +3030,48 @@ On-demand marketplace ↗
 
 ### How much does a GB200 NVL72 cost per hour in 2026?
 
-Public on-demand rates tracked by Omega Gradient range from $8.13 to $8.76 per GPU-hour across 1 provider, with a median provider-average rate of $8.55 (report assembled 2026-11-15).
+Public on-demand rates tracked by Omega Gradient range from $8.13 to $9.39 per GPU-hour across 1 provider, with a median provider-average rate of $8.76 (report assembled 2026-11-16).
 
 ### Was a GB200 NVL72 listed in the catalog snapshot?
 
-2 GB200 listings observed in the catalog from $9.89/GPU-hr, updated 2026-11-15. Check current availability at omegagradient.com/compute.html.
+2 GB200 listings observed in the catalog from $9.89/GPU-hr, updated 2026-11-16. Check current availability at omegagradient.com/compute.html.
 
 ### What does a GB200 NVL72 cost per month?
 
-At the median tracked rate of $8.55/GPU-hr, one GPU running a full 720-hour month costs about $6154. At the lowest tracked rate of $8.13/GPU-hr, about $5854.
+At the median tracked rate of $8.76/GPU-hr, one GPU running a full 720-hour month costs about $6306. At the lowest tracked rate of $8.13/GPU-hr, about $5854.
 
 ### Where do these prices come from?
 
 Included public rate observations collected by Omega Gradient; dates can vary by source. Provider-normalized average: average SKUs/offers within each provider and GPU family first, then average provider means so one marketplace does not dominate.
 
 ----------------------------------------------------------------------
-# GB300 NVL72 Cloud Pricing 2026: $14.27–$18.00/hr Across 2 Providers | Omega Gradient
+# GB300 NVL72 Cloud Pricing 2026: $14.41–$18.00/hr Across 2 Providers | Omega Gradient
 URL: https://omegagradient.com/gpus/gb300.html
-Report assembled: 2026-11-15T17:02:22.958Z
+Report assembled: 2026-11-16T17:02:34.840Z
 
 Cloud GPU Price Index · GB300
 
-# GB300 NVL72 Cloud Pricing 2026: $14.27–$18.00/hr Across 2 Providers
+# GB300 NVL72 Cloud Pricing 2026: $14.41–$18.00/hr Across 2 Providers
 
-The sampled NVIDIA GB300 NVL72 rates have a minimum included rate of $14.27 , a median provider-average rate of $16.14 , and a maximum included rate of $18.00 per GPU-hour across 2 cloud providers with verified public rates (2 price rows, report assembled 2026-11-15). No anonymous GB300 marketplace listings in the dated snapshot (2026-11-15); the sourcing desk secures GB300 capacity on request via /clusters/#request.
+The sampled NVIDIA GB300 NVL72 rates have a minimum included rate of $14.41 , a median provider-average rate of $16.20 , and a maximum included rate of $18.00 per GPU-hour across 2 cloud providers with verified public rates (2 price rows, report assembled 2026-11-16). No anonymous GB300 marketplace listings in the dated snapshot (2026-11-16); the sourcing desk secures GB300 capacity on request via /clusters/#request.
 
-Report assembled 2026-11-15T17:02:22.958Z
+Report assembled 2026-11-16T17:02:34.840Z
 
-Source observations: 2026-11-02T00:00:00.000Z to 2026-11-14T00:00:00.000Z. Report assembled 2026-11-15T17:02:22.958Z; assembly does not refresh source evidence.
+Source observations: 2026-11-02T00:00:00.000Z to 2026-11-16T00:00:00.000Z. Report assembled 2026-11-16T17:02:34.840Z; assembly does not refresh source evidence.
 
-Catalog snapshot 2026-11-15T17:00:37.355Z
+Catalog snapshot 2026-11-16T17:00:37.771Z
 
 Dated catalog sample. Availability and prices may have changed. Check the current marketplace before relying on a listing.
 
 Min included rate
 
-$14.27
+$14.41
 
 per GPU-hour
 
 Median provider average
 
-$16.14
+$16.20
 
 per GPU-hour
 
@@ -3103,7 +3093,7 @@ Publicly listed on-demand rates, normalized to USD per GPU-hour. These are marke
 
 | Provider | Listed SKU | Min $/GPU-hr | Avg $/GPU-hr | Max $/GPU-hr | Source / observation dates |
 
-| Verda/DataCrunch | 1x GB300 SXM6 288GB | $14.27 | $14.27 | $14.27 | verda.com Source observations: 2026-11-14T00:00:00.000Z |
+| Verda/DataCrunch | 1x GB300 SXM6 288GB | $14.41 | $14.41 | $14.41 | verda.com Source observations: 2026-11-16T00:00:00.000Z |
 
 | Oracle Cloud Infrastructure | GB300 NVL72 | $18.00 | $18.00 | $18.00 | oracle.com Source observations: 2026-11-02T00:00:00.000Z |
 
@@ -3111,7 +3101,7 @@ Public list prices reflect the source observation dates above; full report at /g
 
 ## Marketplace catalog snapshot
 
-No anonymous GB300 marketplace listings in the dated snapshot (2026-11-15); the sourcing desk secures GB300 capacity on request via /clusters/#request. Marketplace listings are provider-anonymous by design.
+No anonymous GB300 marketplace listings in the dated snapshot (2026-11-16); the sourcing desk secures GB300 capacity on request via /clusters/#request. Marketplace listings are provider-anonymous by design.
 
 Request reserved GB300 capacity through the cluster sourcing desk or hello@omegagradient.com .
 
@@ -3119,9 +3109,9 @@ Request reserved GB300 capacity through the cluster sourcing desk or hello@omega
 
 | Scenario | $/GPU-hr | × 720 hrs |
 
-| Lowest tracked public rate | $14.27 | $10274 |
+| Lowest tracked public rate | $14.41 | $10375 |
 
-| Median provider-average rate | $16.14 | $11617 |
+| Median provider-average rate | $16.20 | $11668 |
 
 | Highest tracked public rate | $18.00 | $12960 |
 
@@ -3136,36 +3126,36 @@ On-demand marketplace ↗
 
 ### How much does a GB300 NVL72 cost per hour in 2026?
 
-Public on-demand rates tracked by Omega Gradient range from $14.27 to $18.00 per GPU-hour across 2 providers, with a median provider-average rate of $16.14 (report assembled 2026-11-15).
+Public on-demand rates tracked by Omega Gradient range from $14.41 to $18.00 per GPU-hour across 2 providers, with a median provider-average rate of $16.20 (report assembled 2026-11-16).
 
 ### Was a GB300 NVL72 listed in the catalog snapshot?
 
-No anonymous GB300 marketplace listings in the dated snapshot (2026-11-15); the sourcing desk secures GB300 capacity on request via /clusters/#request.
+No anonymous GB300 marketplace listings in the dated snapshot (2026-11-16); the sourcing desk secures GB300 capacity on request via /clusters/#request.
 
 ### What does a GB300 NVL72 cost per month?
 
-At the median tracked rate of $16.14/GPU-hr, one GPU running a full 720-hour month costs about $11617. At the lowest tracked rate of $14.27/GPU-hr, about $10274.
+At the median tracked rate of $16.20/GPU-hr, one GPU running a full 720-hour month costs about $11668. At the lowest tracked rate of $14.41/GPU-hr, about $10375.
 
 ### Where do these prices come from?
 
 Included public rate observations collected by Omega Gradient; dates can vary by source. Provider-normalized average: average SKUs/offers within each provider and GPU family first, then average provider means so one marketplace does not dominate.
 
 ----------------------------------------------------------------------
-# GPU Availability Snapshot (2026): 122 Sampled Listings From $0.07/hr | Omega Gradient
+# GPU Availability Snapshot (2026): 113 Sampled Listings From $0.07/hr | Omega Gradient
 URL: https://omegagradient.com/gpus/availability.html
-Report assembled: 2026-11-15T17:02:22.958Z
+Report assembled: 2026-11-16T17:02:34.840Z
 
 Cloud GPU Price Index · Catalog Snapshot
 
 # GPU availability snapshot
 
-122 GPU listings across 31 models were listed in the 2026-11-15 catalog snapshot, from $0.07/GPU-hr (a RTX 2070S). Listings are provider-anonymous; confirm availability in the marketplace before deploying.
+113 GPU listings across 34 models were listed in the 2026-11-16 catalog snapshot, from $0.07/GPU-hr (a RTX 2070S). Listings are provider-anonymous; confirm availability in the marketplace before deploying.
 
-Catalog snapshot 2026-11-15T17:00:37.355Z
+Catalog snapshot 2026-11-16T17:00:37.771Z
 
 Dated catalog sample. Availability and prices may have changed. Check the current marketplace before relying on a listing.
 
-Snapshot taken 2026-11-15T17:00:37.355Z; current view on /compute.html .
+Snapshot taken 2026-11-16T17:00:37.771Z; current view on /compute.html .
 
 ## B300 — 1 in snapshot, from $10.45/GPU-hr
 
@@ -3173,11 +3163,9 @@ Snapshot taken 2026-11-15T17:00:37.355Z; current view on /compute.html .
 
 | B300 | 2× | 269 GB | Global · flexible | NVLink | $10.45 | $20.89 | Check availability |
 
-## B200 — 5 in snapshot, from $6.85/GPU-hr
+## B200 — 4 in snapshot, from $9.19/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
-
-| B200 | 1× | 192 GB | Global · flexible | SXM | $6.85 | $6.85 | Check availability |
 
 | B200 | 8× | 179 GB | US · Central | NVLink | $9.19 | $73.52 | Check availability |
 
@@ -3195,65 +3183,55 @@ Snapshot taken 2026-11-15T17:00:37.355Z; current view on /compute.html .
 
 | GB200 | 1× | 185 GB | Asia · Southeast | NVLink | $9.94 | $9.94 | Check availability |
 
-## H200 — 12 in snapshot, from $3.79/GPU-hr
+## H200 — 14 in snapshot, from $3.83/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
 
-| H200 | 4× | 140 GB | US · Central | PCIe | $3.79 | $15.14 | Check availability |
-
-| H200 | 2× | 140 GB | US · Central | PCIe | $3.79 | $7.58 | Check availability |
-
-| H200 | 1× | 140 GB | US · Central | PCIe | $3.80 | $3.80 | Check availability |
-
 | H200 | 1× | 140 GB | Europe · South | NVLink | $3.83 | $3.83 | Check availability |
 
-| H200 | 1× | 140 GB | Europe · East | NVLink | $4.07 | $4.07 | Check availability |
+| H200 | 2× | 140 GB | US · Central | NVLink | $3.88 | $7.76 | Check availability |
 
-| H200 | 1× | 140 GB | US · East | PCIe | $4.10 | $4.10 | Check availability |
+| H200 | 4× | 140 GB | Europe · East | NVLink | $3.88 | $15.54 | Check availability |
 
-| H200 | 2× | 140 GB | Canada | PCIe | $4.57 | $9.14 | Check availability |
+| H200 | 2× | 140 GB | Europe · East | NVLink | $3.90 | $7.80 | Check availability |
+
+| H200 | 1× | 140 GB | Europe · East | NVLink | $3.93 | $3.93 | Check availability |
+
+| H200 | 2× | 140 GB | Asia · Northeast | PCIe | $4.21 | $8.42 | Check availability |
+
+| H200 | 1× | 140 GB | Asia · Northeast | PCIe | $4.22 | $4.22 | Check availability |
+
+| H200 | 1× | 140 GB | US · Central | NVLink | $4.23 | $4.23 | Check availability |
 
 | H200 | 1× | 140 GB | Global · flexible | PCIe | $4.58 | $4.58 | Check availability |
 
 | H200 | 1× | 140 GB | Canada | PCIe | $4.58 | $4.58 | Check availability |
 
-| H200 | 2× | 140 GB | Europe · West | NVLink | $5.61 | $11.22 | Check availability |
+| H200 | 4× | 140 GB | US · West | NVLink | $5.17 | $20.69 | Check availability |
 
-| H200 | 1× | 140 GB | Europe · West | NVLink | $5.62 | $5.62 | Check availability |
+| H200 | 2× | 140 GB | US · West | NVLink | $5.18 | $10.36 | Check availability |
 
-| H200 | 8× | 140 GB | Middle East | NVLink | $7.17 | $57.36 | Check availability |
+| H200 | 8× | 140 GB | US · Central | NVLink | $5.33 | $42.66 | Check availability |
 
-## H100 — 10 in snapshot, from $1.88/GPU-hr
+| H200 | 4× | 140 GB | US · Central | NVLink | $5.34 | $21.38 | Check availability |
+
+## H100 — 4 in snapshot, from $2.28/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
 
-| H100 | 4× | 80 GB | Asia · Southeast | NVLink | $1.88 | $7.53 | Check availability |
+| H100 | 1× | 80 GB | Oceania | NVLink | $2.28 | $2.28 | Check availability |
 
-| H100 | 1× | 80 GB | US · Central | NVLink | $2.55 | $2.55 | Check availability |
+| H100 | 1× | 80 GB | Africa | PCIe | $2.61 | $2.61 | Check availability |
 
-| H100 | 1× | 80 GB | Canada | PCIe | $2.63 | $2.63 | Check availability |
+| H100 | 1× | 80 GB | US · Central | NVLink | $2.68 | $2.68 | Check availability |
 
-| H100 | 2× | 80 GB | Europe · East | NVLink | $3.00 | $5.99 | Check availability |
+| H100 | 1× | 80 GB | US · East | PCIe | $6.29 | $6.29 | Check availability |
 
-| H100 | 1× | 80 GB | Europe · East | NVLink | $3.01 | $3.01 | Check availability |
-
-| H100 | 1× | 80 GB | Europe · West | PCIe | $3.47 | $3.47 | Check availability |
-
-| H100 | 4× | 80 GB | US · East | SXM | $4.29 | $17.18 | Check availability |
-
-| H100 | 2× | 80 GB | US · Central | SXM | $4.40 | $8.80 | Check availability |
-
-| H100 | 2× | 80 GB | US · East | SXM | $4.40 | $8.80 | Check availability |
-
-| H100 | 1× | 80 GB | US · East | SXM | $4.58 | $4.58 | Check availability |
-
-## A100-80G — 7 in snapshot, from $1.42/GPU-hr
+## A100-80G — 6 in snapshot, from $1.42/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
 
 | A100-80G | 8× | 80 GB | US · Central | SXM | $1.42 | $11.34 | Check availability |
-
-| A100-80G | 1× | 80 GB | Canada | PCIe | $1.42 | $1.42 | Check availability |
 
 | A100-80G | 1× | 80 GB | US · Central | SXM | $1.45 | $1.45 | Check availability |
 
@@ -3265,117 +3243,105 @@ Snapshot taken 2026-11-15T17:00:37.355Z; current view on /compute.html .
 
 | A100-80G | 1× | 80 GB | US · East | SXM | $3.45 | $3.45 | Check availability |
 
-## A100 — 16 in snapshot, from $0.44/GPU-hr
+## A100 — 14 in snapshot, from $0.47/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
 
-| A100 | 1× | 40 GB | Europe · North | NVLink | $0.44 | $0.44 | Check availability |
+| A100 | 1× | 40 GB | Europe · West | PCIe | $0.47 | $0.47 | Check availability |
 
 | A100 | 1× | 40 GB | US · East | NVLink | $0.54 | $0.54 | Check availability |
 
-| A100 | 2× | 40 GB | US · West | PCIe | $0.64 | $1.28 | Check availability |
+| A100 | 8× | 40 GB | US · West | NVLink | $0.57 | $4.53 | Check availability |
+
+| A100 | 2× | 40 GB | Asia · Northeast | PCIe | $0.63 | $1.25 | Check availability |
+
+| A100 | 1× | 40 GB | Asia · Northeast | PCIe | $0.64 | $0.64 | Check availability |
+
+| A100 | 2× | 40 GB | US · Central | NVLink | $0.71 | $1.42 | Check availability |
 
 | A100 | 1× | 40 GB | US · Central | NVLink | $0.72 | $0.72 | Check availability |
 
-| A100 | 4× | 40 GB | Asia · Northeast | PCIe | $0.81 | $3.23 | Check availability |
+| A100 | 2× | 80 GB | Europe · West | PCIe | $0.92 | $1.84 | Check availability |
 
-| A100 | 1× | 80 GB | Europe · West | PCIe | $0.93 | $0.93 | Check availability |
+| A100 | 1× | 80 GB | Europe · East | NVLink | $1.15 | $1.15 | Check availability |
 
-| A100 | 2× | 40 GB | US · Central | NVLink | $0.99 | $1.98 | Check availability |
+| A100 | 8× | 80 GB | US · Central | NVLink | $1.41 | $11.30 | Check availability |
 
-| A100 | 1× | 80 GB | Asia · Northeast | PCIe | $1.37 | $1.37 | Check availability |
+| A100 | 4× | 80 GB | US · Central | NVLink | $1.43 | $5.70 | Check availability |
+
+| A100 | 1× | 40 GB | Global · flexible | SXM | $1.47 | $1.47 | Check availability |
 
 | A100 | 8× | 40 GB | Global · flexible | SXM | $1.47 | $11.76 | Check availability |
 
-| A100 | 4× | 80 GB | US · Central | PCIe | $1.54 | $6.18 | Check availability |
-
-| A100 | 1× | 40 GB | India | SXM | $2.09 | $2.09 | Check availability |
-
 | A100 | 1× | 40 GB | US · West | SXM | $2.09 | $2.09 | Check availability |
 
-| A100 | 8× | 40 GB | US · East | PCIe | $2.09 | $16.72 | Check availability |
-
-| A100 | 8× | 40 GB | US · West | PCIe | $2.09 | $16.72 | Check availability |
-
-| A100 | 8× | 40 GB | Europe · West | PCIe | $2.09 | $16.72 | Check availability |
-
-| A100 | 8× | 40 GB | US · Central | PCIe | $2.09 | $16.72 | Check availability |
-
-## RTX PRO 6000 — 14 in snapshot, from $1.45/GPU-hr
+## RTX PRO 6000 — 10 in snapshot, from $1.38/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
 
-| RTX PRO 6000 | 1× | 96 GB | US · Central | PCIe | $1.45 | $1.45 | Check availability |
+| RTX PRO 6000 | 2× | 96 GB | Europe · East | PCIe | $1.38 | $2.76 | Check availability |
+
+| RTX PRO 6000 | 1× | 96 GB | US · Central | PCIe | $1.43 | $1.43 | Check availability |
 
 | RTX PRO 6000 | 1× | 96 GB | US · West | PCIe | $1.49 | $1.49 | Check availability |
 
-| RTX PRO 6000 | 1× | 96 GB | US · East | PCIe | $1.52 | $1.52 | Check availability |
+| RTX PRO 6000 | 1× | 96 GB | Global · flexible | PCIe | $1.52 | $1.52 | Check availability |
 
-| RTX PRO 6000 | 1× | 96 GB | Oceania | PCIe | $1.58 | $1.58 | Check availability |
+| RTX PRO 6000 | 2× | 96 GB | US · Central | PCIe | $1.55 | $3.10 | Check availability |
 
 | RTX PRO 6000 | 1× | 96 GB | Europe · East | PCIe | $1.65 | $1.65 | Check availability |
 
-| RTX PRO 6000 | 1× | 96 GB | Europe · West | PCIe | $1.77 | $1.77 | Check availability |
-
-| RTX PRO 6000 | 1× | 96 GB | Global · flexible | PCIe | $1.83 | $1.83 | Check availability |
-
 | RTX PRO 6000 | 1× | 96 GB | Asia · Southeast | PCIe | $1.90 | $1.90 | Check availability |
 
-| RTX PRO 6000 | 2× | 96 GB | Global · flexible | PCIe | $2.06 | $4.11 | Check availability |
-
-| RTX PRO 6000 | 8× | 96 GB | Global · flexible | PCIe | $2.06 | $16.45 | Check availability |
+| RTX PRO 6000 | 2× | 96 GB | Global · flexible | PCIe | $1.97 | $3.94 | Check availability |
 
 | RTX PRO 6000 | 4× | 96 GB | Global · flexible | PCIe | $2.06 | $8.23 | Check availability |
 
-| RTX PRO 6000 | 8× | 96 GB | US · Central | PCIe | $2.30 | $18.39 | Check availability |
-
-| RTX PRO 6000 | 2× | 96 GB | US · Central | PCIe | $2.30 | $4.60 | Check availability |
-
 | RTX PRO 6000 | 4× | 96 GB | US · Central | PCIe | $2.30 | $9.20 | Check availability |
 
-## RTX 6000 Ada — 4 in snapshot, from $0.72/GPU-hr
+## RTX 6000 Ada — 5 in snapshot, from $0.68/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
 
-| RTX 6000 Ada | 1× | 48 GB | Europe · West | PCIe | $0.72 | $0.72 | Check availability |
+| RTX 6000 Ada | 1× | 48 GB | Asia · Northeast | PCIe | $0.68 | $0.68 | Check availability |
 
-| RTX 6000 Ada | 2× | 48 GB | US · Central | PCIe | $0.76 | $1.51 | Check availability |
+| RTX 6000 Ada | 2× | 48 GB | US · Central | PCIe | $0.74 | $1.48 | Check availability |
 
-| RTX 6000 Ada | 1× | 48 GB | US · Central | PCIe | $0.76 | $0.76 | Check availability |
+| RTX 6000 Ada | 1× | 48 GB | US · Central | PCIe | $0.75 | $0.75 | Check availability |
 
-| RTX 6000 Ada | 1× | 48 GB | Global · flexible | PCIe | $1.16 | $1.16 | Check availability |
+| RTX 6000 Ada | 1× | 48 GB | Asia · Southeast | PCIe | $0.83 | $0.83 | Check availability |
 
-## L40S — 2 in snapshot, from $0.93/GPU-hr
+| RTX 6000 Ada | 4× | 48 GB | US · Central | PCIe | $1.02 | $4.08 | Check availability |
+
+## L40S — 5 in snapshot, from $0.72/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
+
+| L40S | 1× | 45 GB | Asia · Southeast | PCIe | $0.72 | $0.72 | Check availability |
+
+| L40S | 2× | 48 GB | US · Central | PCIe | $0.93 | $1.85 | Check availability |
+
+| L40S | 4× | 48 GB | US · Central | PCIe | $0.93 | $3.70 | Check availability |
 
 | L40S | 1× | 48 GB | US · Central | PCIe | $0.93 | $0.93 | Check availability |
 
-| L40S | 2× | 48 GB | US · Central | PCIe | $1.57 | $3.15 | Check availability |
+| L40S | 1× | 48 GB | Europe · East | PCIe | $1.79 | $1.79 | Check availability |
 
-## RTX 5090 — 4 in snapshot, from $0.68/GPU-hr
+## RTX 5090 — 2 in snapshot, from $0.69/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
-
-| RTX 5090 | 4× | 32 GB | Global · flexible | PCIe | $0.68 | $2.73 | Check availability |
-
-| RTX 5090 | 8× | 32 GB | Global · flexible | PCIe | $0.68 | $5.46 | Check availability |
 
 | RTX 5090 | 2× | 32 GB | Global · flexible | PCIe | $0.69 | $1.37 | Check availability |
 
 | RTX 5090 | 1× | 32 GB | Global · flexible | PCIe | $0.69 | $0.69 | Check availability |
 
-## RTX 4090 — 3 in snapshot, from $0.42/GPU-hr
+## RTX 4090 — 1 in snapshot, from $0.52/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
 
-| RTX 4090 | 8× | 24 GB | US · Central | — | $0.42 | $3.36 | Check availability |
+| RTX 4090 | 8× | 24 GB | US · Central | PCIe | $0.52 | $4.12 | Check availability |
 
-| RTX 4090 | 1× | 24 GB | Global · flexible | PCIe | $0.63 | $0.63 | Check availability |
-
-| RTX 4090 | 4× | 24 GB | Global · flexible | PCIe | $0.63 | $2.52 | Check availability |
-
-## L40 — 2 in snapshot, from $0.93/GPU-hr
+## L40 — 5 in snapshot, from $0.93/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
 
@@ -3383,15 +3349,27 @@ Snapshot taken 2026-11-15T17:00:37.355Z; current view on /compute.html .
 
 | L40 | 2× | 48 GB | US · Central | PCIe | $1.04 | $2.08 | Check availability |
 
-## RTX A6000 — 6 in snapshot, from $0.60/GPU-hr
+| L40 | 1× | 48 GB | Canada | PCIe | $1.05 | $1.05 | Check availability |
+
+| L40 | 2× | 48 GB | Canada | PCIe | $1.05 | $2.10 | Check availability |
+
+| L40 | 4× | 48 GB | US · Central | PCIe | $1.56 | $6.26 | Check availability |
+
+## RTX A6000 — 9 in snapshot, from $0.53/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
+
+| RTX A6000 | 2× | 48 GB | Canada | PCIe | $0.53 | $1.05 | Check availability |
+
+| RTX A6000 | 1× | 48 GB | Canada | PCIe | $0.53 | $0.53 | Check availability |
 
 | RTX A6000 | 1× | 48 GB | US · Central | PCIe | $0.60 | $0.60 | Check availability |
 
 | RTX A6000 | 2× | 48 GB | US · Central | PCIe | $0.60 | $1.20 | Check availability |
 
 | RTX A6000 | 4× | 48 GB | US · Central | PCIe | $0.60 | $2.40 | Check availability |
+
+| RTX A6000 | 1× | 48 GB | Global · flexible | PCIe | $1.14 | $1.14 | Check availability |
 
 | RTX A6000 | 4× | 48 GB | US · East | PCIe | $2.03 | $8.11 | Check availability |
 
@@ -3407,12 +3385,6 @@ Snapshot taken 2026-11-15T17:00:37.355Z; current view on /compute.html .
 
 | A10 | 1× | 24 GB | US · West | PCIe | $1.36 | $1.36 | Check availability |
 
-## L4 — 1 in snapshot, from $1.00/GPU-hr
-
-| GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
-
-| L4 | 1× | 24 GB | Europe · East | PCIe | $1.00 | $1.00 | Check availability |
-
 ## RTX A5000 — 3 in snapshot, from $1.49/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
@@ -3423,15 +3395,9 @@ Snapshot taken 2026-11-15T17:00:37.355Z; current view on /compute.html .
 
 | RTX A5000 | 1× | 24 GB | US · East | PCIe | $1.50 | $1.50 | Check availability |
 
-## RTX A4000 — 6 in snapshot, from $0.13/GPU-hr
+## RTX A4000 — 3 in snapshot, from $0.84/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
-
-| RTX A4000 | 2× | 16 GB | US · West | PCIe | $0.13 | $0.25 | Check availability |
-
-| RTX A4000 | 1× | 16 GB | Europe · East | PCIe | $0.15 | $0.15 | Check availability |
-
-| RTX A4000 | 1× | 16 GB | Europe · North | PCIe | $0.16 | $0.16 | Check availability |
 
 | RTX A4000 | 1× | 16 GB | US · East | PCIe | $0.84 | $0.84 | Check availability |
 
@@ -3439,11 +3405,9 @@ Snapshot taken 2026-11-15T17:00:37.355Z; current view on /compute.html .
 
 | RTX A4000 | 4× | 16 GB | US · East | PCIe | $0.84 | $3.36 | Check availability |
 
-## V100 — 4 in snapshot, from $0.08/GPU-hr
+## V100 — 3 in snapshot, from $2.46/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
-
-| V100 | 2× | 32 GB | US · West | NVLink | $0.08 | $0.16 | Check availability |
 
 | V100 | 4× | 32 GB | US · East | PCIe | $2.46 | $9.83 | Check availability |
 
@@ -3463,19 +3427,11 @@ Snapshot taken 2026-11-15T17:00:37.355Z; current view on /compute.html .
 
 | GAUDI2 | 8× | 96 GB | US · Central | PCIe | $1.16 | $9.24 | Check availability |
 
-## GTX 1080 TI — 2 in snapshot, from $0.08/GPU-hr
+## GTX 1080 TI — 1 in snapshot, from $0.08/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
 
 | GTX 1080 TI | 2× | 11 GB | Asia · Northeast | PCIe | $0.08 | $0.16 | Check availability |
-
-| GTX 1080 TI | 1× | 11 GB | Asia · Northeast | PCIe | $0.09 | $0.09 | Check availability |
-
-## GTX TITAN X — 1 in snapshot, from $0.09/GPU-hr
-
-| GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
-
-| GTX TITAN X | 1× | 12 GB | Asia · Northeast | PCIe | $0.09 | $0.09 | Check availability |
 
 ## P100 — 2 in snapshot, from $0.12/GPU-hr
 
@@ -3485,6 +3441,12 @@ Snapshot taken 2026-11-15T17:00:37.355Z; current view on /compute.html .
 
 | P100 | 1× | 16 GB | US · Central | PCIe | $0.13 | $0.13 | Check availability |
 
+## Q RTX 8000 — 1 in snapshot, from $0.29/GPU-hr
+
+| GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
+
+| Q RTX 8000 | 1× | 48 GB | US · East | PCIe | $0.29 | $0.29 | Check availability |
+
 ## QUADRO P4000 — 2 in snapshot, from $0.08/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
@@ -3493,47 +3455,69 @@ Snapshot taken 2026-11-15T17:00:37.355Z; current view on /compute.html .
 
 | QUADRO P4000 | 1× | 8 GB | Europe · East | PCIe | $0.09 | $0.09 | Check availability |
 
-## RTX 2060 — 2 in snapshot, from $0.07/GPU-hr
+## RTX 2060 — 1 in snapshot, from $0.07/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
 
-| RTX 2060 | 4× | 12 GB | Asia · Northeast | PCIe | $0.07 | $0.28 | Check availability |
+| RTX 2060 | 2× | 12 GB | Asia · Northeast | PCIe | $0.07 | $0.15 | Check availability |
 
-| RTX 2060 | 1× | 12 GB | Asia · Northeast | PCIe | $0.09 | $0.09 | Check availability |
-
-## RTX 2070S — 2 in snapshot, from $0.07/GPU-hr
+## RTX 2070S — 3 in snapshot, from $0.07/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
 
 | RTX 2070S | 4× | 8 GB | Asia · Northeast | PCIe | $0.07 | $0.28 | Check availability |
 
+| RTX 2070S | 2× | 8 GB | Asia · Northeast | PCIe | $0.07 | $0.15 | Check availability |
+
 | RTX 2070S | 1× | 8 GB | Asia · Northeast | PCIe | $0.09 | $0.09 | Check availability |
 
-## RTX 3070 — 1 in snapshot, from $0.14/GPU-hr
+## RTX 3060 TI — 1 in snapshot, from $0.10/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
 
-| RTX 3070 | 2× | 8 GB | US · East | PCIe | $0.14 | $0.29 | Check availability |
+| RTX 3060 TI | 2× | 8 GB | Europe · West | PCIe | $0.10 | $0.21 | Check availability |
 
-## RTX 3070 TI — 1 in snapshot, from $0.12/GPU-hr
-
-| GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
-
-| RTX 3070 TI | 1× | 8 GB | Europe · West | PCIe | $0.12 | $0.12 | Check availability |
-
-## RTX 5060 — 1 in snapshot, from $0.12/GPU-hr
+## RTX 3080 TI — 1 in snapshot, from $0.25/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
 
-| RTX 5060 | 2× | 8 GB | US · West | PCIe | $0.12 | $0.23 | Check availability |
+| RTX 3080 TI | 1× | 12 GB | Asia · Southeast | PCIe | $0.25 | $0.25 | Check availability |
 
-## RTX 5060 TI — 2 in snapshot, from $0.14/GPU-hr
+## RTX 3090 — 1 in snapshot, from $0.24/GPU-hr
 
 | GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
 
-| RTX 5060 TI | 1× | 8 GB | Europe · South | PCIe | $0.14 | $0.14 | Check availability |
+| RTX 3090 | 1× | 24 GB | Global · flexible | PCIe | $0.24 | $0.24 | Check availability |
+
+## RTX 4000ADA — 1 in snapshot, from $0.26/GPU-hr
+
+| GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
+
+| RTX 4000ADA | 1× | 20 GB | Europe · East | PCIe | $0.26 | $0.26 | Check availability |
+
+## RTX 4070 LAPTOP — 1 in snapshot, from $0.20/GPU-hr
+
+| GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
+
+| RTX 4070 LAPTOP | 1× | 8 GB | Europe · East | PCIe | $0.20 | $0.20 | Check availability |
+
+## RTX 5060 — 1 in snapshot, from $0.13/GPU-hr
+
+| GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
+
+| RTX 5060 | 1× | 8 GB | US · West | PCIe | $0.13 | $0.13 | Check availability |
+
+## RTX 5060 TI — 1 in snapshot, from $0.23/GPU-hr
+
+| GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
 
 | RTX 5060 TI | 1× | 16 GB | Europe · West | PCIe | $0.23 | $0.23 | Check availability |
+
+## RTX 5070 TI — 1 in snapshot, from $0.28/GPU-hr
+
+| GPU | Count | vRAM | Region | Fabric | $/GPU/hr | Instance $/hr | |
+
+| RTX 5070 TI | 1× | 16 GB | Europe · North | PCIe | $0.28 | $0.28 | Check availability |
 
 ## Monthly cost math (720 hours)
 
@@ -3541,7 +3525,7 @@ Snapshot taken 2026-11-15T17:00:37.355Z; current view on /compute.html .
 
 | Cheapest sampled listing (RTX 2070S) | $0.07 | $50 |
 
-| Median sampled listing rate | $1.51 | $1087 |
+| Median sampled listing rate | $1.41 | $1017 |
 
 | Highest sampled listing rate | $11.18 | $8050 |
 
@@ -3556,15 +3540,15 @@ On-demand marketplace ↗
 
 ### How many listings were in this catalog snapshot?
 
-122 GPU listings across 31 models were observed in the 2026-11-15 snapshot, from $0.07 to $11.18 per GPU-hour. This page is a fixed snapshot. Check the marketplace for current stock and pricing.
+113 GPU listings across 34 models were observed in the 2026-11-16 snapshot, from $0.07 to $11.18 per GPU-hour. This page is a fixed snapshot. Check the marketplace for current stock and pricing.
 
 ### What was the cheapest GPU in this catalog snapshot?
 
-The lowest-priced listing in this dated snapshot is a RTX 2070S at $0.07/GPU-hour. The median rate across all 122 sampled listings is $1.51/GPU-hour.
+The lowest-priced listing in this dated snapshot is a RTX 2070S at $0.07/GPU-hour. The median rate across all 113 sampled listings is $1.41/GPU-hour.
 
 ### What does a sampled listing cost per month?
 
-At the cheapest sampled rate of $0.07/GPU-hr, one GPU running a full 720-hour month costs about $50. At the median sampled rate of $1.51/GPU-hr, about $1087.
+At the cheapest sampled rate of $0.07/GPU-hr, one GPU running a full 720-hour month costs about $50. At the median sampled rate of $1.41/GPU-hr, about $1017.
 
 ### Why are the listings provider-anonymous?
 
