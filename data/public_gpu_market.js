@@ -1,44 +1,44 @@
 window.OMEGA_GPU_MARKET = {
   "schema_version": "1.1.0",
-  "generated_at": "2026-11-16T17:02:35.270Z",
-  "inventory_generated_at": "2026-11-16T17:02:07.118Z",
-  "pricing_generated_at": "2026-11-16T17:02:34.840Z",
+  "generated_at": "2026-11-17T00:10:23.740Z",
+  "inventory_generated_at": "2026-11-17T00:09:44.881Z",
+  "pricing_generated_at": "2026-11-17T00:10:13.166Z",
   "observation_window": {
     "oldest": "2026-11-02T00:00:00.000Z",
-    "newest": "2026-11-16T17:02:07.118Z",
-    "datedRows": 77,
+    "newest": "2026-11-17T00:09:44.881Z",
+    "datedRows": 248,
     "undatedRows": 0
   },
-  "freshness_label": "Collected 2026-11-16; see source observation dates",
+  "freshness_label": "Collected 2026-11-17; see source observation dates",
   "disclosure": "Dated public-market observations, not reservable allocation. Regional counts are distinct providers with explicitly located records; broad continental records are not assigned to individual countries. Provider identities and source evidence are available in the supplier pricing report.",
   "source_count_summary": {
     "registry_supplier_count": 224,
-    "public_price_sources": 77,
-    "supply_source_gpu_pairs": 53,
-    "quarantined_price_sources": 9,
+    "public_price_sources": 248,
+    "supply_source_gpu_pairs": 56,
+    "quarantined_price_sources": 15,
     "tracked_gpu_families": 8
   },
-  "price_sanity_status": "9 candidate price row(s) quarantined before public display",
+  "price_sanity_status": "15 candidate price row(s) quarantined before public display",
   "history_window": {
     "days": 90,
-    "start": "2026-08-19",
-    "end": "2026-11-16",
+    "start": "2026-08-20",
+    "end": "2026-11-17",
     "method": "One point per UTC day: the median of provider-average USD/GPU-hour rates from that day's last inventory snapshot, using the same confidence, availability and sanity rules as the published averages. Days without a collected snapshot are omitted."
   },
   "gpu_market": [
     {
       "gpu_family": "H100",
-      "average_price_per_gpu_hour": 4.0436,
-      "median_price_per_gpu_hour": 2.6,
+      "average_price_per_gpu_hour": 4.2021,
+      "median_price_per_gpu_hour": 3.09,
       "min_price_per_gpu_hour": 1.68,
       "max_price_per_gpu_hour": 11.12,
       "supply_source_count": 9,
-      "price_source_count": 10,
+      "price_source_count": 28,
       "availability_mix": [
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 2
+          "count": 20
         },
         {
           "key": "on_demand_listed",
@@ -62,12 +62,12 @@ window.OMEGA_GPU_MARKET = {
         "Spain",
         "India",
         "Japan",
-        "Thailand, TH"
+        "Czechia, CZ"
       ],
       "observation_window": {
-        "oldest": "2026-11-16T17:02:07.118Z",
-        "newest": "2026-11-16T17:02:07.118Z",
-        "datedRows": 10,
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 28,
         "undatedRows": 0
       },
       "deployment_models": [
@@ -76,10 +76,6 @@ window.OMEGA_GPU_MARKET = {
         "Reserved blocks"
       ],
       "history": [
-        [
-          "2026-08-19",
-          2.585
-        ],
         [
           "2026-08-20",
           2.585
@@ -423,22 +419,26 @@ window.OMEGA_GPU_MARKET = {
         [
           "2026-11-16",
           2.6
+        ],
+        [
+          "2026-11-17",
+          3.09
         ]
       ]
     },
     {
       "gpu_family": "H200",
-      "average_price_per_gpu_hour": 4.3644,
-      "median_price_per_gpu_hour": 4.2763,
+      "average_price_per_gpu_hour": 4.4057,
+      "median_price_per_gpu_hour": 4.3589,
       "min_price_per_gpu_hour": 2.6,
-      "max_price_per_gpu_hour": 6.305,
+      "max_price_per_gpu_hour": 9.3435,
       "supply_source_count": 4,
-      "price_source_count": 9,
+      "price_source_count": 40,
       "availability_mix": [
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 7
+          "count": 38
         },
         {
           "key": "on_demand_listed",
@@ -461,13 +461,13 @@ window.OMEGA_GPU_MARKET = {
         "US",
         "Europe",
         "Japan",
-        "Quebec, CA",
-        "New Mexico, US"
+        "New Mexico, US",
+        "Colorado, US"
       ],
       "observation_window": {
-        "oldest": "2026-11-16T17:02:07.118Z",
-        "newest": "2026-11-16T17:02:07.118Z",
-        "datedRows": 9,
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 40,
         "undatedRows": 0
       },
       "deployment_models": [
@@ -476,10 +476,6 @@ window.OMEGA_GPU_MARKET = {
         "Reserved blocks"
       ],
       "history": [
-        [
-          "2026-08-19",
-          3.99
-        ],
         [
           "2026-08-20",
           3.17
@@ -823,44 +819,50 @@ window.OMEGA_GPU_MARKET = {
         [
           "2026-11-16",
           4.2763
+        ],
+        [
+          "2026-11-17",
+          4.3589
         ]
       ]
     },
     {
       "gpu_family": "B200",
-      "average_price_per_gpu_hour": null,
-      "median_price_per_gpu_hour": null,
-      "min_price_per_gpu_hour": null,
-      "max_price_per_gpu_hour": null,
-      "supply_source_count": 0,
-      "price_source_count": 0,
+      "average_price_per_gpu_hour": 10.1359,
+      "median_price_per_gpu_hour": 10.1359,
+      "min_price_per_gpu_hour": 7.501,
+      "max_price_per_gpu_hour": 12.5104,
+      "supply_source_count": 1,
+      "price_source_count": 14,
       "availability_mix": [
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 1
+          "count": 15
         },
         {
           "key": "reserved_capacity",
           "label": "Reserved",
-          "count": 11
+          "count": 10
         },
         {
           "key": "mentioned_only",
           "label": "Mentioned",
-          "count": 24
+          "count": 25
         }
       ],
       "regions": [
         "US",
         "Europe",
         "India",
-        "Japan"
+        "Japan",
+        "Oregon, US",
+        ", US"
       ],
       "observation_window": {
-        "oldest": null,
-        "newest": null,
-        "datedRows": 0,
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 14,
         "undatedRows": 0
       },
       "deployment_models": [
@@ -869,10 +871,6 @@ window.OMEGA_GPU_MARKET = {
         "Reserved clusters"
       ],
       "history": [
-        [
-          "2026-08-19",
-          5.8088
-        ],
         [
           "2026-08-20",
           5.0582
@@ -1184,22 +1182,26 @@ window.OMEGA_GPU_MARKET = {
         [
           "2026-11-14",
           8.5436
+        ],
+        [
+          "2026-11-17",
+          10.1359
         ]
       ]
     },
     {
       "gpu_family": "B300",
-      "average_price_per_gpu_hour": 10.5668,
+      "average_price_per_gpu_hour": 10.5438,
       "median_price_per_gpu_hour": 9.745,
       "min_price_per_gpu_hour": 6.64,
       "max_price_per_gpu_hour": 17.802,
       "supply_source_count": 10,
-      "price_source_count": 10,
+      "price_source_count": 12,
       "availability_mix": [
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 1
+          "count": 3
         },
         {
           "key": "on_demand_listed",
@@ -1214,19 +1216,21 @@ window.OMEGA_GPU_MARKET = {
         {
           "key": "mentioned_only",
           "label": "Mentioned",
-          "count": 22
+          "count": 23
         }
       ],
       "regions": [
         "United States",
         "US",
         "Europe",
-        "Oregon, US"
+        "India",
+        "Oregon, US",
+        "Croatia, HR"
       ],
       "observation_window": {
         "oldest": "2026-11-02T00:00:00.000Z",
-        "newest": "2026-11-16T17:02:07.118Z",
-        "datedRows": 10,
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 12,
         "undatedRows": 0
       },
       "deployment_models": [
@@ -1235,10 +1239,6 @@ window.OMEGA_GPU_MARKET = {
         "High-density deployments"
       ],
       "history": [
-        [
-          "2026-08-19",
-          7.39
-        ],
         [
           "2026-08-20",
           7.2446
@@ -1582,6 +1582,10 @@ window.OMEGA_GPU_MARKET = {
         [
           "2026-11-16",
           9.745
+        ],
+        [
+          "2026-11-17",
+          9.745
         ]
       ]
     },
@@ -1686,22 +1690,26 @@ window.OMEGA_GPU_MARKET = {
         [
           "2026-11-16",
           16.205
+        ],
+        [
+          "2026-11-17",
+          16.205
         ]
       ]
     },
     {
       "gpu_family": "A100",
-      "average_price_per_gpu_hour": 2.9165,
+      "average_price_per_gpu_hour": 2.9542,
       "median_price_per_gpu_hour": 2.18,
-      "min_price_per_gpu_hour": 0.6185,
+      "min_price_per_gpu_hour": 0.5348,
       "max_price_per_gpu_hour": 7.12,
       "supply_source_count": 8,
-      "price_source_count": 14,
+      "price_source_count": 49,
       "availability_mix": [
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 6
+          "count": 47
         },
         {
           "key": "on_demand_listed",
@@ -1728,9 +1736,9 @@ window.OMEGA_GPU_MARKET = {
         "United Kingdom, GB"
       ],
       "observation_window": {
-        "oldest": "2026-11-16T17:02:07.118Z",
-        "newest": "2026-11-16T17:02:07.118Z",
-        "datedRows": 14,
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 49,
         "undatedRows": 0
       },
       "deployment_models": [
@@ -1739,10 +1747,6 @@ window.OMEGA_GPU_MARKET = {
         "Flexible on-demand"
       ],
       "history": [
-        [
-          "2026-08-19",
-          1.8
-        ],
         [
           "2026-08-20",
           1.8
@@ -2086,18 +2090,27 @@ window.OMEGA_GPU_MARKET = {
         [
           "2026-11-16",
           2.18
+        ],
+        [
+          "2026-11-17",
+          2.18
         ]
       ]
     },
     {
       "gpu_family": "L40S",
-      "average_price_per_gpu_hour": 1.915,
-      "median_price_per_gpu_hour": 1.725,
-      "min_price_per_gpu_hour": 0.7,
+      "average_price_per_gpu_hour": 1.6961,
+      "median_price_per_gpu_hour": 1.2,
+      "min_price_per_gpu_hour": 0.6689,
       "max_price_per_gpu_hour": 3.51,
-      "supply_source_count": 4,
-      "price_source_count": 5,
+      "supply_source_count": 5,
+      "price_source_count": 18,
       "availability_mix": [
+        {
+          "key": "on_demand_live",
+          "label": "Live",
+          "count": 13
+        },
         {
           "key": "on_demand_listed",
           "label": "Listed",
@@ -2117,12 +2130,15 @@ window.OMEGA_GPU_MARKET = {
       "regions": [
         "US",
         "India",
-        "Europe"
+        "Europe",
+        "Taiwan, TW",
+        "South Africa, ZA",
+        "South Korea, KR"
       ],
       "observation_window": {
-        "oldest": "2026-11-16T17:02:07.118Z",
-        "newest": "2026-11-16T17:02:07.118Z",
-        "datedRows": 5,
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 18,
         "undatedRows": 0
       },
       "deployment_models": [
@@ -2131,10 +2147,6 @@ window.OMEGA_GPU_MARKET = {
         "Rendering-adjacent workloads"
       ],
       "history": [
-        [
-          "2026-08-19",
-          1.95
-        ],
         [
           "2026-08-20",
           1.95
@@ -2478,22 +2490,26 @@ window.OMEGA_GPU_MARKET = {
         [
           "2026-11-16",
           1.725
+        ],
+        [
+          "2026-11-17",
+          1.2
         ]
       ]
     },
     {
       "gpu_family": "RTX 5090",
-      "average_price_per_gpu_hour": 0.7413,
-      "median_price_per_gpu_hour": 0.7413,
-      "min_price_per_gpu_hour": 0.4363,
-      "max_price_per_gpu_hour": 1.3215,
+      "average_price_per_gpu_hour": 0.7767,
+      "median_price_per_gpu_hour": 0.7767,
+      "min_price_per_gpu_hour": 0.4581,
+      "max_price_per_gpu_hour": 1.4689,
       "supply_source_count": 2,
-      "price_source_count": 7,
+      "price_source_count": 62,
       "availability_mix": [
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 6
+          "count": 61
         },
         {
           "key": "on_demand_listed",
@@ -2507,16 +2523,17 @@ window.OMEGA_GPU_MARKET = {
         }
       ],
       "regions": [
-        "South Korea, KR",
+        "Michigan, US",
+        "Nei Mongol, CN",
+        "Taiwan, TW",
+        "Hungary, HU",
         "China, CN",
-        "California, US",
-        "Slovenia, SI",
-        "Hungary, HU"
+        "Beijing, CN"
       ],
       "observation_window": {
-        "oldest": "2026-11-16T17:02:07.118Z",
-        "newest": "2026-11-16T17:02:07.118Z",
-        "datedRows": 7,
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 62,
         "undatedRows": 0
       },
       "deployment_models": [
@@ -2531,42 +2548,55 @@ window.OMEGA_GPU_MARKET = {
     {
       "id": "us-east",
       "label": "US East",
-      "gpus": [],
-      "availability_mix": [],
-      "supply_source_count": 0,
-      "source_record_count": 0,
-      "observation_window": {
-        "oldest": null,
-        "newest": null,
-        "datedRows": 0,
-        "undatedRows": 0
-      },
-      "live_or_listed_supply_sources": 0,
-      "reserved_supply_sources": 0,
-      "channel_summary": "No current public supply source"
-    },
-    {
-      "id": "us-central",
-      "label": "US Central",
       "gpus": [
-        "A100"
+        "A100",
+        "RTX 5090"
       ],
       "availability_mix": [
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 2
+          "count": 6
         }
       ],
       "supply_source_count": 1,
-      "source_record_count": 2,
+      "source_record_count": 6,
       "observation_window": {
-        "oldest": "2026-11-16T17:02:07.118Z",
-        "newest": "2026-11-16T17:02:07.118Z",
-        "datedRows": 2,
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 6,
         "undatedRows": 0
       },
-      "live_or_listed_supply_sources": 2,
+      "live_or_listed_supply_sources": 6,
+      "reserved_supply_sources": 0,
+      "channel_summary": "Live or listed on-demand supply sources"
+    },
+    {
+      "id": "us-central",
+      "label": "US Central",
+      "gpus": [
+        "H100",
+        "H200",
+        "B200",
+        "A100",
+        "RTX 5090"
+      ],
+      "availability_mix": [
+        {
+          "key": "on_demand_live",
+          "label": "Live",
+          "count": 8
+        }
+      ],
+      "supply_source_count": 1,
+      "source_record_count": 8,
+      "observation_window": {
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 8,
+        "undatedRows": 0
+      },
+      "live_or_listed_supply_sources": 8,
       "reserved_supply_sources": 0,
       "channel_summary": "Live or listed on-demand supply sources"
     },
@@ -2574,25 +2604,28 @@ window.OMEGA_GPU_MARKET = {
       "id": "us-west",
       "label": "US West",
       "gpus": [
+        "H200",
+        "B200",
         "B300",
+        "A100",
         "RTX 5090"
       ],
       "availability_mix": [
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 2
+          "count": 15
         }
       ],
       "supply_source_count": 1,
-      "source_record_count": 2,
+      "source_record_count": 15,
       "observation_window": {
-        "oldest": "2026-11-16T17:02:07.118Z",
-        "newest": "2026-11-16T17:02:07.118Z",
-        "datedRows": 2,
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 15,
         "undatedRows": 0
       },
-      "live_or_listed_supply_sources": 2,
+      "live_or_listed_supply_sources": 15,
       "reserved_supply_sources": 0,
       "channel_summary": "Live or listed on-demand supply sources"
     },
@@ -2629,8 +2662,8 @@ window.OMEGA_GPU_MARKET = {
       "supply_source_count": 2,
       "source_record_count": 2,
       "observation_window": {
-        "oldest": "2026-11-16T17:02:07.118Z",
-        "newest": "2026-11-16T17:02:07.118Z",
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
         "datedRows": 2,
         "undatedRows": 0
       },
@@ -2642,13 +2675,15 @@ window.OMEGA_GPU_MARKET = {
       "id": "uk",
       "label": "UK",
       "gpus": [
-        "A100"
+        "H200",
+        "A100",
+        "RTX 5090"
       ],
       "availability_mix": [
         {
           "key": "on_demand_live",
           "label": "Live",
-          "count": 1
+          "count": 7
         },
         {
           "key": "mentioned_only",
@@ -2657,92 +2692,123 @@ window.OMEGA_GPU_MARKET = {
         }
       ],
       "supply_source_count": 2,
-      "source_record_count": 2,
+      "source_record_count": 8,
       "observation_window": {
-        "oldest": "2026-11-16T17:02:07.118Z",
-        "newest": "2026-11-16T17:02:07.118Z",
-        "datedRows": 2,
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 8,
         "undatedRows": 0
       },
-      "live_or_listed_supply_sources": 1,
+      "live_or_listed_supply_sources": 7,
       "reserved_supply_sources": 0,
       "channel_summary": "Live or listed on-demand supply sources"
     },
     {
       "id": "germany",
       "label": "Germany",
-      "gpus": [],
-      "availability_mix": [],
-      "supply_source_count": 0,
-      "source_record_count": 0,
+      "gpus": [
+        "RTX 5090"
+      ],
+      "availability_mix": [
+        {
+          "key": "on_demand_live",
+          "label": "Live",
+          "count": 4
+        }
+      ],
+      "supply_source_count": 1,
+      "source_record_count": 4,
       "observation_window": {
-        "oldest": null,
-        "newest": null,
-        "datedRows": 0,
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 4,
         "undatedRows": 0
       },
-      "live_or_listed_supply_sources": 0,
+      "live_or_listed_supply_sources": 4,
       "reserved_supply_sources": 0,
-      "channel_summary": "No current public supply source"
+      "channel_summary": "Live or listed on-demand supply sources"
     },
     {
       "id": "france",
       "label": "France",
-      "gpus": [],
-      "availability_mix": [],
-      "supply_source_count": 0,
-      "source_record_count": 0,
+      "gpus": [
+        "H200"
+      ],
+      "availability_mix": [
+        {
+          "key": "on_demand_live",
+          "label": "Live",
+          "count": 2
+        }
+      ],
+      "supply_source_count": 1,
+      "source_record_count": 2,
       "observation_window": {
-        "oldest": null,
-        "newest": null,
-        "datedRows": 0,
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 2,
         "undatedRows": 0
       },
-      "live_or_listed_supply_sources": 0,
+      "live_or_listed_supply_sources": 2,
       "reserved_supply_sources": 0,
-      "channel_summary": "No current public supply source"
+      "channel_summary": "Live or listed on-demand supply sources"
     },
     {
       "id": "nordics",
       "label": "Nordics",
-      "gpus": [],
-      "availability_mix": [],
-      "supply_source_count": 0,
-      "source_record_count": 0,
+      "gpus": [
+        "A100",
+        "RTX 5090"
+      ],
+      "availability_mix": [
+        {
+          "key": "on_demand_live",
+          "label": "Live",
+          "count": 7
+        }
+      ],
+      "supply_source_count": 1,
+      "source_record_count": 7,
       "observation_window": {
-        "oldest": null,
-        "newest": null,
-        "datedRows": 0,
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 7,
         "undatedRows": 0
       },
-      "live_or_listed_supply_sources": 0,
+      "live_or_listed_supply_sources": 7,
       "reserved_supply_sources": 0,
-      "channel_summary": "No current public supply source"
+      "channel_summary": "Live or listed on-demand supply sources"
     },
     {
       "id": "spain",
       "label": "Spain",
       "gpus": [
-        "H100"
+        "H100",
+        "RTX 5090"
       ],
       "availability_mix": [
+        {
+          "key": "on_demand_live",
+          "label": "Live",
+          "count": 3
+        },
         {
           "key": "mentioned_only",
           "label": "Mentioned",
           "count": 2
         }
       ],
-      "supply_source_count": 2,
-      "source_record_count": 2,
+      "supply_source_count": 3,
+      "source_record_count": 5,
       "observation_window": {
-        "oldest": "2026-11-16T17:02:07.118Z",
-        "newest": "2026-11-16T17:02:07.118Z",
-        "datedRows": 2,
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 5,
         "undatedRows": 0
       },
-      "live_or_listed_supply_sources": 0,
+      "live_or_listed_supply_sources": 3,
       "reserved_supply_sources": 0,
-      "channel_summary": "Mentioned supply sources under review"
+      "channel_summary": "Live or listed on-demand supply sources"
     },
     {
       "id": "hong-kong",
@@ -2764,19 +2830,28 @@ window.OMEGA_GPU_MARKET = {
     {
       "id": "singapore",
       "label": "Singapore",
-      "gpus": [],
-      "availability_mix": [],
-      "supply_source_count": 0,
-      "source_record_count": 0,
+      "gpus": [
+        "A100",
+        "L40S"
+      ],
+      "availability_mix": [
+        {
+          "key": "on_demand_live",
+          "label": "Live",
+          "count": 3
+        }
+      ],
+      "supply_source_count": 1,
+      "source_record_count": 3,
       "observation_window": {
-        "oldest": null,
-        "newest": null,
-        "datedRows": 0,
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 3,
         "undatedRows": 0
       },
-      "live_or_listed_supply_sources": 0,
+      "live_or_listed_supply_sources": 3,
       "reserved_supply_sources": 0,
-      "channel_summary": "No current public supply source"
+      "channel_summary": "Live or listed on-demand supply sources"
     },
     {
       "id": "india",
@@ -2785,6 +2860,7 @@ window.OMEGA_GPU_MARKET = {
         "H100",
         "H200",
         "B200",
+        "B300",
         "A100",
         "L40S"
       ],
@@ -2792,24 +2868,24 @@ window.OMEGA_GPU_MARKET = {
         {
           "key": "reserved_capacity",
           "label": "Reserved",
-          "count": 7
+          "count": 6
         },
         {
           "key": "mentioned_only",
           "label": "Mentioned",
-          "count": 1
+          "count": 3
         }
       ],
       "supply_source_count": 3,
-      "source_record_count": 8,
+      "source_record_count": 9,
       "observation_window": {
-        "oldest": "2026-11-16T17:02:07.118Z",
-        "newest": "2026-11-16T17:02:07.118Z",
-        "datedRows": 8,
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 9,
         "undatedRows": 0
       },
       "live_or_listed_supply_sources": 0,
-      "reserved_supply_sources": 7,
+      "reserved_supply_sources": 6,
       "channel_summary": "Reserved and sales-led supply sources"
     },
     {
@@ -2852,26 +2928,32 @@ window.OMEGA_GPU_MARKET = {
       "gpus": [
         "H100",
         "H200",
-        "B200"
+        "B200",
+        "A100"
       ],
       "availability_mix": [
+        {
+          "key": "on_demand_live",
+          "label": "Live",
+          "count": 23
+        },
         {
           "key": "mentioned_only",
           "label": "Mentioned",
           "count": 3
         }
       ],
-      "supply_source_count": 1,
-      "source_record_count": 3,
+      "supply_source_count": 2,
+      "source_record_count": 26,
       "observation_window": {
-        "oldest": "2026-11-16T17:02:07.118Z",
-        "newest": "2026-11-16T17:02:07.118Z",
-        "datedRows": 3,
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 26,
         "undatedRows": 0
       },
-      "live_or_listed_supply_sources": 0,
+      "live_or_listed_supply_sources": 23,
       "reserved_supply_sources": 0,
-      "channel_summary": "Mentioned supply sources under review"
+      "channel_summary": "Live or listed on-demand supply sources"
     },
     {
       "id": "philippines",
@@ -2893,36 +2975,53 @@ window.OMEGA_GPU_MARKET = {
     {
       "id": "taiwan",
       "label": "Taiwan",
-      "gpus": [],
-      "availability_mix": [],
-      "supply_source_count": 0,
-      "source_record_count": 0,
+      "gpus": [
+        "L40S",
+        "RTX 5090"
+      ],
+      "availability_mix": [
+        {
+          "key": "on_demand_live",
+          "label": "Live",
+          "count": 9
+        }
+      ],
+      "supply_source_count": 1,
+      "source_record_count": 9,
       "observation_window": {
-        "oldest": null,
-        "newest": null,
-        "datedRows": 0,
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 9,
         "undatedRows": 0
       },
-      "live_or_listed_supply_sources": 0,
+      "live_or_listed_supply_sources": 9,
       "reserved_supply_sources": 0,
-      "channel_summary": "No current public supply source"
+      "channel_summary": "Live or listed on-demand supply sources"
     },
     {
       "id": "australia",
       "label": "Australia",
-      "gpus": [],
-      "availability_mix": [],
-      "supply_source_count": 0,
-      "source_record_count": 0,
+      "gpus": [
+        "H100"
+      ],
+      "availability_mix": [
+        {
+          "key": "on_demand_live",
+          "label": "Live",
+          "count": 1
+        }
+      ],
+      "supply_source_count": 1,
+      "source_record_count": 1,
       "observation_window": {
-        "oldest": null,
-        "newest": null,
-        "datedRows": 0,
+        "oldest": "2026-11-17T00:09:44.881Z",
+        "newest": "2026-11-17T00:09:44.881Z",
+        "datedRows": 1,
         "undatedRows": 0
       },
-      "live_or_listed_supply_sources": 0,
+      "live_or_listed_supply_sources": 1,
       "reserved_supply_sources": 0,
-      "channel_summary": "No current public supply source"
+      "channel_summary": "Live or listed on-demand supply sources"
     }
   ]
 };
