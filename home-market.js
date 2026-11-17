@@ -13,6 +13,91 @@
     var first = day(window && window.oldest), last = day(window && window.newest);
     return first && last ? first === last ? first : first + " – " + last : "Not recorded";
   }
+  // Catalog prices are customer instance prices in cents, with markup already
+  // included. Every family uses the same available-offer minimum per GPU-hour.
+  function catalogSnapshot(catalog) {
+    return {refreshedAt: catalog && catalog.refreshedAt, listings: (catalog && Array.isArray(catalog.listings) ? catalog.listings : []).filter(function (item) { return item && typeof item === "object"; }).map(function (item) {
+      return {gpu:item.gpu, gpuCount:item.gpuCount, vramGb:item.vramGb, priceCentsHr:item.priceCentsHr, available:item.available};
+    })};
+  }
+  function catalogModel(catalog, now) {
+    catalog = catalog || {};
+    var age = (now == null ? Date.now() : Number(now)) - Date.parse(catalog.refreshedAt);
+    var stale = !Number.isFinite(age) || age < -300000 || age > 3600000;
+    var groups = Object.create(null);
+    if (!stale) (Array.isArray(catalog.listings) ? catalog.listings : []).forEach(function (item) {
+      if (!item || item.available !== true || !Number.isInteger(item.gpuCount) || item.gpuCount < 1 ||
+          !Number.isInteger(item.priceCentsHr) || item.priceCentsHr <= 0 || typeof item.gpu !== "string" || !item.gpu.trim()) return;
+      var family = item.gpu.trim();
+      if (/^A100(?:$|[- ])/.test(family)) {
+        if (item.vramGb !== 40 && item.vramGb !== 80) return;
+        family = "A100 " + item.vramGb + "GB";
+      }
+      var rate = item.priceCentsHr / 100 / item.gpuCount;
+      if (!groups[family] || rate < groups[family].price_per_gpu_hour ||
+          (rate === groups[family].price_per_gpu_hour && item.gpuCount < groups[family].gpu_count)) {
+        groups[family] = {gpu_family:family, price_per_gpu_hour:rate, gpu_count:item.gpuCount, instance_price:item.priceCentsHr / 100};
+      }
+    });
+    var featured = ["H100","H200","B200","B300","GB300","A100 40GB","A100 80GB","L40S"];
+    return {catalog:true, stale:stale, refreshedAt:catalog.refreshedAt,
+      status: stale ? "Current inventory unverified — check the marketplace" : "Catalog updated " + new Date(catalog.refreshedAt).toISOString().replace("T", " ").replace(/\.\d+Z$/, " UTC"),
+      rows:featured.map(function (family) { return groups[family] || {gpu_family:family}; }),
+      allRows:Object.keys(groups).sort().map(function (family) { return groups[family]; })};
+  }
+  function catalogRowsMarkup(view) {
+    return view.rows.map(function (row) {
+      var price = row.price_per_gpu_hour;
+      var config = price ? row.gpu_count + " GPU" + (row.gpu_count === 1 ? "" : "s") + " · " + money(row.instance_price) + " total" : view.stale ? "Check marketplace" : "No live listing";
+      return '<div class="mrow"><span class="m-gpu">' + escape(row.gpu_family) + '</span><span class="m-price">' + (price ? escape(money(price)) : "Unavailable") + '</span><span class="m-trend m-trend-empty">' + escape(config) + '</span></div>';
+    }).join("\n");
+  }
+  function catalogTickerMarkup(view) {
+    var items = view.rows.filter(function (row) { return row.price_per_gpu_hour; }).map(function (row) {
+      return '<span class="ti"><b>' + escape(row.gpu_family) + '</b> FROM ' + escape(money(row.price_per_gpu_hour)) + '</span><span class="sep">·</span>';
+    }).join("");
+    items += '<span class="ti">OMEGA ON-DEMAND · USD / GPU-HR</span><span class="sep">·</span>';
+    return '<div class="ticker-group">' + items + '</div><div class="ticker-group" aria-hidden="true">' + items + '</div>';
+  }
+  function catalogFaqPricesText(view) {
+    var rows = view.rows.filter(function (row) { return row.price_per_gpu_hour; });
+    if (!rows.length) return "Current Omega on-demand prices are unverified. Check the marketplace for current inventory and pricing.";
+    return "Omega on-demand starting prices as of " + view.refreshedAt + ": " + rows.map(function (row) { return row.gpu_family + " " + money(row.price_per_gpu_hour).replace("/hr", ""); }).join(", ") + " per GPU-hour. Rates include the Omega service fee and may require a multi-GPU instance; storage and transfer charges may apply. Availability and final prices are confirmed in the marketplace.";
+  }
+  function applyCatalog(document, catalog, now) {
+    var view = catalogModel(catalog, now);
+    var rows = document.getElementById("homeMarketRows"), ticker = document.getElementById("tickerTrack"), status = document.getElementById("homeCatalogStatus"), faq = document.getElementById("homeOmegaPricesFaq");
+    if (rows) rows.innerHTML = catalogRowsMarkup(view);
+    if (ticker) ticker.innerHTML = catalogTickerMarkup(view);
+    if (status) status.textContent = view.status;
+    if (faq) faq.textContent = catalogFaqPricesText(view);
+    return view;
+  }
+  function startCatalog(document) {
+    var snapshot = document.getElementById("homeOmegaCatalog");
+    if (!snapshot) return;
+    var catalog;
+    try { catalog = JSON.parse(snapshot.textContent); } catch (_) { catalog = {}; }
+    applyCatalog(document, catalog);
+    if (snapshot.dataset.bound || typeof window === "undefined" || !window.fetch) return;
+    snapshot.dataset.bound = "1";
+    function refresh() {
+      // Expire the previous observation even while a refresh is in flight.
+      applyCatalog(document, catalog);
+      var controller = new AbortController();
+      var timer = window.setTimeout(function () { controller.abort(); }, 10000);
+      return window.fetch("/api/market/catalog", {cache:"no-store", signal:controller.signal}).then(function (response) {
+        if (!response.ok) throw new Error("Catalog unavailable");
+        return response.json();
+      }).then(function (data) {
+        if (!Array.isArray(data.listings)) throw new Error("Invalid catalog");
+        catalog = data;
+        applyCatalog(document, catalog);
+      }).catch(function () { catalog = {}; applyCatalog(document, catalog); }).finally(function () { window.clearTimeout(timer); });
+    }
+    refresh();
+    window.setInterval(refresh, 60000);
+  }
   function model(feed, now) {
     feed = feed || {};
     var observed = feed.observation_window || {};
@@ -138,7 +223,8 @@
       pin.dataset.gpus = r.gpus; pin.dataset.model = r.description; pin.dataset.sources = r.sources; pin.dataset.observed = r.observed;
       pin.setAttribute("aria-label", r.label + ": " + r.sources + ", observations " + r.observed);
     });
+    startCatalog(document);
     return view;
   }
-  return {model:model, tickerMarkup:tickerMarkup, rowsMarkup:rowsMarkup, trendMarkup:trendMarkup, bindTrends:bindTrends, faqPricesText:faqPricesText, regionView:regionView, apply:apply, escape:escape};
+  return {catalogSnapshot:catalogSnapshot, catalogModel:catalogModel, catalogRowsMarkup:catalogRowsMarkup, catalogTickerMarkup:catalogTickerMarkup, catalogFaqPricesText:catalogFaqPricesText, applyCatalog:applyCatalog, model:model, tickerMarkup:tickerMarkup, rowsMarkup:rowsMarkup, trendMarkup:trendMarkup, bindTrends:bindTrends, faqPricesText:faqPricesText, regionView:regionView, apply:apply, escape:escape};
 });
