@@ -86,27 +86,46 @@
 
     var data = new FormData(form);
     if (data.get("website")) return;
-    var details = [
-      "GPU: " + (data.get("gpu") || "Not specified"),
-      "Count: " + (data.get("gpu-count") || "Not specified"),
-      "Region: " + (data.get("region") || "Flexible"),
-      "Start: " + (data.get("start-date") || "Not specified"),
-      "Term: " + (data.get("term") || "Not specified"),
-      "Workload: " + (data.get("workload") || "Not specified"),
-      "Requirements: " + (data.get("requirements") || "None supplied")
-    ].join("\n");
-
     var payload = {
       full_name: data.get("full-name") || "",
       company: data.get("company") || "",
       email: data.get("email") || "",
       phone: data.get("phone") || "",
       need: "Reserved GPU cluster",
-      requirements: details,
+      request_kind: "buyer",
+      gpu_type: data.get("gpu") || "",
+      gpu_count: data.get("gpu-count") || "",
+      region: data.get("region") || "",
+      timeline: data.get("start-date") || "",
+      term_length: data.get("term") || "",
+      workload: data.get("workload") || "",
       website: data.get("website") || "",
       page_url: window.location.href,
       discovery_source: data.get("discovery-source") || ""
     };
+
+    // Older Workers store only the requirements string. Include the structured
+    // answers there once, and send the UTF-16 offset so newer Workers can keep
+    // just the free text in the growth brief.
+    var summary = [
+      ["GPU", payload.gpu_type], ["Count", payload.gpu_count], ["Region", payload.region],
+      ["Start", payload.timeline], ["Term", payload.term_length], ["Workload", payload.workload]
+    ].filter(function (field) { return field[1]; }).map(function (field) {
+      return field[0] + ": " + field[1];
+    }).join("\n") + "\nRequirements:\n";
+    var notes = String(data.get("requirements") || "").trim();
+    payload.requirements = summary + notes;
+    payload.requirements_text_offset = summary.length;
+    var notesLimit = 4000 - summary.length;
+    if (notes.length > notesLimit) {
+      setStatus("Limit requirements to " + notesLimit + " characters for the answers above.", "error");
+      return;
+    }
+    if (window.OmegaAcquisition &&
+        new Blob([JSON.stringify(window.OmegaAcquisition.formPayload(payload, "reserved_cluster"))]).size > 16 * 1024) {
+      setStatus("These answers exceed the form’s submission size. Shorten the requirements and try again.", "error");
+      return;
+    }
 
     if (submit) {
       submit.disabled = true;

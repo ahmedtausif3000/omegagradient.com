@@ -283,16 +283,17 @@
           <span class="eyebrow">Start with the brief</span>
           <h2>Describe the system you actually need.</h2>
           <p>A precise brief creates better options and exposes weak ones earlier. If some fields are unknown, say so—Omega Gradient can help shape the requirement.</p>
+          <p>Offering GPU capacity? <a class="card-link" href="mailto:tausif@omegagradient.com?subject=Reserved%20GPU%20capacity%20offer">Email the reserved supply desk</a>.</p>
           <ul class="request-list"><li>GPU and count</li><li>Region and start window</li><li>Term and workload</li><li>Fabric and storage</li><li>Budget and commercial constraints</li></ul>
         </div>
         <form class="panel request-form" id="clusterRequestForm" data-endpoint="/api/capacity-request" novalidate data-reveal><i class="tk" aria-hidden="true"></i>
           <label class="form-trap" aria-hidden="true">Website<input name="website" type="text" tabindex="-1" autocomplete="off"></label>
           <div class="field-grid"><div class="field"><label for="full-name">Full name</label><input id="full-name" name="full-name" autocomplete="name" required></div><div class="field"><label for="company">Company</label><input id="company" name="company" autocomplete="organization" required></div></div>
           <div class="field-grid"><div class="field"><label for="email">Business email</label><input id="email" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div></div>
-          <div class="field-grid"><div class="field"><label for="gpu">GPU platform</label><select id="gpu" name="gpu" required><option value="">Select</option><option>H100</option><option>H200</option><option>B200</option><option>B300</option><option>GB200 NVL72</option><option>GB300 NVL72</option><option>Flexible / advise</option></select></div><div class="field"><label for="gpu-count">GPU count</label><input id="gpu-count" name="gpu-count" placeholder="e.g. 64, 256, 1024" required></div></div>
-          <div class="field-grid"><div class="field"><label for="region">Region</label><input id="region" name="region" placeholder="e.g. US East, Europe, flexible"></div><div class="field"><label for="start-date">Target start</label><input id="start-date" name="start-date" placeholder="Date or window"></div></div>
+          <div class="field-grid"><div class="field"><label for="gpu">GPU platform</label><select id="gpu" name="gpu" required><option value="">Select</option><option>H100</option><option>H200</option><option>B200</option><option>B300</option><option>GB200 NVL72</option><option>GB300 NVL72</option><option>Flexible / advise</option></select></div><div class="field"><label for="gpu-count">GPU count</label><input id="gpu-count" name="gpu-count" maxlength="80" placeholder="e.g. 64, 128–256, flexible" required></div></div>
+          <div class="field-grid"><div class="field"><label for="region">Region</label><input id="region" name="region" maxlength="160" placeholder="e.g. US East, Europe, flexible"></div><div class="field"><label for="start-date">Target start</label><input id="start-date" name="start-date" maxlength="160" placeholder="Date or window"></div></div>
           <div class="field-grid"><div class="field"><label for="term">Term</label><select id="term" name="term"><option value="">Select</option><option>Days / scheduled block</option><option>1–3 months</option><option>3–12 months</option><option>1–3 years</option><option>3+ years</option><option>Flexible / advise</option></select></div><div class="field"><label for="workload">Workload</label><select id="workload" name="workload"><option value="">Select</option><option>Pre-training</option><option>Post-training / fine-tuning</option><option>Inference / reasoning</option><option>HPC / scientific computing</option><option>Mixed</option></select></div></div>
-          <div class="field"><label for="requirements">Requirements and constraints</label><textarea id="requirements" name="requirements" placeholder="Model or framework, interconnect, storage, security, budget, operating model, and anything already quoted..."></textarea></div>
+          <div class="field"><label for="requirements">Requirements and constraints</label><textarea id="requirements" name="requirements" maxlength="4000" aria-describedby="requirements-limit" placeholder="Model or framework, interconnect, storage, security, budget, operating model, and anything already quoted..."></textarea><small id="requirements-limit">The brief can hold up to 4,000 characters including the answers above.</small></div>
           <div class="field"><label for="cluster-discovery">How did you find us? (optional)</label><select id="cluster-discovery" name="discovery-source"><option value="">Prefer not to say</option><option value="search_engine">Search engine</option><option value="chatgpt">ChatGPT</option><option value="claude">Claude</option><option value="perplexity">Perplexity</option><option value="colleague_referral">Colleague or referral</option><option value="directory">Directory</option><option value="other">Other</option></select></div>
           <button class="btn btn-gold" type="submit">Send requirements</button>
           <p class="form-status" id="clusterRequestStatus" role="status" aria-live="polite"></p>
@@ -350,7 +351,7 @@
   </div>
 </footer>
 <!-- SITE_FOOTER_END -->
-  <script src="/clusters/reserved-clusters.js" defer></script>
+  <script src="/clusters/reserved-clusters.js?v=20261117-reserved-intake-2" defer></script>
   <script src="/site-chrome.js?v=20261112-growth-2" defer></script>
 </body>
 </html>
