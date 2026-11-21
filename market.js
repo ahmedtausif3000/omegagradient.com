@@ -305,7 +305,7 @@
     overlay.innerHTML =
       '<form class="modal panel" id="credits-form">' +
       "<h2>Add credits</h2>" +
-      '<p class="modal-sub">Compute is prepaid: usage draws down your balance hourly, and we auto-top-up from your card when it runs low, so instances never stop unexpectedly. Unused credits stay on your account.</p>' +
+      '<p class="modal-sub">Pay once to add prepaid compute credits. Hourly usage draws down your balance, and unused credits stay on your account.</p>' +
       '<fieldset class="field"><legend>Amount</legend><div class="gpu-count-row" id="cr-options">' +
       CREDIT_OPTIONS.map((c, i) => '<button type="button" data-cents="' + c + '" aria-pressed="' + (i === 0) + '"' + (i === 0 ? ' class="on"' : "") + ">$" + c / 100 + "</button>").join("") +
       "</div></fieldset>" +

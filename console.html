@@ -99,7 +99,8 @@
         <div class="side-row"><span class="k">Credit balance</span><span class="v" id="b-balance">—</span></div>
         <div class="side-row"><span class="k">Current burn</span><span class="v" id="b-burn">—</span></div>
         <div class="side-row" id="b-runway-row" hidden><span class="k">Runway</span><span class="v" id="b-runway">—</span></div>
-        <div class="side-row"><span class="k">Auto top-up card</span><span class="v" id="b-card">—</span></div>
+        <div class="side-row"><span class="k">Payment method</span><span class="v" id="b-card">—</span></div>
+        <p id="b-manual-topup" class="warn-text" role="status" hidden>Automatic top-ups require a bank mandate for your India-issued card. Add credits through Checkout to keep your instances running.</p>
         <button class="btn primary" id="b-add-credits">Add credits</button>
         <div class="side-settings">
           <label class="check-row"><input type="checkbox" id="b-autotopup"> Auto top-up when low</label>
@@ -109,7 +110,7 @@
           </label>
           <button class="btn sm" id="b-save-settings">Save billing settings</button>
         </div>
-        <p style="font-size:12px;color:var(--muted);line-height:1.6">Compute is prepaid: hourly usage draws down your balance. If it runs low we email you and auto-top-up from your saved card; instances are only stopped after a warning and a grace period.</p>
+        <p style="font-size:12px;color:var(--muted);line-height:1.6">Hourly usage draws down your prepaid balance. We email you when credits run low. Auto-top-up requires an eligible payment method.</p>
       </div>
 
       <div class="side-panel panel">
@@ -303,9 +304,12 @@
     }
   }
 
-  async function paintBilling() {
+  let billingMethod = {};
+
+  async function paintBilling(refreshMethod = false) {
     const profile = await me();
     if (!profile.signedIn) return;
+    if (refreshMethod === true) billingMethod = await api("/billing/status").catch(() => ({}));
     document.getElementById("b-email").textContent = profile.email;
     const balanceEl = document.getElementById("b-balance");
     const balance = profile.creditBalanceCents || 0;
@@ -324,7 +328,12 @@
       runwayRow.hidden = true;
     }
     const cardEl = document.getElementById("b-card");
-    if (profile.hasPaymentMethod) {
+    const manualTopup = billingMethod.autoTopupBlockReason === "india_mandate_required";
+    document.getElementById("b-manual-topup").hidden = !manualTopup;
+    if (manualTopup) {
+      cardEl.textContent = "Manual top-up";
+      cardEl.className = "v warn";
+    } else if (billingMethod.hasPaymentMethod ?? profile.hasPaymentMethod) {
       cardEl.textContent = "on file";
       cardEl.className = "v ok";
     } else {
@@ -337,7 +346,7 @@
     document.getElementById("b-add-credits").onclick = () => openCredits(paintBilling);
     paintBanner(profile);
   }
-  document.addEventListener("og:credits-changed", () => { paintBilling(); paintHistory(); });
+  document.addEventListener("og:credits-changed", () => { paintBilling(true); paintHistory(); });
 
   document.getElementById("b-save-settings").addEventListener("click", async (e) => {
     const btn = e.target;
@@ -403,7 +412,7 @@
 
   function boot() {
     paintAccount();
-    paintBilling();
+    paintBilling(true);
     paintHistory();
     refresh();
   }
@@ -415,7 +424,7 @@
       .then((r) => {
         toast(r.creditedCents ? "Credits added — " + money(r.creditedCents) : "Credits confirmed");
         history.replaceState({}, "", "./console.html");
-        paintBilling();
+        paintBilling(true);
         paintHistory();
       })
       .catch((e) => toast(e.message, true));
